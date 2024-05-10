@@ -16,6 +16,8 @@
 		A52C53D22BEE95FA00699D2E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D12BEE95FA00699D2E /* HomeViewModel.swift */; };
 		A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D32BEE963B00699D2E /* HomeView.swift */; };
 		A52C53D72BEE9B3C00699D2E /* LastGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D62BEE9B3C00699D2E /* LastGameView.swift */; };
+		A52C53DA2BEEB2D700699D2E /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D92BEEB2D700699D2E /* UIView+ext.swift */; };
+		A52C53DD2BEEB54E00699D2E /* LastGameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53DC2BEEB54D00699D2E /* LastGameVM.swift */; };
 		FA7F80BB2BEEADAD00885CEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7F80BA2BEEADAD00885CEC /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		A52C53D12BEE95FA00699D2E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A52C53D32BEE963B00699D2E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A52C53D62BEE9B3C00699D2E /* LastGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGameView.swift; sourceTree = "<group>"; };
+		A52C53D92BEEB2D700699D2E /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
+		A52C53DC2BEEB54D00699D2E /* LastGameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGameVM.swift; sourceTree = "<group>"; };
 		FA7F80BA2BEEADAD00885CEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +68,7 @@
 		A52C53B22BEE8B8300699D2E /* SkyDunk */ = {
 			isa = PBXGroup;
 			children = (
+				A52C53D82BEEB2BD00699D2E /* Extensions */,
 				A52C53CA2BEE90B700699D2E /* UI */,
 				A52C53C92BEE8F9600699D2E /* Resources */,
 				A52C53C82BEE8F6A00699D2E /* Services */,
@@ -130,9 +135,26 @@
 		A52C53D52BEE9B2400699D2E /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A52C53D62BEE9B3C00699D2E /* LastGameView.swift */,
+				A52C53DB2BEEB4EF00699D2E /* LastGameView */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		A52C53D82BEEB2BD00699D2E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A52C53D92BEEB2D700699D2E /* UIView+ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A52C53DB2BEEB4EF00699D2E /* LastGameView */ = {
+			isa = PBXGroup;
+			children = (
+				A52C53D62BEE9B3C00699D2E /* LastGameView.swift */,
+				A52C53DC2BEEB54D00699D2E /* LastGameVM.swift */,
+			);
+			path = LastGameView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,10 +228,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A52C53DA2BEEB2D700699D2E /* UIView+ext.swift in Sources */,
 				A52C53B42BEE8B8300699D2E /* AppDelegate.swift in Sources */,
 				A52C53D72BEE9B3C00699D2E /* LastGameView.swift in Sources */,
 				A52C53CE2BEE92CE00699D2E /* LastGamesController.swift in Sources */,
 				A52C53B62BEE8B8300699D2E /* SceneDelegate.swift in Sources */,
+				A52C53DD2BEEB54E00699D2E /* LastGameVM.swift in Sources */,
 				A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */,
 				A52C53D22BEE95FA00699D2E /* HomeViewModel.swift in Sources */,
 				A52C53CC2BEE916300699D2E /* HomeController.swift in Sources */,
