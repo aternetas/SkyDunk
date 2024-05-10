@@ -11,6 +11,8 @@
 		A52C53B62BEE8B8300699D2E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53B52BEE8B8300699D2E /* SceneDelegate.swift */; };
 		A52C53BD2BEE8B8500699D2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52C53BC2BEE8B8500699D2E /* Assets.xcassets */; };
 		A52C53C02BEE8B8500699D2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52C53BE2BEE8B8500699D2E /* LaunchScreen.storyboard */; };
+		A52C53CC2BEE916300699D2E /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53CB2BEE916300699D2E /* HomeController.swift */; };
+		A52C53CE2BEE92CE00699D2E /* LastGamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		A52C53BC2BEE8B8500699D2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A52C53BF2BEE8B8500699D2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A52C53C12BEE8B8500699D2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A52C53CB2BEE916300699D2E /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGamesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 		A52C53B22BEE8B8300699D2E /* SkyDunk */ = {
 			isa = PBXGroup;
 			children = (
+				A52C53CA2BEE90B700699D2E /* UI */,
 				A52C53C92BEE8F9600699D2E /* Resources */,
 				A52C53C82BEE8F6A00699D2E /* Services */,
 				A52C53C72BEE8F5F00699D2E /* System */,
@@ -83,6 +88,15 @@
 				A52C53BC2BEE8B8500699D2E /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A52C53CA2BEE90B700699D2E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A52C53CB2BEE916300699D2E /* HomeController.swift */,
+				A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,7 +170,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A52C53B42BEE8B8300699D2E /* AppDelegate.swift in Sources */,
+				A52C53CE2BEE92CE00699D2E /* LastGamesController.swift in Sources */,
 				A52C53B62BEE8B8300699D2E /* SceneDelegate.swift in Sources */,
+				A52C53CC2BEE916300699D2E /* HomeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
