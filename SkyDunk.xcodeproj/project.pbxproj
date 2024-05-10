@@ -15,6 +15,7 @@
 		A52C53CE2BEE92CE00699D2E /* LastGamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */; };
 		A52C53D22BEE95FA00699D2E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D12BEE95FA00699D2E /* HomeViewModel.swift */; };
 		A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D32BEE963B00699D2E /* HomeView.swift */; };
+		A52C53D72BEE9B3C00699D2E /* LastGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D62BEE9B3C00699D2E /* LastGameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGamesController.swift; sourceTree = "<group>"; };
 		A52C53D12BEE95FA00699D2E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A52C53D32BEE963B00699D2E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A52C53D62BEE9B3C00699D2E /* LastGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		A52C53CA2BEE90B700699D2E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A52C53D52BEE9B2400699D2E /* Components */,
 				A52C53D02BEE95D300699D2E /* LastGames */,
 				A52C53CF2BEE95CD00699D2E /* Home */,
 			);
@@ -119,6 +122,14 @@
 				A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */,
 			);
 			path = LastGames;
+			sourceTree = "<group>";
+		};
+		A52C53D52BEE9B2400699D2E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A52C53D62BEE9B3C00699D2E /* LastGameView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A52C53B42BEE8B8300699D2E /* AppDelegate.swift in Sources */,
+				A52C53D72BEE9B3C00699D2E /* LastGameView.swift in Sources */,
 				A52C53CE2BEE92CE00699D2E /* LastGamesController.swift in Sources */,
 				A52C53B62BEE8B8300699D2E /* SceneDelegate.swift in Sources */,
 				A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */,

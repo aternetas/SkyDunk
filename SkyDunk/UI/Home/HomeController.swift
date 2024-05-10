@@ -9,7 +9,7 @@ import UIKit
 
 class HomeController: UIViewController {
     
-    private let viewModel = HomeViewModel() //just temporary 
+    private let viewModel = HomeViewModel() //just temporary
 
     override func viewDidLoad() {
         super.viewDidLoad()
