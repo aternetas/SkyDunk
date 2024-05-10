@@ -13,6 +13,8 @@
 		A52C53C02BEE8B8500699D2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52C53BE2BEE8B8500699D2E /* LaunchScreen.storyboard */; };
 		A52C53CC2BEE916300699D2E /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53CB2BEE916300699D2E /* HomeController.swift */; };
 		A52C53CE2BEE92CE00699D2E /* LastGamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */; };
+		A52C53D22BEE95FA00699D2E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D12BEE95FA00699D2E /* HomeViewModel.swift */; };
+		A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D32BEE963B00699D2E /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		A52C53C12BEE8B8500699D2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A52C53CB2BEE916300699D2E /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGamesController.swift; sourceTree = "<group>"; };
+		A52C53D12BEE95FA00699D2E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A52C53D32BEE963B00699D2E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,10 +97,28 @@
 		A52C53CA2BEE90B700699D2E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				A52C53CB2BEE916300699D2E /* HomeController.swift */,
-				A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */,
+				A52C53D02BEE95D300699D2E /* LastGames */,
+				A52C53CF2BEE95CD00699D2E /* Home */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		A52C53CF2BEE95CD00699D2E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A52C53CB2BEE916300699D2E /* HomeController.swift */,
+				A52C53D12BEE95FA00699D2E /* HomeViewModel.swift */,
+				A52C53D32BEE963B00699D2E /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A52C53D02BEE95D300699D2E /* LastGames */ = {
+			isa = PBXGroup;
+			children = (
+				A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */,
+			);
+			path = LastGames;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +194,8 @@
 				A52C53B42BEE8B8300699D2E /* AppDelegate.swift in Sources */,
 				A52C53CE2BEE92CE00699D2E /* LastGamesController.swift in Sources */,
 				A52C53B62BEE8B8300699D2E /* SceneDelegate.swift in Sources */,
+				A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */,
+				A52C53D22BEE95FA00699D2E /* HomeViewModel.swift in Sources */,
 				A52C53CC2BEE916300699D2E /* HomeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

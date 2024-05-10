@@ -8,10 +8,16 @@
 import UIKit
 
 class HomeController: UIViewController {
+    
+    private let viewModel = HomeViewModel() //just temporary 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .blue
+    }
+    
+    override func loadView() {
+        super.loadView()
+        
+        view = HomeView()
     }
 }
