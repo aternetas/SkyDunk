@@ -9,7 +9,19 @@ import UIKit
 
 class HomeView: UIView {
     
-    let lastGameView = LastGameView()
+    lazy var lastGameView = {
+        let view = LastGameView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy private var nextGameLabel = {
+        let label = UILabel(text: "БЛИЖАЙШИЕ ИГРЫ",
+                font: UIFont(type: .light, size: 18),
+                textColor: .textDark)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,13 +36,16 @@ class HomeView: UIView {
     
     func initConstraints() {
         addSubview(lastGameView)
-        lastGameView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(nextGameLabel)
         
         NSLayoutConstraint.activate([
             lastGameView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             lastGameView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             lastGameView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            lastGameView.heightAnchor.constraint(equalToConstant: 157)
+            lastGameView.heightAnchor.constraint(equalToConstant: 157),
+            
+            nextGameLabel.topAnchor.constraint(equalTo: lastGameView.bottomAnchor, constant: 40),
+            nextGameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16)
         ])
     }
 }

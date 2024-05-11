@@ -19,6 +19,7 @@
 		A52C53DA2BEEB2D700699D2E /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D92BEEB2D700699D2E /* UIView+ext.swift */; };
 		A52C53DD2BEEB54E00699D2E /* LastGameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53DC2BEEB54D00699D2E /* LastGameVM.swift */; };
 		A52C53DF2BEF93C200699D2E /* Date+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53DE2BEF93C200699D2E /* Date+ext.swift */; };
+		A52C53E12BEF9D6300699D2E /* UILabel+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53E02BEF9D6300699D2E /* UILabel+ext.swift */; };
 		FA7F80BB2BEEADAD00885CEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7F80BA2BEEADAD00885CEC /* Images.xcassets */; };
 		FABB838E2BEF8F2B0092F21B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABB838D2BEF8F2B0092F21B /* Colors.xcassets */; };
 		FABB83942BEF94160092F21B /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FABB83902BEF94160092F21B /* Inter-Medium.ttf */; };
@@ -43,6 +44,7 @@
 		A52C53D92BEEB2D700699D2E /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
 		A52C53DC2BEEB54D00699D2E /* LastGameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGameVM.swift; sourceTree = "<group>"; };
 		A52C53DE2BEF93C200699D2E /* Date+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ext.swift"; sourceTree = "<group>"; };
+		A52C53E02BEF9D6300699D2E /* UILabel+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+ext.swift"; sourceTree = "<group>"; };
 		FA7F80BA2BEEADAD00885CEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FABB838D2BEF8F2B0092F21B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FABB83902BEF94160092F21B /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				A52C53D92BEEB2D700699D2E /* UIView+ext.swift */,
 				A52C53DE2BEF93C200699D2E /* Date+ext.swift */,
+				A52C53E02BEF9D6300699D2E /* UILabel+ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */,
 				A52C53D22BEE95FA00699D2E /* HomeViewModel.swift in Sources */,
 				A52C53CC2BEE916300699D2E /* HomeController.swift in Sources */,
+				A52C53E12BEF9D6300699D2E /* UILabel+ext.swift in Sources */,
 				A52C53DF2BEF93C200699D2E /* Date+ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
