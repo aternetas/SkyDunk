@@ -75,7 +75,8 @@ class GameCell: UICollectionViewCell {
             self?.gameDateLab.text = vm.gameDate
             self?.gameStartTimeLab.text = vm.gameTime
             
-            self?.gradientView.setColors(colors: [vm.homeTeam.color, vm.guestTeam.color])
+            self?.gradientView.setColors(colors: [vm.homeTeam.color.withAlphaComponent(0.5),
+                                                  vm.guestTeam.color.withAlphaComponent(0.5)])
         }
     }
     

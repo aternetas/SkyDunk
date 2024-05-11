@@ -17,6 +17,7 @@ class GradientView: UIView {
     
     func setColors(colors: [UIColor]) {
         self.colors = colors.map { $0.cgColor }
+        layoutSubviews()
     }
 
     override func layoutSubviews() {

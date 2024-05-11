@@ -16,11 +16,11 @@ class HomeController: UIViewController {
         super.viewDidLoad()
         
         viewModel.delegate = self
-        viewModel.getLastGame()
-        
+
         rootView.nextGamesCollectionView.delegate = self
         rootView.nextGamesCollectionView.dataSource = self
-        viewModel.getNextGames()
+        
+        viewModel.viewDidLoad()
     }
     
     override func loadView() {
