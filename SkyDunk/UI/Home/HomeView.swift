@@ -13,7 +13,7 @@ class HomeView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = .backgroundWhite
         
         initConstraints()
     }
@@ -24,14 +24,13 @@ class HomeView: UIView {
     
     func initConstraints() {
         addSubview(lastGameView)
-        lastGameView.backgroundColor = .white
         lastGameView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             lastGameView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             lastGameView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             lastGameView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            lastGameView.heightAnchor.constraint(equalToConstant: 195)
+            lastGameView.heightAnchor.constraint(equalToConstant: 157)
         ])
     }
 }

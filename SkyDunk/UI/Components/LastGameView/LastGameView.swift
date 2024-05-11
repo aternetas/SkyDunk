@@ -11,15 +11,16 @@ class LastGameView: UIView {
     lazy private var titleLab: UILabel = {
         let label = UILabel()
         label.text = "КРАЙНЯЯ ИГРА"
-        label.textColor = .black
+        label.textColor = .textDark
+        label.font = UIFont(type: .light, size: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy private var gameScoreLab: UILabel = {
         let label = UILabel()
-        label.text = "91 : 102"
-        label.textColor = .black
+        label.textColor = .textDark
+        label.font = UIFont(type: .medium, size: 20)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -27,15 +28,14 @@ class LastGameView: UIView {
     
     lazy private var gameDateLab: UILabel = {
         let label = UILabel()
-        label.text = "10.05.2024"
-        label.textColor = .black
+        label.textColor = .textDark
+        label.font = UIFont(type: .extraLight, size: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy private var homeTeamImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(resource: .BOS)
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -43,7 +43,6 @@ class LastGameView: UIView {
     
     lazy private var guestTeamImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(resource: .CLE)
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -67,6 +66,13 @@ class LastGameView: UIView {
             self?.gameScoreLab.text = vm.score
             self?.gameDateLab.text = vm.date
         }
+    }
+    
+    private func setupView() {
+        backgroundColor = .backgroundGray
+        layer.cornerRadius = 10
+        
+        addShadows()
     }
     
     private func setupConstraints() {
@@ -97,11 +103,5 @@ class LastGameView: UIView {
             guestTeamImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             guestTeamImageView.heightAnchor.constraint(equalToConstant: 50)
         ])
-    }
-    
-    private func setupView() {
-        layer.cornerRadius = 10
-        
-        addShadows()
     }
 }
