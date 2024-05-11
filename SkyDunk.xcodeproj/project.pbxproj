@@ -21,6 +21,11 @@
 		A52C53DF2BEF93C200699D2E /* Date+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53DE2BEF93C200699D2E /* Date+ext.swift */; };
 		FA7F80BB2BEEADAD00885CEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7F80BA2BEEADAD00885CEC /* Images.xcassets */; };
 		FABB838E2BEF8F2B0092F21B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABB838D2BEF8F2B0092F21B /* Colors.xcassets */; };
+		FABB83942BEF94160092F21B /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FABB83902BEF94160092F21B /* Inter-Medium.ttf */; };
+		FABB83952BEF94160092F21B /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FABB83912BEF94160092F21B /* Inter-Light.ttf */; };
+		FABB83962BEF94160092F21B /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FABB83922BEF94160092F21B /* Inter-ExtraLight.ttf */; };
+		FABB83972BEF94160092F21B /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FABB83932BEF94160092F21B /* Inter-Regular.ttf */; };
+		FABB83992BEF94A80092F21B /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB83982BEF94A80092F21B /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,11 @@
 		A52C53DE2BEF93C200699D2E /* Date+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ext.swift"; sourceTree = "<group>"; };
 		FA7F80BA2BEEADAD00885CEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FABB838D2BEF8F2B0092F21B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		FABB83902BEF94160092F21B /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		FABB83912BEF94160092F21B /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		FABB83922BEF94160092F21B /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		FABB83932BEF94160092F21B /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		FABB83982BEF94A80092F21B /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +112,7 @@
 		A52C53C92BEE8F9600699D2E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FABB838F2BEF94010092F21B /* Fonts */,
 				A52C53BC2BEE8B8500699D2E /* Assets.xcassets */,
 				FA7F80BA2BEEADAD00885CEC /* Images.xcassets */,
 				FABB838D2BEF8F2B0092F21B /* Colors.xcassets */,
@@ -161,6 +172,18 @@
 				A52C53DC2BEEB54D00699D2E /* LastGameVM.swift */,
 			);
 			path = LastGameView;
+			sourceTree = "<group>";
+		};
+		FABB838F2BEF94010092F21B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FABB83922BEF94160092F21B /* Inter-ExtraLight.ttf */,
+				FABB83912BEF94160092F21B /* Inter-Light.ttf */,
+				FABB83902BEF94160092F21B /* Inter-Medium.ttf */,
+				FABB83932BEF94160092F21B /* Inter-Regular.ttf */,
+				FABB83982BEF94A80092F21B /* Fonts.swift */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +247,10 @@
 				FA7F80BB2BEEADAD00885CEC /* Images.xcassets in Resources */,
 				FABB838E2BEF8F2B0092F21B /* Colors.xcassets in Resources */,
 				A52C53C02BEE8B8500699D2E /* LaunchScreen.storyboard in Resources */,
+				FABB83962BEF94160092F21B /* Inter-ExtraLight.ttf in Resources */,
+				FABB83942BEF94160092F21B /* Inter-Medium.ttf in Resources */,
+				FABB83952BEF94160092F21B /* Inter-Light.ttf in Resources */,
+				FABB83972BEF94160092F21B /* Inter-Regular.ttf in Resources */,
 				A52C53BD2BEE8B8500699D2E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +268,7 @@
 				A52C53CE2BEE92CE00699D2E /* LastGamesController.swift in Sources */,
 				A52C53B62BEE8B8300699D2E /* SceneDelegate.swift in Sources */,
 				A52C53DD2BEEB54E00699D2E /* LastGameVM.swift in Sources */,
+				FABB83992BEF94A80092F21B /* Fonts.swift in Sources */,
 				A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */,
 				A52C53D22BEE95FA00699D2E /* HomeViewModel.swift in Sources */,
 				A52C53CC2BEE916300699D2E /* HomeController.swift in Sources */,
