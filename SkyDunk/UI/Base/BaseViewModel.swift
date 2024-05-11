@@ -7,6 +7,14 @@
 
 import Foundation
 
+enum ScreenType {
+    case lastGames
+}
+
+protocol NavigationManagerProtocol {
+    func openScreen(screen: ScreenType)
+}
+
 class BaseViewModel {
-    
+    var navigationManager: NavigationManagerProtocol?
 }

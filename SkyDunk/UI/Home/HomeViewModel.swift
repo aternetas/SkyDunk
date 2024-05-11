@@ -23,6 +23,7 @@ class HomeViewModel: BaseViewModel {
     
     func selectGame(index: Int) {
         let game = nextGames[index]
+        navigationManager?.openScreen(screen: .lastGames)
     }
     
     private func getLastGame() {

@@ -11,4 +11,19 @@ class BaseController<VM: BaseViewModel>: UIViewController {
     
     var viewModel: VM!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel.navigationManager = self
+    }
+}
+
+extension BaseController: NavigationManagerProtocol {
+    func openScreen(screen: ScreenType) {
+        let vc = switch screen {
+        case .lastGames:
+            LastGamesController()
+        }
+        present(vc, animated: true)
+    }
 }

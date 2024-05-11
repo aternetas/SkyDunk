@@ -10,6 +10,7 @@ import UIKit
 class LastGamesController: BaseController<LastGamesViewModel> {
 
     override func viewDidLoad() {
+        viewModel = LastGamesViewModel()
         super.viewDidLoad()
     
         view.backgroundColor = .brown

@@ -12,9 +12,9 @@ class HomeController: BaseController<HomeViewModel> {
     private let rootView = HomeView()
 
     override func viewDidLoad() {
+        viewModel = HomeViewModel()
         super.viewDidLoad()
         
-        viewModel = HomeViewModel()
         viewModel.delegate = self
 
         rootView.nextGamesCollectionView.delegate = self
