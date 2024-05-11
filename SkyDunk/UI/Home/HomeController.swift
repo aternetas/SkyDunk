@@ -20,6 +20,7 @@ class HomeController: UIViewController {
         
         rootView.nextGamesCollectionView.delegate = self
         rootView.nextGamesCollectionView.dataSource = self
+        viewModel.getNextGames()
     }
     
     override func loadView() {
@@ -30,18 +31,27 @@ class HomeController: UIViewController {
 }
 
 extension HomeController: HomeViewModelDelegat {
+    
     func updateLastGame(vm: LastGameVM) {
         rootView.lastGameView.bind(vm: vm)
+    }
+    
+    func updateNextGames() {
+        DispatchQueue.main.async { [weak self] in
+            self?.rootView.nextGamesCollectionView.reloadData()
+        }
     }
 }
 
 extension HomeController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        viewModel.nextGames.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCell.identifier, for: indexPath) as! GameCell
+        cell.bind(vm: viewModel.nextGames[indexPath.item])
         return cell
     }
     

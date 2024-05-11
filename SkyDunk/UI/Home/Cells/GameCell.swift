@@ -25,7 +25,6 @@ class GameCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(resource: .BOS)
         return imageView
     }()
     
@@ -33,7 +32,6 @@ class GameCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(resource: .MIL)
         return imageView
     }()
     
@@ -42,7 +40,6 @@ class GameCell: UICollectionViewCell {
         label.textColor = .textDark
         label.font = UIFont(type: .extraLight, size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "14.02.2007"
         return label
     }()
     
@@ -51,14 +48,12 @@ class GameCell: UICollectionViewCell {
         label.textColor = .textDark
         label.font = UIFont(type: .extraLight, size: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "15:24"
         return label
     }()
     
-    lazy private var gradientView: UIView = {
-        let view = UIView()
+    lazy private var gradientView: GradientView = {
+        let view = GradientView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .blue
         return view
     }()
     
@@ -71,6 +66,17 @@ class GameCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func bind(vm: GameVM) {
+        DispatchQueue.main.async { [weak self] in
+            self?.homeTeamImageView.image = vm.homeTeam.logo
+            self?.guestTeamImageView.image = vm.guestTeam.logo
+            self?.gameDateLab.text = vm.gameDate
+            self?.gameStartTimeLab.text = vm.gameTime
+            
+            self?.gradientView.setColors(colors: [vm.homeTeam.color, vm.guestTeam.color])
+        }
     }
     
     private func setupView() {
@@ -110,7 +116,6 @@ class GameCell: UICollectionViewCell {
             
             gameDateLab.centerXAnchor.constraint(equalTo: containerView.centerXAnchor, constant: 2),
             gameDateLab.bottomAnchor.constraint(equalTo: gameStartTimeLab.topAnchor, constant: 0)
-            
         ])
     }
 }
