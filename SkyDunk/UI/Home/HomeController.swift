@@ -17,6 +17,9 @@ class HomeController: UIViewController {
         
         viewModel.delegate = self
         viewModel.getLastGame()
+        
+        rootView.nextGamesCollectionView.delegate = self
+        rootView.nextGamesCollectionView.dataSource = self
     }
     
     override func loadView() {
@@ -29,5 +32,20 @@ class HomeController: UIViewController {
 extension HomeController: HomeViewModelDelegat {
     func updateLastGame(vm: LastGameVM) {
         rootView.lastGameView.bind(vm: vm)
+    }
+}
+
+extension HomeController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCell.identifier, for: indexPath)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: 140, height: GameCell.HEIGHT)
     }
 }

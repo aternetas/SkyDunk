@@ -20,6 +20,7 @@
 		A52C53DD2BEEB54E00699D2E /* LastGameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53DC2BEEB54D00699D2E /* LastGameVM.swift */; };
 		A52C53DF2BEF93C200699D2E /* Date+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53DE2BEF93C200699D2E /* Date+ext.swift */; };
 		A52C53E12BEF9D6300699D2E /* UILabel+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53E02BEF9D6300699D2E /* UILabel+ext.swift */; };
+		A52C53E42BEFA3AA00699D2E /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53E32BEFA3A900699D2E /* GameCell.swift */; };
 		FA7F80BB2BEEADAD00885CEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7F80BA2BEEADAD00885CEC /* Images.xcassets */; };
 		FABB838E2BEF8F2B0092F21B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABB838D2BEF8F2B0092F21B /* Colors.xcassets */; };
 		FABB83942BEF94160092F21B /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FABB83902BEF94160092F21B /* Inter-Medium.ttf */; };
@@ -45,6 +46,7 @@
 		A52C53DC2BEEB54D00699D2E /* LastGameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGameVM.swift; sourceTree = "<group>"; };
 		A52C53DE2BEF93C200699D2E /* Date+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ext.swift"; sourceTree = "<group>"; };
 		A52C53E02BEF9D6300699D2E /* UILabel+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+ext.swift"; sourceTree = "<group>"; };
+		A52C53E32BEFA3A900699D2E /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		FA7F80BA2BEEADAD00885CEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FABB838D2BEF8F2B0092F21B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FABB83902BEF94160092F21B /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		A52C53CF2BEE95CD00699D2E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A52C53E22BEFA34000699D2E /* Cells */,
 				A52C53CB2BEE916300699D2E /* HomeController.swift */,
 				A52C53D12BEE95FA00699D2E /* HomeViewModel.swift */,
 				A52C53D32BEE963B00699D2E /* HomeView.swift */,
@@ -175,6 +178,14 @@
 				A52C53DC2BEEB54D00699D2E /* LastGameVM.swift */,
 			);
 			path = LastGameView;
+			sourceTree = "<group>";
+		};
+		A52C53E22BEFA34000699D2E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A52C53E32BEFA3A900699D2E /* GameCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		FABB838F2BEF94010092F21B /* Fonts */ = {
@@ -267,6 +278,7 @@
 			files = (
 				A52C53DA2BEEB2D700699D2E /* UIView+ext.swift in Sources */,
 				A52C53B42BEE8B8300699D2E /* AppDelegate.swift in Sources */,
+				A52C53E42BEFA3AA00699D2E /* GameCell.swift in Sources */,
 				A52C53D72BEE9B3C00699D2E /* LastGameView.swift in Sources */,
 				A52C53CE2BEE92CE00699D2E /* LastGamesController.swift in Sources */,
 				A52C53B62BEE8B8300699D2E /* SceneDelegate.swift in Sources */,
