@@ -18,18 +18,14 @@ class LastGameView: UIView {
     }()
     
     lazy private var gameScoreLab: UILabel = {
-        let label = UILabel()
-        label.textColor = .textDark
-        label.font = UIFont(type: .medium, size: 20)
+        let label = UILabel(font: UIFont(type: .medium, size: 20), textColor: .textDark)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy private var gameDateLab: UILabel = {
-        let label = UILabel()
-        label.textColor = .textDark
-        label.font = UIFont(type: .extraLight, size: 15)
+        let label = UILabel(font: UIFont(type: .extraLight, size: 15), textColor: .textDark)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
