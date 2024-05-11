@@ -7,14 +7,14 @@
 
 import UIKit
 
-class HomeController: UIViewController {
+class HomeController: BaseController<HomeViewModel> {
     
-    private let viewModel = HomeViewModel()//just temporary
     private let rootView = HomeView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel = HomeViewModel()
         viewModel.delegate = self
 
         rootView.nextGamesCollectionView.delegate = self
@@ -57,5 +57,9 @@ extension HomeController: UICollectionViewDelegateFlowLayout, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: 140, height: GameCell.HEIGHT)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.selectGame(index: indexPath.item)
     }
 }

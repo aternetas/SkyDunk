@@ -25,6 +25,9 @@
 		A52C53E82BEFC5BF00699D2E /* GameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53E72BEFC5BF00699D2E /* GameVM.swift */; };
 		A52C53ED2BEFC6B500699D2E /* TeamType+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53EC2BEFC6B500699D2E /* TeamType+ext.swift */; };
 		A52C53EF2BEFF7E000699D2E /* TeamType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53EE2BEFF7E000699D2E /* TeamType.swift */; };
+		A52C53F62BEFFB8C00699D2E /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53F52BEFFB8C00699D2E /* BaseController.swift */; };
+		A52C53F82BF0003A00699D2E /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53F72BF0003A00699D2E /* BaseViewModel.swift */; };
+		A52C53FA2BF001C300699D2E /* LastGamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53F92BF001C300699D2E /* LastGamesViewModel.swift */; };
 		FA7F80BB2BEEADAD00885CEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7F80BA2BEEADAD00885CEC /* Images.xcassets */; };
 		FABB838E2BEF8F2B0092F21B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABB838D2BEF8F2B0092F21B /* Colors.xcassets */; };
 		FABB83942BEF94160092F21B /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FABB83902BEF94160092F21B /* Inter-Medium.ttf */; };
@@ -55,6 +58,9 @@
 		A52C53E72BEFC5BF00699D2E /* GameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVM.swift; sourceTree = "<group>"; };
 		A52C53EC2BEFC6B500699D2E /* TeamType+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamType+ext.swift"; sourceTree = "<group>"; };
 		A52C53EE2BEFF7E000699D2E /* TeamType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamType.swift; sourceTree = "<group>"; };
+		A52C53F52BEFFB8C00699D2E /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		A52C53F72BF0003A00699D2E /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		A52C53F92BF001C300699D2E /* LastGamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGamesViewModel.swift; sourceTree = "<group>"; };
 		FA7F80BA2BEEADAD00885CEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FABB838D2BEF8F2B0092F21B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FABB83902BEF94160092F21B /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
@@ -136,6 +142,7 @@
 		A52C53CA2BEE90B700699D2E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A52C53F42BEFFB6800699D2E /* Base */,
 				A52C53D52BEE9B2400699D2E /* Components */,
 				A52C53D02BEE95D300699D2E /* LastGames */,
 				A52C53CF2BEE95CD00699D2E /* Home */,
@@ -158,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */,
+				A52C53F92BF001C300699D2E /* LastGamesViewModel.swift */,
 			);
 			path = LastGames;
 			sourceTree = "<group>";
@@ -206,6 +214,15 @@
 				A52C53EE2BEFF7E000699D2E /* TeamType.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A52C53F42BEFFB6800699D2E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A52C53F52BEFFB8C00699D2E /* BaseController.swift */,
+				A52C53F72BF0003A00699D2E /* BaseViewModel.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		FABB838F2BEF94010092F21B /* Fonts */ = {
@@ -296,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A52C53FA2BF001C300699D2E /* LastGamesViewModel.swift in Sources */,
 				A52C53DA2BEEB2D700699D2E /* UIView+ext.swift in Sources */,
 				A52C53B42BEE8B8300699D2E /* AppDelegate.swift in Sources */,
 				A52C53ED2BEFC6B500699D2E /* TeamType+ext.swift in Sources */,
@@ -306,9 +324,11 @@
 				A52C53CE2BEE92CE00699D2E /* LastGamesController.swift in Sources */,
 				A52C53B62BEE8B8300699D2E /* SceneDelegate.swift in Sources */,
 				A52C53DD2BEEB54E00699D2E /* LastGameVM.swift in Sources */,
+				A52C53F62BEFFB8C00699D2E /* BaseController.swift in Sources */,
 				FABB83992BEF94A80092F21B /* Fonts.swift in Sources */,
 				A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */,
 				A52C53D22BEE95FA00699D2E /* HomeViewModel.swift in Sources */,
+				A52C53F82BF0003A00699D2E /* BaseViewModel.swift in Sources */,
 				A52C53CC2BEE916300699D2E /* HomeController.swift in Sources */,
 				A52C53E12BEF9D6300699D2E /* UILabel+ext.swift in Sources */,
 				A52C53E82BEFC5BF00699D2E /* GameVM.swift in Sources */,

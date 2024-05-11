@@ -5,20 +5,24 @@
 //  Created by f f on 10.05.2024.
 //
 
-import UIKit
+import Foundation
 
 protocol HomeViewModelDelegat {
     func updateLastGame(vm: LastGameVM)
     func updateNextGames()
 }
 
-class HomeViewModel {
+class HomeViewModel: BaseViewModel {
     var delegate: HomeViewModelDelegat?
     var nextGames: [GameVM] = []
     
     func viewDidLoad() {
         getLastGame()
         getNextGames()
+    }
+    
+    func selectGame(index: Int) {
+        let game = nextGames[index]
     }
     
     private func getLastGame() {
