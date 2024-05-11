@@ -36,17 +36,13 @@ class GameCell: UICollectionViewCell {
     }()
     
     lazy private var gameDateLab: UILabel = {
-        let label = UILabel()
-        label.textColor = .textDark
-        label.font = UIFont(type: .extraLight, size: 14)
+        let label = UILabel(font: UIFont(type: .extraLight, size: 14), textColor: .textDark)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy private var gameStartTimeLab: UILabel = {
-        let label = UILabel()
-        label.textColor = .textDark
-        label.font = UIFont(type: .extraLight, size: 12)
+        let label = UILabel(font: UIFont(type: .extraLight, size: 12), textColor: .textDark)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
