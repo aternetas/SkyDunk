@@ -15,6 +15,17 @@
 		A52C53CE2BEE92CE00699D2E /* LastGamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */; };
 		A52C53D22BEE95FA00699D2E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D12BEE95FA00699D2E /* HomeViewModel.swift */; };
 		A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D32BEE963B00699D2E /* HomeView.swift */; };
+		A52C53D72BEE9B3C00699D2E /* LastGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D62BEE9B3C00699D2E /* LastGameView.swift */; };
+		A52C53DA2BEEB2D700699D2E /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D92BEEB2D700699D2E /* UIView+ext.swift */; };
+		A52C53DD2BEEB54E00699D2E /* LastGameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53DC2BEEB54D00699D2E /* LastGameVM.swift */; };
+		A52C53DF2BEF93C200699D2E /* Date+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53DE2BEF93C200699D2E /* Date+ext.swift */; };
+		FA7F80BB2BEEADAD00885CEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7F80BA2BEEADAD00885CEC /* Images.xcassets */; };
+		FABB838E2BEF8F2B0092F21B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABB838D2BEF8F2B0092F21B /* Colors.xcassets */; };
+		FABB83942BEF94160092F21B /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FABB83902BEF94160092F21B /* Inter-Medium.ttf */; };
+		FABB83952BEF94160092F21B /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FABB83912BEF94160092F21B /* Inter-Light.ttf */; };
+		FABB83962BEF94160092F21B /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FABB83922BEF94160092F21B /* Inter-ExtraLight.ttf */; };
+		FABB83972BEF94160092F21B /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FABB83932BEF94160092F21B /* Inter-Regular.ttf */; };
+		FABB83992BEF94A80092F21B /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB83982BEF94A80092F21B /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +39,17 @@
 		A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGamesController.swift; sourceTree = "<group>"; };
 		A52C53D12BEE95FA00699D2E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A52C53D32BEE963B00699D2E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A52C53D62BEE9B3C00699D2E /* LastGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGameView.swift; sourceTree = "<group>"; };
+		A52C53D92BEEB2D700699D2E /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
+		A52C53DC2BEEB54D00699D2E /* LastGameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGameVM.swift; sourceTree = "<group>"; };
+		A52C53DE2BEF93C200699D2E /* Date+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ext.swift"; sourceTree = "<group>"; };
+		FA7F80BA2BEEADAD00885CEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FABB838D2BEF8F2B0092F21B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		FABB83902BEF94160092F21B /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		FABB83912BEF94160092F21B /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		FABB83922BEF94160092F21B /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		FABB83932BEF94160092F21B /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		FABB83982BEF94A80092F21B /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +82,7 @@
 		A52C53B22BEE8B8300699D2E /* SkyDunk */ = {
 			isa = PBXGroup;
 			children = (
+				A52C53D82BEEB2BD00699D2E /* Extensions */,
 				A52C53CA2BEE90B700699D2E /* UI */,
 				A52C53C92BEE8F9600699D2E /* Resources */,
 				A52C53C82BEE8F6A00699D2E /* Services */,
@@ -89,7 +112,10 @@
 		A52C53C92BEE8F9600699D2E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FABB838F2BEF94010092F21B /* Fonts */,
 				A52C53BC2BEE8B8500699D2E /* Assets.xcassets */,
+				FA7F80BA2BEEADAD00885CEC /* Images.xcassets */,
+				FABB838D2BEF8F2B0092F21B /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -97,6 +123,7 @@
 		A52C53CA2BEE90B700699D2E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A52C53D52BEE9B2400699D2E /* Components */,
 				A52C53D02BEE95D300699D2E /* LastGames */,
 				A52C53CF2BEE95CD00699D2E /* Home */,
 			);
@@ -119,6 +146,44 @@
 				A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */,
 			);
 			path = LastGames;
+			sourceTree = "<group>";
+		};
+		A52C53D52BEE9B2400699D2E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A52C53DB2BEEB4EF00699D2E /* LastGameView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A52C53D82BEEB2BD00699D2E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A52C53D92BEEB2D700699D2E /* UIView+ext.swift */,
+				A52C53DE2BEF93C200699D2E /* Date+ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A52C53DB2BEEB4EF00699D2E /* LastGameView */ = {
+			isa = PBXGroup;
+			children = (
+				A52C53D62BEE9B3C00699D2E /* LastGameView.swift */,
+				A52C53DC2BEEB54D00699D2E /* LastGameVM.swift */,
+			);
+			path = LastGameView;
+			sourceTree = "<group>";
+		};
+		FABB838F2BEF94010092F21B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FABB83922BEF94160092F21B /* Inter-ExtraLight.ttf */,
+				FABB83912BEF94160092F21B /* Inter-Light.ttf */,
+				FABB83902BEF94160092F21B /* Inter-Medium.ttf */,
+				FABB83932BEF94160092F21B /* Inter-Regular.ttf */,
+				FABB83982BEF94A80092F21B /* Fonts.swift */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,7 +244,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7F80BB2BEEADAD00885CEC /* Images.xcassets in Resources */,
+				FABB838E2BEF8F2B0092F21B /* Colors.xcassets in Resources */,
 				A52C53C02BEE8B8500699D2E /* LaunchScreen.storyboard in Resources */,
+				FABB83962BEF94160092F21B /* Inter-ExtraLight.ttf in Resources */,
+				FABB83942BEF94160092F21B /* Inter-Medium.ttf in Resources */,
+				FABB83952BEF94160092F21B /* Inter-Light.ttf in Resources */,
+				FABB83972BEF94160092F21B /* Inter-Regular.ttf in Resources */,
 				A52C53BD2BEE8B8500699D2E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,12 +262,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A52C53DA2BEEB2D700699D2E /* UIView+ext.swift in Sources */,
 				A52C53B42BEE8B8300699D2E /* AppDelegate.swift in Sources */,
+				A52C53D72BEE9B3C00699D2E /* LastGameView.swift in Sources */,
 				A52C53CE2BEE92CE00699D2E /* LastGamesController.swift in Sources */,
 				A52C53B62BEE8B8300699D2E /* SceneDelegate.swift in Sources */,
+				A52C53DD2BEEB54E00699D2E /* LastGameVM.swift in Sources */,
+				FABB83992BEF94A80092F21B /* Fonts.swift in Sources */,
 				A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */,
 				A52C53D22BEE95FA00699D2E /* HomeViewModel.swift in Sources */,
 				A52C53CC2BEE916300699D2E /* HomeController.swift in Sources */,
+				A52C53DF2BEF93C200699D2E /* Date+ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
