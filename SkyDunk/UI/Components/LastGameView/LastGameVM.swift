@@ -18,6 +18,6 @@ struct LastGameVM {
         self.homeTeam = homeTeam
         self.guestTeam = guestTeam
         self.score = "\(homeTeamScore) : \(guestTeamScore)"
-        self.date = date.description
+        self.date = date.toDayMonthYear()
     }
 }

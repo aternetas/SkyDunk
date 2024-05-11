@@ -33,6 +33,5 @@ class HomeView: UIView {
             lastGameView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             lastGameView.heightAnchor.constraint(equalToConstant: 195)
         ])
-        
     }
 }
