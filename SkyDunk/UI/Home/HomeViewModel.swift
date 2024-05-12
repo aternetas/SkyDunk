@@ -15,15 +15,31 @@ protocol HomeViewModelDelegat {
 class HomeViewModel: BaseViewModel {
     var delegate: HomeViewModelDelegat?
     var nextGames: [GameVM] = []
+    private var games: [Game] = []
     
     func viewDidLoad() {
         getLastGame()
-        getNextGames()
+        getGames()
     }
     
-    func selectGame(index: Int) {
-        let game = nextGames[index]
-        navigationManager?.openScreen(screen: .lastGames)
+    func selectGame(id: String) {
+        let game = games.first(where: { $0.id == id } )
+        if let game = game {
+            navigationManager?.openScreen(screen: .game(game: game))
+        }
+    }
+    
+    private func getGames() {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: { [weak self] in
+            self?.games = [
+                Game(homeTeam: .bostonCeltics, guestTeam: .atlantaHawks, gameDate: Date(), homeScore: 0, guestScore: 0),
+                Game(homeTeam: .denverNuggets, guestTeam: .bostonCeltics, gameDate: Date(), homeScore: 0, guestScore: 0),
+                Game(homeTeam: .dallasMavericks, guestTeam: .atlantaHawks, gameDate: Date(), homeScore: 0, guestScore: 0),
+                Game(homeTeam: .bostonCeltics, guestTeam: .dallasMavericks, gameDate: Date(), homeScore: 0, guestScore: 0),
+                Game(homeTeam: .denverNuggets, guestTeam: .atlantaHawks, gameDate: Date(), homeScore: 0, guestScore: 0),
+            ]
+            self?.getNextGames()
+        })
     }
     
     private func getLastGame() {
@@ -33,15 +49,7 @@ class HomeViewModel: BaseViewModel {
     }
     
     private func getNextGames() {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: { [weak self] in
-            self?.nextGames = [
-                GameVM(homeTeam: .bostonCeltics, guestTeam: .dallasMavericks, gameDate: Date()),
-                GameVM(homeTeam: .atlantaHawks, guestTeam: .dallasMavericks, gameDate: Date()),
-                GameVM(homeTeam: .atlantaHawks, guestTeam: .dallasMavericks, gameDate: Date()),
-                GameVM(homeTeam: .atlantaHawks, guestTeam: .dallasMavericks, gameDate: Date()),
-                GameVM(homeTeam: .denverNuggets, guestTeam: .dallasMavericks, gameDate: Date())
-            ]
-            self?.delegate?.updateNextGames()
-        })
+        nextGames = games.map { GameVM(game: $0) }
+        delegate?.updateNextGames()
     }
 }

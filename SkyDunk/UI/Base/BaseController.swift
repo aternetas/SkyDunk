@@ -20,10 +20,16 @@ class BaseController<VM: BaseViewModel>: UIViewController {
 
 extension BaseController: NavigationManagerProtocol {
     func openScreen(screen: ScreenType) {
-        let vc = switch screen {
+        let viewController: UIViewController
+        
+        switch screen {
         case .lastGames:
-            LastGamesController()
+            viewController = LastGamesController()
+        case .game(game: let game):
+            let vc = GameController()
+            vc.viewModel.setGame(game: game)
+            viewController = vc
         }
-        present(vc, animated: true)
+        present(viewController, animated: true)
     }
 }

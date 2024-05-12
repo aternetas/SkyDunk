@@ -60,6 +60,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.selectGame(index: indexPath.item)
+        let game = viewModel.nextGames[indexPath.item]
+        viewModel.selectGame(id: game.id)
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 
 enum ScreenType {
     case lastGames
+    case game(game: Game)
 }
 
 protocol NavigationManagerProtocol {
