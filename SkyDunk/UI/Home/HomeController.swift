@@ -29,6 +29,15 @@ class HomeController: BaseController<HomeViewModel> {
         rootView.nextGamesCollectionView.dataSource = self
         
         viewModel.viewDidLoad()
+        
+        let tapLastGameViewTab = UITapGestureRecognizer(target: self, action: #selector(tapOnLastGameView))
+        rootView.lastGameView.addGestureRecognizer(tapLastGameViewTab)
+    }
+
+    @objc private func tapOnLastGameView() {
+        if let lastGameId = viewModel.lastGameVM?.id {
+            viewModel.selectGame(id: lastGameId)
+        }
     }
     
     override func loadView() {
@@ -54,12 +63,12 @@ extension HomeController: HomeViewModelDelegat {
 extension HomeController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.nextGames.count
+        viewModel.nextGamesVM.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCell.identifier, for: indexPath) as! GameCell
-        cell.bind(vm: viewModel.nextGames[indexPath.item])
+        cell.bind(vm: viewModel.nextGamesVM[indexPath.item])
         return cell
     }
     
@@ -68,7 +77,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let game = viewModel.nextGames[indexPath.item]
+        let game = viewModel.nextGamesVM[indexPath.item]
         viewModel.selectGame(id: game.id)
     }
 }

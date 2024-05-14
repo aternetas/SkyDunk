@@ -14,11 +14,11 @@ protocol HomeViewModelDelegat {
 
 class HomeViewModel: BaseViewModel {
     var delegate: HomeViewModelDelegat?
-    var nextGames: [GameVM] = []
+    var nextGamesVM: [GameVM] = []
+    var lastGameVM: LastGameVM? = nil
     private var games: [Game] = []
     
     func viewDidLoad() {
-        getLastGame()
         getGames()
     }
     
@@ -37,19 +37,21 @@ class HomeViewModel: BaseViewModel {
                 Game(homeTeam: .dallasMavericks, guestTeam: .atlantaHawks, gameDate: Date(), homeScore: 0, guestScore: 0),
                 Game(homeTeam: .bostonCeltics, guestTeam: .dallasMavericks, gameDate: Date(), homeScore: 0, guestScore: 0),
                 Game(homeTeam: .denverNuggets, guestTeam: .atlantaHawks, gameDate: Date(), homeScore: 0, guestScore: 0),
+                Game(homeTeam: .bostonCeltics, guestTeam: .denverNuggets, gameDate: Date(), homeScore: 110, guestScore: 102)
             ]
-            self?.getNextGames()
+            self?.setLastGame()
+            self?.setNextGames()
         })
     }
     
-    private func getLastGame() {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 1, execute: { [weak self] in
-            self?.delegate?.updateLastGame(vm: LastGameVM(homeTeam: "LAL", guestTeam: "BOS", homeTeamScore: 101, guestTeamScore: 116, date: Date()))
-        })
-    }
-    
-    private func getNextGames() {
-        nextGames = games.map { GameVM(game: $0) }
+    private func setNextGames() {
+        nextGamesVM = games.map { GameVM(game: $0) }
         delegate?.updateNextGames()
+    }
+    
+    private func setLastGame() {
+        guard let lastGame = games.last else { return }
+        self.lastGameVM = LastGameVM(game: lastGame)
+        delegate?.updateLastGame(vm: lastGameVM!)
     }
 }

@@ -54,8 +54,8 @@ class LastGameView: UIView {
     
     func bind(vm: LastGameVM) {
         DispatchQueue.main.async { [weak self] in
-            self?.homeTeamImageView.image = UIImage(named: vm.homeTeam)
-            self?.guestTeamImageView.image = UIImage(named: vm.guestTeam)
+            self?.homeTeamImageView.image = vm.homeTeam.logo
+            self?.guestTeamImageView.image = vm.guestTeam.logo
             self?.gameScoreLab.text = vm.score
             self?.gameDateLab.text = vm.date
         }
