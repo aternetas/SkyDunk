@@ -15,6 +15,14 @@ class GameView: UIView {
         return view
     }()
     
+    lazy var betsTableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.register(BetCell.self, forCellReuseIdentifier: BetCell.identifier)
+        return tableView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .backgroundWhite
@@ -28,12 +36,20 @@ class GameView: UIView {
     
     private func initConstraints() {
         addSubview(gameHeaderView)
+        addSubview(betsTableView)
+    
+        betsTableView.backgroundColor = .systemOrange
         
         NSLayoutConstraint.activate([
             gameHeaderView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             gameHeaderView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             gameHeaderView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            gameHeaderView.heightAnchor.constraint(equalToConstant: 160)
+            gameHeaderView.heightAnchor.constraint(equalToConstant: 160),
+            
+            betsTableView.topAnchor.constraint(equalTo: gameHeaderView.bottomAnchor, constant: 10),
+            betsTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            betsTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            betsTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
         ])
     }
 }

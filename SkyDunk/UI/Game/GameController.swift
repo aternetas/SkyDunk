@@ -15,6 +15,9 @@ class GameController: BaseController<GameViewModel> {
         super.init()
         viewModel = GameViewModel()
         viewModel.delegate = self
+        
+        rootView.betsTableView.delegate = self
+        rootView.betsTableView.dataSource = self
     }
     
     required init?(coder: NSCoder) {
@@ -31,5 +34,17 @@ class GameController: BaseController<GameViewModel> {
 extension GameController: GameViewModelDelegat {
     func showGame(game: GameHeaderVM) {
         rootView.gameHeaderView.bind(vm: game)
+    }
+}
+
+extension GameController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        8
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: BetCell.identifier, for: indexPath)
+        cell.backgroundColor = .white
+        return cell
     }
 }
