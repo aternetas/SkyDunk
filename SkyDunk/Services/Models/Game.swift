@@ -14,4 +14,5 @@ struct Game {
     let gameDate: Date
     let homeScore: Int
     let guestScore: Int
+    let bets: [Bet]
 }
