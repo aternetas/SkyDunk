@@ -38,8 +38,6 @@ class GameView: UIView {
         addSubview(gameHeaderView)
         addSubview(betsTableView)
     
-        betsTableView.backgroundColor = .systemOrange
-        
         NSLayoutConstraint.activate([
             gameHeaderView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             gameHeaderView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),

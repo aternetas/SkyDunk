@@ -30,7 +30,7 @@ class HomeViewModel: BaseViewModel {
     }
     
     private func getGames() {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: { [weak self] in
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.5, execute: { [weak self] in
             self?.games = [
                 Game(homeTeam: .bostonCeltics, guestTeam: .atlantaHawks, gameDate: Date(), homeScore: 0, guestScore: 0),
                 Game(homeTeam: .denverNuggets, guestTeam: .bostonCeltics, gameDate: Date(), homeScore: 0, guestScore: 0),

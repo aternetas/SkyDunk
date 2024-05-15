@@ -10,7 +10,6 @@ import UIKit
 class BetCell: UITableViewCell {
     
     static let identifier = "BetCell"
-//    static let HEIGHT: CGFloat = 40
     
     lazy private var containerView: GradientView = {
         let view = GradientView()
@@ -21,26 +20,37 @@ class BetCell: UITableViewCell {
         return view
     }()
     
+    lazy private var shadowView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.addShadows()
+        view.layer.cornerRadius = 10
+        return view
+    }()
+    
     lazy private var descriptionLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .light, size: 15), textColor: .textDark)
+        let label = UILabel(font: UIFont(type: .regular, size: 14), textColor: .textDark)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
     lazy private var amountLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .light, size: 15), textColor: .textDark)
+        let label = UILabel(font: UIFont(type: .regular, size: 14), textColor: .textDark)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy private var dateLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .extraLight, size: 11), textColor: .textDark)
+        let label = UILabel(font: UIFont(type: .extraLight, size: 12), textColor: .textDark)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy private var coefficientLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .extraLight, size: 11), textColor: .textDark)
+        let label = UILabel(font: UIFont(type: .extraLight, size: 12), textColor: .textDark)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -55,12 +65,12 @@ class BetCell: UITableViewCell {
         let sv = UIStackView()
         
         let topButton = UIButton(type: .system)
-        topButton.backgroundColor = .green
+        topButton.backgroundColor = .backgroundGreen
         topButton.setTitleColor(.white, for: .normal)
         topButton.setTitle("+", for: .normal)
         
         let bottomButton = UIButton(type: .system)
-        bottomButton.backgroundColor = .red
+        bottomButton.backgroundColor = .backgroundRed
         bottomButton.setTitleColor(.white, for: .normal)
         bottomButton.setTitle("-", for: .normal)
         
@@ -79,7 +89,6 @@ class BetCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-//        setupView()
         initConstraints()
     }
     
@@ -91,22 +100,57 @@ class BetCell: UITableViewCell {
         
     }
     
-//    private func setupView() {
-//        addShadows()
-//    }
-    
     private func initConstraints() {
+        contentView.addSubview(shadowView)
         contentView.addSubview(containerView)
         
-        containerView.heightAnchor.constraint(equalToConstant: 140).isActive = true
-        containerView.setColors(colors: [.green, .green])
+        containerView.addSubview(descriptionLab)
+        containerView.addSubview(amountLab)
+        containerView.addSubview(dateLab)
+        containerView.addSubview(coefficientLab)
+        containerView.addSubview(sideView)
+        containerView.addSubview(betSwithView)
+        
+//        descriptionLab.text = "test atis taini qyneir aisnie aiesniratos amvk ta ritea royc an aoes arit asi aosi ianrso"
+//        dateLab.text = "24.11.2014"
+//        amountLab.text = "15"
+//        sideView.backgroundColor = .backgroundGreen
+//        containerView.setColors(colors: [.brooklynNets.withAlphaComponent(0.5), .bostonCeltics.withAlphaComponent(0.5)])
         
         NSLayoutConstraint.activate([
+            shadowView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 7.5),
+            shadowView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            shadowView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            shadowView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -7.5),
+            
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 7.5),
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -7.5),
         
+            descriptionLab.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            descriptionLab.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 12),
+            descriptionLab.trailingAnchor.constraint(equalTo: coefficientLab.leadingAnchor, constant: -6),
+            
+            amountLab.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            amountLab.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -17),
+            
+            dateLab.topAnchor.constraint(equalTo: descriptionLab.bottomAnchor, constant: 12),
+            dateLab.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 12),
+            dateLab.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
+            
+            coefficientLab.centerXAnchor.constraint(equalTo: amountLab.centerXAnchor),
+            coefficientLab.centerYAnchor.constraint(equalTo: dateLab.centerYAnchor),
+            
+            sideView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0),
+            sideView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 0),
+            sideView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0),
+            sideView.widthAnchor.constraint(equalToConstant: 12),
+            
+            betSwithView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -12),
+            betSwithView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            betSwithView.heightAnchor.constraint(equalToConstant: 51),
+            betSwithView.widthAnchor.constraint(equalToConstant: 51)
         ])
     }
 }
