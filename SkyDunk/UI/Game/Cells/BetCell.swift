@@ -97,7 +97,13 @@ class BetCell: UITableViewCell {
     }
     
     func bind(vm: BetVM) {
+        descriptionLab.text = vm.description
+        amountLab.text = vm.amount
+        dateLab.text = vm.date
+        coefficientLab.text = vm.coefficient
         
+        sideView.isHidden = vm.isActive
+        betSwithView.isHidden = !vm.isActive
     }
     
     private func initConstraints() {
@@ -110,12 +116,6 @@ class BetCell: UITableViewCell {
         containerView.addSubview(coefficientLab)
         containerView.addSubview(sideView)
         containerView.addSubview(betSwithView)
-        
-//        descriptionLab.text = "test atis taini qyneir aisnie aiesniratos amvk ta ritea royc an aoes arit asi aosi ianrso"
-//        dateLab.text = "24.11.2014"
-//        amountLab.text = "15"
-//        sideView.backgroundColor = .backgroundGreen
-//        containerView.setColors(colors: [.brooklynNets.withAlphaComponent(0.5), .bostonCeltics.withAlphaComponent(0.5)])
         
         NSLayoutConstraint.activate([
             shadowView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 7.5),

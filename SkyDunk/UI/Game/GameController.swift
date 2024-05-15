@@ -35,16 +35,23 @@ extension GameController: GameViewModelDelegat {
     func showGame(game: GameHeaderVM) {
         rootView.gameHeaderView.bind(vm: game)
     }
+    
+    func showBets() {
+        DispatchQueue.main.async { [weak self] in
+            self?.rootView.betsTableView.reloadData()
+        }
+    }
 }
 
 extension GameController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        8
+        viewModel.betsVM.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BetCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: BetCell.identifier, for: indexPath) as! BetCell
         cell.backgroundColor = .white
+        cell.bind(vm: viewModel.betsVM[indexPath.item])
         return cell
     }
     
