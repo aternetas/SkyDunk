@@ -22,7 +22,7 @@ class GradientView: UIView {
     }
     
     func setColors(colors: [UIColor]) {
-        self.colors = colors.map { $0.cgColor }
+        self.colors = colors.count == 1 ? [colors[0].cgColor, colors[0].cgColor] : colors.map { $0.cgColor }
         layoutSubviews()
     }
     
