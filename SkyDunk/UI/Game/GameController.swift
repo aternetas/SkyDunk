@@ -32,6 +32,7 @@ class GameController: BaseController<GameViewModel> {
 }
 
 extension GameController: GameViewModelDelegat {
+    
     func showGame(game: GameHeaderVM) {
         rootView.gameHeaderView.bind(vm: game)
     }
@@ -39,6 +40,12 @@ extension GameController: GameViewModelDelegat {
     func showBets() {
         DispatchQueue.main.async { [weak self] in
             self?.rootView.betsTableView.reloadData()
+        }
+    }
+    
+    func updateBet(index: Int) {
+        DispatchQueue.main.async { [weak self] in
+            self?.rootView.betsTableView.reloadRows(at: [.init(row: index, section: 0)], with: .automatic)
         }
     }
 }
