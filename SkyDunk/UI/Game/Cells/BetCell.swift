@@ -89,7 +89,7 @@ class BetCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        initConstraints()
+        initFirstOrderConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -97,25 +97,63 @@ class BetCell: UITableViewCell {
     }
     
     func bind(vm: BetVM) {
+        containerView.setColors(colors: [vm.teams[0].color.withAlphaComponent(0.5), vm.teams[1].color.withAlphaComponent(0.5)])
+        
         descriptionLab.text = vm.description
         amountLab.text = vm.amount
         dateLab.text = vm.date
         coefficientLab.text = vm.coefficient
         
         sideView.isHidden = vm.isActive
+        if let isSuccess = vm.isSuccess {
+            sideView.backgroundColor = isSuccess ? .backgroundGreen : .backgroundRed
+        }
+        
         betSwithView.isHidden = !vm.isActive
+        
+        initSecondOrderConstaints()
+        
     }
     
-    private func initConstraints() {
-        contentView.addSubview(shadowView)
-        contentView.addSubview(containerView)
-        
-        containerView.addSubview(descriptionLab)
+    private func initSecondOrderConstaints() {
         containerView.addSubview(amountLab)
-        containerView.addSubview(dateLab)
         containerView.addSubview(coefficientLab)
         containerView.addSubview(sideView)
         containerView.addSubview(betSwithView)
+        
+        containerView.addSubview(descriptionLab)
+        containerView.addSubview(dateLab)
+        
+        NSLayoutConstraint.activate([
+            sideView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0),
+            sideView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 0),
+            sideView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0),
+            sideView.widthAnchor.constraint(equalToConstant: 12),
+            
+            betSwithView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -12),
+            betSwithView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            betSwithView.heightAnchor.constraint(equalToConstant: 51),
+            betSwithView.widthAnchor.constraint(equalToConstant: 51),
+            
+            amountLab.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            amountLab.trailingAnchor.constraint(equalTo: !sideView.isHidden ? sideView.leadingAnchor : betSwithView.leadingAnchor, constant: -7),
+            
+            coefficientLab.centerXAnchor.constraint(equalTo: amountLab.centerXAnchor),
+            coefficientLab.centerYAnchor.constraint(equalTo: dateLab.centerYAnchor),
+            
+            descriptionLab.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            descriptionLab.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 12),
+            descriptionLab.trailingAnchor.constraint(equalTo: coefficientLab.leadingAnchor, constant: -10),
+            
+            dateLab.topAnchor.constraint(equalTo: descriptionLab.bottomAnchor, constant: 12),
+            dateLab.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 12),
+            dateLab.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10)
+        ])
+    }
+    
+    private func initFirstOrderConstraints() {
+        contentView.addSubview(shadowView)
+        contentView.addSubview(containerView)
         
         NSLayoutConstraint.activate([
             shadowView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 7.5),
@@ -126,31 +164,7 @@ class BetCell: UITableViewCell {
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 7.5),
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -7.5),
-        
-            descriptionLab.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
-            descriptionLab.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 12),
-            descriptionLab.trailingAnchor.constraint(equalTo: coefficientLab.leadingAnchor, constant: -6),
-            
-            amountLab.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
-            amountLab.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -17),
-            
-            dateLab.topAnchor.constraint(equalTo: descriptionLab.bottomAnchor, constant: 12),
-            dateLab.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 12),
-            dateLab.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
-            
-            coefficientLab.centerXAnchor.constraint(equalTo: amountLab.centerXAnchor),
-            coefficientLab.centerYAnchor.constraint(equalTo: dateLab.centerYAnchor),
-            
-            sideView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0),
-            sideView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 0),
-            sideView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0),
-            sideView.widthAnchor.constraint(equalToConstant: 12),
-            
-            betSwithView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -12),
-            betSwithView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            betSwithView.heightAnchor.constraint(equalToConstant: 51),
-            betSwithView.widthAnchor.constraint(equalToConstant: 51)
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -7.5)
         ])
     }
 }
