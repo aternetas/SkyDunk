@@ -37,7 +37,7 @@ class GameView: UIView {
     private func initConstraints() {
         addSubview(gameHeaderView)
         addSubview(betsTableView)
-    
+        
         NSLayoutConstraint.activate([
             gameHeaderView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             gameHeaderView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),

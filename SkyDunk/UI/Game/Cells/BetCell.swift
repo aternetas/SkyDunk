@@ -76,6 +76,9 @@ class BetCell: UITableViewCell {
         bottomButton.setTitleColor(.white, for: .normal)
         bottomButton.setTitle("-", for: .normal)
         
+        topButton.addGestureRecognizer(betOnPlusSwitchViewTap)
+        bottomButton.addGestureRecognizer(betOnMinusSwitchViewTap)
+        
         sv.addArrangedSubview(topButton)
         sv.addArrangedSubview(bottomButton)
         
@@ -85,15 +88,29 @@ class BetCell: UITableViewCell {
         sv.clipsToBounds = true
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.distribution = .fillEqually
+        sv.isUserInteractionEnabled = true
         return sv
     }()
     
     private lazy var amountLabTrailingConstaint = amountLab.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 0)
     
+    private lazy var betOnPlusSwitchViewTap = UITapGestureRecognizer(target: self, action: #selector(tapOnPlusBetSwitchView))
+    private lazy var betOnMinusSwitchViewTap = UITapGestureRecognizer(target: self, action: #selector(tapOnMinusBetSwitchView))
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         initConstraints()
+    }
+    
+    @objc private func tapOnPlusBetSwitchView() {
+        betSwitchViewWasClicked()
+        sideView.backgroundColor = .backgroundGreen
+    }
+    
+    @objc private func tapOnMinusBetSwitchView() {
+        betSwitchViewWasClicked()
+        sideView.backgroundColor = .backgroundRed
     }
     
     required init?(coder: NSCoder) {
@@ -116,6 +133,12 @@ class BetCell: UITableViewCell {
         betSwithView.isHidden = !vm.isActive
         
         amountLabTrailingConstaint.constant = vm.isActive ? -70 : -17
+    }
+    
+    private func betSwitchViewWasClicked() {
+        betSwithView.isHidden = true
+        sideView.isHidden = false
+        amountLabTrailingConstaint.constant = -17
     }
     
     private func initConstraints() {
