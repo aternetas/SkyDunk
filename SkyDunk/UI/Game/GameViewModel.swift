@@ -48,6 +48,8 @@ extension GameViewModel: BetCellListenerProtocol {
     }
     
     func tapOnBet(id: String) {
-        
+        guard let index = betsVM.firstIndex(where: { $0.id == id}) else { return }
+        betsVM[index] = betsVM[index].copy(description: betsVM[index].description + " CHANGE")
+        delegate?.updateBet(index: index)
     }
 }

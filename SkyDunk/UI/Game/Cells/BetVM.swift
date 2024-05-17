@@ -62,7 +62,7 @@ class BetVM {
     }
     
     func tapOnBet() {
-        
+        delegate?.tapOnBet(id: id)
     }
 }
 
