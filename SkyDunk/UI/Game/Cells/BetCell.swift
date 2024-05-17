@@ -118,7 +118,7 @@ class BetCell: UITableViewCell {
     
     func bind(vm: BetVM) {
         self.vm = vm
-        containerView.setColors(colors: vm.teams.map { $0.color })
+        containerView.setColors(colors: vm.teams.map { $0.color.withAlphaComponent(0.5) })
         
         descriptionLab.text = vm.description
         amountLab.text = vm.amount

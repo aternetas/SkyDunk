@@ -49,7 +49,6 @@ class BetVM {
                   delegate: delegate)
     }
     
-    
     func copy(description: String? = nil, isActive: Bool? = nil, isSuccess: Bool? = nil) -> BetVM {
         BetVM(id: id, description: description ?? self.description, date: date, amount: amount, coefficient: coefficient, isActive: isActive ?? self.isActive, isSuccess: isSuccess ?? self.isSuccess, teams: teams, delegate: delegate)
     }
@@ -59,7 +58,7 @@ class BetVM {
     }
     
     func tapOnFailureBet() {
-        
+        delegate?.tapOnFailureBet(id: id)
     }
     
     func tapOnBet() {
