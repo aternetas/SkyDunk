@@ -30,6 +30,7 @@ class GameView: UIView {
         button.setImage(.plusIcon, for: .normal)
         button.tintColor = .white
         button.layer.cornerRadius = 30.5
+        button.addShadows()
         return button
     }()
     

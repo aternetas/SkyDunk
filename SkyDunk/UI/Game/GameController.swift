@@ -18,6 +18,8 @@ class GameController: BaseController<GameViewModel> {
         
         rootView.betsTableView.delegate = self
         rootView.betsTableView.dataSource = self
+        
+        rootView.newBetButton.addTarget(self, action: #selector(clickOnNewBetButton), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -28,6 +30,10 @@ class GameController: BaseController<GameViewModel> {
         super.loadView()
         
         view = rootView
+    }
+    
+    @objc private func clickOnNewBetButton() {
+        viewModel.addNewBet()
     }
 }
 

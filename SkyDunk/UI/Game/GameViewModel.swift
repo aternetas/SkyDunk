@@ -31,6 +31,10 @@ class GameViewModel: BaseViewModel {
         
         delegate?.showBets()
     }
+    
+    func addNewBet() {
+        print("addnewbet")
+    }
 }
 
 extension GameViewModel: BetCellListenerProtocol {
