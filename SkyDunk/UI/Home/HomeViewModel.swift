@@ -13,6 +13,7 @@ protocol HomeViewModelDelegat {
 }
 
 class HomeViewModel: BaseViewModel {
+    
     var delegate: HomeViewModelDelegat?
     var nextGamesVM: [GameVM] = []
     var lastGameVM: LastGameVM? = nil

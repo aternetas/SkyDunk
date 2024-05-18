@@ -20,6 +20,7 @@ fileprivate var hourMinuteFormatter: DateFormatter = {
 }()
 
 extension Date {
+    
     func toDayMonthYear() -> String {
         dayMonthYearFormatter.string(from: self)
     }

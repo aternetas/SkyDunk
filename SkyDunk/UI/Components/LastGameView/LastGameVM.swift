@@ -24,6 +24,11 @@ struct LastGameVM {
     }
     
     init(game: Game) {
-        self.init(id: game.id, homeTeam: game.homeTeam, guestTeam: game.guestTeam, homeTeamScore: game.homeScore, guestTeamScore: game.guestScore, date: game.gameDate)
+        self.init(id: game.id, 
+                  homeTeam: game.homeTeam,
+                  guestTeam: game.guestTeam,
+                  homeTeamScore: game.homeScore,
+                  guestTeamScore: game.guestScore,
+                  date: game.gameDate)
     }
 }

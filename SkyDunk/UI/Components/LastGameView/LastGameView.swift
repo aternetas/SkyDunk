@@ -8,6 +8,7 @@
 import UIKit
 
 class LastGameView: UIView {
+    
     lazy private var titleLab: UILabel = {
         let label = UILabel(text: "КРАЙНЯЯ ИГРА", font: UIFont(type: .light, size: 18), textColor: .textDark)
         label.translatesAutoresizingMaskIntoConstraints = false

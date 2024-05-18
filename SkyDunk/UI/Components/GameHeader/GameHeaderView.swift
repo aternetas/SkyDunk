@@ -8,6 +8,7 @@
 import UIKit
 
 class GameHeaderView: UIView {
+    
     lazy private var versusLab: UILabel = {
         let label = UILabel(text: "VS", font: UIFont(type: .regular, size: 30), textColor: .textDark)
         label.translatesAutoresizingMaskIntoConstraints = false
