@@ -34,6 +34,8 @@ class GameView: UIView {
         return button
     }()
     
+    lazy var emptyStateView: InfoView = InfoView(text: "В этом матче пока нет ставок")
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .backgroundWhite
@@ -47,6 +49,7 @@ class GameView: UIView {
     
     private func initConstraints() {
         addSubview(gameHeaderView)
+        addSubview(emptyStateView)
         addSubview(betsTableView)
         addSubview(newBetButton)
         
@@ -64,7 +67,12 @@ class GameView: UIView {
             newBetButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             newBetButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
             newBetButton.heightAnchor.constraint(equalToConstant: 61),
-            newBetButton.widthAnchor.constraint(equalToConstant: 61)
+            newBetButton.widthAnchor.constraint(equalToConstant: 61),
+            
+            emptyStateView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),
+            emptyStateView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            emptyStateView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            emptyStateView.heightAnchor.constraint(equalToConstant: 157)
         ])
     }
 }

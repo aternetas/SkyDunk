@@ -11,6 +11,7 @@ protocol GameViewModelDelegat {
     func showGame(game: GameHeaderVM)
     func showBets()
     func updateBet(index: Int)
+    func showEmptyState(isShow: Bool)
 }
 
 class GameViewModel: BaseViewModel {
@@ -29,6 +30,7 @@ class GameViewModel: BaseViewModel {
         guard let bets = game?.bets else { return }
         betsVM = bets.map( { BetVM(bet: $0, delegate: self) } )
         
+        delegate?.showEmptyState(isShow: betsVM.isEmpty)
         delegate?.showBets()
     }
     

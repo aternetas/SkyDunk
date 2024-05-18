@@ -54,6 +54,13 @@ extension GameController: GameViewModelDelegat {
             self?.rootView.betsTableView.reloadRows(at: [.init(row: index, section: 0)], with: .automatic)
         }
     }
+    
+    func showEmptyState(isShow: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            self?.rootView.betsTableView.isHidden = isShow
+            self?.rootView.emptyStateView.isHidden = !isShow
+        }
+    }
 }
 
 extension GameController: UITableViewDelegate, UITableViewDataSource {
