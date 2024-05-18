@@ -30,8 +30,8 @@ class HomeController: BaseController<HomeViewModel> {
         
         viewModel.viewDidLoad()
         
-        let tapLastGameViewTab = UITapGestureRecognizer(target: self, action: #selector(tapOnLastGameView))
-        rootView.lastGameView.addGestureRecognizer(tapLastGameViewTab)
+        let lastGameViewTap = UITapGestureRecognizer(target: self, action: #selector(tapOnLastGameView))
+        rootView.lastGameView.addGestureRecognizer(lastGameViewTap)
     }
 
     @objc private func tapOnLastGameView() {
