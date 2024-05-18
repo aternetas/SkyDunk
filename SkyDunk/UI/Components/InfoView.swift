@@ -14,6 +14,7 @@ class InfoView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(type: .light, size: 14)
         label.textColor = .textDark
+        label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
