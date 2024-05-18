@@ -97,19 +97,8 @@ class BetCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        selectionStyle = .none
         initConstraints()
-    }
-    
-    @objc private func tapOnPlusBetSwitchView() {
-        vm?.tapOnSuccessBet()
-    }
-    
-    @objc private func tapOnMinusBetSwitchView() {
-        vm?.tapOnFailureBet()
-    }
-    
-    func onClick() {
-        vm?.tapOnBet()
     }
     
     required init?(coder: NSCoder) {
@@ -135,6 +124,17 @@ class BetCell: UITableViewCell {
         amountLabTrailingConstaint.constant = vm.isActive ? -70 : -17
     }
     
+    func onClick() {
+        vm?.tapOnBet()
+    }
+    
+    @objc private func tapOnPlusBetSwitchView() {
+        vm?.tapOnSuccessBet()
+    }
+    
+    @objc private func tapOnMinusBetSwitchView() {
+        vm?.tapOnFailureBet()
+    }
     
     private func initConstraints() {
         contentView.addSubview(shadowView)
