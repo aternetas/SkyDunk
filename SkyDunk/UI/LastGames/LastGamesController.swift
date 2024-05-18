@@ -7,11 +7,19 @@
 
 import UIKit
 
-class LastGamesController: UIViewController {
+class LastGamesController: BaseController<LastGamesViewModel> {
 
+    override init() {
+        super.init()
+        viewModel = LastGamesViewModel()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         view.backgroundColor = .brown
     }
 }

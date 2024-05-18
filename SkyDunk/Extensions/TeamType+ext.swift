@@ -8,6 +8,7 @@
 import UIKit
 
 extension TeamType {
+    
     var color: UIColor {
         switch self {
         case .bostonCeltics:

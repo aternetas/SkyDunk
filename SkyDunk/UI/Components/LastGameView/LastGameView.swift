@@ -8,11 +8,9 @@
 import UIKit
 
 class LastGameView: UIView {
+    
     lazy private var titleLab: UILabel = {
-        let label = UILabel()
-        label.text = "КРАЙНЯЯ ИГРА"
-        label.textColor = .textDark
-        label.font = UIFont(type: .light, size: 18)
+        let label = UILabel(text: "КРАЙНЯЯ ИГРА", font: UIFont(type: .light, size: 18), textColor: .textDark)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -57,8 +55,8 @@ class LastGameView: UIView {
     
     func bind(vm: LastGameVM) {
         DispatchQueue.main.async { [weak self] in
-            self?.homeTeamImageView.image = UIImage(named: vm.homeTeam)
-            self?.guestTeamImageView.image = UIImage(named: vm.guestTeam)
+            self?.homeTeamImageView.image = vm.homeTeam.logo
+            self?.guestTeamImageView.image = vm.guestTeam.logo
             self?.gameScoreLab.text = vm.score
             self?.gameDateLab.text = vm.date
         }
