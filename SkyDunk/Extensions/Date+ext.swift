@@ -19,6 +19,12 @@ fileprivate var hourMinuteFormatter: DateFormatter = {
     return formatter
 }()
 
+fileprivate var hourMinuteDayMonthYearFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "k:mm d.MM.yy"
+    return formatter
+}()
+
 extension Date {
     
     func toDayMonthYear() -> String {
@@ -27,5 +33,9 @@ extension Date {
     
     func toHourMinute() -> String {
         hourMinuteFormatter.string(from: self)
+    }
+    
+    func toHourMinuteDayMonthYear() -> String {
+        hourMinuteDayMonthYearFormatter.string(from: self)
     }
 }

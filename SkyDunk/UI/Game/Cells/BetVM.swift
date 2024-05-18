@@ -40,7 +40,7 @@ class BetVM {
     convenience init(bet: Bet, delegate: BetCellListenerProtocol?) {
         self.init(id: bet.id,
                   description: bet.description,
-                  date: bet.date.toDayMonthYear(),
+                  date: bet.date.toHourMinuteDayMonthYear(),
                   amount: String(bet.amount),
                   coefficient: String(bet.coefficient),
                   isActive: bet.isSuccess == nil,
@@ -50,7 +50,15 @@ class BetVM {
     }
     
     func copy(description: String? = nil, isActive: Bool? = nil, isSuccess: Bool? = nil) -> BetVM {
-        BetVM(id: id, description: description ?? self.description, date: date, amount: amount, coefficient: coefficient, isActive: isActive ?? self.isActive, isSuccess: isSuccess ?? self.isSuccess, teams: teams, delegate: delegate)
+        BetVM(id: id, 
+              description: description ?? self.description,
+              date: date,
+              amount: amount,
+              coefficient: coefficient,
+              isActive: isActive ?? self.isActive,
+              isSuccess: isSuccess ?? self.isSuccess,
+              teams: teams,
+              delegate: delegate)
     }
     
     func tapOnSuccessBet() {

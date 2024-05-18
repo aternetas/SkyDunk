@@ -42,20 +42,22 @@ class GameViewModel: BaseViewModel {
 extension GameViewModel: BetCellListenerProtocol {
     
     func tapOnSuccessBet(id: String) {
-        guard let index = betsVM.firstIndex(where: { $0.id == id}) else { return }
-        betsVM[index] = betsVM[index].copy(isActive: false, isSuccess: true)
-        delegate?.updateBet(index: index)
+        changeBetStatus(id: id, isSuccess: true)
     }
     
     func tapOnFailureBet(id: String) {
-        guard let index = betsVM.firstIndex(where: { $0.id == id}) else { return }
-        betsVM[index] = betsVM[index].copy(isActive: false, isSuccess: false)
-        delegate?.updateBet(index: index)
+        changeBetStatus(id: id, isSuccess: false)
     }
     
     func tapOnBet(id: String) {
         guard let index = betsVM.firstIndex(where: { $0.id == id}) else { return }
         betsVM[index] = betsVM[index].copy(description: betsVM[index].description + " CHANGE")
+        delegate?.updateBet(index: index)
+    }
+    
+    private func changeBetStatus(id: String, isSuccess: Bool) {
+        guard let index = betsVM.firstIndex(where: { $0.id == id}) else { return }
+        betsVM[index] = betsVM[index].copy(isActive: false, isSuccess: isSuccess)
         delegate?.updateBet(index: index)
     }
 }
