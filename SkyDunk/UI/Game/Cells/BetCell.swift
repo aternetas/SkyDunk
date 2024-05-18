@@ -41,6 +41,7 @@ class BetCell: UITableViewCell {
         let label = UILabel(font: UIFont(type: .regular, size: 14), textColor: .textDark)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .right
+        label.setContentCompressionResistancePriority(.init(1000), for: .horizontal)
         return label
     }()
     
