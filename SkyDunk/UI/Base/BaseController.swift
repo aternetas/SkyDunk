@@ -2,7 +2,7 @@
 //  BaseController.swift
 //  SkyDunk
 //
-//  Created by f f on 11.05.2024.
+//  Created by aternetas on 11.05.2024.
 //
 
 import UIKit
@@ -27,6 +27,7 @@ class BaseController<VM: BaseViewModel>: UIViewController {
 }
 
 extension BaseController: NavigationManagerProtocol {
+    
     func openScreen(screen: ScreenType) {
         let viewController: UIViewController
         
