@@ -2,7 +2,7 @@
 //  Bet.swift
 //  SkyDunk
 //
-//  Created by f f on 15.05.2024.
+//  Created by aternetas on 15.05.2024.
 //
 
 import Foundation

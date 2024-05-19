@@ -2,7 +2,7 @@
 //  ScreenType.swift
 //  SkyDunk
 //
-//  Created by f f on 18.05.2024.
+//  Created by aternetas on 18.05.2024.
 //
 
 import Foundation

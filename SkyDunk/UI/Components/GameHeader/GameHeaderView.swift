@@ -2,7 +2,7 @@
 //  GameHeaderView.swift
 //  SkyDunk
 //
-//  Created by f f on 12.05.2024.
+//  Created by aternetas on 12.05.2024.
 //
 
 import UIKit
