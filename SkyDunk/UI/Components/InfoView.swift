@@ -51,5 +51,4 @@ class InfoView: UIView {
             infoLab.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
         ])
     }
-    
 }
