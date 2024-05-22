@@ -38,6 +38,10 @@ extension BaseController: NavigationManagerProtocol {
             let vc = GameController()
             vc.viewModel.setGame(game: game)
             viewController = vc
+        case .newBet(game: let game):
+            let vc = NewBetController()
+            vc.viewModel.setGame(game: game)
+            viewController = vc
         }
         present(viewController, animated: true)
     }

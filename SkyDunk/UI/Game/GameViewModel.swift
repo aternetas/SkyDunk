@@ -35,7 +35,8 @@ class GameViewModel: BaseViewModel {
     }
     
     func addNewBet() {
-        print("addnewbet")
+        guard let game = game else { return }
+        navigationManager?.openScreen(screen: .newBet(game: game))
     }
 }
 

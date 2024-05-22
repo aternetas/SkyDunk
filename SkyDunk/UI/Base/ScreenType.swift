@@ -10,4 +10,5 @@ import Foundation
 enum ScreenType {
     case lastGames
     case game(game: Game)
+    case newBet(game: Game)
 }

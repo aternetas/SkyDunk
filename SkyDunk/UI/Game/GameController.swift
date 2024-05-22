@@ -64,6 +64,7 @@ extension GameController: GameViewModelDelegat {
 }
 
 extension GameController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.betsVM.count
     }
