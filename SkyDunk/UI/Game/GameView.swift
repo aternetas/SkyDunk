@@ -54,7 +54,7 @@ class GameView: UIView {
         addSubview(newBetButton)
         
         NSLayoutConstraint.activate([
-            gameHeaderView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            gameHeaderView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 19),
             gameHeaderView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             gameHeaderView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             gameHeaderView.heightAnchor.constraint(equalToConstant: 160),

@@ -15,6 +15,7 @@ class NewBetController: BaseController<NewBetViewModel> {
         super.init()
         
         viewModel = NewBetViewModel()
+        viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -25,5 +26,12 @@ class NewBetController: BaseController<NewBetViewModel> {
         super.loadView()
         
         view = rootView
+    }
+}
+
+extension NewBetController: NewBetViewModelDelegat {
+    
+    func setGameHeader(game: GameHeaderVM) {
+        rootView.gameHeaderView.bind(vm: game)
     }
 }
