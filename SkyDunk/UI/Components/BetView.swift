@@ -34,6 +34,13 @@ class BetView: UIView {
         return textField
     }()
     
+    private lazy var underlineView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .backgroundGray2
+        return view
+    }()
+    
     init(text: TitleLabType) {
         super.init(frame: .zero)
         titleLab.text = text.rawValue
@@ -53,6 +60,7 @@ class BetView: UIView {
     private func initConstraints() {
         addSubview(titleLab)
         addSubview(textField)
+        addSubview(underlineView)
         
         NSLayoutConstraint.activate([
             titleLab.topAnchor.constraint(equalTo: topAnchor, constant: 0),
@@ -63,7 +71,12 @@ class BetView: UIView {
             textField.topAnchor.constraint(equalTo: titleLab.bottomAnchor, constant: 6),
             textField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-            textField.heightAnchor.constraint(equalToConstant: 24)
+            textField.heightAnchor.constraint(equalToConstant: 24),
+            
+            underlineView.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 0),
+            underlineView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            underlineView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            underlineView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
     
