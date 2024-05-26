@@ -17,29 +17,23 @@ class NewBetView: UIView {
     
     lazy var gameHeaderView: GameHeaderView = {
         let view = GameHeaderView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var betTitleView: BetView = {
         let view = BetView(text: .betTitle)
-//        let view = BetView()
-//        view
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-//    lazy var betAmountView: BetView = {
-//        let view = BetView(text: .betAmount)
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        return view
-//    }()
-//    
-//    lazy var betCoefficientView: BetView = {
-//        let view = BetView(text: .betCoefficient)
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        return view
-//    }()
+    lazy var betAmountView: BetView = {
+        let view = BetView(text: .betAmount)
+        return view
+    }()
+    
+    lazy var betCoefficientView: BetView = {
+        let view = BetView(text: .betCoefficient)
+        return view
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,9 +50,8 @@ class NewBetView: UIView {
         addSubview(newBetLab)
         addSubview(gameHeaderView)
         addSubview(betTitleView)
-//        addSubview(betAmountView)
-//        addSubview(betCoefficientView)
-//        betTitleView.backgroundColor = .systemOrange
+        addSubview(betAmountView)
+        addSubview(betCoefficientView)
         
         NSLayoutConstraint.activate([
             newBetLab.topAnchor.constraint(equalTo: topAnchor, constant: 19),
@@ -72,7 +65,17 @@ class NewBetView: UIView {
             betTitleView.topAnchor.constraint(equalTo: gameHeaderView.bottomAnchor, constant: 41),
             betTitleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             betTitleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            betTitleView.heightAnchor.constraint(equalToConstant: 44)
+            betTitleView.heightAnchor.constraint(equalToConstant: 44),
+            
+            betAmountView.topAnchor.constraint(equalTo: betTitleView.bottomAnchor, constant: 27),
+            betAmountView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            betAmountView.heightAnchor.constraint(equalToConstant: 44),
+            betAmountView.widthAnchor.constraint(equalToConstant: 108),
+            
+            betCoefficientView.topAnchor.constraint(equalTo: betTitleView.bottomAnchor, constant: 27),
+            betCoefficientView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            betCoefficientView.heightAnchor.constraint(equalToConstant: 44),
+            betCoefficientView.widthAnchor.constraint(equalToConstant: 108)
         ])
     }
 }

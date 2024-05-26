@@ -49,7 +49,6 @@ class GameCell: UICollectionViewCell {
     
     lazy private var gradientView: GradientView = {
         let view = GradientView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     

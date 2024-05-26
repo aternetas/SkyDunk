@@ -13,7 +13,6 @@ class BetCell: UITableViewCell {
     
     lazy private var containerView: GradientView = {
         let view = GradientView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10
         view.gradientDirection = .leftToRight
         view.clipsToBounds = true
