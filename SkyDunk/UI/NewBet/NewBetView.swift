@@ -34,10 +34,23 @@ class NewBetView: UIView {
         let view = BetView(text: .betCoefficient)
         return view
     }()
+        
+    lazy var saveBetButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Сохранить", for: .normal)
+        button.setTitleColor(.textLight, for: .normal)
+        button.titleLabel?.font = UIFont(type: .regular, size: 16)
+        button.backgroundColor = .red
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
+    private var vm: NewBetViewModel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+            
         backgroundColor = .backgroundWhite
         initConstaints()
     }
@@ -52,6 +65,7 @@ class NewBetView: UIView {
         addSubview(betTitleView)
         addSubview(betAmountView)
         addSubview(betCoefficientView)
+        addSubview(saveBetButton)
         
         NSLayoutConstraint.activate([
             newBetLab.topAnchor.constraint(equalTo: topAnchor, constant: 19),
@@ -75,7 +89,12 @@ class NewBetView: UIView {
             betCoefficientView.topAnchor.constraint(equalTo: betTitleView.bottomAnchor, constant: 27),
             betCoefficientView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             betCoefficientView.heightAnchor.constraint(equalToConstant: 44),
-            betCoefficientView.widthAnchor.constraint(equalToConstant: 108)
+            betCoefficientView.widthAnchor.constraint(equalToConstant: 108),
+            
+            saveBetButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
+            saveBetButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
+            saveBetButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -101),
+            saveBetButton.heightAnchor.constraint(equalToConstant: 35)
         ])
     }
 }

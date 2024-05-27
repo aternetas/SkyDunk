@@ -16,6 +16,7 @@ class NewBetController: BaseController<NewBetViewModel> {
         
         viewModel = NewBetViewModel()
         viewModel.delegate = self
+        rootView.saveBetButton.addTarget(self, action: #selector(clickOnSaveBetButton), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -26,6 +27,10 @@ class NewBetController: BaseController<NewBetViewModel> {
         super.loadView()
         
         view = rootView
+    }
+    
+    @objc private func clickOnSaveBetButton() {
+//        viewModel.
     }
 }
 

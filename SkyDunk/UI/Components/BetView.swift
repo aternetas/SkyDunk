@@ -30,7 +30,6 @@ class BetView: UIView {
         textField.font = UIFont(type: .regular, size: 14)
         textField.textColor = .textDark
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.text = "test"
         return textField
     }()
     

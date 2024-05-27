@@ -21,4 +21,8 @@ class NewBetViewModel: BaseViewModel {
         self.game = game
         delegate?.setGameHeader(game: GameHeaderVM(game: game))
     }
+    
+    func saveNewBet() {
+        
+    }
 }
