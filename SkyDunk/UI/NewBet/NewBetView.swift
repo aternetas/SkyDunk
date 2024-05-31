@@ -11,7 +11,6 @@ class NewBetView: UIView {
     
     private lazy var newBetLab: UILabel = {
         let label = UILabel(text: "Новая ставка", font: UIFont(type: .medium, size: 20), textColor: .textDark)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -37,7 +36,6 @@ class NewBetView: UIView {
         
     lazy var saveBetButton: UIButton = {
         let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Сохранить", for: .normal)
         button.setTitleColor(.textLight, for: .normal)
         button.titleLabel?.font = UIFont(type: .regular, size: 16)
@@ -60,12 +58,12 @@ class NewBetView: UIView {
     }
     
     private func initConstaints() {
-        addSubview(newBetLab)
-        addSubview(gameHeaderView)
-        addSubview(betTitleTextField)
-        addSubview(betAmountTextField)
-        addSubview(betCoefficientTextField)
-        addSubview(saveBetButton)
+        addSubviewsAndAutolayout([newBetLab,
+                                  gameHeaderView,
+                                  betTitleTextField,
+                                  betAmountTextField,
+                                  betCoefficientTextField,
+                                  saveBetButton])
         
         NSLayoutConstraint.activate([
             newBetLab.topAnchor.constraint(equalTo: topAnchor, constant: 19),

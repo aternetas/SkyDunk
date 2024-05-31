@@ -13,7 +13,6 @@ class CustomTextField: UIView {
     
     private lazy var titleLab: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(type: .regular, size: 12)
         label.textColor = .textGray
         label.numberOfLines = 1
@@ -25,14 +24,12 @@ class CustomTextField: UIView {
         let textField = UITextField()
         textField.font = UIFont(type: .regular, size: 14)
         textField.textColor = .textDark
-        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.addTarget(self, action: #selector(editTextField), for: .editingChanged)
         return textField
     }()
     
     private lazy var underlineView: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .backgroundGray2
         return view
     }()
@@ -41,7 +38,6 @@ class CustomTextField: UIView {
         super.init(frame: .zero)
         titleLab.text = text
         
-        setupView()
         initConstraints()
     }
     
@@ -53,14 +49,10 @@ class CustomTextField: UIView {
         text = textField.text ?? ""
     }
     
-    private func setupView() {
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-    
     private func initConstraints() {
-        addSubview(titleLab)
-        addSubview(textField)
-        addSubview(underlineView)
+        addSubviewsAndAutolayout([titleLab,
+                                  textField,
+                                  underlineView])
         
         NSLayoutConstraint.activate([
             titleLab.topAnchor.constraint(equalTo: topAnchor, constant: 0),
