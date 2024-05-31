@@ -51,7 +51,6 @@ extension BaseController: NavigationManagerProtocol {
 extension BaseController: AlertManagerProtocol {
     
     func showAlert(model: AlertModel) {
-        
         let alert = UIAlertController(title: model.title, message: model.message, preferredStyle: .alert)
         
         model.actions.forEach { alertActionModel in

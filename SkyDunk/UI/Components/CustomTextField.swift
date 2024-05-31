@@ -66,16 +66,15 @@ class CustomTextField: UIView {
             titleLab.topAnchor.constraint(equalTo: topAnchor, constant: 0),
             titleLab.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             titleLab.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-            titleLab.heightAnchor.constraint(equalToConstant: 14),
             
             textField.topAnchor.constraint(equalTo: titleLab.bottomAnchor, constant: 6),
             textField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-            textField.heightAnchor.constraint(equalToConstant: 24),
             
             underlineView.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 0),
             underlineView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             underlineView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            underlineView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
             underlineView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
