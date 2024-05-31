@@ -44,6 +44,7 @@ class GameHeaderView: UIView {
     
     lazy private var gradientView: GradientView = {
         let view = GradientView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         view.gradientDirection = .leftToRight
         return view
     }()

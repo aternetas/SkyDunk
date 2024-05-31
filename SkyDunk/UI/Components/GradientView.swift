@@ -27,8 +27,6 @@ class GradientView: UIView {
     }
     
     override func layoutSubviews() {
-        translatesAutoresizingMaskIntoConstraints = false
-        
         (layer as! CAGradientLayer).colors = colors
         
         switch gradientDirection {

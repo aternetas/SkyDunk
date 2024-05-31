@@ -9,7 +9,7 @@ import UIKit
 
 class NewBetView: UIView {
     
-    lazy var newBetLab: UILabel = {
+    private lazy var newBetLab: UILabel = {
         let label = UILabel(text: "Новая ставка", font: UIFont(type: .medium, size: 20), textColor: .textDark)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -93,7 +93,7 @@ class NewBetView: UIView {
             
             saveBetButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
             saveBetButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
-            saveBetButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -101),
+            saveBetButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -40),
             saveBetButton.heightAnchor.constraint(equalToConstant: 35)
         ])
     }
