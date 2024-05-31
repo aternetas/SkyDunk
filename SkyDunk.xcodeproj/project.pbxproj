@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A514A3242C01F49A0014BBD4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3232C01F49A0014BBD4 /* CustomTextField.swift */; };
+		A514A3262C0A17480014BBD4 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3252C0A17480014BBD4 /* AlertModel.swift */; };
 		A52C53B42BEE8B8300699D2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53B32BEE8B8300699D2E /* AppDelegate.swift */; };
 		A52C53B62BEE8B8300699D2E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53B52BEE8B8300699D2E /* SceneDelegate.swift */; };
 		A52C53BD2BEE8B8500699D2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52C53BC2BEE8B8500699D2E /* Assets.xcassets */; };
@@ -38,6 +40,9 @@
 		A538E3C52BF50F7900485EF3 /* BetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538E3C42BF50F7900485EF3 /* BetVM.swift */; };
 		A538E3C72BF50F8F00485EF3 /* BetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538E3C62BF50F8F00485EF3 /* BetCell.swift */; };
 		A5E40C312BF8DC850056AC63 /* ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C302BF8DC850056AC63 /* ScreenType.swift */; };
+		A5E40C342BF9FCA40056AC63 /* NewBetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C332BF9FCA40056AC63 /* NewBetController.swift */; };
+		A5E40C362BF9FCBE0056AC63 /* NewBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C352BF9FCBE0056AC63 /* NewBetView.swift */; };
+		A5E40C382BF9FCD70056AC63 /* NewBetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C372BF9FCD70056AC63 /* NewBetViewModel.swift */; };
 		FA7F80BB2BEEADAD00885CEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7F80BA2BEEADAD00885CEC /* Images.xcassets */; };
 		FABB838E2BEF8F2B0092F21B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABB838D2BEF8F2B0092F21B /* Colors.xcassets */; };
 		FABB83942BEF94160092F21B /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FABB83902BEF94160092F21B /* Inter-Medium.ttf */; };
@@ -49,6 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A514A3232C01F49A0014BBD4 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		A514A3252C0A17480014BBD4 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		A52C53B02BEE8B8300699D2E /* SkyDunk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyDunk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52C53B32BEE8B8300699D2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A52C53B52BEE8B8300699D2E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +89,9 @@
 		A538E3C42BF50F7900485EF3 /* BetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetVM.swift; sourceTree = "<group>"; };
 		A538E3C62BF50F8F00485EF3 /* BetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetCell.swift; sourceTree = "<group>"; };
 		A5E40C302BF8DC850056AC63 /* ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenType.swift; sourceTree = "<group>"; };
+		A5E40C332BF9FCA40056AC63 /* NewBetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBetController.swift; sourceTree = "<group>"; };
+		A5E40C352BF9FCBE0056AC63 /* NewBetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBetView.swift; sourceTree = "<group>"; };
+		A5E40C372BF9FCD70056AC63 /* NewBetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBetViewModel.swift; sourceTree = "<group>"; };
 		FA7F80BA2BEEADAD00885CEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FABB838D2BEF8F2B0092F21B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FABB83902BEF94160092F21B /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
@@ -164,6 +174,7 @@
 		A52C53CA2BEE90B700699D2E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A5E40C322BF9FC970056AC63 /* NewBet */,
 				A52C53FB2BF10E7F00699D2E /* Game */,
 				A52C53F42BEFFB6800699D2E /* Base */,
 				A52C53D52BEE9B2400699D2E /* Components */,
@@ -200,6 +211,7 @@
 				A52C53DB2BEEB4EF00699D2E /* LastGameView */,
 				A52C53E52BEFC38F00699D2E /* GradientView.swift */,
 				FAF8171D2BF8D582003BBBD3 /* InfoView.swift */,
+				A514A3232C01F49A0014BBD4 /* CustomTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -249,6 +261,7 @@
 				A52C53F52BEFFB8C00699D2E /* BaseController.swift */,
 				A52C53F72BF0003A00699D2E /* BaseViewModel.swift */,
 				A5E40C302BF8DC850056AC63 /* ScreenType.swift */,
+				A514A3252C0A17480014BBD4 /* AlertModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -280,6 +293,16 @@
 				A538E3C62BF50F8F00485EF3 /* BetCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A5E40C322BF9FC970056AC63 /* NewBet */ = {
+			isa = PBXGroup;
+			children = (
+				A5E40C332BF9FCA40056AC63 /* NewBetController.swift */,
+				A5E40C352BF9FCBE0056AC63 /* NewBetView.swift */,
+				A5E40C372BF9FCD70056AC63 /* NewBetViewModel.swift */,
+			);
+			path = NewBet;
 			sourceTree = "<group>";
 		};
 		FABB838F2BEF94010092F21B /* Fonts */ = {
@@ -373,6 +396,7 @@
 				A52C53FA2BF001C300699D2E /* LastGamesViewModel.swift in Sources */,
 				A52C53DA2BEEB2D700699D2E /* UIView+ext.swift in Sources */,
 				A52C53B42BEE8B8300699D2E /* AppDelegate.swift in Sources */,
+				A5E40C382BF9FCD70056AC63 /* NewBetViewModel.swift in Sources */,
 				A52C53ED2BEFC6B500699D2E /* TeamType+ext.swift in Sources */,
 				A52C53E42BEFA3AA00699D2E /* GameCell.swift in Sources */,
 				A52C53D72BEE9B3C00699D2E /* LastGameView.swift in Sources */,
@@ -385,6 +409,7 @@
 				A538E3C52BF50F7900485EF3 /* BetVM.swift in Sources */,
 				A538E3C72BF50F8F00485EF3 /* BetCell.swift in Sources */,
 				A52C53DD2BEEB54E00699D2E /* LastGameVM.swift in Sources */,
+				A514A3262C0A17480014BBD4 /* AlertModel.swift in Sources */,
 				A52C54012BF10F1D00699D2E /* GameView.swift in Sources */,
 				A52C53F62BEFFB8C00699D2E /* BaseController.swift in Sources */,
 				FABB83992BEF94A80092F21B /* Fonts.swift in Sources */,
@@ -394,12 +419,15 @@
 				A52C53CC2BEE916300699D2E /* HomeController.swift in Sources */,
 				A52C53E12BEF9D6300699D2E /* UILabel+ext.swift in Sources */,
 				A52C54082BF1200300699D2E /* GameHeaderVM.swift in Sources */,
+				A5E40C362BF9FCBE0056AC63 /* NewBetView.swift in Sources */,
 				A52C53FF2BF10EF900699D2E /* GameController.swift in Sources */,
 				A52C53E82BEFC5BF00699D2E /* GameVM.swift in Sources */,
+				A5E40C342BF9FCA40056AC63 /* NewBetController.swift in Sources */,
 				A52C54062BF11FF800699D2E /* GameHeaderView.swift in Sources */,
 				A538E3C22BF50C1400485EF3 /* Bet.swift in Sources */,
 				A5E40C312BF8DC850056AC63 /* ScreenType.swift in Sources */,
 				FAF8171E2BF8D582003BBBD3 /* InfoView.swift in Sources */,
+				A514A3242C01F49A0014BBD4 /* CustomTextField.swift in Sources */,
 				A52C53DF2BEF93C200699D2E /* Date+ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

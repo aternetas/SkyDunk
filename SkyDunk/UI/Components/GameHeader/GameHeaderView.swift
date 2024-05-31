@@ -44,14 +44,15 @@ class GameHeaderView: UIView {
     
     lazy private var gradientView: GradientView = {
         let view = GradientView()
-        view.gradientDirection = .leftToRight
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.gradientDirection = .leftToRight
         return view
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setupView()
         setupConstraints()
     }
     
@@ -68,6 +69,10 @@ class GameHeaderView: UIView {
             
             self?.gradientView.setColors(colors: [vm.homeTeam.color, vm.guestTeam.color])
         }
+    }
+    
+    private func setupView() {
+        translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setupConstraints() {

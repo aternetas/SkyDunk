@@ -23,6 +23,7 @@ class BaseController<VM: BaseViewModel>: UIViewController {
         super.viewDidLoad()
         
         viewModel.navigationManager = self
+        viewModel.alertManager = self
     }
 }
 
@@ -38,7 +39,25 @@ extension BaseController: NavigationManagerProtocol {
             let vc = GameController()
             vc.viewModel.setGame(game: game)
             viewController = vc
+        case .newBet(game: let game):
+            let vc = NewBetController()
+            vc.viewModel.setGame(game: game)
+            viewController = vc
         }
         present(viewController, animated: true)
+    }
+}
+
+extension BaseController: AlertManagerProtocol {
+    
+    func showAlert(model: AlertModel) {
+        let alert = UIAlertController(title: model.title, message: model.message, preferredStyle: .alert)
+        
+        model.actions.forEach { alertActionModel in
+            alert.addAction(UIAlertAction(title: alertActionModel.title, style: .default, handler: { _ in
+                alertActionModel.action()
+            }))
+        }
+        present(alert, animated: true)
     }
 }
