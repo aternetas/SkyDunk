@@ -11,7 +11,16 @@ protocol NavigationManagerProtocol {
     func openScreen(screen: ScreenType)
 }
 
+protocol AlertManagerProtocol {
+    func showAlert(model: AlertModel)
+}
+
 class BaseViewModel {
     
     var navigationManager: NavigationManagerProtocol?
+    var alertManager: AlertManagerProtocol?
+    
+    func showAlert(model: AlertModel) {
+        alertManager?.showAlert(model: model)
+    }
 }
