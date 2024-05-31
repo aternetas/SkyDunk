@@ -7,13 +7,9 @@
 
 import UIKit
 
-class BetView: UIView {
+class CustomTextField: UIView {
     
-    enum TitleLabType: String {
-        case betTitle = "Прогноз"
-        case betAmount = "Ставка"
-        case betCoefficient = "Коэффициент"
-    }
+    var text: String = ""
     
     private lazy var titleLab: UILabel = {
         let label = UILabel()
@@ -30,6 +26,7 @@ class BetView: UIView {
         textField.font = UIFont(type: .regular, size: 14)
         textField.textColor = .textDark
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.addTarget(self, action: #selector(editTextField), for: .editingChanged)
         return textField
     }()
     
@@ -40,9 +37,9 @@ class BetView: UIView {
         return view
     }()
     
-    init(text: TitleLabType) {
+    init(text: String) {
         super.init(frame: .zero)
-        titleLab.text = text.rawValue
+        titleLab.text = text
         
         setupView()
         initConstraints()
@@ -50,6 +47,10 @@ class BetView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc private func editTextField() {
+        text = textField.text ?? ""
     }
     
     private func setupView() {

@@ -22,7 +22,7 @@ class NewBetViewModel: BaseViewModel {
         delegate?.setGameHeader(game: GameHeaderVM(game: game))
     }
     
-    func saveNewBet() {
-        
+    func saveNewBet(title: String, amount: String, coefficient: String) {
+        showAlert(model: AlertModel.getBaseError(text: title))
     }
 }
