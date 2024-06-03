@@ -23,6 +23,14 @@ class NewBetViewModel: BaseViewModel {
     }
     
     func saveNewBet(title: String, amount: String, coefficient: String) {
-        showAlert(model: AlertModel.getBaseError(text: title))
+        if title.isEmpty {
+            showAlert(model: AlertModel.getBaseError(text: "Прогноз не может быть пустым"))
+        } else if title.count <= 5 {
+            showAlert(model: AlertModel.getBaseError(text: "Поле должно состоять минимум из 5-ти символов"))
+        } else if amount.isEmpty || Double(amount) == nil {
+            showAlert(model: AlertModel.getBaseError(text: "Некорректные данные в поле \("Ставка")"))
+        } else if coefficient.isEmpty || Double(coefficient) == nil {
+            showAlert(model: AlertModel.getBaseError(text: "Некорректные данные в поле \("Коэффициент")"))
+        }
     }
 }

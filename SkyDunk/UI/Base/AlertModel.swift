@@ -13,9 +13,9 @@ struct AlertModel {
     let actions: [AlertActionModel]
     
     static func getBaseError(text: String) -> AlertModel {
-        AlertModel(title: "ошибка",
+        AlertModel(title: "Ошибка ввода",
                    message: text,
-                   actions: [AlertActionModel(title: "ладно", action: { })])
+                   actions: [AlertActionModel(title: "Ладно", action: { })])
     }
 }
 
