@@ -11,7 +11,6 @@ class InfoView: UIView {
     
     private lazy var infoLab: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(type: .light, size: 14)
         label.textColor = .textDark
         label.numberOfLines = 0
@@ -38,11 +37,10 @@ class InfoView: UIView {
         backgroundColor = .backgroundGray
         layer.cornerRadius = 10
         addShadows()
-        translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func initConstraints() {
-        addSubview(infoLab)
+        addSubviewsAndAutolayout([infoLab])
         
         NSLayoutConstraint.activate([
             infoLab.topAnchor.constraint(equalTo: topAnchor, constant: 16),

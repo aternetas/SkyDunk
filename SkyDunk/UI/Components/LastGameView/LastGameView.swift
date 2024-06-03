@@ -9,36 +9,25 @@ import UIKit
 
 class LastGameView: UIView {
     
-    lazy private var titleLab: UILabel = {
-        let label = UILabel(text: "КРАЙНЯЯ ИГРА", font: UIFont(type: .light, size: 18), textColor: .textDark)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    lazy private var titleLab = UILabel(text: "КРАЙНЯЯ ИГРА", font: UIFont(type: .light, size: 18), textColor: .textDark)
     
     lazy private var gameScoreLab: UILabel = {
         let label = UILabel(font: UIFont(type: .medium, size: 20), textColor: .textDark)
         label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy private var gameDateLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .extraLight, size: 15), textColor: .textDark)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    lazy private var gameDateLab = UILabel(font: UIFont(type: .extraLight, size: 15), textColor: .textDark)
     
     lazy private var homeTeamImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     lazy private var guestTeamImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -70,11 +59,11 @@ class LastGameView: UIView {
     }
     
     private func setupConstraints() {
-        addSubview(titleLab)
-        addSubview(gameScoreLab)
-        addSubview(gameDateLab)
-        addSubview(homeTeamImageView)
-        addSubview(guestTeamImageView)
+        addSubviewsAndAutolayout([titleLab,
+                                  gameScoreLab,
+                                  gameDateLab,
+                                  homeTeamImageView,
+                                  guestTeamImageView])
         
         NSLayoutConstraint.activate([
             titleLab.topAnchor.constraint(equalTo: topAnchor, constant: 16),

@@ -9,42 +9,30 @@ import UIKit
 
 class GameHeaderView: UIView {
     
-    lazy private var versusLab: UILabel = {
-        let label = UILabel(text: "VS", font: UIFont(type: .regular, size: 30), textColor: .textDark)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    lazy private var versusLab = UILabel(text: "VS", font: UIFont(type: .regular, size: 30), textColor: .textDark)
     
     lazy private var homeTeamImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     lazy private var guestTeamImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    lazy private var gameDateLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .extraLight, size: 15), textColor: .textDark)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    lazy private var gameDateLab = UILabel(font: UIFont(type: .extraLight, size: 15), textColor: .textDark)
     
     lazy private var gameScoreLab: UILabel = {
         let label = UILabel(font: UIFont(type: .medium, size: 20), textColor: .textDark)
         label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy private var gradientView: GradientView = {
         let view = GradientView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.gradientDirection = .leftToRight
         return view
     }()
@@ -52,7 +40,6 @@ class GameHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setupView()
         setupConstraints()
     }
     
@@ -71,17 +58,13 @@ class GameHeaderView: UIView {
         }
     }
     
-    private func setupView() {
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-    
     private func setupConstraints() {
-        addSubview(versusLab)
-        addSubview(homeTeamImageView)
-        addSubview(guestTeamImageView)
-        addSubview(gameDateLab)
-        addSubview(gradientView)
-        addSubview(gameScoreLab)
+        addSubviewsAndAutolayout([versusLab,
+                                  homeTeamImageView,
+                                  guestTeamImageView,
+                                  gameDateLab,
+                                  gradientView,
+                                  gameScoreLab])
         
         NSLayoutConstraint.activate([
             versusLab.centerXAnchor.constraint(equalTo: centerXAnchor),
