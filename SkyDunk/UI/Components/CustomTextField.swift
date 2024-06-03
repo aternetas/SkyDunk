@@ -10,6 +10,11 @@ import UIKit
 class CustomTextField: UIView {
     
     var text: String = ""
+    var keyboardType: UIKeyboardType = .default {
+        didSet {
+            textField.keyboardType = keyboardType
+        }
+    }
     
     private lazy var titleLab: UILabel = {
         let label = UILabel()
