@@ -14,7 +14,6 @@ class GameCell: UICollectionViewCell {
     
     lazy private var containerView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(resource: .backgroundGray)
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
@@ -24,32 +23,27 @@ class GameCell: UICollectionViewCell {
     lazy private var homeTeamImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     lazy private var guestTeamImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     lazy private var gameDateLab: UILabel = {
         let label = UILabel(font: UIFont(type: .extraLight, size: 14), textColor: .textDark)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy private var gameStartTimeLab: UILabel = {
         let label = UILabel(font: UIFont(type: .extraLight, size: 12), textColor: .textDark)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy private var gradientView: GradientView = {
         let view = GradientView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -81,13 +75,12 @@ class GameCell: UICollectionViewCell {
     }
     
     private func initConstraints() {
-        contentView.addSubview(containerView)
-        
-        containerView.addSubview(gradientView)
-        containerView.addSubview(homeTeamImageView)
-        containerView.addSubview(guestTeamImageView)
-        containerView.addSubview(gameDateLab)
-        containerView.addSubview(gameStartTimeLab)
+        contentView.addSubviewsAndAutolayout([containerView])
+        containerView.addSubviewsAndAutolayout([gradientView,
+                                                homeTeamImageView,
+                                                guestTeamImageView,
+                                                gameDateLab,
+                                                gameStartTimeLab])
         
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),

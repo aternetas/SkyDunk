@@ -13,11 +13,17 @@ extension UIView {
         color: UIColor = UIColor.black,
         radius: CGFloat = 4.0,
         opacity: Float = 0.25,
-        offset: CGSize = CGSize(width: 0, height: 4)
-    ) {
-        layer.shadowColor = color.cgColor
-        layer.shadowRadius = radius
-        layer.shadowOpacity = opacity
-        layer.shadowOffset = offset
+        offset: CGSize = CGSize(width: 0, height: 4)) {
+            layer.shadowColor = color.cgColor
+            layer.shadowRadius = radius
+            layer.shadowOpacity = opacity
+            layer.shadowOffset = offset
+        }
+    
+    func addSubviewsAndAutolayout(_ views: [UIView]) {
+        views.forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            addSubview($0)
+        }
     }
 }

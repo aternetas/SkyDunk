@@ -13,7 +13,6 @@ class BetCell: UITableViewCell {
     
     lazy private var containerView: GradientView = {
         let view = GradientView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10
         view.gradientDirection = .leftToRight
         view.clipsToBounds = true
@@ -22,7 +21,6 @@ class BetCell: UITableViewCell {
     
     lazy private var shadowView: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.addShadows()
         view.layer.cornerRadius = 10
@@ -31,7 +29,6 @@ class BetCell: UITableViewCell {
     
     lazy private var descriptionLab: UILabel = {
         let label = UILabel(font: UIFont(type: .regular, size: 14), textColor: .textDark)
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -39,7 +36,6 @@ class BetCell: UITableViewCell {
     
     lazy private var amountLab: UILabel = {
         let label = UILabel(font: UIFont(type: .regular, size: 14), textColor: .textDark)
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .right
         label.setContentCompressionResistancePriority(.init(1000), for: .horizontal)
         return label
@@ -47,20 +43,17 @@ class BetCell: UITableViewCell {
     
     lazy private var dateLab: UILabel = {
         let label = UILabel(font: UIFont(type: .extraLight, size: 12), textColor: .textDark)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy private var coefficientLab: UILabel = {
         let label = UILabel(font: UIFont(type: .extraLight, size: 12), textColor: .textDark)
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .right
         return label
     }()
     
     lazy private var sideView: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -78,7 +71,7 @@ class BetCell: UITableViewCell {
         bottomButton.setTitleColor(.white, for: .normal)
         bottomButton.setTitle("-", for: .normal)
         bottomButton.addTarget(self, action: #selector(tapOnMinusBetSwitchView), for: .touchUpInside)
-    
+        
         sv.addArrangedSubview(topButton)
         sv.addArrangedSubview(bottomButton)
         
@@ -86,7 +79,6 @@ class BetCell: UITableViewCell {
         sv.spacing = 3
         sv.layer.cornerRadius = 10
         sv.clipsToBounds = true
-        sv.translatesAutoresizingMaskIntoConstraints = false
         sv.distribution = .fillEqually
         sv.isUserInteractionEnabled = true
         return sv
@@ -138,15 +130,13 @@ class BetCell: UITableViewCell {
     }
     
     private func initConstraints() {
-        contentView.addSubview(shadowView)
-        contentView.addSubview(containerView)
-        
-        containerView.addSubview(descriptionLab)
-        containerView.addSubview(amountLab)
-        containerView.addSubview(dateLab)
-        containerView.addSubview(coefficientLab)
-        containerView.addSubview(sideView)
-        containerView.addSubview(betSwithView)
+        contentView.addSubviewsAndAutolayout([shadowView, containerView])
+        containerView.addSubviewsAndAutolayout([descriptionLab,
+                                                amountLab,
+                                                dateLab,
+                                                coefficientLab,
+                                                sideView,
+                                                betSwithView])
         
         NSLayoutConstraint.activate([
             shadowView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 7.5),

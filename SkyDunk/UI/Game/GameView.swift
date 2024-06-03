@@ -9,15 +9,10 @@ import UIKit
 
 class GameView: UIView {
     
-    lazy var gameHeaderView: GameHeaderView = {
-        let view = GameHeaderView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    lazy var gameHeaderView = GameHeaderView()
     
     lazy var betsTableView: UITableView = {
         let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
         tableView.register(BetCell.self, forCellReuseIdentifier: BetCell.identifier)
         return tableView
@@ -25,7 +20,6 @@ class GameView: UIView {
     
     lazy var newBetButton: UIButton = {
         let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(resource: .buttonBackgroundPrimary)
         button.setImage(.plusIcon, for: .normal)
         button.tintColor = .white
@@ -48,10 +42,10 @@ class GameView: UIView {
     }
     
     private func initConstraints() {
-        addSubview(gameHeaderView)
-        addSubview(emptyStateView)
-        addSubview(betsTableView)
-        addSubview(newBetButton)
+        addSubviewsAndAutolayout([gameHeaderView,
+                                  emptyStateView,
+                                  betsTableView,
+                                  newBetButton])
         
         NSLayoutConstraint.activate([
             gameHeaderView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 19),

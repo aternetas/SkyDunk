@@ -9,17 +9,12 @@ import UIKit
 
 class HomeView: UIView {
     
-    lazy var lastGameView = {
-        let view = LastGameView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    lazy var lastGameView = LastGameView()
     
     lazy private var nextGameLabel = {
         let label = UILabel(text: "БЛИЖАЙШИЕ ИГРЫ",
                             font: UIFont(type: .light, size: 18),
                             textColor: .textDark)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -27,7 +22,6 @@ class HomeView: UIView {
         let cvFlowLayout = UICollectionViewFlowLayout()
         cvFlowLayout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: cvFlowLayout)
-        cv.translatesAutoresizingMaskIntoConstraints = false
         cv.showsHorizontalScrollIndicator = false
         cv.register(GameCell.self, forCellWithReuseIdentifier: GameCell.identifier)
         return cv
@@ -45,9 +39,9 @@ class HomeView: UIView {
     }
     
     private func initConstraints() {
-        addSubview(lastGameView)
-        addSubview(nextGameLabel)
-        addSubview(nextGamesCollectionView)
+        addSubviewsAndAutolayout([lastGameView,
+                                  nextGameLabel,
+                                  nextGamesCollectionView])
         
         NSLayoutConstraint.activate([
             lastGameView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
