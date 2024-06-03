@@ -29,8 +29,12 @@ class NewBetViewModel: BaseViewModel {
             showAlert(model: AlertModel.getBaseError(text: "Поле должно состоять минимум из 5-ти символов"))
         } else if amount.isEmpty || Double(amount) == nil {
             showAlert(model: AlertModel.getBaseError(text: "Некорректные данные в поле \("Ставка")"))
+        } else if Double(amount)! < 1 {
+            showAlert(model: AlertModel.getBaseError(text: "Минимальная ставка: 1 балл"))
         } else if coefficient.isEmpty || Double(coefficient) == nil {
             showAlert(model: AlertModel.getBaseError(text: "Некорректные данные в поле \("Коэффициент")"))
+        } else if Double(coefficient)! <= 0.0 {
+            showAlert(model: AlertModel.getBaseError(text: "Коэффициент должен быть выше нуля"))
         }
     }
 }
