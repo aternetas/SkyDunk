@@ -25,7 +25,7 @@ class NewBetViewModel: BaseViewModel {
     func saveNewBet(title: String, amount: String, coefficient: String) {
         if title.isEmpty {
             showAlert(model: AlertModel.getBaseError(text: "Прогноз не может быть пустым"))
-        } else if title.count <= 5 {
+        } else if title.count < 5 {
             showAlert(model: AlertModel.getBaseError(text: "Поле должно состоять минимум из 5-ти символов"))
         } else if amount.isEmpty || Double(amount) == nil {
             showAlert(model: AlertModel.getBaseError(text: "Некорректные данные в поле \("Ставка")"))

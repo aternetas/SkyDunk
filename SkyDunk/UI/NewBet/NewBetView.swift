@@ -21,6 +21,7 @@ class NewBetView: UIView {
     
     lazy var betTitleTextField: CustomTextField = {
         let textField = CustomTextField(text: "Прогноз")
+        textField.keyboardType = .default
         return textField
     }()
     

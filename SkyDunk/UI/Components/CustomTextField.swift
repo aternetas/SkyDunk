@@ -14,6 +14,10 @@ class CustomTextField: UIView {
     var keyboardType: UIKeyboardType = .default {
         didSet {
             textField.keyboardType = keyboardType
+            
+            if textField.keyboardType != .default {
+                textField.inputAccessoryView = createToolbar()
+            }
         }
     }
     
