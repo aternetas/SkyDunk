@@ -94,7 +94,9 @@ class HomeViewModel: BaseViewModel {
     
     private func setActiveBets() {
         activeBetsVM = activeBets.map { BetVM(bet: $0, delegate: self)}
-        delegate?.updateActiveBets()
+        if activeBets.count > 0 {
+            delegate?.updateActiveBets()
+        }
     }
 }
 
