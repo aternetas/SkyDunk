@@ -29,7 +29,7 @@ class NewBetViewModel: BaseViewModel {
     }
     
     private func checkUserInput(title: String, amount: String, coefficient: String) -> Bool {
-        var message: String = if title.isEmpty {
+        let message: String = if title.isEmpty {
             "Прогноз не может быть пустым"
         } else if title.count < 5 {
             "Поле должно состоять минимум из 5-ти символов"
