@@ -27,6 +27,20 @@ class HomeView: UIView {
         return cv
     }()
     
+    lazy private var activeBetsLabel = {
+        let label = UILabel(text: "АКТИВНЫЕ СТАВКИ",
+                            font: UIFont(type: .light, size: 18),
+                            textColor: .textDark)
+        return label
+    }()
+    
+    lazy var betsTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.separatorStyle = .none
+        tableView.register(BetCell.self, forCellReuseIdentifier: BetCell.identifier)
+        return tableView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .backgroundWhite
@@ -41,7 +55,9 @@ class HomeView: UIView {
     private func initConstraints() {
         addSubviewsAndAutolayout([lastGameView,
                                   nextGameLabel,
-                                  nextGamesCollectionView])
+                                  nextGamesCollectionView,
+                                  activeBetsLabel,
+                                  betsTableView])
         
         NSLayoutConstraint.activate([
             lastGameView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
@@ -55,7 +71,15 @@ class HomeView: UIView {
             nextGamesCollectionView.topAnchor.constraint(equalTo: nextGameLabel.bottomAnchor, constant: 20),
             nextGamesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
             nextGamesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -7),
-            nextGamesCollectionView.heightAnchor.constraint(equalToConstant: GameCell.HEIGHT)
+            nextGamesCollectionView.heightAnchor.constraint(equalToConstant: GameCell.HEIGHT),
+            
+            activeBetsLabel.topAnchor.constraint(equalTo: nextGamesCollectionView.bottomAnchor, constant: 36),
+            activeBetsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            
+            betsTableView.topAnchor.constraint(equalTo: activeBetsLabel.bottomAnchor, constant: 20),
+            betsTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            betsTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            betsTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0)
         ])
     }
 }

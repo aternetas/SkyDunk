@@ -28,6 +28,9 @@ class HomeController: BaseController<HomeViewModel> {
         rootView.nextGamesCollectionView.delegate = self
         rootView.nextGamesCollectionView.dataSource = self
         
+        rootView.betsTableView.delegate = self
+        rootView.betsTableView.dataSource = self
+        
         viewModel.viewDidLoad()
         
         let lastGameViewTap = UITapGestureRecognizer(target: self, action: #selector(tapOnLastGameView))
@@ -58,6 +61,18 @@ extension HomeController: HomeViewModelDelegat {
             self?.rootView.nextGamesCollectionView.reloadData()
         }
     }
+    
+    func updateActiveBets() {
+        DispatchQueue.main.async { [weak self] in
+            self?.rootView.betsTableView.reloadData()
+        }
+    }
+    
+    func updateActiveBet(index: Int) {
+        DispatchQueue.main.async { [weak self] in
+            self?.rootView.betsTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        }
+    }
 }
 
 extension HomeController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -79,5 +94,26 @@ extension HomeController: UICollectionViewDelegateFlowLayout, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let game = viewModel.nextGamesVM[indexPath.item]
         viewModel.selectGame(id: game.id)
+    }
+}
+
+extension HomeController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.activeBetsVM.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: BetCell.identifier, for: indexPath) as! BetCell
+        cell.bind(vm: viewModel.activeBetsVM[indexPath.item])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        (tableView.cellForRow(at: indexPath) as? BetCell)?.onClick()
     }
 }
