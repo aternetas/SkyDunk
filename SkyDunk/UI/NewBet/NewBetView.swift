@@ -21,16 +21,19 @@ class NewBetView: UIView {
     
     lazy var betTitleTextField: CustomTextField = {
         let textField = CustomTextField(text: "Прогноз")
+        textField.keyboardType = .default
         return textField
     }()
     
     lazy var betAmountTextField: CustomTextField = {
         let textField = CustomTextField(text: "Ставка")
+        textField.keyboardType = .decimalPad
         return textField
     }()
     
     lazy var betCoefficientTextField: CustomTextField = {
         let textField = CustomTextField(text: "Коэффициент")
+        textField.keyboardType = .decimalPad
         return textField
     }()
         

@@ -23,6 +23,32 @@ class NewBetViewModel: BaseViewModel {
     }
     
     func saveNewBet(title: String, amount: String, coefficient: String) {
-        showAlert(model: AlertModel.getBaseError(text: title))
+        if checkUserInput(title: title, amount: amount, coefficient: coefficient) {
+            
+        }
+    }
+    
+    private func checkUserInput(title: String, amount: String, coefficient: String) -> Bool {
+        let message: String = if title.isEmpty {
+            "Прогноз не может быть пустым"
+        } else if title.count < 5 {
+            "Поле должно состоять минимум из 5-ти символов"
+        } else if amount.isEmpty || Double(amount) == nil {
+            "Некорректные данные в поле \("Ставка")"
+        } else if Double(amount)! < 1 {
+            "Минимальная ставка: 1 балл"
+        } else if coefficient.isEmpty || Double(coefficient) == nil {
+            "Некорректные данные в поле \("Коэффициент")"
+        } else if Double(coefficient)! <= 0.0 {
+            "Коэффициент должен быть выше нуля"
+        } else {
+            ""
+        }
+        
+        if !message.isEmpty {
+            showAlert(model: AlertModel.getUserInputFailedValidationError(text: message))
+        }
+        
+        return message.isEmpty
     }
 }

@@ -11,6 +11,16 @@ class CustomTextField: UIView {
     
     var text: String = ""
     
+    var keyboardType: UIKeyboardType = .default {
+        didSet {
+            textField.keyboardType = keyboardType
+            
+            if textField.keyboardType != .default {
+                textField.inputAccessoryView = createToolbar()
+            }
+        }
+    }
+    
     private lazy var titleLab: UILabel = {
         let label = UILabel()
         label.font = UIFont(type: .regular, size: 12)
@@ -25,6 +35,7 @@ class CustomTextField: UIView {
         textField.font = UIFont(type: .regular, size: 14)
         textField.textColor = .textDark
         textField.addTarget(self, action: #selector(editTextField), for: .editingChanged)
+        textField.returnKeyType = .done
         return textField
     }()
     
@@ -37,6 +48,7 @@ class CustomTextField: UIView {
     init(text: String) {
         super.init(frame: .zero)
         titleLab.text = text
+        textField.delegate = self
         
         initConstraints()
     }
@@ -70,5 +82,12 @@ class CustomTextField: UIView {
             underlineView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
+}
+
+extension CustomTextField: UITextFieldDelegate {
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

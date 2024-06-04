@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A514A3242C01F49A0014BBD4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3232C01F49A0014BBD4 /* CustomTextField.swift */; };
 		A514A3262C0A17480014BBD4 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3252C0A17480014BBD4 /* AlertModel.swift */; };
+		A514A3282C0E06B50014BBD4 /* CustomTextField+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3272C0E06B50014BBD4 /* CustomTextField+ext.swift */; };
 		A52C53B42BEE8B8300699D2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53B32BEE8B8300699D2E /* AppDelegate.swift */; };
 		A52C53B62BEE8B8300699D2E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53B52BEE8B8300699D2E /* SceneDelegate.swift */; };
 		A52C53BD2BEE8B8500699D2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52C53BC2BEE8B8500699D2E /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		A514A3232C01F49A0014BBD4 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		A514A3252C0A17480014BBD4 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		A514A3272C0E06B50014BBD4 /* CustomTextField+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTextField+ext.swift"; sourceTree = "<group>"; };
 		A52C53B02BEE8B8300699D2E /* SkyDunk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyDunk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52C53B32BEE8B8300699D2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A52C53B52BEE8B8300699D2E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				A52C53DE2BEF93C200699D2E /* Date+ext.swift */,
 				A52C53E02BEF9D6300699D2E /* UILabel+ext.swift */,
 				A52C53EC2BEFC6B500699D2E /* TeamType+ext.swift */,
+				A514A3272C0E06B50014BBD4 /* CustomTextField+ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				A52C53ED2BEFC6B500699D2E /* TeamType+ext.swift in Sources */,
 				A52C53E42BEFA3AA00699D2E /* GameCell.swift in Sources */,
 				A52C53D72BEE9B3C00699D2E /* LastGameView.swift in Sources */,
+				A514A3282C0E06B50014BBD4 /* CustomTextField+ext.swift in Sources */,
 				A52C53FD2BF10ED400699D2E /* GameViewModel.swift in Sources */,
 				A52C54032BF1101000699D2E /* Game.swift in Sources */,
 				A52C53EF2BEFF7E000699D2E /* TeamType.swift in Sources */,
