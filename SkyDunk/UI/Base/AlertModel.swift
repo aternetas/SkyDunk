@@ -13,6 +13,12 @@ struct AlertModel {
     let actions: [AlertActionModel]
     
     static func getBaseError(text: String) -> AlertModel {
+        AlertModel(title: "Ошибка",
+                   message: text,
+                   actions: [AlertActionModel(title: "Ладно", action: { })])
+    }
+    
+    static func getUserInputFailedValidationError(text: String) -> AlertModel {
         AlertModel(title: "Ошибка ввода",
                    message: text,
                    actions: [AlertActionModel(title: "Ладно", action: { })])
