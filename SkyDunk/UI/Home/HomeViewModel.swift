@@ -94,7 +94,7 @@ class HomeViewModel: BaseViewModel {
     
     private func setActiveBets() {
         activeBetsVM = activeBets.filter { $0.isSuccess == nil }
-            .map {BetVM(bet: $0, delegate: self)}
+            .map { BetVM(bet: $0, delegate: self) }
         if activeBets.count > 0 {
             delegate?.updateActiveBets()
         }
@@ -120,6 +120,11 @@ extension HomeViewModel: BetCellListenerProtocol {
     private func changeBetStatus(id: String, isSuccess: Bool) {
         guard let index = activeBetsVM.firstIndex(where: { $0.id == id}) else { return }
         activeBetsVM[index] = activeBetsVM[index].copy(isActive: false, isSuccess: isSuccess)
-        delegate?.updateActiveBet(index: index)
+        filterActiveBetsVM()
+        delegate?.updateActiveBets()
+    }
+    
+    private func filterActiveBetsVM() {
+        activeBetsVM = activeBetsVM.filter { $0.isSuccess == nil }
     }
 }
