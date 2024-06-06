@@ -51,7 +51,7 @@ extension GameController: GameViewModelDelegat {
     
     func updateBet(index: Int) {
         DispatchQueue.main.async { [weak self] in
-            self?.rootView.betsTableView.reloadRows(at: [.init(row: index, section: 0)], with: .automatic)
+            self?.rootView.betsTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
         }
     }
     
