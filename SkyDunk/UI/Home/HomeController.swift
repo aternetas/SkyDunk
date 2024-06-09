@@ -48,6 +48,23 @@ class HomeController: BaseController<HomeViewModel> {
         
         view = rootView
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        rootView.betsTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        rootView.betsTableView.removeObserver(self, forKeyPath: "contentSize")
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentSize" {
+            if let newValue = change?[.newKey] {
+                let newSize = newValue as! CGSize
+                rootView.betsTableViewHeight.constant = (newValue as! CGSize).height
+            }
+        }
+    }
 }
 
 extension HomeController: HomeViewModelDelegat {
