@@ -83,7 +83,7 @@ extension HomeController: HomeViewModelDelegat {
     
     func updateActiveBets() {
         DispatchQueue.main.async { [weak self] in
-            self?.rootView.activeBetsLabel.isHidden = self?.viewModel.activeBetsVM.count != 0 ? false : true
+            self?.rootView.activeBetsLabel.isHidden = self?.viewModel.activeBetsVM.count == 0
             self?.rootView.betsTableView.reloadData()
         }
     }
