@@ -62,7 +62,6 @@ class HomeController: BaseController<HomeViewModel> {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentSize" {
             if let newValue = change?[.newKey] {
-                let newSize = newValue as! CGSize
                 rootView.betsTableViewHC.constant = (newValue as! CGSize).height
             }
         }

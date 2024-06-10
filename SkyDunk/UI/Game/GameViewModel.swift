@@ -27,8 +27,8 @@ class GameViewModel: BaseViewModel {
     }
     
     func setBets() {
-        guard let bets = game?.bets else { return }
-        betsVM = bets.map( { BetVM(bet: $0, delegate: self) } )
+//        guard let bets = game?.bets else { return }
+//        betsVM = bets.map( { BetVM(bet: $0, delegate: self) } )
         
         delegate?.showEmptyState(isShow: betsVM.isEmpty)
         delegate?.showBets()
