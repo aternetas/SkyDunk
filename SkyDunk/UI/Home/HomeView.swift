@@ -55,7 +55,7 @@ class HomeView: UIView {
         return tableView
     }()
     
-    lazy var betsTableViewHeight = betsTableView.heightAnchor.constraint(equalToConstant: 0)
+    lazy var betsTableViewHC = betsTableView.heightAnchor.constraint(equalToConstant: 0)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -109,7 +109,7 @@ class HomeView: UIView {
             betsTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             betsTableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             betsTableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-            betsTableViewHeight
+            betsTableViewHC
         ])
     }
 }
