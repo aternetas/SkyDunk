@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum TeamType {
-    case bostonCeltics, denverNuggets, atlantaHawks, dallasMavericks
+enum TeamType: String {
+    case bostonCeltics = "BOS", denverNuggets = "DEN", atlantaHawks = "ATL", dallasMavericks = "DAL", other = ""
 }

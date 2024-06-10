@@ -19,6 +19,8 @@ extension TeamType {
             UIColor(resource: .atlantaHawks)
         case .dallasMavericks:
             UIColor(resource: .dallasMavericks)
+        case .other:
+                .black
         }
     }
     
@@ -32,6 +34,8 @@ extension TeamType {
             UIImage(resource: .ATL)
         case .dallasMavericks:
             UIImage(resource: .DAL)
+        case .other:
+            UIImage(resource: .plusIcon)//TODO: добавить иконку
         }
     }
 }
