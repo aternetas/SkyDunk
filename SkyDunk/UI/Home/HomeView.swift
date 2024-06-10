@@ -9,9 +9,30 @@ import UIKit
 
 class HomeView: UIView {
     
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.alwaysBounceVertical = true
+        scrollView.showsVerticalScrollIndicator = true
+        return scrollView
+    }()
+    
+    private lazy var contentView: UIView = {
+        let view = UIView()
+        view.clipsToBounds = false
+        return view
+    }()
+    
     lazy var lastGameView = LastGameView()
     
-    lazy private var nextGameLabel = {
+    lazy var activeBetsLabel = {
+        let label = UILabel(text: "АКТИВНЫЕ СТАВКИ",
+                            font: UIFont(type: .light, size: 18),
+                            textColor: .textDark)
+        label.isHidden = true
+        return label
+    }()
+    
+    private lazy var nextGameLabel = {
         let label = UILabel(text: "БЛИЖАЙШИЕ ИГРЫ",
                             font: UIFont(type: .light, size: 18),
                             textColor: .textDark)
@@ -27,6 +48,15 @@ class HomeView: UIView {
         return cv
     }()
     
+    lazy var betsTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.separatorStyle = .none
+        tableView.register(BetCell.self, forCellReuseIdentifier: BetCell.identifier)
+        return tableView
+    }()
+    
+    lazy var betsTableViewHC = betsTableView.heightAnchor.constraint(equalToConstant: 0)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .backgroundWhite
@@ -39,23 +69,47 @@ class HomeView: UIView {
     }
     
     private func initConstraints() {
-        addSubviewsAndAutolayout([lastGameView,
+        addSubviewsAndAutolayout([scrollView])
+        scrollView.addSubviewsAndAutolayout([contentView])
+        contentView.addSubviewsAndAutolayout([lastGameView,
                                   nextGameLabel,
-                                  nextGamesCollectionView])
+                                  nextGamesCollectionView,
+                                  activeBetsLabel,
+                                  betsTableView])
         
         NSLayoutConstraint.activate([
-            lastGameView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
-            lastGameView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            lastGameView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
+            scrollView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            scrollView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            lastGameView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            lastGameView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            lastGameView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             lastGameView.heightAnchor.constraint(equalToConstant: 157),
             
             nextGameLabel.topAnchor.constraint(equalTo: lastGameView.bottomAnchor, constant: 40),
-            nextGameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            nextGameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             
             nextGamesCollectionView.topAnchor.constraint(equalTo: nextGameLabel.bottomAnchor, constant: 20),
-            nextGamesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
-            nextGamesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -7),
-            nextGamesCollectionView.heightAnchor.constraint(equalToConstant: GameCell.HEIGHT)
+            nextGamesCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 7),
+            nextGamesCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -7),
+            nextGamesCollectionView.heightAnchor.constraint(equalToConstant: GameCell.HEIGHT),
+            
+            activeBetsLabel.topAnchor.constraint(equalTo: nextGamesCollectionView.bottomAnchor, constant: 36),
+            activeBetsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            
+            betsTableView.topAnchor.constraint(equalTo: activeBetsLabel.bottomAnchor, constant: 20),
+            betsTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            betsTableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            betsTableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            betsTableViewHC
         ])
     }
 }
