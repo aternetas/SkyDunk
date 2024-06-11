@@ -29,6 +29,6 @@ struct LastGameVM {
                   guestTeam: game.guestTeam,
                   homeTeamScore: game.homeScore,
                   guestTeamScore: game.guestScore,
-                  date: game.gameDate)
+                  date: game.date)
     }
 }

@@ -51,8 +51,7 @@ class HomeViewModel: BaseViewModel {
     }
     
     private func setLastGame() {
-        guard let lastGame = games.last else { return }
-        self.lastGameVM = LastGameVM(game: lastGame)
+        self.lastGameVM = LastGameVM(game: gameService.getLastGame())
         delegate?.updateLastGame(vm: lastGameVM!)
     }
     

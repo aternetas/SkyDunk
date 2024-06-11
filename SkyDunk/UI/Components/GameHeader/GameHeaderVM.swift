@@ -24,7 +24,7 @@ struct GameHeaderVM {
     init(game: Game) {
         self.init(homeTeam: game.homeTeam, 
                   guestTeam: game.guestTeam,
-                  score: game.gameDate < Date() ? "\(game.homeScore) : \(game.guestScore)" : "",
-                  date: game.gameDate.toDayMonthYear())
+                  score: game.date < Date() ? "\(game.homeScore) : \(game.guestScore)" : "",
+                  date: game.date.toDayMonthYear())
     }
 }
