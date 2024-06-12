@@ -25,7 +25,7 @@ class GameService {
     func getLastGame() -> Game {
         let lastGames = games.filter { Date.now > $0.date }
         var lastGame = lastGames[0]
-        var distance = abs(Date.now.distance(to: lastGames[0].date))
+        var distance = abs(Date.now.distance(to: lastGame.date))
         lastGames.forEach { game in
             let newDistance = Date.now.distance(to: game.date)
             if abs(newDistance) < distance {
@@ -36,7 +36,9 @@ class GameService {
         return lastGame
     }
     
-    func getNextGames() {
-        
+    func getNextGames() -> [Game] {
+        Array<Game>(games.filter { Date.now < $0.date }
+            .sorted { $0.date < $1.date }
+            .prefix(10))
     }
 }

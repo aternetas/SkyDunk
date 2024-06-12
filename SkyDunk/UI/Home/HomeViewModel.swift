@@ -46,7 +46,7 @@ class HomeViewModel: BaseViewModel {
     }
     
     private func setNextGames() {
-        nextGamesVM = games.map { GameVM(game: $0) }
+        nextGamesVM = gameService.getNextGames().map { GameVM(game: $0) }
         delegate?.updateNextGames()
     }
     
