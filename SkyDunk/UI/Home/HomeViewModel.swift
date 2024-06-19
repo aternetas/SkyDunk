@@ -59,16 +59,16 @@ class HomeViewModel: BaseViewModel {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.5, execute: { [weak self] in
             guard let self = self else { return }
             self.activeBets = [
-                Bet(description: "Sbviu sin kmckiy kasen keviyt sitnai ciay asenait snianyrt serian saetieayyy", date: Date(), amount: 10, coefficient: 2.1, teams: [.atlantaHawks], isSuccess: nil),
-                Bet(description: "Starn keviyt sitnai ciay", date: Date(), amount: 13, coefficient: 1.3, teams: [.atlantaHawks, .bostonCeltics], isSuccess: nil),
-                Bet(description: "Sbviu sin kmckiy kasen keviyt sitnai ciay asenait snianyrt serian saetieayyy", date: Date(), amount: 10, coefficient: 2.1, teams: [.atlantaHawks], isSuccess: nil),
-                Bet(description: "Starn keviyt sitnai ciay", date: Date(), amount: 13, coefficient: 1.3, teams: [.atlantaHawks, .bostonCeltics], isSuccess: nil),
-                Bet(description: "Sbviu sin kmckiy kasen keviyt sitnai ciay asenait snianyrt serian saetieayyy", date: Date(), amount: 10, coefficient: 2.1, teams: [.atlantaHawks], isSuccess: nil),
-                Bet(description: "Starn keviyt sitnai ciay", date: Date(), amount: 13, coefficient: 1.3, teams: [.atlantaHawks, .bostonCeltics], isSuccess: nil),
-                Bet(description: "Sbviu sin kmckiy kasen keviyt sitnai ciay asenait snianyrt serian saetieayyy", date: Date(), amount: 10, coefficient: 2.1, teams: [.atlantaHawks], isSuccess: nil),
-                Bet(description: "Starn keviyt sitnai ciay", date: Date(), amount: 13, coefficient: 1.3, teams: [.atlantaHawks, .bostonCeltics], isSuccess: nil),
-                Bet(description: "Sbviu sin kmckiy kasen keviyt sitnai ciay asenait snianyrt serian saetieayyy", date: Date(), amount: 10, coefficient: 2.1, teams: [.atlantaHawks], isSuccess: nil),
-                Bet(description: "Starn keviyt sitnai ciay", date: Date(), amount: 13, coefficient: 1.3, teams: [.atlantaHawks, .bostonCeltics], isSuccess: nil)
+                Bet(description: "Sbviu sin kmckiy kasen keviyt sitnai ciay asenait snianyrt serian saetieayyy", date: Date(), amount: 10, coefficient: 2.1, betOn: [.atlantaHawks], isSuccess: nil),
+                Bet(description: "Starn keviyt sitnai ciay", date: Date(), amount: 13, coefficient: 1.3, betOn: [.atlantaHawks, .bostonCeltics], isSuccess: nil),
+                Bet(description: "Sbviu sin kmckiy kasen keviyt sitnai ciay asenait snianyrt serian saetieayyy", date: Date(), amount: 10, coefficient: 2.1, betOn: [.atlantaHawks], isSuccess: nil),
+                Bet(description: "Starn keviyt sitnai ciay", date: Date(), amount: 13, coefficient: 1.3, betOn: [.atlantaHawks, .bostonCeltics], isSuccess: nil),
+                Bet(description: "Sbviu sin kmckiy kasen keviyt sitnai ciay asenait snianyrt serian saetieayyy", date: Date(), amount: 10, coefficient: 2.1, betOn: [.atlantaHawks], isSuccess: nil),
+                Bet(description: "Starn keviyt sitnai ciay", date: Date(), amount: 13, coefficient: 1.3, betOn: [.atlantaHawks, .bostonCeltics], isSuccess: nil),
+                Bet(description: "Sbviu sin kmckiy kasen keviyt sitnai ciay asenait snianyrt serian saetieayyy", date: Date(), amount: 10, coefficient: 2.1, betOn: [.atlantaHawks], isSuccess: nil),
+                Bet(description: "Starn keviyt sitnai ciay", date: Date(), amount: 13, coefficient: 1.3, betOn: [.atlantaHawks, .bostonCeltics], isSuccess: nil),
+                Bet(description: "Sbviu sin kmckiy kasen keviyt sitnai ciay asenait snianyrt serian saetieayyy", date: Date(), amount: 10, coefficient: 2.1, betOn: [.atlantaHawks], isSuccess: nil),
+                Bet(description: "Starn keviyt sitnai ciay", date: Date(), amount: 13, coefficient: 1.3, betOn: [.atlantaHawks, .bostonCeltics], isSuccess: nil)
             ]
             self.setActiveBets()
         })

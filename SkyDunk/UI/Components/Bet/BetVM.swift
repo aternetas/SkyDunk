@@ -22,10 +22,10 @@ class BetVM {
     let coefficient: String
     let isActive: Bool
     let isSuccess: Bool?
-    let teams: [TeamType]
+    let betOn: [TeamType]
     let delegate: BetCellListenerProtocol?
     
-    init(id: String, description: String, date: String, amount: String, coefficient: String, isActive: Bool, isSuccess: Bool?, teams: [TeamType], delegate: BetCellListenerProtocol?) {
+    init(id: String, description: String, date: String, amount: String, coefficient: String, isActive: Bool, isSuccess: Bool?, betOn: [TeamType], delegate: BetCellListenerProtocol?) {
         self.id = id
         self.description = description
         self.date = date
@@ -33,7 +33,7 @@ class BetVM {
         self.coefficient = coefficient
         self.isActive = isActive
         self.isSuccess = isSuccess
-        self.teams = teams
+        self.betOn = betOn
         self.delegate = delegate
     }
     
@@ -45,7 +45,7 @@ class BetVM {
                   coefficient: String(bet.coefficient),
                   isActive: bet.isSuccess == nil,
                   isSuccess: bet.isSuccess,
-                  teams: bet.teams,
+                  betOn: bet.betOn,
                   delegate: delegate)
     }
     
@@ -57,7 +57,7 @@ class BetVM {
               coefficient: coefficient,
               isActive: isActive ?? self.isActive,
               isSuccess: isSuccess ?? self.isSuccess,
-              teams: teams,
+              betOn: betOn,
               delegate: delegate)
     }
     

@@ -14,6 +14,6 @@ struct Bet {
     let date: Date
     let amount: Double
     let coefficient: Double
-    let teams: [TeamType]
+    let betOn: [TeamType]
     let isSuccess: Bool?
 }
