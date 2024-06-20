@@ -15,4 +15,10 @@ class BetService {
     init(repository: BetRepository) {
         self.repository = repository
     }
+    
+    func getBets(completion: @escaping([Bet]) -> ()) {
+        repository.getBets { dtos in
+            completion(dtos.map { Bet(dto: $0) })
+        }
+    }
 }

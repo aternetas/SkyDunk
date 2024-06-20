@@ -33,7 +33,7 @@ struct Bet {
                   date: dto.date,
                   amount: dto.amount,
                   coefficient: dto.coefficient,
-                  betOn: dto.betOn,
+                  betOn: dto.betOn.map { TeamType(rawValue: $0) ?? .other },
                   isSuccess: dto.isSuccess)
     }
 }

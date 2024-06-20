@@ -17,3 +17,9 @@ var tmpGames = [
     GameDTO(homeTeam: "BOS", guestTeam: "DAL", date: Date.now + 2402, homeScore: 0, guestScore: 0, betIds: []),
     GameDTO(homeTeam: "BOS", guestTeam: "DAL", date: Date.now + 2, homeScore: 0, guestScore: 0, betIds: [])
 ]
+
+var tmpBets = [
+    BetDTO(description: "Takar fw iasen nia yaya", date: Date.now, amount: 0.0, coefficient: 0.0, betOn: ["DEN", "MIN"], isSuccess: nil),
+    BetDTO(description: "ONknv r", date: Date.now, amount: 0.0, coefficient: 0.0, betOn: ["BOS", "ATL"], isSuccess: nil),
+    BetDTO(description: "Olt irnesi rins risn ryns owowo sxy rntin orasien rency sni rin ywywyyw", date: Date.now, amount: 0.0, coefficient: 0.0, betOn: ["OKC", "UTA"], isSuccess: nil)
+]
