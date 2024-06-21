@@ -10,6 +10,7 @@ import Foundation
 struct BetDTO {
     
     let id = UUID().uuidString
+    let gameId: String
     let description: String
     let date: Date
     let amount: Double

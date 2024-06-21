@@ -19,7 +19,7 @@ var tmpGames = [
 ]
 
 var tmpBets = [
-    BetDTO(description: "Takar fw iasen nia yaya", date: Date.now - 2414, amount: 50, coefficient: 2.1, betOn: ["DEN", "MIN"], isSuccess: nil),
-    BetDTO(description: "ONknv r", date: Date.now - 23120, amount: 10, coefficient: 1.4, betOn: ["BOS", "ATL"], isSuccess: nil),
-    BetDTO(description: "Olt irnesi rins risn ryns owowo sxy rntin orasien rency sni rin ywywyyw", date: Date.now - 23405, amount: 30, coefficient: 3.0, betOn: ["OKC", "UTA"], isSuccess: nil)
+    BetDTO(gameId: "", description: "Takar fw iasen nia yaya", date: Date.now - 2414, amount: 50, coefficient: 2.1, betOn: ["DEN", "MIN"], isSuccess: nil),
+    BetDTO(gameId: "", description: "ONknv r", date: Date.now - 23120, amount: 10, coefficient: 1.4, betOn: ["BOS", "ATL"], isSuccess: nil),
+    BetDTO(gameId: "", description: "Olt irnesi rins risn ryns owowo sxy rntin orasien rency sni rin ywywyyw", date: Date.now - 23405, amount: 30, coefficient: 3.0, betOn: ["OKC", "UTA"], isSuccess: nil)
 ]
