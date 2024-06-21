@@ -17,8 +17,16 @@ class BetService {
     }
     
     func getBets(completion: @escaping([Bet]) -> ()) {
-        repository.getBets { dtos in
-            completion(dtos.map { Bet(dto: $0) })
+        repository.getBets { [weak self] dtos in
+            guard let self = self else { return }
+            bets = dtos.map { Bet(dto: $0) }
+            completion(bets)
+        }
+    }
+    
+    func getActiveBets(completion: @escaping([Bet]) -> ()) {
+        getBets { bets in
+            completion(bets.filter { $0.isSuccess == nil })
         }
     }
 }

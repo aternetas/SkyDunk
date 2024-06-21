@@ -17,6 +17,7 @@ protocol HomeViewModelDelegat {
 class HomeViewModel: BaseViewModel {
     
     let gameService = GameService(repository: GameRepository())
+    let betService = BetService(repository: BetRepository())
     
     var delegate: HomeViewModelDelegat?
     var nextGamesVM: [GameVM] = []
@@ -45,6 +46,13 @@ class HomeViewModel: BaseViewModel {
         }
     }
     
+    private func getActiveBets() {
+        betService.getActiveBets { [weak self] bets in
+            self?.activeBets = bets
+            self?.setActiveBets()
+        }
+    }
+    
     private func setNextGames() {
         nextGamesVM = gameService.getNextGames().map { GameVM(game: $0) }
         delegate?.updateNextGames()
@@ -54,29 +62,9 @@ class HomeViewModel: BaseViewModel {
         self.lastGameVM = LastGameVM(game: gameService.getLastGame())
         delegate?.updateLastGame(vm: lastGameVM!)
     }
-    
-    private func getActiveBets() {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 0.5, execute: { [weak self] in
-            guard let self = self else { return }
-//            self.activeBets = [
-//                Bet(description: "Sbviu sin kmckiy kasen keviyt sitnai ciay asenait snianyrt serian saetieayyy", date: Date(), amount: 10, coefficient: 2.1, betOn: [.atlantaHawks], isSuccess: nil),
-//                Bet(description: "Starn keviyt sitnai ciay", date: Date(), amount: 13, coefficient: 1.3, betOn: [.atlantaHawks, .bostonCeltics], isSuccess: nil),
-//                Bet(description: "Sbviu sin kmckiy kasen keviyt sitnai ciay asenait snianyrt serian saetieayyy", date: Date(), amount: 10, coefficient: 2.1, betOn: [.atlantaHawks], isSuccess: nil),
-//                Bet(description: "Starn keviyt sitnai ciay", date: Date(), amount: 13, coefficient: 1.3, betOn: [.atlantaHawks, .bostonCeltics], isSuccess: nil),
-//                Bet(description: "Sbviu sin kmckiy kasen keviyt sitnai ciay asenait snianyrt serian saetieayyy", date: Date(), amount: 10, coefficient: 2.1, betOn: [.atlantaHawks], isSuccess: nil),
-//                Bet(description: "Starn keviyt sitnai ciay", date: Date(), amount: 13, coefficient: 1.3, betOn: [.atlantaHawks, .bostonCeltics], isSuccess: nil),
-//                Bet(description: "Sbviu sin kmckiy kasen keviyt sitnai ciay asenait snianyrt serian saetieayyy", date: Date(), amount: 10, coefficient: 2.1, betOn: [.atlantaHawks], isSuccess: nil),
-//                Bet(description: "Starn keviyt sitnai ciay", date: Date(), amount: 13, coefficient: 1.3, betOn: [.atlantaHawks, .bostonCeltics], isSuccess: nil),
-//                Bet(description: "Sbviu sin kmckiy kasen keviyt sitnai ciay asenait snianyrt serian saetieayyy", date: Date(), amount: 10, coefficient: 2.1, betOn: [.atlantaHawks], isSuccess: nil),
-//                Bet(description: "Starn keviyt sitnai ciay", date: Date(), amount: 13, coefficient: 1.3, betOn: [.atlantaHawks, .bostonCeltics], isSuccess: nil)
-//            ]
-            self.setActiveBets()
-        })
-    }
-    
+
     private func setActiveBets() {
-        activeBetsVM = activeBets.filter { $0.isSuccess == nil }
-            .map { BetVM(bet: $0, delegate: self) }
+        activeBetsVM = activeBets.map { BetVM(bet: $0, delegate: self) }
         if activeBets.count > 0 {
             delegate?.updateActiveBets()
         }
