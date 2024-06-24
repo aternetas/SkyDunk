@@ -10,17 +10,14 @@ import Foundation
 class BetService {
     
     private let repository: BetRepository
-    private var bets: [Bet] = []
     
     init(repository: BetRepository) {
         self.repository = repository
     }
     
     func getBets(completion: @escaping([Bet]) -> ()) {
-        repository.getBets { [weak self] dtos in
-            guard let self = self else { return }
-            bets = dtos.map { Bet(dto: $0) }
-            completion(bets)
+        repository.getBets { dtos in
+            completion(dtos.map { Bet(dto: $0) })
         }
     }
     
@@ -37,8 +34,6 @@ class BetService {
     }
     
     func editBet(id: String, description: String? = nil, isSuccess: Bool? = nil) {
-        repository.editBet(id: id, description: description, isSuccess: isSuccess) { [weak self] dto, index in
-            self?.bets[index] = Bet(dto: dto)
-        }
+        repository.editBet(id: id, description: description, isSuccess: isSuccess)
     }
 }

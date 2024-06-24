@@ -21,7 +21,7 @@ class BetRepository {
         })
     }
     
-    func editBet(id: String, description: String? = nil, isSuccess: Bool? = nil, completion: @escaping((BetDTO, Int) -> ())) {
+    func editBet(id: String, description: String? = nil, isSuccess: Bool? = nil) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.3, execute: { [weak self] in
             let dto = self?.findBetById(id: id)
             let index = tmpBets.firstIndex(where: { $0.id == id })
@@ -36,7 +36,6 @@ class BetRepository {
                                      betOn: dto.betOn,
                                      isSuccess: isSuccess ?? dto.isSuccess)
                 tmpBets[index] = editDto
-                completion(editDto, index)
             }
         })
     }
