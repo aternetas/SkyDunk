@@ -16,21 +16,23 @@ protocol GameViewModelDelegat {
 
 class GameViewModel: BaseViewModel {
     
-    let betService = BetService(repository: BetRepository())
+    private let betService = BetService(repository: BetRepository())
+    private let gameService = GameService(repository: GameRepository())
     
     var delegate: GameViewModelDelegat?
     var betsVM: [BetVM] = []
-    private var game: Game?
+   
+    private var gameId: String = ""
     
-    func setGame(game: Game) {
-        self.game = game
+    func setGame(gameId: String) {
+        self.gameId = gameId
+        let game = gameService.getGameByGameId(gameId)
         delegate?.showGame(game: GameHeaderVM(game: game))
         setBets()
     }
     
     private func setBets() {
-        guard let game = game else { return }
-        betService.getBetsByGameId(game.id) { [weak self] bets in
+        betService.getBetsByGameId(gameId) { [weak self] bets in
             guard let self = self else { return }
             betsVM = bets.map { BetVM(bet: $0, delegate: self) }
             
@@ -40,8 +42,7 @@ class GameViewModel: BaseViewModel {
     }
     
     func addNewBet() {
-        guard let game = game else { return }
-        navigationManager?.openScreen(screen: .newBet(game: game))
+        navigationManager?.openScreen(screen: .newBet(gameId: gameId))
     }
 }
 

@@ -16,8 +16,8 @@ protocol HomeViewModelDelegat {
 
 class HomeViewModel: BaseViewModel {
     
-    let gameService = GameService(repository: GameRepository())
-    let betService = BetService(repository: BetRepository())
+    private let gameService = GameService(repository: GameRepository())
+    private let betService = BetService(repository: BetRepository())
     
     var delegate: HomeViewModelDelegat?
     var nextGamesVM: [GameVM] = []
@@ -32,10 +32,7 @@ class HomeViewModel: BaseViewModel {
     }
     
     func selectGame(id: String) {
-        let game = games.first(where: { $0.id == id } )
-        if let game = game {
-            navigationManager?.openScreen(screen: .game(game: game))
-        }
+        navigationManager?.openScreen(screen: .game(gameId: id))
     }
     
     private func getGames() {

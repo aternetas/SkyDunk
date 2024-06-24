@@ -13,12 +13,16 @@ protocol NewBetViewModelDelegat {
 
 class NewBetViewModel: BaseViewModel {
     
+    private let gameService = GameService(repository: GameRepository())
+    
     var delegate: NewBetViewModelDelegat!
     
     private var game: Game?
+    private var gameId: String = ""
     
-    func setGame(game: Game) {
-        self.game = game
+    func setGame(gameId: String) {
+        self.gameId = gameId
+        let game = gameService.getGameByGameId(gameId)
         delegate?.setGameHeader(game: GameHeaderVM(game: game))
     }
     

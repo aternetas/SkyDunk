@@ -29,3 +29,5 @@ var tmpBets = [
     BetDTO(id: "KAOYK-WIKXO", gameId: "29ZK-RKXY-IR..", description: "Tyrese > 20 but < 30 point", betCreated: Date.now - 1250, amount: 20, coefficient: 1.76, betOn: ["LAC", "IND"], isSuccess: nil),
     BetDTO(id: "OA0XK-ATRKB", gameId: "29ZK-RKXY-IR..", description: "Beared man will cut his beard", betCreated: Date.now - 2305, amount: 40, coefficient: 1.8, betOn: ["LAC", "IND"], isSuccess: nil)
 ]
+
+let emptyGame = GameDTO(id: "", homeTeam: "", guestTeam: "", date: .now, homeScore: 000, guestScore: 000)

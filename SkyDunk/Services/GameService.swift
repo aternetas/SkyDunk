@@ -22,6 +22,10 @@ class GameService {
         }
     }
     
+    func getGameByGameId(_ gameId: String) -> Game {
+        games.first(where: { $0.id == gameId }) ?? Game(dto: emptyGame)
+    }
+    
     func getLastGame() -> Game {
         let lastGames = games.filter { Date.now > $0.date }
         var lastGame = lastGames[0]
