@@ -16,6 +16,8 @@ protocol GameViewModelDelegat {
 
 class GameViewModel: BaseViewModel {
     
+    let betService = BetService(repository: BetRepository())
+    
     var delegate: GameViewModelDelegat?
     var betsVM: [BetVM] = []
     private var game: Game?
@@ -26,12 +28,15 @@ class GameViewModel: BaseViewModel {
         setBets()
     }
     
-    func setBets() {
-//        guard let bets = game?.bets else { return }
-//        betsVM = bets.map( { BetVM(bet: $0, delegate: self) } )
-        
-        delegate?.showEmptyState(isShow: betsVM.isEmpty)
-        delegate?.showBets()
+    private func setBets() {
+        guard let game = game else { return }
+        betService.getBetsByGameId(game.id) { [weak self] bets in
+            guard let self = self else { return }
+            betsVM = bets.map { BetVM(bet: $0, delegate: self) }
+            
+            delegate?.showEmptyState(isShow: betsVM.isEmpty)
+            delegate?.showBets()
+        }
     }
     
     func addNewBet() {

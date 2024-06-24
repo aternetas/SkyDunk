@@ -31,8 +31,8 @@ class BetService {
     }
     
     func getBetsByGameId(_ gameId: String, completion: @escaping([Bet]) -> ()) {
-        repository.getBetsByGameId("KOLT-AKTI-R2IN") { dtos in
-            let bets = dtos.map { Bet(dto: $0) }
+        repository.getBetsByGameId(gameId) { dtos in
+            completion(dtos.map { Bet(dto: $0) })
         }
     }
 }
