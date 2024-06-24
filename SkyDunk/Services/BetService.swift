@@ -35,4 +35,10 @@ class BetService {
             completion(dtos.map { Bet(dto: $0) })
         }
     }
+    
+    func editBet(id: String, description: String? = nil, isSuccess: Bool? = nil) {
+        repository.editBet(id: id, description: description, isSuccess: isSuccess) { [weak self] dto, index in
+            self?.bets[index] = Bet(dto: dto)
+        }
+    }
 }

@@ -82,19 +82,13 @@ extension HomeViewModel: BetCellListenerProtocol {
     }
     
     func tapOnBet(id: String) {
-        guard let index = activeBetsVM.firstIndex(where: { $0.id == id}) else { return }
+        guard let index = activeBetsVM.firstIndex(where: { $0.id == id }) else { return }
         activeBetsVM[index] = activeBetsVM[index].copy(description: activeBetsVM[index].description + " CHANGE")
         delegate?.updateActiveBet(index: index)
     }
     
     private func changeBetStatus(id: String, isSuccess: Bool) {
-        guard let index = activeBetsVM.firstIndex(where: { $0.id == id}) else { return }
-        activeBetsVM[index] = activeBetsVM[index].copy(isActive: false, isSuccess: isSuccess)
-        filterActiveBetsVM()
-        delegate?.updateActiveBets()
-    }
-    
-    private func filterActiveBetsVM() {
-        activeBetsVM = activeBetsVM.filter { $0.isSuccess == nil }
+        betService.editBet(id: id, isSuccess: isSuccess)
+        getActiveBets()
     }
 }
