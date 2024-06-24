@@ -15,16 +15,14 @@ struct Game {
     let date: Date
     let homeScore: Int
     let guestScore: Int
-    let betIds: [String]
     
-    init(id: String = UUID().uuidString, homeTeam: TeamType, guestTeam: TeamType, date: Date, homeScore: Int, guestScore: Int, betIds: [String]) {
+    init(id: String = UUID().uuidString, homeTeam: TeamType, guestTeam: TeamType, date: Date, homeScore: Int, guestScore: Int) {
         self.id = id
         self.homeTeam = homeTeam
         self.guestTeam = guestTeam
         self.date = date
         self.homeScore = homeScore
         self.guestScore = guestScore
-        self.betIds = betIds
     }
     
     init(dto: GameDTO) {
@@ -33,7 +31,6 @@ struct Game {
                   guestTeam: TeamType(rawValue: dto.guestTeam) ?? .other,
                   date: dto.date,
                   homeScore: dto.homeScore,
-                  guestScore: dto.guestScore,
-                  betIds: dto.betIds)
+                  guestScore: dto.guestScore)
     }
 }

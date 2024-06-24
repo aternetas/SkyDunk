@@ -15,5 +15,4 @@ struct GameDTO {
     let date: Date
     let homeScore: Int
     let guestScore: Int
-    let betIds: [String]
 }
