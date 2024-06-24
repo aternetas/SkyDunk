@@ -9,7 +9,7 @@ import Foundation
 
 struct GameDTO {
     
-    let id = UUID().uuidString
+    let id: String
     let homeTeam: String
     let guestTeam: String
     let date: Date

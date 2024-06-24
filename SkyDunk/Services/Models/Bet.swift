@@ -18,7 +18,7 @@ struct Bet {
     let betOn: [TeamType]
     let isSuccess: Bool?
     
-    init(id: String, gameId: String, description: String, date: Date, amount: Double, coefficient: Double, betOn: [TeamType], isSuccess: Bool?) {
+    init(id: String = UUID().uuidString, gameId: String, description: String, date: Date, amount: Double, coefficient: Double, betOn: [TeamType], isSuccess: Bool?) {
         self.id = id
         self.gameId = gameId
         self.description = description

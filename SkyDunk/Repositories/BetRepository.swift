@@ -14,4 +14,10 @@ class BetRepository {
             completion(tmpBets)
         })
     }
+    
+    func getBetsByGameId(_ gameId: String, completion: @escaping([BetDTO]) -> ()) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.5, execute: {
+            completion(tmpBets.filter { $0.gameId == gameId })
+        })
+    }
 }

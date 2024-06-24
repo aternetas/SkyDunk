@@ -17,7 +17,7 @@ struct Game {
     let guestScore: Int
     let betIds: [String]
     
-    init(id: String, homeTeam: TeamType, guestTeam: TeamType, date: Date, homeScore: Int, guestScore: Int, betIds: [String]) {
+    init(id: String = UUID().uuidString, homeTeam: TeamType, guestTeam: TeamType, date: Date, homeScore: Int, guestScore: Int, betIds: [String]) {
         self.id = id
         self.homeTeam = homeTeam
         self.guestTeam = guestTeam
