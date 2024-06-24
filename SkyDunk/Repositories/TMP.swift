@@ -19,7 +19,7 @@ var tmpGames = [
 ]
 
 var tmpBets = [
-    BetDTO(id: "RTKIT-RKIDU", gameId: "KOLT-AKTI-R2IN", description: "Takar fw iasen nia yaya", date: Date.now - 2414, amount: 50, coefficient: 2.1, betOn: ["DEN", "MIN"], isSuccess: nil),
-    BetDTO(id: "EIRNX-AK29I", gameId: "NMMT-W23K-RKAO", description: "ONknv r", date: Date.now - 23120, amount: 10, coefficient: 1.4, betOn: ["BOS", "ATL"], isSuccess: nil),
-    BetDTO(id: "0ANKX-AN0RK", gameId: "TKI2-AK2I-2KTI", description: "Olt irnesi rins risn ryns owowo sxy rntin orasien rency sni rin ywywyyw", date: Date.now - 23405, amount: 30, coefficient: 3.0, betOn: ["OKC", "UTA"], isSuccess: nil)
+    BetDTO(id: "RTKIT-RKIDU", gameId: "KOLT-AKTI-R2IN", description: "Takar fw iasen nia yaya", betCreated: Date.now - 2414, amount: 50, coefficient: 2.1, betOn: ["DEN", "MIN"], isSuccess: nil),
+    BetDTO(id: "EIRNX-AK29I", gameId: "NMMT-W23K-RKAO", description: "ONknv r", betCreated: Date.now - 23120, amount: 10, coefficient: 1.4, betOn: ["BOS", "ATL"], isSuccess: nil),
+    BetDTO(id: "0ANKX-AN0RK", gameId: "TKI2-AK2I-2KTI", description: "Olt irnesi rins risn ryns owowo sxy rntin orasien rency sni rin ywywyyw", betCreated: Date.now - 23405, amount: 30, coefficient: 3.0, betOn: ["OKC", "UTA"], isSuccess: nil)
 ]
