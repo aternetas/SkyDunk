@@ -22,8 +22,9 @@ class NewBetViewModel: BaseViewModel {
     
     func setGame(gameId: String) {
         self.gameId = gameId
-        let game = gameService.getGameByGameId(gameId)
-        delegate?.setGameHeader(game: GameHeaderVM(game: game))
+        gameService.getGameByGameId(gameId) { [weak self] game in
+            self?.delegate?.setGameHeader(game: GameHeaderVM(game: game))
+        }
     }
     
     func saveNewBet(title: String, amount: String, coefficient: String) {

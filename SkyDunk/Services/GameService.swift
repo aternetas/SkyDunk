@@ -22,8 +22,10 @@ class GameService {
         }
     }
     
-    func getGameByGameId(_ gameId: String) -> Game {
-        games.first(where: { $0.id == gameId }) ?? Game(dto: emptyGame)
+    func getGameByGameId(_ gameId: String, completion: @escaping (Game) -> ()) {
+        repository.getGames { dtos in
+            completion(dtos.first(where: {$0.id == gameId}).map { Game(dto: $0) } ?? Game(dto: emptyGame))
+        }
     }
     
     func getLastGame() -> Game {

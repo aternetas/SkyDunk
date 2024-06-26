@@ -26,9 +26,10 @@ class GameViewModel: BaseViewModel {
     
     func setGame(gameId: String) {
         self.gameId = gameId
-        let game = gameService.getGameByGameId(gameId)
-        delegate?.showGame(game: GameHeaderVM(game: game))
-        setBets()
+        gameService.getGameByGameId(gameId) { [weak self] game in
+            self?.delegate?.showGame(game: GameHeaderVM(game: game))
+            self?.setBets()
+        }
     }
     
     private func setBets() {
