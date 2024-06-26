@@ -10,6 +10,7 @@
 		A50864A32C235D2B004F0F11 /* BetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864A22C235D2B004F0F11 /* BetDTO.swift */; };
 		A50864A52C235DDD004F0F11 /* BetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864A42C235DDD004F0F11 /* BetRepository.swift */; };
 		A50864A72C235DF9004F0F11 /* BetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864A62C235DF9004F0F11 /* BetService.swift */; };
+		A50864AB2C2CAD7E004F0F11 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864AA2C2CAD7E004F0F11 /* ServiceFactory.swift */; };
 		A514A3242C01F49A0014BBD4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3232C01F49A0014BBD4 /* CustomTextField.swift */; };
 		A514A3262C0A17480014BBD4 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3252C0A17480014BBD4 /* AlertModel.swift */; };
 		A514A3282C0E06B50014BBD4 /* CustomTextField+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3272C0E06B50014BBD4 /* CustomTextField+ext.swift */; };
@@ -65,6 +66,7 @@
 		A50864A22C235D2B004F0F11 /* BetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetDTO.swift; sourceTree = "<group>"; };
 		A50864A42C235DDD004F0F11 /* BetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetRepository.swift; sourceTree = "<group>"; };
 		A50864A62C235DF9004F0F11 /* BetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetService.swift; sourceTree = "<group>"; };
+		A50864AA2C2CAD7E004F0F11 /* ServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
 		A514A3232C01F49A0014BBD4 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		A514A3252C0A17480014BBD4 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		A514A3272C0E06B50014BBD4 /* CustomTextField+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTextField+ext.swift"; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				A52C53E92BEFC65000699D2E /* Models */,
 				FAE48A792C17881E0046F6A0 /* GameService.swift */,
 				A50864A62C235DF9004F0F11 /* BetService.swift */,
+				A50864AA2C2CAD7E004F0F11 /* ServiceFactory.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				A5E40C342BF9FCA40056AC63 /* NewBetController.swift in Sources */,
 				A52C54062BF11FF800699D2E /* GameHeaderView.swift in Sources */,
 				A538E3C22BF50C1400485EF3 /* Bet.swift in Sources */,
+				A50864AB2C2CAD7E004F0F11 /* ServiceFactory.swift in Sources */,
 				A50864A52C235DDD004F0F11 /* BetRepository.swift in Sources */,
 				FAE48A7D2C178A0C0046F6A0 /* GameRepository.swift in Sources */,
 				A5E40C312BF8DC850056AC63 /* ScreenType.swift in Sources */,

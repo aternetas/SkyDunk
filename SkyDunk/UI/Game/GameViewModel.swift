@@ -16,8 +16,8 @@ protocol GameViewModelDelegat {
 
 class GameViewModel: BaseViewModel {
     
-    private let betService = BetService(repository: BetRepository())
-    private let gameService = GameService(repository: GameRepository())
+    private let betService = ServiceFactory.shared.betService
+    private let gameService = ServiceFactory.shared.gameService
     
     var delegate: GameViewModelDelegat?
     var betsVM: [BetVM] = []

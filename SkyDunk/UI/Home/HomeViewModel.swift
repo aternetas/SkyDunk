@@ -16,8 +16,8 @@ protocol HomeViewModelDelegat {
 
 class HomeViewModel: BaseViewModel {
     
-    private let gameService = GameService(repository: GameRepository())
-    private let betService = BetService(repository: BetRepository())
+    private let betService = ServiceFactory.shared.betService
+    private let gameService = ServiceFactory.shared.gameService
     
     var delegate: HomeViewModelDelegat?
     var nextGamesVM: [GameVM] = []
