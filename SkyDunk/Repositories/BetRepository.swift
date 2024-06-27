@@ -40,6 +40,18 @@ class BetRepository {
         })
     }
     
+    func addBet(title: String, amount: Double, coefficient: Double, betOn: [String], gameId: String) {        
+        tmpBets.append(BetDTO(id: UUID().uuidString,
+                              gameId: gameId,
+                              description: title,
+                              betCreated: .now,
+                              amount: amount,
+                              coefficient: coefficient,
+                              betOn: betOn,
+                              isSuccess: nil))
+        
+    }
+    
     private func findBetById(id: String) -> BetDTO? {
         tmpBets.first(where: { $0.id == id } )
     }

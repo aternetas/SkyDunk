@@ -13,7 +13,8 @@ protocol NewBetViewModelDelegat {
 
 class NewBetViewModel: BaseViewModel {
     
-    private let gameService = GameService(repository: GameRepository())
+    private let gameService = ServiceFactory.shared.gameService
+    private let betService = ServiceFactory.shared.betService
     
     var delegate: NewBetViewModelDelegat!
     
@@ -29,7 +30,12 @@ class NewBetViewModel: BaseViewModel {
     
     func saveNewBet(title: String, amount: String, coefficient: String) {
         if checkUserInput(title: title, amount: amount, coefficient: coefficient) {
-            
+            guard let game = game else { return }
+            betService.addBet(title: title,
+                              amount: Double(amount)!,
+                              coefficient: Double(coefficient)!,
+                              betOn: [game.homeTeam.rawValue, game.guestTeam.rawValue],
+                              gameId: gameId)
         }
     }
     
