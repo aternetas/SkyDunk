@@ -30,7 +30,7 @@ class NewBetController: BaseController<NewBetViewModel> {
     }
     
     @objc private func clickOnSaveBetButton() {
-        viewModel.saveNewBet(title: rootView.betTitleTextField.text,
+        viewModel.saveNewBet(description: rootView.betDescriptionTextField.text,
                              amount: rootView.betAmountTextField.text,
                              coefficient: rootView.betCoefficientTextField.text)
         

@@ -40,10 +40,10 @@ class BetRepository {
         })
     }
     
-    func addBet(title: String, amount: Double, coefficient: Double, betOn: [String], gameId: String) {        
+    func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String) {        
         tmpBets.append(BetDTO(id: UUID().uuidString,
                               gameId: gameId,
-                              description: title,
+                              description: description,
                               betCreated: .now,
                               amount: amount,
                               coefficient: coefficient,

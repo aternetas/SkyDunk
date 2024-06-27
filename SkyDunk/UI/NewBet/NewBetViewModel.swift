@@ -28,10 +28,10 @@ class NewBetViewModel: BaseViewModel {
         }
     }
     
-    func saveNewBet(title: String, amount: String, coefficient: String) {
-        if checkUserInput(title: title, amount: amount, coefficient: coefficient) {
+    func saveNewBet(description: String, amount: String, coefficient: String) {
+        if checkUserInput(description: description, amount: amount, coefficient: coefficient) {
             guard let game = game else { return }
-            betService.addBet(title: title,
+            betService.addBet(description: description,
                               amount: Double(amount)!,
                               coefficient: Double(coefficient)!,
                               betOn: [game.homeTeam.rawValue, game.guestTeam.rawValue],
@@ -39,10 +39,10 @@ class NewBetViewModel: BaseViewModel {
         }
     }
     
-    private func checkUserInput(title: String, amount: String, coefficient: String) -> Bool {
-        let message: String = if title.isEmpty {
+    private func checkUserInput(description: String, amount: String, coefficient: String) -> Bool {
+        let message: String = if description.isEmpty {
             "Прогноз не может быть пустым"
-        } else if title.count < 5 {
+        } else if description.count < 5 {
             "Поле должно состоять минимум из 5-ти символов"
         } else if amount.isEmpty || Double(amount) == nil {
             "Некорректные данные в поле \("Ставка")"
