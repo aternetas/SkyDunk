@@ -44,6 +44,8 @@ extension BaseController: NavigationManagerProtocol {
             vc.viewModel.setGame(gameId: gameId)
             viewController = vc
         }
+        
+        viewController.presentationController?.delegate = self
         present(viewController, animated: true)
     }
 }
@@ -59,5 +61,14 @@ extension BaseController: AlertManagerProtocol {
             }))
         }
         present(alert, animated: true)
+    }
+}
+
+extension UIViewController: UIAdaptivePresentationControllerDelegate {
+    
+    @objc func dismissModal() {}
+    
+    public func presentationControllerDidDismiss( _ presentationController: UIPresentationController) {
+        dismissModal()
     }
 }

@@ -35,18 +35,18 @@ class HomeViewModel: BaseViewModel {
         navigationManager?.openScreen(screen: .game(gameId: id))
     }
     
+    func getActiveBets() {
+        betService.getActiveBets { [weak self] bets in
+            self?.activeBets = bets
+            self?.setActiveBets()
+        }
+    }
+    
     private func getGames() {
         gameService.getGames { [weak self] games in
             self?.games = games
             self?.setLastGame()
             self?.setNextGames()
-        }
-    }
-    
-    private func getActiveBets() {
-        betService.getActiveBets { [weak self] bets in
-            self?.activeBets = bets
-            self?.setActiveBets()
         }
     }
     

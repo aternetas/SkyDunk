@@ -32,6 +32,10 @@ class GameViewModel: BaseViewModel {
         }
     }
     
+    func addNewBet() {
+        navigationManager?.openScreen(screen: .newBet(gameId: gameId))
+    }
+    
     private func setBets() {
         betService.getBetsByGameId(gameId) { [weak self] bets in
             guard let self = self else { return }
@@ -40,10 +44,6 @@ class GameViewModel: BaseViewModel {
             delegate?.showEmptyState(isShow: betsVM.isEmpty)
             delegate?.showBets()
         }
-    }
-    
-    func addNewBet() {
-        navigationManager?.openScreen(screen: .newBet(gameId: gameId))
     }
 }
 
@@ -64,7 +64,8 @@ extension GameViewModel: BetCellListenerProtocol {
     }
     
     private func changeBetStatus(id: String, isSuccess: Bool) {
-        guard let index = betsVM.firstIndex(where: { $0.id == id}) else { return }
+        betService.editBet(id: id, isSuccess: isSuccess)
+        guard let index = betsVM.firstIndex(where: { $0.id == id }) else { return }
         betsVM[index] = betsVM[index].copy(isActive: false, isSuccess: isSuccess)
         delegate?.updateBet(index: index)
     }
