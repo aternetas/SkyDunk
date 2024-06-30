@@ -36,6 +36,10 @@ class GameViewModel: BaseViewModel {
         navigationManager?.openScreen(screen: .newBet(gameId: gameId))
     }
     
+    func updateBets() {
+        setBets()
+    }
+    
     private func setBets() {
         betService.getBetsByGameId(gameId) { [weak self] bets in
             guard let self = self else { return }

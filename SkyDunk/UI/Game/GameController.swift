@@ -35,6 +35,12 @@ class GameController: BaseController<GameViewModel> {
     @objc private func clickOnNewBetButton() {
         viewModel.addNewBet()
     }
+    
+    override func dismissModal() {
+        super.dismissModal()
+        
+        viewModel.updateBets()
+    }
 }
 
 extension GameController: GameViewModelDelegat {

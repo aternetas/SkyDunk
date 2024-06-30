@@ -33,7 +33,7 @@ class NewBetController: BaseController<NewBetViewModel> {
         viewModel.saveNewBet(description: rootView.betDescriptionTextField.text,
                              amount: rootView.betAmountTextField.text,
                              coefficient: rootView.betCoefficientTextField.text)
-        
+        presentingViewController?.dismissModal()
         dismiss(animated: true)
     }
 }

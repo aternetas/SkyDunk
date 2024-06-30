@@ -68,7 +68,7 @@ extension UIViewController: UIAdaptivePresentationControllerDelegate {
     
     @objc func dismissModal() {}
     
-    public func presentationControllerDidDismiss( _ presentationController: UIPresentationController) {
+    public func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         dismissModal()
     }
 }
