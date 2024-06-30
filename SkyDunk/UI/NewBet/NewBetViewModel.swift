@@ -24,6 +24,7 @@ class NewBetViewModel: BaseViewModel {
     func setGame(gameId: String) {
         self.gameId = gameId
         gameService.getGameByGameId(gameId) { [weak self] game in
+            self?.game = game
             self?.delegate?.setGameHeader(game: GameHeaderVM(game: game))
         }
     }
