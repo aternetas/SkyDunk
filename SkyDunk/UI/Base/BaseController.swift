@@ -35,15 +35,17 @@ extension BaseController: NavigationManagerProtocol {
         switch screen {
         case .lastGames:
             viewController = LastGamesController()
-        case .game(game: let game):
+        case .game(gameId: let gameId):
             let vc = GameController()
-            vc.viewModel.setGame(game: game)
+            vc.viewModel.setGame(gameId: gameId)
             viewController = vc
-        case .newBet(game: let game):
+        case .newBet(gameId: let gameId):
             let vc = NewBetController()
-            vc.viewModel.setGame(game: game)
+            vc.viewModel.setGame(gameId: gameId)
             viewController = vc
         }
+        
+        viewController.presentationController?.delegate = self
         present(viewController, animated: true)
     }
 }
@@ -59,5 +61,14 @@ extension BaseController: AlertManagerProtocol {
             }))
         }
         present(alert, animated: true)
+    }
+}
+
+extension UIViewController: UIAdaptivePresentationControllerDelegate {
+    
+    @objc func dismissModal() {}
+    
+    public func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        dismissModal()
     }
 }

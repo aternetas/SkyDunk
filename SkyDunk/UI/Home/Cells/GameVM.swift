@@ -24,6 +24,6 @@ class GameVM {
     }
     
     convenience init(game: Game) {
-        self.init(id: game.id, homeTeam: game.homeTeam, guestTeam: game.guestTeam, gameDate: game.gameDate)
+        self.init(id: game.id, homeTeam: game.homeTeam, guestTeam: game.guestTeam, gameDate: game.date)
     }
 }

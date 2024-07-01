@@ -66,6 +66,11 @@ class HomeController: BaseController<HomeViewModel> {
             }
         }
     }
+    
+    //Тут произошла необычная диспетчеризация
+    override func dismissModal() {
+        viewModel.getActiveBets()
+    }
 }
 
 extension HomeController: HomeViewModelDelegat {
