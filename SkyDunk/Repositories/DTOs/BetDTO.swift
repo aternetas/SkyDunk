@@ -12,7 +12,7 @@ struct BetDTO {
     let id: String
     let gameId: String
     let description: String
-    let betCreated: Date
+    let created: Date
     let amount: Double
     let coefficient: Double
     let betOn: [String]

@@ -40,7 +40,7 @@ class BetVM {
     convenience init(bet: Bet, delegate: BetCellListenerProtocol?) {
         self.init(id: bet.id,
                   description: bet.description,
-                  date: bet.betCreated.toHourMinuteDayMonthYear(),
+                  date: bet.сreated.toHourMinuteDayMonthYear(),
                   amount: String(bet.amount),
                   coefficient: String(bet.coefficient),
                   isActive: bet.isSuccess == nil,

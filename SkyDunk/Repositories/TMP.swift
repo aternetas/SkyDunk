@@ -19,13 +19,13 @@ var tmpGames = [
 ]
 
 var tmpBets = [
-    BetDTO(id: "RTKIT-RKIDU", gameId: "KOLT-AKTI-R2IN", description: "Takar fw iasen nia yaya", betCreated: Date.now - 2414, amount: 50, coefficient: 2.1, betOn: ["DEN", "MIN"], isSuccess: nil),
-    BetDTO(id: "EIRNX-AK29I", gameId: "NMMT-W23K-RKAO", description: "ONknv r", betCreated: Date.now - 23120, amount: 10, coefficient: 1.4, betOn: ["BOS", "ATL"], isSuccess: nil),
-    BetDTO(id: "0ANKX-AN0RK", gameId: "TKI2-AK2I-2KTI", description: "Olt irnesi rins risn ryns owowo sxy rntin orasien rency sni rin ywywyyw", betCreated: Date.now - 23405, amount: 30, coefficient: 3.0, betOn: ["OKC", "UTA"], isSuccess: nil),
-    BetDTO(id: "02NTO-RKIX9", gameId: "NTAI-2KTA-RAKR", description: "Boston will win", betCreated: Date.now - 2340, amount: 30, coefficient: 3.0, betOn: ["ATL", "BOS"], isSuccess: true),
-    BetDTO(id: "OXYMR-RI90X", gameId: "TNOA-AKCC-CAOY", description: "Edwards > 20 points", betCreated: Date.now - 35000, amount: 10, coefficient: 2.2, betOn: ["DEN", "MIN"], isSuccess: true),
-    BetDTO(id: "AT0AK-ANOXY", gameId: "TNOA-AKCC-CAOY", description: "Aaron Gordon is MVP of the game", betCreated: Date.now - 33204, amount: 20, coefficient: 2.3, betOn: ["DEN", "MIN"], isSuccess: false),
-    BetDTO(id: "TOAYK-ABXOY", gameId: "20!I-AKZO-R;AK", description: "Sacramento will win", betCreated: Date.now - 10, amount: 10, coefficient: 1.4, betOn: ["LAL", "SAC"], isSuccess: nil),
-    BetDTO(id: "KAOYK-WIKXO", gameId: "29ZK-RKXY-IR..", description: "Tyrese > 20 but < 30 point", betCreated: Date.now - 1250, amount: 20, coefficient: 1.76, betOn: ["LAC", "IND"], isSuccess: nil),
-    BetDTO(id: "OA0XK-ATRKB", gameId: "29ZK-RKXY-IR..", description: "Beared man will cut his beard", betCreated: Date.now - 2305, amount: 40, coefficient: 1.8, betOn: ["LAC", "IND"], isSuccess: nil)
+    BetDTO(id: "RTKIT-RKIDU", gameId: "KOLT-AKTI-R2IN", description: "Takar fw iasen nia yaya", created: Date.now - 2414, amount: 50, coefficient: 2.1, betOn: ["DEN", "MIN"], isSuccess: nil),
+    BetDTO(id: "EIRNX-AK29I", gameId: "NMMT-W23K-RKAO", description: "ONknv r", created: Date.now - 23120, amount: 10, coefficient: 1.4, betOn: ["BOS", "ATL"], isSuccess: nil),
+    BetDTO(id: "0ANKX-AN0RK", gameId: "TKI2-AK2I-2KTI", description: "Olt irnesi rins risn ryns owowo sxy rntin orasien rency sni rin ywywyyw", created: Date.now - 23405, amount: 30, coefficient: 3.0, betOn: ["OKC", "UTA"], isSuccess: nil),
+    BetDTO(id: "02NTO-RKIX9", gameId: "NTAI-2KTA-RAKR", description: "Boston will win", created: Date.now - 2340, amount: 30, coefficient: 3.0, betOn: ["ATL", "BOS"], isSuccess: true),
+    BetDTO(id: "OXYMR-RI90X", gameId: "TNOA-AKCC-CAOY", description: "Edwards > 20 points", created: Date.now - 35000, amount: 10, coefficient: 2.2, betOn: ["DEN", "MIN"], isSuccess: true),
+    BetDTO(id: "AT0AK-ANOXY", gameId: "TNOA-AKCC-CAOY", description: "Aaron Gordon is MVP of the game", created: Date.now - 33204, amount: 20, coefficient: 2.3, betOn: ["DEN", "MIN"], isSuccess: false),
+    BetDTO(id: "TOAYK-ABXOY", gameId: "20!I-AKZO-R;AK", description: "Sacramento will win", created: Date.now - 10, amount: 10, coefficient: 1.4, betOn: ["LAL", "SAC"], isSuccess: nil),
+    BetDTO(id: "KAOYK-WIKXO", gameId: "29ZK-RKXY-IR..", description: "Tyrese > 20 but < 30 point", created: Date.now - 1250, amount: 20, coefficient: 1.76, betOn: ["LAC", "IND"], isSuccess: nil),
+    BetDTO(id: "OA0XK-ATRKB", gameId: "29ZK-RKXY-IR..", description: "Beared man will cut his beard", created: Date.now - 2305, amount: 40, coefficient: 1.8, betOn: ["LAC", "IND"], isSuccess: nil)
 ]

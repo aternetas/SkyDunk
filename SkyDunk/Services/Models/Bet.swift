@@ -12,17 +12,17 @@ struct Bet {
     let id: String
     let gameId: String
     let description: String
-    let betCreated: Date
+    let сreated: Date
     let amount: Double
     let coefficient: Double
     let betOn: [TeamType]
     let isSuccess: Bool?
     
-    init(id: String = UUID().uuidString, gameId: String, description: String, betCreated: Date, amount: Double, coefficient: Double, betOn: [TeamType], isSuccess: Bool?) {
+    init(id: String = UUID().uuidString, gameId: String, description: String, created: Date, amount: Double, coefficient: Double, betOn: [TeamType], isSuccess: Bool?) {
         self.id = id
         self.gameId = gameId
         self.description = description
-        self.betCreated = betCreated
+        self.сreated = created
         self.amount = amount
         self.coefficient = coefficient
         self.betOn = betOn
@@ -33,7 +33,7 @@ struct Bet {
         self.init(id: dto.id,
                   gameId: dto.gameId,
                   description: dto.description,
-                  betCreated: dto.betCreated,
+                  created: dto.created,
                   amount: dto.amount,
                   coefficient: dto.coefficient,
                   betOn: dto.betOn.map { TeamType(rawValue: $0) ?? .other },
