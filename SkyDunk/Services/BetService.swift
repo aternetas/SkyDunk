@@ -22,8 +22,8 @@ class BetService {
     }
     
     func getActiveBets(completion: @escaping([Bet]) -> ()) {
-        getBets { bets in
-            completion(bets.filter { $0.isSuccess == nil })
+        repository.getBets { dtos in
+            completion(dtos.filter { $0.isSuccess == nil }.map { Bet(dto: $0) })
         }
     }
     

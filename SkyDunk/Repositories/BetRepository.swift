@@ -49,8 +49,4 @@ class BetRepository {
                               isSuccess: nil))
         
     }
-    
-    private func findBetById(id: String) -> BetDTO? {
-        tmpBets.first(where: { $0.id == id } )
-    }
 }
