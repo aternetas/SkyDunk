@@ -24,22 +24,12 @@ class GameService {
     
     func getGameByGameId(_ gameId: String, completion: @escaping (Game?) -> ()) {
         repository.getGames { dtos in
-            completion(dtos.first(where: {$0.id == gameId}).map { Game(dto: $0) })
+            completion(dtos.first(where: { $0.id == gameId }).map { Game(dto: $0) })
         }
     }
     
-    func getLastGame() -> Game {
-        let lastGames = games.filter { Date.now > $0.date }
-        var lastGame = lastGames[0]
-        var distance = abs(Date.now.distance(to: lastGame.date))
-        lastGames.forEach { game in
-            let newDistance = Date.now.distance(to: game.date)
-            if abs(newDistance) < distance {
-                distance = newDistance
-                lastGame = game
-            }
-        }
-        return lastGame
+    func getLastGame() -> Game? {
+        games.filter { Date.now > $0.date }.sorted { $0.date > $1.date }.first
     }
     
     func getNextGames() -> [Game] {
