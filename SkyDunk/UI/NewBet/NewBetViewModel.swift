@@ -48,7 +48,7 @@ class NewBetViewModel: BaseViewModel {
         let message: String = if description.isEmpty {
             "Прогноз не может быть пустым"
         } else if description.count < 5 {
-            "Поле должно состоять минимум из 5-ти символов"
+            "Поле прогноза должно состоять минимум из 5-ти символов"
         } else if amount.isEmpty || Double(amount) == nil {
             "Некорректные данные в поле \("Ставка")"
         } else if Double(amount)! < 1 {
