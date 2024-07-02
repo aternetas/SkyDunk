@@ -118,15 +118,15 @@ class BetCell: UITableViewCell {
     }
     
     func onClick() {
-        vm?.tapOnBet()
+        vm?.selecBet()
     }
     
     @objc private func tapOnPlusBetSwitchView() {
-        vm?.tapOnSuccessBet()
+        vm?.selectSuccessPrediction()
     }
     
     @objc private func tapOnMinusBetSwitchView() {
-        vm?.tapOnFailureBet()
+        vm?.selectFailurePrediction()
     }
     
     private func initConstraints() {

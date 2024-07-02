@@ -8,9 +8,9 @@
 import Foundation
 
 protocol BetCellListenerProtocol {
-    func tapOnSuccessBet(id: String)
-    func tapOnFailureBet(id: String)
-    func tapOnBet(id: String)
+    func selectSuccessPrediction(id: String)
+    func selectFailurePrediction(id: String)
+    func selectBet(id: String)
 }
 
 class BetVM {
@@ -61,16 +61,16 @@ class BetVM {
               delegate: delegate)
     }
     
-    func tapOnSuccessBet() {
-        delegate?.tapOnSuccessBet(id: id)
+    func selectSuccessPrediction() {
+        delegate?.selectSuccessPrediction(id: id)
     }
     
-    func tapOnFailureBet() {
-        delegate?.tapOnFailureBet(id: id)
+    func selectFailurePrediction() {
+        delegate?.selectFailurePrediction(id: id)
     }
     
-    func tapOnBet() {
-        delegate?.tapOnBet(id: id)
+    func selecBet() {
+        delegate?.selectBet(id: id)
     }
 }
 

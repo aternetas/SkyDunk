@@ -70,15 +70,15 @@ class HomeViewModel: BaseViewModel {
 
 extension HomeViewModel: BetCellListenerProtocol {
     
-    func tapOnSuccessBet(id: String) {
+    func selectSuccessPrediction(id: String) {
         changeBetStatus(id: id, isSuccess: true)
     }
     
-    func tapOnFailureBet(id: String) {
+    func selectFailurePrediction(id: String) {
         changeBetStatus(id: id, isSuccess: false)
     }
     
-    func tapOnBet(id: String) {
+    func selectBet(id: String) {
         guard let index = activeBetsVM.firstIndex(where: { $0.id == id }) else { return }
         activeBetsVM[index] = activeBetsVM[index].copy(description: activeBetsVM[index].description + " CHANGE")
         delegate?.updateActiveBet(index: index)

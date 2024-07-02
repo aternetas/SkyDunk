@@ -57,16 +57,16 @@ class GameViewModel: BaseViewModel {
 
 extension GameViewModel: BetCellListenerProtocol {
     
-    func tapOnSuccessBet(id: String) {
+    func selectSuccessPrediction(id: String) {
         changeBetStatus(id: id, isSuccess: true)
     }
     
-    func tapOnFailureBet(id: String) {
+    func selectFailurePrediction(id: String) {
         changeBetStatus(id: id, isSuccess: false)
     }
     
-    func tapOnBet(id: String) {
-        guard let index = betsVM.firstIndex(where: { $0.id == id}) else { return }
+    func selectBet(id: String) {
+        guard let index = betsVM.firstIndex(where: { $0.id == id }) else { return }
         betsVM[index] = betsVM[index].copy(description: betsVM[index].description + " CHANGE")
         delegate?.updateBet(index: index)
     }
