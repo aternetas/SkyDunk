@@ -84,7 +84,8 @@ extension HomeViewModel: BetCellListenerProtocol {
     }
     
     private func changeBetStatus(id: String, isSuccess: Bool) {
-        betService.editBet(id: id, isSuccess: isSuccess)
-        getActiveBets()
+        betService.editBet(id: id, isSuccess: isSuccess) { [weak self] in
+            self?.getActiveBets()
+        }
     }
 }

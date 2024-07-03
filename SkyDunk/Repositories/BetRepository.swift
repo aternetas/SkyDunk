@@ -10,7 +10,7 @@ import Foundation
 class BetRepository {
     
     func getBets(completion: @escaping([BetDTO]) -> ()) {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 0.5, execute: {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1, execute: {
             completion(tmpBets)
         })
     }
@@ -21,8 +21,8 @@ class BetRepository {
         })
     }
     
-    func editBet(id: String, description: String? = nil, isSuccess: Bool? = nil) {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 0.3, execute: {
+    func editBet(id: String, description: String? = nil, isSuccess: Bool? = nil, completion: @escaping () -> ()) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.4, execute: {
             for i in 0..<tmpBets.count {
                 if tmpBets[i].id == id {
                     let dto = tmpBets[i]
@@ -36,6 +36,7 @@ class BetRepository {
                                         isSuccess: isSuccess ?? dto.isSuccess)
                     break
                 }
+                completion()
             }
         })
     }

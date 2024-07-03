@@ -33,8 +33,10 @@ class BetService {
         }
     }
     
-    func editBet(id: String, description: String? = nil, isSuccess: Bool? = nil) {
-        repository.editBet(id: id, description: description, isSuccess: isSuccess)
+    func editBet(id: String, description: String? = nil, isSuccess: Bool? = nil, completion: @escaping () -> ()) {
+        repository.editBet(id: id, description: description, isSuccess: isSuccess) {
+            completion()
+        }
     }
     
     func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String) {

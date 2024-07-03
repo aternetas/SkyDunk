@@ -78,9 +78,9 @@ extension GameViewModel: BetCellListenerProtocol {
     }
     
     private func changeBetStatus(id: String, isSuccess: Bool) {
-        betService.editBet(id: id, isSuccess: isSuccess)
-        guard let index = betsVM.firstIndex(where: { $0.id == id }) else { return }
-        betsVM[index] = betsVM[index].copy(isActive: false, isSuccess: isSuccess)
-        delegate?.updateBet(index: index)
+        betService.editBet(id: id, isSuccess: isSuccess) { [weak self] in
+            guard let self = self else { return }
+            self.setBets()
+        }
     }
 }
