@@ -33,14 +33,16 @@ class NewBetViewModel: BaseViewModel {
         }
     }
     
-    func saveNewBet(description: String, amount: String, coefficient: String) {
+    func saveNewBet(description: String, amount: String, coefficient: String, completion: @escaping () -> ()) {
         if checkUserInput(description: description, amount: amount, coefficient: coefficient) {
             guard let game = game else { return }
             betService.addBet(description: description,
                               amount: Double(amount)!,
                               coefficient: Double(coefficient)!,
                               betOn: [game.homeTeam.rawValue, game.guestTeam.rawValue],
-                              gameId: gameId)
+                              gameId: gameId) {
+                completion()
+            }
         }
     }
     
