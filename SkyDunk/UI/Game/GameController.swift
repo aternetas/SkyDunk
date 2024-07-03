@@ -35,10 +35,16 @@ class GameController: BaseController<GameViewModel> {
     @objc private func clickOnNewBetButton() {
         viewModel.addNewBet()
     }
+    
+    override func dismissModal() {
+        super.dismissModal()
+        
+        viewModel.updateBets()
+    }
 }
 
 extension GameController: GameViewModelDelegat {
-    
+
     func showGame(game: GameHeaderVM) {
         rootView.gameHeaderView.bind(vm: game)
     }
@@ -59,6 +65,12 @@ extension GameController: GameViewModelDelegat {
         DispatchQueue.main.async { [weak self] in
             self?.rootView.betsTableView.isHidden = isShow
             self?.rootView.emptyStateView.isHidden = !isShow
+        }
+    }
+    
+    func hideNewBetButton() {
+        DispatchQueue.main.async { [weak self] in
+            self?.rootView.newBetButton.isHidden = true
         }
     }
 }

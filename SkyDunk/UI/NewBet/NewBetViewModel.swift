@@ -9,30 +9,49 @@ import Foundation
 
 protocol NewBetViewModelDelegat {
     func setGameHeader(game: GameHeaderVM)
+    func dismiss()
 }
 
 class NewBetViewModel: BaseViewModel {
     
+    private let gameService = ServiceFactory.shared.gameService
+    private let betService = ServiceFactory.shared.betService
+    
     var delegate: NewBetViewModelDelegat!
     
     private var game: Game?
+    private var gameId: String = ""
     
-    func setGame(game: Game) {
-        self.game = game
-        delegate?.setGameHeader(game: GameHeaderVM(game: game))
-    }
-    
-    func saveNewBet(title: String, amount: String, coefficient: String) {
-        if checkUserInput(title: title, amount: amount, coefficient: coefficient) {
-            
+    func setGame(gameId: String) {
+        self.gameId = gameId
+        gameService.getGameByGameId(gameId) { [weak self] game in
+            guard let game = game else {
+                print("Error, empty game")
+                return
+            }
+            self?.game = game
+            self?.delegate?.setGameHeader(game: GameHeaderVM(game: game))
         }
     }
     
-    private func checkUserInput(title: String, amount: String, coefficient: String) -> Bool {
-        let message: String = if title.isEmpty {
+    func saveNewBet(description: String, amount: String, coefficient: String) {
+        if checkUserInput(description: description, amount: amount, coefficient: coefficient) {
+            guard let game = game else { return }
+            betService.addBet(description: description,
+                              amount: Double(amount)!,
+                              coefficient: Double(coefficient)!,
+                              betOn: [game.homeTeam.rawValue, game.guestTeam.rawValue],
+                              gameId: gameId) { [weak self] in
+                self?.delegate?.dismiss()
+            }
+        }
+    }
+    
+    private func checkUserInput(description: String, amount: String, coefficient: String) -> Bool {
+        let message: String = if description.isEmpty {
             "Прогноз не может быть пустым"
-        } else if title.count < 5 {
-            "Поле должно состоять минимум из 5-ти символов"
+        } else if description.count < 5 {
+            "Поле прогноза должно состоять минимум из 5-ти символов"
         } else if amount.isEmpty || Double(amount) == nil {
             "Некорректные данные в поле \("Ставка")"
         } else if Double(amount)! < 1 {

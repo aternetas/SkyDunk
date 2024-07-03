@@ -100,7 +100,7 @@ class BetCell: UITableViewCell {
     
     func bind(vm: BetVM) {
         self.vm = vm
-        containerView.setColors(colors: vm.teams.map { $0.color.withAlphaComponent(0.5) })
+        containerView.setColors(colors: vm.betOn.map { $0.color.withAlphaComponent(0.5) })
         
         descriptionLab.text = vm.description
         amountLab.text = vm.amount
@@ -118,15 +118,15 @@ class BetCell: UITableViewCell {
     }
     
     func onClick() {
-        vm?.tapOnBet()
+        vm?.selecBet()
     }
     
     @objc private func tapOnPlusBetSwitchView() {
-        vm?.tapOnSuccessBet()
+        vm?.selectSuccessPrediction()
     }
     
     @objc private func tapOnMinusBetSwitchView() {
-        vm?.tapOnFailureBet()
+        vm?.selectFailurePrediction()
     }
     
     private func initConstraints() {
