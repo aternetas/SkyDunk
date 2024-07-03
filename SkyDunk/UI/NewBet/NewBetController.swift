@@ -32,10 +32,7 @@ class NewBetController: BaseController<NewBetViewModel> {
     @objc private func clickOnSaveBetButton() {
         viewModel.saveNewBet(description: rootView.betDescriptionTextField.text,
                              amount: rootView.betAmountTextField.text,
-                             coefficient: rootView.betCoefficientTextField.text) { [weak self] in
-            self?.presentingViewController?.dismissModal()
-            self?.dismiss(animated: true)
-        }
+                             coefficient: rootView.betCoefficientTextField.text)
     }
 }
 
@@ -43,5 +40,10 @@ extension NewBetController: NewBetViewModelDelegat {
     
     func setGameHeader(game: GameHeaderVM) {
         rootView.gameHeaderView.bind(vm: game)
+    }
+    
+    func dismiss() {
+        presentingViewController?.dismissModal()
+        dismiss(animated: true)
     }
 }

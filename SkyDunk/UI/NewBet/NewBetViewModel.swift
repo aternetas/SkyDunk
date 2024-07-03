@@ -9,6 +9,7 @@ import Foundation
 
 protocol NewBetViewModelDelegat {
     func setGameHeader(game: GameHeaderVM)
+    func dismiss()
 }
 
 class NewBetViewModel: BaseViewModel {
@@ -33,15 +34,15 @@ class NewBetViewModel: BaseViewModel {
         }
     }
     
-    func saveNewBet(description: String, amount: String, coefficient: String, completion: @escaping () -> ()) {
+    func saveNewBet(description: String, amount: String, coefficient: String) {
         if checkUserInput(description: description, amount: amount, coefficient: coefficient) {
             guard let game = game else { return }
             betService.addBet(description: description,
                               amount: Double(amount)!,
                               coefficient: Double(coefficient)!,
                               betOn: [game.homeTeam.rawValue, game.guestTeam.rawValue],
-                              gameId: gameId) {
-                completion()
+                              gameId: gameId) { [weak self] in
+                self?.delegate?.dismiss()
             }
         }
     }
