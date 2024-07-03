@@ -23,16 +23,18 @@ class BetRepository {
     
     func editBet(id: String, description: String? = nil, isSuccess: Bool? = nil) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.3, execute: {
-            tmpBets.enumerated().forEach { index, dto in
-                if dto.id == id {
-                    tmpBets[index] = BetDTO(id: id,
-                                            gameId: dto.gameId,
-                                            description: description ?? dto.description,
-                                            created: dto.created,
-                                            amount: dto.amount,
-                                            coefficient: dto.coefficient,
-                                            betOn: dto.betOn,
-                                            isSuccess: isSuccess ?? dto.isSuccess)
+            for i in 0..<tmpBets.count {
+                if tmpBets[i].id == id {
+                    let dto = tmpBets[i]
+                    tmpBets[i] = BetDTO(id: id,
+                                        gameId: dto.gameId,
+                                        description: description ?? dto.description,
+                                        created: dto.created,
+                                        amount: dto.amount,
+                                        coefficient: dto.coefficient,
+                                        betOn: dto.betOn,
+                                        isSuccess: isSuccess ?? dto.isSuccess)
+                    break
                 }
             }
         })
