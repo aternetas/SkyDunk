@@ -34,10 +34,10 @@ class BetRepository {
                                         coefficient: dto.coefficient,
                                         betOn: dto.betOn,
                                         isSuccess: isSuccess ?? dto.isSuccess)
-                    completion()
-                    return
+                    break
                 }
             }
+            completion()
         })
     }
     
