@@ -19,9 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabbar = UITabBarController()
                 
         let homeVC = HomeController()
-        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        homeVC.tabBarItem = UITabBarItem(title: "Домашняя", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         let lastGamesVC = LastGamesController()
-        lastGamesVC.tabBarItem = UITabBarItem(title: "Last Games", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
+        lastGamesVC.tabBarItem = UITabBarItem(title: "Последние игры", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
         
         tabbar.viewControllers = [homeVC, lastGamesVC]
         

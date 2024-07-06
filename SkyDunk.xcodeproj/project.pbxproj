@@ -11,6 +11,7 @@
 		A50864A52C235DDD004F0F11 /* BetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864A42C235DDD004F0F11 /* BetRepository.swift */; };
 		A50864A72C235DF9004F0F11 /* BetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864A62C235DF9004F0F11 /* BetService.swift */; };
 		A50864AB2C2CAD7E004F0F11 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864AA2C2CAD7E004F0F11 /* ServiceFactory.swift */; };
+		A50864AD2C39B39E004F0F11 /* LastGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864AC2C39B39E004F0F11 /* LastGamesView.swift */; };
 		A514A3242C01F49A0014BBD4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3232C01F49A0014BBD4 /* CustomTextField.swift */; };
 		A514A3262C0A17480014BBD4 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3252C0A17480014BBD4 /* AlertModel.swift */; };
 		A514A3282C0E06B50014BBD4 /* CustomTextField+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3272C0E06B50014BBD4 /* CustomTextField+ext.swift */; };
@@ -67,6 +68,7 @@
 		A50864A42C235DDD004F0F11 /* BetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetRepository.swift; sourceTree = "<group>"; };
 		A50864A62C235DF9004F0F11 /* BetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetService.swift; sourceTree = "<group>"; };
 		A50864AA2C2CAD7E004F0F11 /* ServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
+		A50864AC2C39B39E004F0F11 /* LastGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGamesView.swift; sourceTree = "<group>"; };
 		A514A3232C01F49A0014BBD4 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		A514A3252C0A17480014BBD4 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		A514A3272C0E06B50014BBD4 /* CustomTextField+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTextField+ext.swift"; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			children = (
 				A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */,
 				A52C53F92BF001C300699D2E /* LastGamesViewModel.swift */,
+				A50864AC2C39B39E004F0F11 /* LastGamesView.swift */,
 			);
 			path = LastGames;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				A52C54062BF11FF800699D2E /* GameHeaderView.swift in Sources */,
 				A538E3C22BF50C1400485EF3 /* Bet.swift in Sources */,
 				A50864AB2C2CAD7E004F0F11 /* ServiceFactory.swift in Sources */,
+				A50864AD2C39B39E004F0F11 /* LastGamesView.swift in Sources */,
 				A50864A52C235DDD004F0F11 /* BetRepository.swift in Sources */,
 				FAE48A7D2C178A0C0046F6A0 /* GameRepository.swift in Sources */,
 				A5E40C312BF8DC850056AC63 /* ScreenType.swift in Sources */,

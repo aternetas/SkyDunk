@@ -7,6 +7,11 @@
 
 import Foundation
 
+protocol LastGamesModelDelegate {
+    
+}
+
 class LastGamesViewModel: BaseViewModel {
     
+    var delegate: LastGamesModelDelegate?
 }

@@ -8,6 +8,8 @@
 import UIKit
 
 class LastGamesController: BaseController<LastGamesViewModel> {
+    
+    private let rootView = LastGamesView()
 
     override init() {
         super.init()
@@ -20,6 +22,17 @@ class LastGamesController: BaseController<LastGamesViewModel> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .brown
+        
+        viewModel.delegate = self
     }
+    
+    override func loadView() {
+        super.loadView()
+        
+        view = rootView
+    }
+}
+
+extension LastGamesController: LastGamesModelDelegate {
+    
 }
