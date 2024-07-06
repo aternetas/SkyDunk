@@ -7,13 +7,13 @@
 
 import UIKit
 
-class LastGamesController: BaseController<LastGamesViewModel> {
+class PastGamesController: BaseController<PastGamesViewModel> {
     
-    private let rootView = LastGamesView()
+    private let rootView = PastGamesView()
 
     override init() {
         super.init()
-        viewModel = LastGamesViewModel()
+        viewModel = PastGamesViewModel()
     }
     
     required init?(coder: NSCoder) {
@@ -33,6 +33,6 @@ class LastGamesController: BaseController<LastGamesViewModel> {
     }
 }
 
-extension LastGamesController: LastGamesModelDelegate {
+extension PastGamesController: PastGamesModelDelegate {
     
 }

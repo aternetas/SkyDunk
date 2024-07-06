@@ -7,6 +7,6 @@
 
 import UIKit
 
-class LastGamesView: UIView {
+class PastGamesView: UIView {
     
 }

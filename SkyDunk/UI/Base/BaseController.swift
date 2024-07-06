@@ -33,8 +33,8 @@ extension BaseController: NavigationManagerProtocol {
         let viewController: UIViewController
         
         switch screen {
-        case .lastGames:
-            viewController = LastGamesController()
+        case .pastGames:
+            viewController = PastGamesController()
         case .game(gameId: let gameId):
             let vc = GameController()
             vc.viewModel.setGame(gameId: gameId)

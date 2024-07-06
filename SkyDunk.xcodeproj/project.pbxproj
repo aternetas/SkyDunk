@@ -11,7 +11,7 @@
 		A50864A52C235DDD004F0F11 /* BetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864A42C235DDD004F0F11 /* BetRepository.swift */; };
 		A50864A72C235DF9004F0F11 /* BetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864A62C235DF9004F0F11 /* BetService.swift */; };
 		A50864AB2C2CAD7E004F0F11 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864AA2C2CAD7E004F0F11 /* ServiceFactory.swift */; };
-		A50864AD2C39B39E004F0F11 /* LastGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864AC2C39B39E004F0F11 /* LastGamesView.swift */; };
+		A50864AD2C39B39E004F0F11 /* PastGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864AC2C39B39E004F0F11 /* PastGamesView.swift */; };
 		A514A3242C01F49A0014BBD4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3232C01F49A0014BBD4 /* CustomTextField.swift */; };
 		A514A3262C0A17480014BBD4 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3252C0A17480014BBD4 /* AlertModel.swift */; };
 		A514A3282C0E06B50014BBD4 /* CustomTextField+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3272C0E06B50014BBD4 /* CustomTextField+ext.swift */; };
@@ -20,7 +20,7 @@
 		A52C53BD2BEE8B8500699D2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52C53BC2BEE8B8500699D2E /* Assets.xcassets */; };
 		A52C53C02BEE8B8500699D2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52C53BE2BEE8B8500699D2E /* LaunchScreen.storyboard */; };
 		A52C53CC2BEE916300699D2E /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53CB2BEE916300699D2E /* HomeController.swift */; };
-		A52C53CE2BEE92CE00699D2E /* LastGamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */; };
+		A52C53CE2BEE92CE00699D2E /* PastGamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53CD2BEE92CE00699D2E /* PastGamesController.swift */; };
 		A52C53D22BEE95FA00699D2E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D12BEE95FA00699D2E /* HomeViewModel.swift */; };
 		A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D32BEE963B00699D2E /* HomeView.swift */; };
 		A52C53D72BEE9B3C00699D2E /* LastGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53D62BEE9B3C00699D2E /* LastGameView.swift */; };
@@ -35,7 +35,7 @@
 		A52C53EF2BEFF7E000699D2E /* TeamType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53EE2BEFF7E000699D2E /* TeamType.swift */; };
 		A52C53F62BEFFB8C00699D2E /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53F52BEFFB8C00699D2E /* BaseController.swift */; };
 		A52C53F82BF0003A00699D2E /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53F72BF0003A00699D2E /* BaseViewModel.swift */; };
-		A52C53FA2BF001C300699D2E /* LastGamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53F92BF001C300699D2E /* LastGamesViewModel.swift */; };
+		A52C53FA2BF001C300699D2E /* PastGamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53F92BF001C300699D2E /* PastGamesViewModel.swift */; };
 		A52C53FD2BF10ED400699D2E /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53FC2BF10ED400699D2E /* GameViewModel.swift */; };
 		A52C53FF2BF10EF900699D2E /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C53FE2BF10EF900699D2E /* GameController.swift */; };
 		A52C54012BF10F1D00699D2E /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C54002BF10F1D00699D2E /* GameView.swift */; };
@@ -68,7 +68,7 @@
 		A50864A42C235DDD004F0F11 /* BetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetRepository.swift; sourceTree = "<group>"; };
 		A50864A62C235DF9004F0F11 /* BetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetService.swift; sourceTree = "<group>"; };
 		A50864AA2C2CAD7E004F0F11 /* ServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
-		A50864AC2C39B39E004F0F11 /* LastGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGamesView.swift; sourceTree = "<group>"; };
+		A50864AC2C39B39E004F0F11 /* PastGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastGamesView.swift; sourceTree = "<group>"; };
 		A514A3232C01F49A0014BBD4 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		A514A3252C0A17480014BBD4 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		A514A3272C0E06B50014BBD4 /* CustomTextField+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTextField+ext.swift"; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		A52C53BF2BEE8B8500699D2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A52C53C12BEE8B8500699D2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A52C53CB2BEE916300699D2E /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
-		A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGamesController.swift; sourceTree = "<group>"; };
+		A52C53CD2BEE92CE00699D2E /* PastGamesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastGamesController.swift; sourceTree = "<group>"; };
 		A52C53D12BEE95FA00699D2E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A52C53D32BEE963B00699D2E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A52C53D62BEE9B3C00699D2E /* LastGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGameView.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 		A52C53EE2BEFF7E000699D2E /* TeamType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamType.swift; sourceTree = "<group>"; };
 		A52C53F52BEFFB8C00699D2E /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		A52C53F72BF0003A00699D2E /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		A52C53F92BF001C300699D2E /* LastGamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGamesViewModel.swift; sourceTree = "<group>"; };
+		A52C53F92BF001C300699D2E /* PastGamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastGamesViewModel.swift; sourceTree = "<group>"; };
 		A52C53FC2BF10ED400699D2E /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		A52C53FE2BF10EF900699D2E /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		A52C54002BF10F1D00699D2E /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -211,7 +211,7 @@
 				A52C53FB2BF10E7F00699D2E /* Game */,
 				A52C53F42BEFFB6800699D2E /* Base */,
 				A52C53D52BEE9B2400699D2E /* Components */,
-				A52C53D02BEE95D300699D2E /* LastGames */,
+				A52C53D02BEE95D300699D2E /* PastGames */,
 				A52C53CF2BEE95CD00699D2E /* Home */,
 			);
 			path = UI;
@@ -228,14 +228,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		A52C53D02BEE95D300699D2E /* LastGames */ = {
+		A52C53D02BEE95D300699D2E /* PastGames */ = {
 			isa = PBXGroup;
 			children = (
-				A52C53CD2BEE92CE00699D2E /* LastGamesController.swift */,
-				A52C53F92BF001C300699D2E /* LastGamesViewModel.swift */,
-				A50864AC2C39B39E004F0F11 /* LastGamesView.swift */,
+				A52C53CD2BEE92CE00699D2E /* PastGamesController.swift */,
+				A52C53F92BF001C300699D2E /* PastGamesViewModel.swift */,
+				A50864AC2C39B39E004F0F11 /* PastGamesView.swift */,
 			);
-			path = LastGames;
+			path = PastGames;
 			sourceTree = "<group>";
 		};
 		A52C53D52BEE9B2400699D2E /* Components */ = {
@@ -439,7 +439,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A52C53FA2BF001C300699D2E /* LastGamesViewModel.swift in Sources */,
+				A52C53FA2BF001C300699D2E /* PastGamesViewModel.swift in Sources */,
 				A52C53DA2BEEB2D700699D2E /* UIView+ext.swift in Sources */,
 				A52C53B42BEE8B8300699D2E /* AppDelegate.swift in Sources */,
 				A5E40C382BF9FCD70056AC63 /* NewBetViewModel.swift in Sources */,
@@ -452,7 +452,7 @@
 				A52C54032BF1101000699D2E /* Game.swift in Sources */,
 				A52C53EF2BEFF7E000699D2E /* TeamType.swift in Sources */,
 				A52C53E62BEFC38F00699D2E /* GradientView.swift in Sources */,
-				A52C53CE2BEE92CE00699D2E /* LastGamesController.swift in Sources */,
+				A52C53CE2BEE92CE00699D2E /* PastGamesController.swift in Sources */,
 				A52C53B62BEE8B8300699D2E /* SceneDelegate.swift in Sources */,
 				A538E3C52BF50F7900485EF3 /* BetVM.swift in Sources */,
 				A538E3C72BF50F8F00485EF3 /* BetCell.swift in Sources */,
@@ -475,7 +475,7 @@
 				A52C54062BF11FF800699D2E /* GameHeaderView.swift in Sources */,
 				A538E3C22BF50C1400485EF3 /* Bet.swift in Sources */,
 				A50864AB2C2CAD7E004F0F11 /* ServiceFactory.swift in Sources */,
-				A50864AD2C39B39E004F0F11 /* LastGamesView.swift in Sources */,
+				A50864AD2C39B39E004F0F11 /* PastGamesView.swift in Sources */,
 				A50864A52C235DDD004F0F11 /* BetRepository.swift in Sources */,
 				FAE48A7D2C178A0C0046F6A0 /* GameRepository.swift in Sources */,
 				A5E40C312BF8DC850056AC63 /* ScreenType.swift in Sources */,
