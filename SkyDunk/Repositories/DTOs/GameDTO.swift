@@ -9,11 +9,10 @@ import Foundation
 
 struct GameDTO {
     
-    let id = UUID().uuidString
+    let id: String
     let homeTeam: String
     let guestTeam: String
-    let gameDate: Date
+    let date: Date
     let homeScore: Int
     let guestScore: Int
-    let betIds: [String]
 }

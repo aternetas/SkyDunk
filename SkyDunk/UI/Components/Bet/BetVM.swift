@@ -8,9 +8,9 @@
 import Foundation
 
 protocol BetCellListenerProtocol {
-    func tapOnSuccessBet(id: String)
-    func tapOnFailureBet(id: String)
-    func tapOnBet(id: String)
+    func selectSuccessPrediction(id: String)
+    func selectFailurePrediction(id: String)
+    func selectBet(id: String)
 }
 
 class BetVM {
@@ -22,10 +22,10 @@ class BetVM {
     let coefficient: String
     let isActive: Bool
     let isSuccess: Bool?
-    let teams: [TeamType]
+    let betOn: [TeamType]
     let delegate: BetCellListenerProtocol?
     
-    init(id: String, description: String, date: String, amount: String, coefficient: String, isActive: Bool, isSuccess: Bool?, teams: [TeamType], delegate: BetCellListenerProtocol?) {
+    init(id: String, description: String, date: String, amount: String, coefficient: String, isActive: Bool, isSuccess: Bool?, betOn: [TeamType], delegate: BetCellListenerProtocol?) {
         self.id = id
         self.description = description
         self.date = date
@@ -33,19 +33,19 @@ class BetVM {
         self.coefficient = coefficient
         self.isActive = isActive
         self.isSuccess = isSuccess
-        self.teams = teams
+        self.betOn = betOn
         self.delegate = delegate
     }
     
     convenience init(bet: Bet, delegate: BetCellListenerProtocol?) {
         self.init(id: bet.id,
                   description: bet.description,
-                  date: bet.date.toHourMinuteDayMonthYear(),
+                  date: bet.сreated.toHourMinuteDayMonthYear(),
                   amount: String(bet.amount),
                   coefficient: String(bet.coefficient),
                   isActive: bet.isSuccess == nil,
                   isSuccess: bet.isSuccess,
-                  teams: bet.teams,
+                  betOn: bet.betOn,
                   delegate: delegate)
     }
     
@@ -57,20 +57,20 @@ class BetVM {
               coefficient: coefficient,
               isActive: isActive ?? self.isActive,
               isSuccess: isSuccess ?? self.isSuccess,
-              teams: teams,
+              betOn: betOn,
               delegate: delegate)
     }
     
-    func tapOnSuccessBet() {
-        delegate?.tapOnSuccessBet(id: id)
+    func selectSuccessPrediction() {
+        delegate?.selectSuccessPrediction(id: id)
     }
     
-    func tapOnFailureBet() {
-        delegate?.tapOnFailureBet(id: id)
+    func selectFailurePrediction() {
+        delegate?.selectFailurePrediction(id: id)
     }
     
-    func tapOnBet() {
-        delegate?.tapOnBet(id: id)
+    func selecBet() {
+        delegate?.selectBet(id: id)
     }
 }
 

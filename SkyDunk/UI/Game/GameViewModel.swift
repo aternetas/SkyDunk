@@ -12,53 +12,74 @@ protocol GameViewModelDelegat {
     func showBets()
     func updateBet(index: Int)
     func showEmptyState(isShow: Bool)
+    func hideNewBetButton()
 }
 
 class GameViewModel: BaseViewModel {
     
+    private let betService = ServiceFactory.shared.betService
+    private let gameService = ServiceFactory.shared.gameService
+    
     var delegate: GameViewModelDelegat?
     var betsVM: [BetVM] = []
-    private var game: Game?
+   
+    private var gameId: String = ""
     
-    func setGame(game: Game) {
-        self.game = game
-        delegate?.showGame(game: GameHeaderVM(game: game))
-        setBets()
-    }
-    
-    func setBets() {
-//        guard let bets = game?.bets else { return }
-//        betsVM = bets.map( { BetVM(bet: $0, delegate: self) } )
-        
-        delegate?.showEmptyState(isShow: betsVM.isEmpty)
-        delegate?.showBets()
+    func setGame(gameId: String) {
+        self.gameId = gameId
+        gameService.getGameByGameId(gameId) { [weak self] game in
+            guard let game = game else {
+                print("Error, empty game")
+                return
+            }
+            
+            if game.date < Date.now {
+                self?.delegate?.hideNewBetButton()
+            }
+            
+            self?.delegate?.showGame(game: GameHeaderVM(game: game))
+            self?.setBets()
+        }
     }
     
     func addNewBet() {
-        guard let game = game else { return }
-        navigationManager?.openScreen(screen: .newBet(game: game))
+        navigationManager?.openScreen(screen: .newBet(gameId: gameId))
+    }
+    
+    func updateBets() {
+        setBets()
+    }
+    
+    private func setBets() {
+        betService.getBetsByGameId(gameId) { [weak self] bets in
+            guard let self = self else { return }
+            betsVM = bets.map { BetVM(bet: $0, delegate: self) }
+            
+            delegate?.showEmptyState(isShow: betsVM.isEmpty)
+            delegate?.showBets()
+        }
     }
 }
 
 extension GameViewModel: BetCellListenerProtocol {
     
-    func tapOnSuccessBet(id: String) {
+    func selectSuccessPrediction(id: String) {
         changeBetStatus(id: id, isSuccess: true)
     }
     
-    func tapOnFailureBet(id: String) {
+    func selectFailurePrediction(id: String) {
         changeBetStatus(id: id, isSuccess: false)
     }
     
-    func tapOnBet(id: String) {
-        guard let index = betsVM.firstIndex(where: { $0.id == id}) else { return }
+    func selectBet(id: String) {
+        guard let index = betsVM.firstIndex(where: { $0.id == id }) else { return }
         betsVM[index] = betsVM[index].copy(description: betsVM[index].description + " CHANGE")
         delegate?.updateBet(index: index)
     }
     
     private func changeBetStatus(id: String, isSuccess: Bool) {
-        guard let index = betsVM.firstIndex(where: { $0.id == id}) else { return }
-        betsVM[index] = betsVM[index].copy(isActive: false, isSuccess: isSuccess)
-        delegate?.updateBet(index: index)
+        betService.editBet(id: id, isSuccess: isSuccess) { [weak self] in
+            self?.setBets()
+        }
     }
 }

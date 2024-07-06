@@ -19,7 +19,7 @@ class NewBetView: UIView {
         return view
     }()
     
-    lazy var betTitleTextField: CustomTextField = {
+    lazy var betDescriptionTextField: CustomTextField = {
         let textField = CustomTextField(text: "Прогноз")
         textField.keyboardType = .default
         return textField
@@ -63,7 +63,7 @@ class NewBetView: UIView {
     private func initConstaints() {
         addSubviewsAndAutolayout([newBetLab,
                                   gameHeaderView,
-                                  betTitleTextField,
+                                  betDescriptionTextField,
                                   betAmountTextField,
                                   betCoefficientTextField,
                                   saveBetButton])
@@ -77,17 +77,17 @@ class NewBetView: UIView {
             gameHeaderView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
             gameHeaderView.heightAnchor.constraint(equalToConstant: 160),
             
-            betTitleTextField.topAnchor.constraint(equalTo: gameHeaderView.bottomAnchor, constant: 41),
-            betTitleTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            betTitleTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            betTitleTextField.heightAnchor.constraint(equalToConstant: 44),
+            betDescriptionTextField.topAnchor.constraint(equalTo: gameHeaderView.bottomAnchor, constant: 41),
+            betDescriptionTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            betDescriptionTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            betDescriptionTextField.heightAnchor.constraint(equalToConstant: 44),
             
-            betAmountTextField.topAnchor.constraint(equalTo: betTitleTextField.bottomAnchor, constant: 27),
+            betAmountTextField.topAnchor.constraint(equalTo: betDescriptionTextField.bottomAnchor, constant: 27),
             betAmountTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             betAmountTextField.heightAnchor.constraint(equalToConstant: 44),
             betAmountTextField.widthAnchor.constraint(equalToConstant: 108),
             
-            betCoefficientTextField.topAnchor.constraint(equalTo: betTitleTextField.bottomAnchor, constant: 27),
+            betCoefficientTextField.topAnchor.constraint(equalTo: betDescriptionTextField.bottomAnchor, constant: 27),
             betCoefficientTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             betCoefficientTextField.heightAnchor.constraint(equalToConstant: 44),
             betCoefficientTextField.widthAnchor.constraint(equalToConstant: 108),
