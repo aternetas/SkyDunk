@@ -14,6 +14,9 @@ class PastGamesController: BaseController<PastGamesViewModel> {
     override init() {
         super.init()
         viewModel = PastGamesViewModel()
+        
+        rootView.pastGamesTableView.delegate = self
+        rootView.pastGamesTableView.dataSource = self
     }
     
     required init?(coder: NSCoder) {
@@ -35,4 +38,16 @@ class PastGamesController: BaseController<PastGamesViewModel> {
 
 extension PastGamesController: PastGamesModelDelegate {
     
+}
+
+extension PastGamesController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        7
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PastGameCell.identifier, for: indexPath)
+        return cell
+    }
 }

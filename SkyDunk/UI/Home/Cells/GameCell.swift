@@ -12,7 +12,7 @@ class GameCell: UICollectionViewCell {
     static let identifier = "GameCell"
     static let HEIGHT: CGFloat = 172
     
-    lazy private var containerView = {
+    lazy private var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(resource: .backgroundGray)
         view.layer.cornerRadius = 10

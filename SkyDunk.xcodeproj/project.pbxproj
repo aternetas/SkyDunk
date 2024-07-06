@@ -12,6 +12,8 @@
 		A50864A72C235DF9004F0F11 /* BetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864A62C235DF9004F0F11 /* BetService.swift */; };
 		A50864AB2C2CAD7E004F0F11 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864AA2C2CAD7E004F0F11 /* ServiceFactory.swift */; };
 		A50864AD2C39B39E004F0F11 /* PastGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864AC2C39B39E004F0F11 /* PastGamesView.swift */; };
+		A50864B02C39C407004F0F11 /* PastGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864AF2C39C407004F0F11 /* PastGameCell.swift */; };
+		A50864B22C39C46F004F0F11 /* PastGameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864B12C39C46F004F0F11 /* PastGameVM.swift */; };
 		A514A3242C01F49A0014BBD4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3232C01F49A0014BBD4 /* CustomTextField.swift */; };
 		A514A3262C0A17480014BBD4 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3252C0A17480014BBD4 /* AlertModel.swift */; };
 		A514A3282C0E06B50014BBD4 /* CustomTextField+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514A3272C0E06B50014BBD4 /* CustomTextField+ext.swift */; };
@@ -69,6 +71,8 @@
 		A50864A62C235DF9004F0F11 /* BetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetService.swift; sourceTree = "<group>"; };
 		A50864AA2C2CAD7E004F0F11 /* ServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
 		A50864AC2C39B39E004F0F11 /* PastGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastGamesView.swift; sourceTree = "<group>"; };
+		A50864AF2C39C407004F0F11 /* PastGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastGameCell.swift; sourceTree = "<group>"; };
+		A50864B12C39C46F004F0F11 /* PastGameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastGameVM.swift; sourceTree = "<group>"; };
 		A514A3232C01F49A0014BBD4 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		A514A3252C0A17480014BBD4 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		A514A3272C0E06B50014BBD4 /* CustomTextField+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTextField+ext.swift"; sourceTree = "<group>"; };
@@ -133,6 +137,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A50864AE2C39C3F9004F0F11 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A50864AF2C39C407004F0F11 /* PastGameCell.swift */,
+				A50864B12C39C46F004F0F11 /* PastGameVM.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		A514A3292C0F64420014BBD4 /* Bet */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +244,7 @@
 		A52C53D02BEE95D300699D2E /* PastGames */ = {
 			isa = PBXGroup;
 			children = (
+				A50864AE2C39C3F9004F0F11 /* Cells */,
 				A52C53CD2BEE92CE00699D2E /* PastGamesController.swift */,
 				A52C53F92BF001C300699D2E /* PastGamesViewModel.swift */,
 				A50864AC2C39B39E004F0F11 /* PastGamesView.swift */,
@@ -442,6 +456,7 @@
 				A52C53FA2BF001C300699D2E /* PastGamesViewModel.swift in Sources */,
 				A52C53DA2BEEB2D700699D2E /* UIView+ext.swift in Sources */,
 				A52C53B42BEE8B8300699D2E /* AppDelegate.swift in Sources */,
+				A50864B02C39C407004F0F11 /* PastGameCell.swift in Sources */,
 				A5E40C382BF9FCD70056AC63 /* NewBetViewModel.swift in Sources */,
 				A52C53ED2BEFC6B500699D2E /* TeamType+ext.swift in Sources */,
 				A52C53E42BEFA3AA00699D2E /* GameCell.swift in Sources */,
@@ -454,6 +469,7 @@
 				A52C53E62BEFC38F00699D2E /* GradientView.swift in Sources */,
 				A52C53CE2BEE92CE00699D2E /* PastGamesController.swift in Sources */,
 				A52C53B62BEE8B8300699D2E /* SceneDelegate.swift in Sources */,
+				A50864B22C39C46F004F0F11 /* PastGameVM.swift in Sources */,
 				A538E3C52BF50F7900485EF3 /* BetVM.swift in Sources */,
 				A538E3C72BF50F8F00485EF3 /* BetCell.swift in Sources */,
 				A52C53DD2BEEB54E00699D2E /* LastGameVM.swift in Sources */,
