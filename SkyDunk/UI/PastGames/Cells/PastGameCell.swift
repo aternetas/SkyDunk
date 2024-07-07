@@ -53,15 +53,12 @@ class PastGameCell: UITableViewCell {
     lazy private var dateLabel: UILabel = {
         let label = UILabel(font: UIFont(type: .extraLight, size: 14), textColor: .textBlack)
         label.textAlignment = .right
-        label.text = " "
         return label
     }()
     
     lazy private var betResultLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(type: .extraLight, size: 12)
+        let label = UILabel(font: UIFont(type: .extraLight, size: 12))
         label.textAlignment = .right
-        label.text = " "
         return label
     }()
     
