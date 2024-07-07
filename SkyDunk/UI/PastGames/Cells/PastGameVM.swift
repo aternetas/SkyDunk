@@ -26,7 +26,7 @@ class PastGameVM {
     convenience init(game: Game) {
         self.init(homeTeam: game.homeTeam,
                   guestTeam: game.guestTeam,
-                  score: "\(game.homeScore) : \(game.guestScore)",
+                  score: "\(game.homeScore):\(game.guestScore)",
                   date: game.date.toDayMonthYear(),
                   betResult: "")
     }

@@ -76,8 +76,8 @@ class GameHeaderView: UIView {
             homeTeamImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             homeTeamImageView.heightAnchor.constraint(equalToConstant: 70),
             
-            guestTeamImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             guestTeamImageView.leadingAnchor.constraint(equalTo: versusLab.trailingAnchor, constant: 8),
+            guestTeamImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             guestTeamImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             guestTeamImageView.heightAnchor.constraint(equalToConstant: 70),
             
