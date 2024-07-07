@@ -8,16 +8,16 @@
 import Foundation
 
 var tmpGames = [
-    GameDTO(id: "NTKU-AKXI-3KIA-WRTA", homeTeam: "DEN", guestTeam: "LAL", date: Date.now - 800, homeScore: 98, guestScore: 102),
-    GameDTO(id: "NTAI-2KTA-RAKR", homeTeam: "ATL", guestTeam: "BOS", date: Date.now - 1000, homeScore: 99, guestScore: 87),
-    GameDTO(id: "TNOA-AKCC-CAOY", homeTeam: "DEN", guestTeam: "MIN", date: Date.now - 29800, homeScore: 102, guestScore: 121),
-    GameDTO(id: "KT0C-CNIR-RIUX", homeTeam: "MIA", guestTeam: "LAL", date: Date.now - 24152, homeScore: 121, guestScore: 115),
-    GameDTO(id: "AT20-RKOR-PYZ.", homeTeam: "UTA", guestTeam: "TOR", date: Date.now - 247922, homeScore: 110, guestScore: 102),
-    GameDTO(id: "20!I-AKZO-R;AK", homeTeam: "LAL", guestTeam: "SAC", date: Date.now + 502433, homeScore: 0, guestScore: 0),
-    GameDTO(id: "29ZK-RKXY-IR..", homeTeam: "LAC", guestTeam: "IND", date: Date.now + 5033, homeScore: 0, guestScore: 0),
-    GameDTO(id: "20BX-AOYT-KTKT", homeTeam: "DET", guestTeam: "MIL", date: Date.now + 51033, homeScore: 0, guestScore: 0),
-    GameDTO(id: "3ORY-TIXK-IXEN", homeTeam: "MIA", guestTeam: "DAL", date: Date.now + 2402, homeScore: 0, guestScore: 0),
-    GameDTO(id: "IGKI-NI,Z-AIEU", homeTeam: "BOS", guestTeam: "OKC", date: Date.now + 2, homeScore: 0, guestScore: 0)
+    GameDTO(id: "NTKU-AKXI-3KIA", homeTeam: "DEN", guestTeam: "LAL", date: Date.now - 800, homeScore: 98, guestScore: 102, betsResult: nil),
+    GameDTO(id: "NTAI-2KTA-RAKR", homeTeam: "ATL", guestTeam: "BOS", date: Date.now - 1000, homeScore: 99, guestScore: 87, betsResult: 90),
+    GameDTO(id: "TNOA-AKCC-CAOY", homeTeam: "DEN", guestTeam: "MIN", date: Date.now - 29800, homeScore: 102, guestScore: 121, betsResult: -24),
+    GameDTO(id: "KT0C-CNIR-RIUX", homeTeam: "MIA", guestTeam: "LAL", date: Date.now - 24152, homeScore: 121, guestScore: 115, betsResult: nil),
+    GameDTO(id: "AT20-RKOR-PYZ.", homeTeam: "UTA", guestTeam: "TOR", date: Date.now - 247922, homeScore: 110, guestScore: 102, betsResult: nil),
+    GameDTO(id: "20!I-AKZO-R;AK", homeTeam: "LAL", guestTeam: "SAC", date: Date.now + 502433, homeScore: 0, guestScore: 0, betsResult: nil),
+    GameDTO(id: "29ZK-RKXY-IR..", homeTeam: "LAC", guestTeam: "IND", date: Date.now + 5033, homeScore: 0, guestScore: 0, betsResult: nil),
+    GameDTO(id: "20BX-AOYT-KTKT", homeTeam: "DET", guestTeam: "MIL", date: Date.now + 51033, homeScore: 0, guestScore: 0, betsResult: nil),
+    GameDTO(id: "3ORY-TIXK-IXEN", homeTeam: "MIA", guestTeam: "DAL", date: Date.now + 2402, homeScore: 0, guestScore: 0, betsResult: nil),
+    GameDTO(id: "IGKI-NI,Z-AIEU", homeTeam: "BOS", guestTeam: "OKC", date: Date.now + 2, homeScore: 0, guestScore: 0, betsResult: nil)
 ]
 
 var tmpBets = [
