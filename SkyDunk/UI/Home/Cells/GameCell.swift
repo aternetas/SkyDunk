@@ -38,7 +38,7 @@ class GameCell: UICollectionViewCell {
     }()
     
     lazy private var gameStartTimeLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .extraLight, size: 12))
+        let label = UILabel(font: .extraLight12)
         return label
     }()
     

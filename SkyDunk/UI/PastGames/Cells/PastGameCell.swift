@@ -39,7 +39,7 @@ class PastGameCell: UITableViewCell {
     }()
     
     lazy private var scoreLabel: UILabel = {
-        let label = UILabel(font: UIFont(type: .light, size: 14))
+        let label = UILabel(font: .light14)
         label.textAlignment = .center
         return label
     }()
@@ -57,7 +57,7 @@ class PastGameCell: UITableViewCell {
     }()
     
     lazy private var betResultLabel: UILabel = {
-        let label = UILabel(font: UIFont(type: .extraLight, size: 12))
+        let label = UILabel(font: .extraLight12)
         label.textAlignment = .right
         return label
     }()

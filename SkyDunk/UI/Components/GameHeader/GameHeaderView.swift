@@ -23,10 +23,10 @@ class GameHeaderView: UIView {
         return imageView
     }()
     
-    lazy private var gameDateLab = UILabel(font: UIFont(type: .extraLight, size: 15))
+    lazy private var gameDateLab = UILabel(font: .extraLight15)
     
     lazy private var gameScoreLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .medium, size: 20))
+        let label = UILabel(font: .medium20)
         label.textAlignment = .center
         return label
     }()
