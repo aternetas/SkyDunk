@@ -9,15 +9,15 @@ import UIKit
 
 class LastGameView: UIView {
     
-    lazy private var titleLab = UILabel(text: "КРАЙНЯЯ ИГРА", font: UIFont(type: .light, size: 18), textColor: .textBlack)
+    lazy private var titleLab = UILabel(text: "КРАЙНЯЯ ИГРА", font: UIFont(type: .light, size: 18))
     
     lazy private var gameScoreLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .medium, size: 20), textColor: .textBlack)
+        let label = UILabel(font: UIFont(type: .medium, size: 20))
         label.textAlignment = .center
         return label
     }()
     
-    lazy private var gameDateLab = UILabel(font: UIFont(type: .extraLight, size: 15), textColor: .textBlack)
+    lazy private var gameDateLab = UILabel(font: UIFont(type: .extraLight, size: 15))
     
     lazy private var homeTeamImageView: UIImageView = {
         let imageView = UIImageView()

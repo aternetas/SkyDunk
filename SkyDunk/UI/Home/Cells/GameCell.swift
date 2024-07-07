@@ -33,12 +33,12 @@ class GameCell: UICollectionViewCell {
     }()
     
     lazy private var gameDateLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .extraLight, size: 14), textColor: .textBlack)
+        let label = UILabel(font: UIFont(type: .extraLight, size: 14))
         return label
     }()
     
     lazy private var gameStartTimeLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .extraLight, size: 12), textColor: .textBlack)
+        let label = UILabel(font: UIFont(type: .extraLight, size: 12))
         return label
     }()
     

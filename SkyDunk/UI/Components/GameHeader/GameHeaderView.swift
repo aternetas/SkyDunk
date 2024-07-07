@@ -9,7 +9,7 @@ import UIKit
 
 class GameHeaderView: UIView {
     
-    lazy private var versusLab = UILabel(text: "VS", font: UIFont(type: .regular, size: 30), textColor: .textBlack)
+    lazy private var versusLab = UILabel(text: "VS", font: UIFont(type: .regular, size: 30))
     
     lazy private var homeTeamImageView: UIImageView = {
         let imageView = UIImageView()
@@ -23,10 +23,10 @@ class GameHeaderView: UIView {
         return imageView
     }()
     
-    lazy private var gameDateLab = UILabel(font: UIFont(type: .extraLight, size: 15), textColor: .textBlack)
+    lazy private var gameDateLab = UILabel(font: UIFont(type: .extraLight, size: 15))
     
     lazy private var gameScoreLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .medium, size: 20), textColor: .textBlack)
+        let label = UILabel(font: UIFont(type: .medium, size: 20))
         label.textAlignment = .center
         return label
     }()
