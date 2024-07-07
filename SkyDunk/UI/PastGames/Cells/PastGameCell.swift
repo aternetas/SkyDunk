@@ -53,6 +53,7 @@ class PastGameCell: UITableViewCell {
     lazy private var dateLabel: UILabel = {
         let label = UILabel(font: UIFont(type: .extraLight, size: 14), textColor: .textBlack)
         label.textAlignment = .right
+        label.text = " "
         return label
     }()
     
@@ -60,6 +61,7 @@ class PastGameCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(type: .extraLight, size: 12)
         label.textAlignment = .right
+        label.text = " "
         return label
     }()
     
@@ -106,7 +108,6 @@ class PastGameCell: UITableViewCell {
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            containerView.heightAnchor.constraint(equalToConstant: PastGameCell.HEIGHT),
             
             gradientView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0),
             gradientView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 0),
@@ -133,7 +134,8 @@ class PastGameCell: UITableViewCell {
             guestTeamImageView.widthAnchor.constraint(equalToConstant: 40),
             
             betResultLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 24),
-            betResultLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16)
+            betResultLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
+            betResultLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16)
         ])
     }
 }
