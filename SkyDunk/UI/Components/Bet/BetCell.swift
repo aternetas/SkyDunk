@@ -28,26 +28,26 @@ class BetCell: UITableViewCell {
     }()
     
     lazy private var descriptionLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .regular, size: 14), textColor: .textDark)
+        let label = UILabel(font: UIFont(type: .regular, size: 14), textColor: .textBlack)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
     }()
     
     lazy private var amountLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .regular, size: 14), textColor: .textDark)
+        let label = UILabel(font: UIFont(type: .regular, size: 14), textColor: .textBlack)
         label.textAlignment = .right
         label.setContentCompressionResistancePriority(.init(1000), for: .horizontal)
         return label
     }()
     
     lazy private var dateLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .extraLight, size: 12), textColor: .textDark)
+        let label = UILabel(font: UIFont(type: .extraLight, size: 12), textColor: .textBlack)
         return label
     }()
     
     lazy private var coefficientLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .extraLight, size: 12), textColor: .textDark)
+        let label = UILabel(font: UIFont(type: .extraLight, size: 12), textColor: .textBlack)
         label.textAlignment = .right
         return label
     }()

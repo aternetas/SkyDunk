@@ -47,7 +47,8 @@ extension PastGamesController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PastGameCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: PastGameCell.identifier, for: indexPath) as! PastGameCell
+        cell.bind(vm: PastGameVM(game: Game(dto: tmpGames[2])))
         return cell
     }
 }

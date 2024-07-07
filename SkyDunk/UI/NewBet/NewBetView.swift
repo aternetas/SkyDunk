@@ -10,7 +10,7 @@ import UIKit
 class NewBetView: UIView {
     
     private lazy var newBetLab: UILabel = {
-        let label = UILabel(text: "Новая ставка", font: UIFont(type: .medium, size: 20), textColor: .textDark)
+        let label = UILabel(text: "Новая ставка", font: UIFont(type: .medium, size: 20), textColor: .textBlack)
         return label
     }()
     
