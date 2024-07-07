@@ -56,6 +56,13 @@ class PastGameCell: UITableViewCell {
         return label
     }()
     
+    lazy private var betResultLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(type: .extraLight, size: 12)
+        label.textAlignment = .right
+        return label
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -74,6 +81,9 @@ class PastGameCell: UITableViewCell {
             self?.scoreLabel.text = vm.score
             self?.guestTeamImageView.image = vm.guestTeam.logo
             self?.dateLabel.text = vm.date
+            
+            self?.betResultLabel.textColor = .red
+            self?.betResultLabel.text = "+18.4"
         }
     }
     
@@ -83,7 +93,8 @@ class PastGameCell: UITableViewCell {
                                                homeTeamImageView,
                                                scoreLabel,
                                                guestTeamImageView,
-                                               dateLabel])
+                                               dateLabel,
+                                               betResultLabel])
         
         NSLayoutConstraint.activate([
             shadowView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
@@ -119,7 +130,10 @@ class PastGameCell: UITableViewCell {
             guestTeamImageView.trailingAnchor.constraint(lessThanOrEqualTo: dateLabel.leadingAnchor, constant: -100),
             guestTeamImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             guestTeamImageView.heightAnchor.constraint(equalToConstant: 35),
-            guestTeamImageView.widthAnchor.constraint(equalToConstant: 40)
+            guestTeamImageView.widthAnchor.constraint(equalToConstant: 40),
+            
+            betResultLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 24),
+            betResultLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16)
         ])
     }
 }
