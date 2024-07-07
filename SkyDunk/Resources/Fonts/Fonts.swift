@@ -9,6 +9,16 @@ import UIKit
 
 extension UIFont {
     
+    static var extraLight12 = UIFont(type: .extraLight, size: 12)
+    static var extraLight15 = UIFont(type: .extraLight, size: 15)
+    
+    static var light14 = UIFont(type: .light, size: 14)
+    static var light18 = UIFont(type: .light, size: 18)
+    
+    static var regular14 = UIFont(type: .regular, size: 14)
+    
+    static var medium20 = UIFont(type: .medium, size: 20)
+
     enum MyFont {
         case extraLight, light, medium, regular
         
