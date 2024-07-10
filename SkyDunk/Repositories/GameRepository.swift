@@ -26,6 +26,18 @@ class GameRepository {
         }
     }
     
+    func editGame(betId: String, isNewBet: Bool, completion: @escaping () -> ()) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
+            let gameId = tmpBets.first { $0.id == betId }?.gameId
+            tmpGames.enumerated().forEach { index, game in
+                if game.id == gameId {
+                    tmpGames[index] = game.copy(isNewBet: isNewBet)
+                    completion()
+                }
+            }
+        }
+    }
+    
     func removeGame(id: String) -> Bool {
         let startCount = tmpGames.count
         tmpGames.removeAll(where: { $0.id == id })

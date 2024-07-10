@@ -43,7 +43,9 @@ class BetRepository {
                     break
                 }
             }
-            completion()
+            self.gameRepository?.editGame(betId: id, isNewBet: false) {
+                completion()
+            }
         })
     }
     
