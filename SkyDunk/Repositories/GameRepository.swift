@@ -15,23 +15,22 @@ class GameRepository {
         }
     }
     
-    func editGame(gameId: String, isNewBet: Bool, completion: @escaping () -> ()) {
+    func editGame(gameId: String, completion: @escaping () -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
             tmpGames.enumerated().forEach { index, game in
                 if game.id == gameId {
-                    tmpGames[index] = game.copy(isNewBet: isNewBet)
+                    tmpGames[index] = game.copy()
                     completion()
                 }
             }
         }
     }
     
-    func editGame(betId: String, isNewBet: Bool, completion: @escaping () -> ()) {
+    func editGame(gameId: String, betResult: Double, isSuccess: Bool, completion: @escaping () -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
-            let gameId = tmpBets.first { $0.id == betId }?.gameId
             tmpGames.enumerated().forEach { index, game in
                 if game.id == gameId {
-                    tmpGames[index] = game.copy(isNewBet: isNewBet)
+                    tmpGames[index] = game.copy(betResult: betResult, isSuccess: isSuccess)
                     completion()
                 }
             }

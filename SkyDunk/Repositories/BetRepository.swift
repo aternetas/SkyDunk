@@ -9,9 +9,9 @@ import Foundation
 
 class BetRepository {
     
-    private var gameRepository: GameRepository?
+    private var gameRepository: GameRepository
     
-    init(gameRepository: GameRepository?) {
+    init(gameRepository: GameRepository) {
         self.gameRepository = gameRepository
     }
     
@@ -27,26 +27,28 @@ class BetRepository {
         })
     }
     
-    func editBet(id: String, description: String? = nil, isSuccess: Bool? = nil, completion: @escaping () -> ()) {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 0.4, execute: {
-            for i in 0..<tmpBets.count {
-                if tmpBets[i].id == id {
-                    let dto = tmpBets[i]
-                    tmpBets[i] = BetDTO(id: id,
-                                        gameId: dto.gameId,
-                                        description: description ?? dto.description,
-                                        created: dto.created,
-                                        amount: dto.amount,
-                                        coefficient: dto.coefficient,
-                                        betOn: dto.betOn,
-                                        isSuccess: isSuccess ?? dto.isSuccess)
-                    break
-                }
-            }
-            self.gameRepository?.editGame(betId: id, isNewBet: false) {
+    func editBet(id: String, isSuccess: Bool, completion: @escaping () -> ()) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.4) { [weak self] in
+            guard let self = self else { return }
+            let dto = tmpBets.first { $0.id == id }
+            let index = tmpBets.firstIndex { $0.id == id }
+            guard let dto = dto, let index = index else { return }
+            
+            tmpBets[index] = BetDTO(id: id,
+                                    gameId: dto.gameId,
+                                    description: dto.description,
+                                    created: dto.created,
+                                    amount: dto.amount,
+                                    coefficient: dto.coefficient,
+                                    betOn: dto.betOn,
+                                    isSuccess: isSuccess)
+            
+            let betResult = self.calcBetResult(amount: dto.amount, coefficient: dto.coefficient)
+            self.gameRepository.editGame(gameId: dto.gameId, betResult: betResult, isSuccess: isSuccess) {
                 completion()
             }
-        })
+            completion()
+        }
     }
     
     func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String, completion: @escaping () -> ()) {
@@ -58,8 +60,12 @@ class BetRepository {
                               coefficient: coefficient,
                               betOn: betOn,
                               isSuccess: nil))
-        gameRepository?.editGame(gameId: gameId, isNewBet: true) {
+        gameRepository.editGame(gameId: gameId) {
             completion()
         }
+    }
+    
+    private func calcBetResult(amount: Double, coefficient: Double) -> Double {
+        amount * coefficient
     }
 }

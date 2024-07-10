@@ -18,14 +18,25 @@ struct GameDTO {
     let activeBetsAmount: Int
     let betsResult: Double?
     
-    func copy(isNewBet: Bool) -> GameDTO {
+    func copy() -> GameDTO {
         GameDTO(id: id,
                 homeTeam: homeTeam,
                 guestTeam: guestTeam,
                 date: date,
                 homeScore: homeScore,
                 guestScore: guestScore,
-                activeBetsAmount: isNewBet ? activeBetsAmount + 1 : activeBetsAmount - 1,
+                activeBetsAmount: activeBetsAmount + 1,
                 betsResult: betsResult)
+    }
+    
+    func copy(betResult: Double, isSuccess: Bool) -> GameDTO {
+        GameDTO(id: id,
+                homeTeam: homeTeam,
+                guestTeam: guestTeam,
+                date: date,
+                homeScore: homeScore,
+                guestScore: guestScore,
+                activeBetsAmount: activeBetsAmount - 1,
+                betsResult: isSuccess ? (betsResult ?? 0.0) + betResult : (betsResult ?? 0.0) - betResult)
     }
 }
