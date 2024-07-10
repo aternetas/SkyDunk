@@ -17,10 +17,11 @@ class GameRepository {
     
     func editGame(gameId: String, completion: @escaping () -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
-            tmpGames.enumerated().forEach { index, game in
-                if game.id == gameId {
-                    tmpGames[index] = game.copy()
+            for i in 0..<tmpGames.count {
+                if tmpGames[i].id == gameId {
+                    tmpGames[i] = tmpGames[i].copy()
                     completion()
+                    break
                 }
             }
         }
@@ -28,10 +29,11 @@ class GameRepository {
     
     func editGame(gameId: String, betResult: Double, isSuccess: Bool, completion: @escaping () -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
-            tmpGames.enumerated().forEach { index, game in
-                if game.id == gameId {
-                    tmpGames[index] = game.copy(betResult: betResult, isSuccess: isSuccess)
+            for i in 0..<tmpGames.count {
+                if tmpGames[i].id == gameId {
+                    tmpGames[i] = tmpGames[i].copy(betResult: betResult, isSuccess: isSuccess)
                     completion()
+                    break
                 }
             }
         }

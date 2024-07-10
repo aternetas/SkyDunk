@@ -34,14 +34,7 @@ class BetRepository {
             let index = tmpBets.firstIndex { $0.id == id }
             guard let dto = dto, let index = index else { return }
             
-            tmpBets[index] = BetDTO(id: id,
-                                    gameId: dto.gameId,
-                                    description: dto.description,
-                                    created: dto.created,
-                                    amount: dto.amount,
-                                    coefficient: dto.coefficient,
-                                    betOn: dto.betOn,
-                                    isSuccess: isSuccess)
+            tmpBets[index] = dto.copy(isSuccess: isSuccess)
             
             let betResult = self.calcBetResult(amount: dto.amount, coefficient: dto.coefficient)
             self.gameRepository.editGame(gameId: dto.gameId, betResult: betResult, isSuccess: isSuccess) {
