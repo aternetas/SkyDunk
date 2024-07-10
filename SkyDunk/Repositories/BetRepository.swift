@@ -9,6 +9,12 @@ import Foundation
 
 class BetRepository {
     
+    private var gameRepository: GameRepository?
+    
+    init(gameRepository: GameRepository?) {
+        self.gameRepository = gameRepository
+    }
+    
     func getBets(completion: @escaping([BetDTO]) -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.1, execute: {
             completion(tmpBets)

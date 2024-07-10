@@ -14,9 +14,10 @@ class ServiceFactory {
     let gameService: GameService
     let betService: BetService
     
+    private let gameRepo = GameRepository()
+    
     private init() {
-        let gameRepo = GameRepository()
-        let betRepo = BetRepository()
+        let betRepo = BetRepository(gameRepository: gameRepo)
         
         gameService = GameService(repository: gameRepo)
         betService = BetService(repository: betRepo)
