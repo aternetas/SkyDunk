@@ -81,8 +81,12 @@ class PastGameCell: UITableViewCell {
             self?.guestTeamImageView.image = vm.guestTeam.logo
             self?.dateLabel.text = vm.date
             
-            self?.betResultLabel.textColor = .red
-            self?.betResultLabel.text = "+18.4"
+            if let betsResult = vm.betsResult {
+                self?.betResultLabel.text = String(betsResult)
+                self?.betResultLabel.textColor = betsResult >= 0 ? .textGreen : .textRed
+            } else {
+                self?.betResultLabel.text = "Ставок нет"
+            }
         }
     }
     
@@ -119,16 +123,16 @@ class PastGameCell: UITableViewCell {
             homeTeamImageView.trailingAnchor.constraint(lessThanOrEqualTo: scoreLabel.leadingAnchor, constant: -8),
             homeTeamImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             homeTeamImageView.heightAnchor.constraint(equalToConstant: 35),
-            homeTeamImageView.widthAnchor.constraint(equalToConstant: 40),
+            homeTeamImageView.widthAnchor.constraint(equalToConstant: 45),
             
             dateLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),
             dateLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
             
-            guestTeamImageView.leadingAnchor.constraint(lessThanOrEqualTo: scoreLabel.trailingAnchor, constant: 8),
-            guestTeamImageView.trailingAnchor.constraint(lessThanOrEqualTo: dateLabel.leadingAnchor, constant: -100),
+            guestTeamImageView.leadingAnchor.constraint(greaterThanOrEqualTo: scoreLabel.trailingAnchor, constant: 8),
+            guestTeamImageView.trailingAnchor.constraint(lessThanOrEqualTo: dateLabel.leadingAnchor, constant: -70),
             guestTeamImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             guestTeamImageView.heightAnchor.constraint(equalToConstant: 35),
-            guestTeamImageView.widthAnchor.constraint(equalToConstant: 40),
+            guestTeamImageView.widthAnchor.constraint(equalToConstant: 45),
             
             betResultLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 24),
             betResultLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),

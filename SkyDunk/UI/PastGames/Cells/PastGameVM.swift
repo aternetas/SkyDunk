@@ -13,14 +13,14 @@ class PastGameVM {
     let guestTeam: TeamType
     let score: String
     let date: String
-    let betResult: String
+    let betsResult: Double?
     
-    init(homeTeam: TeamType, guestTeam: TeamType, score: String, date: String, betResult: String) {
+    init(homeTeam: TeamType, guestTeam: TeamType, score: String, date: String, betsResult: Double?) {
         self.homeTeam = homeTeam
         self.guestTeam = guestTeam
         self.score = score
         self.date = date
-        self.betResult = betResult
+        self.betsResult = betsResult
     }
     
     convenience init(game: Game) {
@@ -28,6 +28,6 @@ class PastGameVM {
                   guestTeam: game.guestTeam,
                   score: "\(game.homeScore):\(game.guestScore)",
                   date: game.date.toDayMonthYear(),
-                  betResult: "")
+                  betsResult: game.betsResult)
     }
 }
