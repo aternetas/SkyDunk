@@ -82,7 +82,7 @@ class PastGameCell: UITableViewCell {
             self?.dateLabel.text = vm.date
             
             if let betsResult = vm.betsResult {
-                self?.betResultLabel.text = String(betsResult)
+                self?.betResultLabel.text = betsResult >= 0 ? "+\(betsResult)" : String(betsResult)
                 self?.betResultLabel.textColor = betsResult >= 0 ? .textGreen : .textRed
             } else {
                 self?.betResultLabel.text = "Ставок нет"

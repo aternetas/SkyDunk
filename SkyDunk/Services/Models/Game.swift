@@ -37,6 +37,6 @@ struct Game {
                   homeScore: dto.homeScore,
                   guestScore: dto.guestScore,
                   activeBetsAmount: dto.activeBetsAmount,
-                  betsResult: nil)
+                  betsResult: dto.betsResult)
     }
 }
