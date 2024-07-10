@@ -68,9 +68,9 @@ extension GameController: GameViewModelDelegat {
         }
     }
     
-    func hideNewBetButton() {
+    func showNewBetButton() {
         DispatchQueue.main.async { [weak self] in
-            self?.rootView.newBetButton.isHidden = true
+            self?.rootView.newBetButton.isHidden = false
         }
     }
 }
