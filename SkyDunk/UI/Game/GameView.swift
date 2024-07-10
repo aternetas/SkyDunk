@@ -20,6 +20,7 @@ class GameView: UIView {
     
     lazy var newBetButton: UIButton = {
         let button = UIButton(type: .system)
+        button.isHidden = true
         button.backgroundColor = UIColor(resource: .buttonBackgroundPrimary)
         button.setImage(.plusIcon, for: .normal)
         button.tintColor = .white

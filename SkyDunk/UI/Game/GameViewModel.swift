@@ -12,7 +12,7 @@ protocol GameViewModelDelegat {
     func showBets()
     func updateBet(index: Int)
     func showEmptyState(isShow: Bool)
-    func hideNewBetButton()
+    func showNewBetButton()
 }
 
 class GameViewModel: BaseViewModel {
@@ -33,8 +33,8 @@ class GameViewModel: BaseViewModel {
                 return
             }
             
-            if game.date < Date.now {
-                self?.delegate?.hideNewBetButton()
+            if game.date > Date.now {
+                self?.delegate?.showNewBetButton()
             }
             
             self?.delegate?.showGame(game: GameHeaderVM(game: game))
