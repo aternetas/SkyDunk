@@ -15,5 +15,6 @@ struct GameDTO {
     let date: Date
     let homeScore: Int
     let guestScore: Int
+    let activeBetsAmount: Int
     let betsResult: Double?
 }
