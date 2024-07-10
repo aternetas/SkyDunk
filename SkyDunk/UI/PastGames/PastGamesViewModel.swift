@@ -15,3 +15,10 @@ class PastGamesViewModel: BaseViewModel {
     
     var delegate: PastGamesModelDelegate?
 }
+
+extension PastGamesViewModel: PastGameCellListenerProtocol {
+    
+    func selectGame(gameId: String) {
+        navigationManager?.openScreen(screen: .game(gameId: gameId))
+    }
+}

@@ -62,6 +62,8 @@ class PastGameCell: UITableViewCell {
         return label
     }()
     
+    private var vm: PastGameVM?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -74,6 +76,7 @@ class PastGameCell: UITableViewCell {
     }
     
     func bind(vm: PastGameVM) {
+        self.vm = vm
         DispatchQueue.main.async { [weak self] in
             self?.gradientView.setColors(colors: [vm.homeTeam.color.withAlphaComponent(0.5), vm.guestTeam.color.withAlphaComponent(0.5)])
             self?.homeTeamImageView.image = vm.homeTeam.logo
@@ -88,6 +91,10 @@ class PastGameCell: UITableViewCell {
                 self?.betResultLabel.text = "Ставок нет"
             }
         }
+    }
+    
+    func onClick() {
+        vm?.selectGame()
     }
     
     private func initConstraints() {
