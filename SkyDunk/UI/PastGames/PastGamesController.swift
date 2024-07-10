@@ -27,6 +27,7 @@ class PastGamesController: BaseController<PastGamesViewModel> {
         super.viewDidLoad()
         
         viewModel.delegate = self
+        viewModel.getPastGames()
     }
     
     override func loadView() {
@@ -38,18 +39,20 @@ class PastGamesController: BaseController<PastGamesViewModel> {
 
 extension PastGamesController: PastGamesModelDelegate {
     
+    func updatePastGames() {
+        rootView.pastGamesTableView.reloadData()
+    }
 }
 
 extension PastGamesController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        7
+        viewModel.pastGamesVM.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PastGameCell.identifier, for: indexPath) as! PastGameCell
-        
-        cell.bind(vm: PastGameVM(game: Game(dto: tmpGames[1]), delegate: self))
+        cell.bind(vm: viewModel.pastGamesVM[indexPath.item])
         return cell
     }
     

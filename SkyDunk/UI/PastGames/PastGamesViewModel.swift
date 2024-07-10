@@ -8,12 +8,22 @@
 import Foundation
 
 protocol PastGamesModelDelegate {
-    
+    func updatePastGames()
 }
 
 class PastGamesViewModel: BaseViewModel {
     
     var delegate: PastGamesModelDelegate?
+    
+    var pastGamesVM: [PastGameVM] = []
+    
+    private let betService = ServiceFactory.shared.betService
+    private let gameService = ServiceFactory.shared.gameService
+    
+    func getPastGames() {
+        pastGamesVM = gameService.getPastGames().map { PastGameVM(game: $0, delegate: self) }
+        delegate?.updatePastGames()
+    }
 }
 
 extension PastGamesViewModel: PastGameCellListenerProtocol {

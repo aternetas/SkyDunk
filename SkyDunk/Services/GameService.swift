@@ -37,4 +37,8 @@ class GameService {
             .sorted { $0.date < $1.date }
             .prefix(10))
     }
+    
+    func getPastGames() -> [Game] {
+        Array<Game>(games.filter { Date.now > $0.date } ).sorted { $0.date > $1.date }
+    }
 }
