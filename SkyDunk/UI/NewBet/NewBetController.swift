@@ -43,7 +43,9 @@ extension NewBetController: NewBetViewModelDelegat {
     }
     
     func dismiss() {
-        presentingViewController?.dismissModal()
-        dismiss(animated: true)
+        DispatchQueue.main.async { [weak self] in
+            self?.presentingViewController?.dismissModal()
+            self?.dismiss(animated: true)
+        }
     }
 }

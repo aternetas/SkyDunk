@@ -56,6 +56,8 @@ class BetRepository {
                               coefficient: coefficient,
                               betOn: betOn,
                               isSuccess: nil))
-        completion()
+        gameRepository?.editGame(gameId: gameId, isNewBet: true) {
+            completion()
+        }
     }
 }

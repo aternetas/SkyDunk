@@ -10,9 +10,20 @@ import Foundation
 class GameRepository {
     
     func getGames(completion: @escaping ([GameDTO]) -> ()) {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 0.5, execute: {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) {
             completion(tmpGames)
-        })
+        }
+    }
+    
+    func editGame(gameId: String, isNewBet: Bool, completion: @escaping () -> ()) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
+            tmpGames.enumerated().forEach { index, game in
+                if game.id == gameId {
+                    tmpGames[index] = game.copy(isNewBet: isNewBet)
+                    completion()
+                }
+            }
+        }
     }
     
     func removeGame(id: String) -> Bool {
