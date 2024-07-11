@@ -8,6 +8,15 @@
 import UIKit
 
 class PastGamesView: UIView {
+    
+    lazy var gamesWithActiveBetsCollectionView: UICollectionView = {
+        let cvFlowLayout = UICollectionViewFlowLayout()
+        cvFlowLayout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: cvFlowLayout)
+        cv.register(GameCell.self, forCellWithReuseIdentifier: GameCell.identifier)
+        cv.showsHorizontalScrollIndicator = false
+        return cv
+    }()
 
     lazy var pastGamesTableView: UITableView = {
         let tableView = UITableView()
@@ -34,7 +43,8 @@ class PastGamesView: UIView {
     }
     
     public func initConstraints() {
-        addSubviewsAndAutolayout([separatorView,
+        addSubviewsAndAutolayout([gamesWithActiveBetsCollectionView,
+                                  separatorView,
                                   pastGamesTableView])
         
         NSLayoutConstraint.activate([
@@ -42,6 +52,11 @@ class PastGamesView: UIView {
             separatorView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 13),
             separatorView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -13),
             separatorView.heightAnchor.constraint(equalToConstant: 1),
+            
+            gamesWithActiveBetsCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 73),
+            gamesWithActiveBetsCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            gamesWithActiveBetsCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0),
+            gamesWithActiveBetsCollectionView.bottomAnchor.constraint(equalTo: separatorView.topAnchor, constant: -12),
             
             pastGamesTableView.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 17),
             pastGamesTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),

@@ -10,6 +10,7 @@ import Foundation
 class GameService {
     private let repository: GameRepository
     private var games: [Game] = []
+    private var pastGames: [Game] =  []
     
     init(repository: GameRepository) {
         self.repository = repository
@@ -39,6 +40,13 @@ class GameService {
     }
     
     func getPastGames() -> [Game] {
-        Array<Game>(games.filter { Date.now > $0.date } ).sorted { $0.date > $1.date }
+        pastGames = Array<Game>(games.filter { Date.now > $0.date } )
+            .sorted { $0.date > $1.date }
+            .filter { $0.homeScore != 0 || $0.guestScore != 0 }
+        return pastGames
+    }
+    
+    func getPastGamesWithActiveBets() -> [Game] {
+        pastGames.filter { $0.activeBetsAmount != 0 }
     }
 }

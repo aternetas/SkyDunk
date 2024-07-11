@@ -17,6 +17,9 @@ class PastGamesController: BaseController<PastGamesViewModel> {
         
         rootView.pastGamesTableView.delegate = self
         rootView.pastGamesTableView.dataSource = self
+        
+        rootView.gamesWithActiveBetsCollectionView.delegate = self
+        rootView.gamesWithActiveBetsCollectionView.dataSource = self
     }
     
     required init?(coder: NSCoder) {
@@ -27,7 +30,7 @@ class PastGamesController: BaseController<PastGamesViewModel> {
         super.viewDidLoad()
         
         viewModel.delegate = self
-        viewModel.getPastGames()
+        viewModel.viewDidLoad()
     }
     
     override func loadView() {
@@ -41,6 +44,23 @@ extension PastGamesController: PastGamesModelDelegate {
     
     func updatePastGames() {
         rootView.pastGamesTableView.reloadData()
+    }
+}
+
+extension PastGamesController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.gamesWithActiveBets.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCell.identifier, for: indexPath) as! GameCell
+        cell.bind(vm: viewModel.gamesWithActiveBets[indexPath.item])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: 140, height: GameCell.HEIGHT)
     }
 }
 
