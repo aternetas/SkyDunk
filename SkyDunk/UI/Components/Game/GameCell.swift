@@ -11,6 +11,7 @@ class GameCell: UICollectionViewCell {
     
     static let identifier = "GameCell"
     static let HEIGHT: CGFloat = 172
+    static let WIDTH: CGFloat = 140
     
     lazy private var containerView: UIView = {
         let view = UIView()

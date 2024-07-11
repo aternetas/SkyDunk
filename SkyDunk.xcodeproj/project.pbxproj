@@ -146,6 +146,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		A50864B32C4015BB004F0F11 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				A52C53E32BEFA3A900699D2E /* GameCell.swift */,
+				A52C53E72BEFC5BF00699D2E /* GameVM.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
 		A514A3292C0F64420014BBD4 /* Bet */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,7 +242,6 @@
 		A52C53CF2BEE95CD00699D2E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				A52C53E22BEFA34000699D2E /* Cells */,
 				A52C53CB2BEE916300699D2E /* HomeController.swift */,
 				A52C53D12BEE95FA00699D2E /* HomeViewModel.swift */,
 				A52C53D32BEE963B00699D2E /* HomeView.swift */,
@@ -255,6 +263,7 @@
 		A52C53D52BEE9B2400699D2E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A50864B32C4015BB004F0F11 /* Game */,
 				A514A3292C0F64420014BBD4 /* Bet */,
 				A52C54042BF11F7800699D2E /* GameHeader */,
 				A52C53DB2BEEB4EF00699D2E /* LastGameView */,
@@ -284,15 +293,6 @@
 				A52C53DC2BEEB54D00699D2E /* LastGameVM.swift */,
 			);
 			path = LastGameView;
-			sourceTree = "<group>";
-		};
-		A52C53E22BEFA34000699D2E /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				A52C53E32BEFA3A900699D2E /* GameCell.swift */,
-				A52C53E72BEFC5BF00699D2E /* GameVM.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		A52C53E92BEFC65000699D2E /* Models */ = {

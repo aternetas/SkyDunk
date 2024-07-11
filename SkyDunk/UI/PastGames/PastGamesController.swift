@@ -60,7 +60,7 @@ extension PastGamesController: UICollectionViewDelegateFlowLayout, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: 140, height: GameCell.HEIGHT)
+        CGSize(width: GameCell.WIDTH, height: GameCell.HEIGHT)
     }
 }
 
