@@ -30,7 +30,9 @@ class PastGamesController: BaseController<PastGamesViewModel> {
         super.viewDidLoad()
         
         viewModel.delegate = self
-        viewModel.viewDidLoad()
+        viewModel.getGames {
+            self.viewModel.updatePastGames()
+        }
     }
     
     override func loadView() {
@@ -38,12 +40,21 @@ class PastGamesController: BaseController<PastGamesViewModel> {
         
         view = rootView
     }
+    
+    override func dismissModal() {
+        viewModel.getGames {
+            self.viewModel.updatePastGames()
+        }
+    }
 }
 
 extension PastGamesController: PastGamesModelDelegate {
     
     func updatePastGames() {
-        rootView.pastGamesTableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.rootView.gamesWithActiveBetsCollectionView.reloadData()
+            self?.rootView.pastGamesTableView.reloadData()
+        }
     }
 }
 

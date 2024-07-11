@@ -21,17 +21,24 @@ class PastGamesViewModel: BaseViewModel {
     private let betService = ServiceFactory.shared.betService
     private let gameService = ServiceFactory.shared.gameService
     
-    func viewDidLoad() {
-        getPastGames()
-        gamesWithActiveBets = getGamesWithActiveBets()
+    func getGames(completion: @escaping () -> ()) {
+        gameService.getGames { [weak self] _ in
+            guard let self = self else { return }
+            self.pastGamesVM = self.getPastGames()
+            self.gamesWithActiveBets = getGamesWithActiveBets()
+            completion()
+        }
     }
     
-    func getPastGames() {
-        pastGamesVM = gameService.getPastGames().map { PastGameVM(game: $0, delegate: self) }
+    func updatePastGames() {
         delegate?.updatePastGames()
     }
     
-    func getGamesWithActiveBets() -> [GameVM] {
+    private func getPastGames() -> [PastGameVM] {
+        gameService.getPastGames().map { PastGameVM(game: $0, delegate: self) }
+    }
+    
+    private func getGamesWithActiveBets() -> [GameVM] {
         gameService.getPastGamesWithActiveBets().map { GameVM(game: $0) }
     }
 }
