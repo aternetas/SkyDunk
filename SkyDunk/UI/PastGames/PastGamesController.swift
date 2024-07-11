@@ -62,6 +62,10 @@ extension PastGamesController: UICollectionViewDelegateFlowLayout, UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: GameCell.WIDTH, height: GameCell.HEIGHT)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.selectGame(gameId: viewModel.gamesWithActiveBets[indexPath.item].id)
+    }
 }
 
 extension PastGamesController: UITableViewDelegate, UITableViewDataSource {
