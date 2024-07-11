@@ -118,7 +118,7 @@ class BetCell: UITableViewCell {
     }
     
     func onClick() {
-        vm?.selecBet()
+        vm?.selectBet()
     }
     
     @objc private func tapOnPlusBetSwitchView() {
