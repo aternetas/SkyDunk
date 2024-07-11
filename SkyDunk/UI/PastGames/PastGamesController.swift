@@ -52,6 +52,10 @@ extension PastGamesController: PastGamesModelDelegate {
     
     func updatePastGames() {
         DispatchQueue.main.async { [weak self] in
+            if self?.viewModel.gamesWithActiveBets.count == 0 {
+                self?.rootView.activeBetsContainerViewHeight.constant = 0
+            }
+            
             self?.rootView.gamesWithActiveBetsCollectionView.reloadData()
             self?.rootView.pastGamesTableView.reloadData()
         }

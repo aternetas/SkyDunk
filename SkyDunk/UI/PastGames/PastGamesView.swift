@@ -9,6 +9,13 @@ import UIKit
 
 class PastGamesView: UIView {
     
+    lazy var activeBetsContainerView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    lazy var activeBetsContainerViewHeight = activeBetsContainerView.heightAnchor.constraint(equalToConstant: 200)
+    
     lazy var gamesWithActiveBetsCollectionView: UICollectionView = {
         let cvFlowLayout = UICollectionViewFlowLayout()
         cvFlowLayout.scrollDirection = .horizontal
@@ -43,22 +50,29 @@ class PastGamesView: UIView {
     }
     
     public func initConstraints() {
-        addSubviewsAndAutolayout([gamesWithActiveBetsCollectionView,
-                                  separatorView,
+        addSubviewsAndAutolayout([activeBetsContainerView,
                                   pastGamesTableView])
         
+        activeBetsContainerView.addSubviewsAndAutolayout([gamesWithActiveBetsCollectionView,
+                                                          separatorView])
+        
         NSLayoutConstraint.activate([
-            separatorView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 252),
-            separatorView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 13),
-            separatorView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -13),
+            activeBetsContainerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
+            activeBetsContainerView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            activeBetsContainerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0),
+            activeBetsContainerViewHeight,
+            
+            gamesWithActiveBetsCollectionView.topAnchor.constraint(equalTo: activeBetsContainerView.topAnchor, constant: 0),
+            gamesWithActiveBetsCollectionView.leadingAnchor.constraint(equalTo: activeBetsContainerView.leadingAnchor, constant: 0),
+            gamesWithActiveBetsCollectionView.trailingAnchor.constraint(equalTo: activeBetsContainerView.trailingAnchor, constant: 0),
+            gamesWithActiveBetsCollectionView.heightAnchor.constraint(equalToConstant: GameCell.HEIGHT),
+            
+            separatorView.topAnchor.constraint(equalTo: gamesWithActiveBetsCollectionView.bottomAnchor, constant: 22),
+            separatorView.leadingAnchor.constraint(equalTo: activeBetsContainerView.leadingAnchor, constant: 13),
+            separatorView.trailingAnchor.constraint(equalTo: activeBetsContainerView.trailingAnchor, constant: -13),
             separatorView.heightAnchor.constraint(equalToConstant: 1),
             
-            gamesWithActiveBetsCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 73),
-            gamesWithActiveBetsCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            gamesWithActiveBetsCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0),
-            gamesWithActiveBetsCollectionView.bottomAnchor.constraint(equalTo: separatorView.topAnchor, constant: -12),
-            
-            pastGamesTableView.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 17),
+            pastGamesTableView.topAnchor.constraint(equalTo: activeBetsContainerView.bottomAnchor, constant: 16),
             pastGamesTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),
             pastGamesTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0),
             pastGamesTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0)
