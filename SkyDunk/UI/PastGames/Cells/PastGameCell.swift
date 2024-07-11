@@ -69,6 +69,7 @@ class PastGameCell: UITableViewCell {
         
         selectionStyle = .none
         initConstraints()
+        setupView()
     }
     
     required init?(coder: NSCoder) {
@@ -95,6 +96,10 @@ class PastGameCell: UITableViewCell {
     
     func onClick() {
         vm?.selectGame()
+    }
+    
+    private func setupView() {
+        contentView.addShadows()
     }
     
     private func initConstraints() {
