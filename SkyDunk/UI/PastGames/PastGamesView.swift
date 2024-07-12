@@ -11,10 +11,11 @@ class PastGamesView: UIView {
     
     lazy var activeBetsContainerView: UIView = {
         let view = UIView()
+        view.clipsToBounds = true
         return view
     }()
     
-    lazy var activeBetsContainerViewHeight = activeBetsContainerView.heightAnchor.constraint(equalToConstant: 200)
+    lazy var activeBetsContainerViewHeight = activeBetsContainerView.heightAnchor.constraint(equalToConstant: 220)
     
     lazy var gamesWithActiveBetsCollectionView: UICollectionView = {
         let cvFlowLayout = UICollectionViewFlowLayout()
@@ -30,6 +31,11 @@ class PastGamesView: UIView {
         tableView.register(PastGameCell.self, forCellReuseIdentifier: PastGameCell.identifier)
         tableView.separatorStyle = .none
         return tableView
+    }()
+    
+    private lazy var specifyBetsResultLabel: UILabel = {
+        let label = UILabel(text: "Необходимо указать результаты игры", font: .extraLight15)
+        return label
     }()
     
     private lazy var separatorView: UIView = {
@@ -53,7 +59,8 @@ class PastGamesView: UIView {
         addSubviewsAndAutolayout([activeBetsContainerView,
                                   pastGamesTableView])
         
-        activeBetsContainerView.addSubviewsAndAutolayout([gamesWithActiveBetsCollectionView,
+        activeBetsContainerView.addSubviewsAndAutolayout([specifyBetsResultLabel,
+                                                          gamesWithActiveBetsCollectionView,
                                                           separatorView])
         
         NSLayoutConstraint.activate([
@@ -62,9 +69,12 @@ class PastGamesView: UIView {
             activeBetsContainerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0),
             activeBetsContainerViewHeight,
             
-            gamesWithActiveBetsCollectionView.topAnchor.constraint(equalTo: activeBetsContainerView.topAnchor, constant: 0),
-            gamesWithActiveBetsCollectionView.leadingAnchor.constraint(equalTo: activeBetsContainerView.leadingAnchor, constant: 0),
-            gamesWithActiveBetsCollectionView.trailingAnchor.constraint(equalTo: activeBetsContainerView.trailingAnchor, constant: 0),
+            specifyBetsResultLabel.topAnchor.constraint(equalTo: activeBetsContainerView.topAnchor, constant: 6),
+            specifyBetsResultLabel.leadingAnchor.constraint(equalTo: activeBetsContainerView.leadingAnchor, constant: 16),
+            
+            gamesWithActiveBetsCollectionView.topAnchor.constraint(equalTo: specifyBetsResultLabel.bottomAnchor, constant: 10),
+            gamesWithActiveBetsCollectionView.leadingAnchor.constraint(equalTo: activeBetsContainerView.leadingAnchor, constant: 8),
+            gamesWithActiveBetsCollectionView.trailingAnchor.constraint(equalTo: activeBetsContainerView.trailingAnchor, constant: -8),
             gamesWithActiveBetsCollectionView.heightAnchor.constraint(equalToConstant: GameCell.HEIGHT),
             
             separatorView.topAnchor.constraint(equalTo: gamesWithActiveBetsCollectionView.bottomAnchor, constant: 22),
