@@ -30,9 +30,7 @@ class PastGamesController: BaseController<PastGamesViewModel> {
         super.viewDidLoad()
         
         viewModel.delegate = self
-        viewModel.getGames {
-            self.viewModel.updatePastGames()
-        }
+        viewModel.getGames()
     }
     
     override func loadView() {
@@ -42,9 +40,7 @@ class PastGamesController: BaseController<PastGamesViewModel> {
     }
     
     override func dismissModal() {
-        viewModel.getGames {
-            self.viewModel.updatePastGames()
-        }
+        viewModel.getGames()
     }
 }
 
@@ -58,6 +54,13 @@ extension PastGamesController: PastGamesModelDelegate {
             
             self?.rootView.gamesWithActiveBetsCollectionView.reloadData()
             self?.rootView.pastGamesTableView.reloadData()
+        }
+    }
+    
+    func showEmptyState(isShow: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            self?.rootView.activeBetsContainerViewHeight.constant = 0
+            self?.rootView.emptyStateView.isHidden = !isShow
         }
     }
 }

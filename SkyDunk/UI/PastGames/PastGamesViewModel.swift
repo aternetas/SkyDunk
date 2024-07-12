@@ -9,6 +9,7 @@ import Foundation
 
 protocol PastGamesModelDelegate {
     func updatePastGames()
+    func showEmptyState(isShow: Bool)
 }
 
 class PastGamesViewModel: BaseViewModel {
@@ -21,12 +22,25 @@ class PastGamesViewModel: BaseViewModel {
     private let betService = ServiceFactory.shared.betService
     private let gameService = ServiceFactory.shared.gameService
     
-    func getGames(completion: @escaping () -> ()) {
-        gameService.getGames { [weak self] _ in
+//    func getGames(completion: @escaping () -> ()) {
+//        gameService.getGames { [weak self] _ in
+//            guard let self = self else { return }
+//            self.pastGamesVM = self.getPastGames()
+//            self.gamesWithActiveBets = getGamesWithActiveBets()
+//            completion()
+//        }
+//    }
+    
+    func getGames() {
+        gameService.getGames { [weak self] games in
             guard let self = self else { return }
-            self.pastGamesVM = self.getPastGames()
-            self.gamesWithActiveBets = getGamesWithActiveBets()
-            completion()
+            if games.count == 0 {
+                self.delegate?.showEmptyState(isShow: true)
+            } else {
+                self.pastGamesVM = self.getPastGames()
+                self.gamesWithActiveBets = self.getGamesWithActiveBets()
+                updatePastGames()
+            }
         }
     }
     

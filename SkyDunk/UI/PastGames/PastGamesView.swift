@@ -44,6 +44,12 @@ class PastGamesView: UIView {
         return view
     }()
     
+    lazy var emptyStateView: InfoView = {
+        let infoView = InfoView(text: "Не удалось получить информацию по прошедшим играм")
+        infoView.isHidden = true
+        return infoView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
@@ -57,7 +63,8 @@ class PastGamesView: UIView {
     
     public func initConstraints() {
         addSubviewsAndAutolayout([activeBetsContainerView,
-                                  pastGamesTableView])
+                                  pastGamesTableView,
+                                  emptyStateView])
         
         activeBetsContainerView.addSubviewsAndAutolayout([specifyBetsResultLabel,
                                                           gamesWithActiveBetsCollectionView,
@@ -68,6 +75,12 @@ class PastGamesView: UIView {
             activeBetsContainerView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),
             activeBetsContainerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0),
             activeBetsContainerViewHeight,
+            
+            emptyStateView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
+            emptyStateView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),
+            emptyStateView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            emptyStateView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            emptyStateView.heightAnchor.constraint(equalToConstant: 157),
             
             specifyBetsResultLabel.topAnchor.constraint(equalTo: activeBetsContainerView.topAnchor, constant: 6),
             specifyBetsResultLabel.leadingAnchor.constraint(equalTo: activeBetsContainerView.leadingAnchor, constant: 16),
