@@ -49,9 +49,9 @@ extension PastGamesController: PastGamesModelDelegate {
     func updatePastGames() {
         DispatchQueue.main.async { [weak self] in
             if self?.viewModel.gamesWithActiveBetsVM.count != 0 {
-                self?.rootView.activeBetsContainerViewHeight.constant = 230
+                self?.rootView.activeBetsContainerHC.constant = 230
             } else {
-                self?.rootView.activeBetsContainerViewHeight.constant = 0
+                self?.rootView.activeBetsContainerHC.constant = 0
             }
             
             self?.rootView.setupView()

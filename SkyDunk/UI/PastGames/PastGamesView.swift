@@ -15,7 +15,7 @@ class PastGamesView: UIView {
         return view
     }()
     
-    lazy var activeBetsContainerViewHeight = activeBetsContainerView.heightAnchor.constraint(equalToConstant: 0)
+    lazy var activeBetsContainerHC = activeBetsContainerView.heightAnchor.constraint(equalToConstant: 0)
     
     lazy var gamesWithActiveBetsCollectionView: UICollectionView = {
         let cvFlowLayout = UICollectionViewFlowLayout()
@@ -64,7 +64,7 @@ class PastGamesView: UIView {
     }
     
     func setupView() {
-        if activeBetsContainerViewHeight.constant != 0 {
+        if activeBetsContainerHC.constant != 0 {
             specifyBetsResultLabel.isHidden = false
             separatorView.isHidden = false
         }
@@ -83,7 +83,7 @@ class PastGamesView: UIView {
             activeBetsContainerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
             activeBetsContainerView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),
             activeBetsContainerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0),
-            activeBetsContainerViewHeight,
+            activeBetsContainerHC,
             
             emptyStateView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
             emptyStateView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),

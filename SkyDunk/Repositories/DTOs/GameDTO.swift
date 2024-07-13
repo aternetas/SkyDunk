@@ -26,6 +26,6 @@ struct GameDTO {
                 homeScore: homeScore,
                 guestScore: guestScore,
                 activeBetsAmount: activeBetsAmount ?? self.activeBetsAmount,
-                betsResult: betsResult)
+                betsResult: betsResult ?? self.betsResult)
     }
 }
