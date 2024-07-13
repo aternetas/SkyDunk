@@ -40,7 +40,9 @@ class PastGamesViewModel: BaseViewModel {
     
     private func getPastGames() {
         let pastGames = gameService.getPastGames()
-        pastGamesVM = pastGames.filter { $0.activeBetsAmount == 0 }.map { PastGameVM(game: $0, delegate: self) }
+        pastGamesVM = pastGames.filter { $0.activeBetsAmount == 0 }.map { [weak self] in
+            PastGameVM(game: $0, delegate: self)
+        }
         gamesWithActiveBetsVM = pastGames.filter { $0.activeBetsAmount != 0 }.map { GameVM(game: $0) }
     }
 }
