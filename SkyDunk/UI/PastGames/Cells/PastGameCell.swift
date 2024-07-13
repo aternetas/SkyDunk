@@ -127,15 +127,15 @@ class PastGameCell: UITableViewCell {
             gradientView.widthAnchor.constraint(equalToConstant: 16),
             gradientView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0),
             
-            scoreLabel.leadingAnchor.constraint(equalTo: gradientView.trailingAnchor, constant: 69),
-            scoreLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            scoreLabel.widthAnchor.constraint(equalToConstant: 53),
-            
             homeTeamImageView.leadingAnchor.constraint(greaterThanOrEqualTo: gradientView.trailingAnchor, constant: 19),
             homeTeamImageView.trailingAnchor.constraint(lessThanOrEqualTo: scoreLabel.leadingAnchor, constant: -8),
             homeTeamImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             homeTeamImageView.heightAnchor.constraint(equalToConstant: 35),
             homeTeamImageView.widthAnchor.constraint(equalToConstant: 45),
+            
+            scoreLabel.leadingAnchor.constraint(equalTo: homeTeamImageView.trailingAnchor, constant: 8),
+            scoreLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            scoreLabel.widthAnchor.constraint(equalToConstant: 53),
             
             dateLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),
             dateLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
