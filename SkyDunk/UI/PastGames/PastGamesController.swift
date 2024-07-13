@@ -30,7 +30,7 @@ class PastGamesController: BaseController<PastGamesViewModel> {
         super.viewDidLoad()
         
         viewModel.delegate = self
-        viewModel.getGames()
+        viewModel.viewDidLoad()
     }
     
     override func loadView() {
@@ -40,7 +40,7 @@ class PastGamesController: BaseController<PastGamesViewModel> {
     }
     
     override func dismissModal() {
-        viewModel.getGames()
+        viewModel.viewDidLoad()
     }
 }
 

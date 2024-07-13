@@ -22,7 +22,7 @@ class PastGamesViewModel: BaseViewModel {
     private let betService = ServiceFactory.shared.betService
     private let gameService = ServiceFactory.shared.gameService
 
-    func getGames() {
+    func viewDidLoad() {
         gameService.getGames { [weak self] games in
             guard let self = self else { return }
             if games.count == 0 {
