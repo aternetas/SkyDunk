@@ -9,7 +9,7 @@ import UIKit
 
 class GameHeaderView: UIView {
     
-    lazy private var versusLab = UILabel(text: "VS", font: UIFont(type: .regular, size: 30), textColor: .textDark)
+    lazy private var versusLab = UILabel(text: "VS", font: UIFont(type: .regular, size: 30))
     
     lazy private var homeTeamImageView: UIImageView = {
         let imageView = UIImageView()
@@ -23,10 +23,10 @@ class GameHeaderView: UIView {
         return imageView
     }()
     
-    lazy private var gameDateLab = UILabel(font: UIFont(type: .extraLight, size: 15), textColor: .textDark)
+    lazy private var gameDateLab = UILabel(font: .extraLight15)
     
     lazy private var gameScoreLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .medium, size: 20), textColor: .textDark)
+        let label = UILabel(font: .medium20)
         label.textAlignment = .center
         return label
     }()
@@ -76,8 +76,8 @@ class GameHeaderView: UIView {
             homeTeamImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             homeTeamImageView.heightAnchor.constraint(equalToConstant: 70),
             
-            guestTeamImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             guestTeamImageView.leadingAnchor.constraint(equalTo: versusLab.trailingAnchor, constant: 8),
+            guestTeamImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             guestTeamImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             guestTeamImageView.heightAnchor.constraint(equalToConstant: 70),
             

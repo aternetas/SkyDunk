@@ -32,8 +32,8 @@ class CustomTextField: UIView {
     
     private lazy var textField: UITextField = {
         let textField = UITextField()
-        textField.font = UIFont(type: .regular, size: 14)
-        textField.textColor = .textDark
+        textField.font = .regular14
+        textField.textColor = .textBlack
         textField.addTarget(self, action: #selector(editTextField), for: .editingChanged)
         textField.returnKeyType = .done
         return textField

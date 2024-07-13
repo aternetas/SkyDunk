@@ -69,7 +69,7 @@ class BetVM {
         delegate?.selectFailurePrediction(id: id)
     }
     
-    func selecBet() {
+    func selectBet() {
         delegate?.selectBet(id: id)
     }
 }

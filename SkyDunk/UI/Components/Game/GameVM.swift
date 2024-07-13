@@ -5,7 +5,7 @@
 //  Created by aternetas on 11.05.2024.
 //
 
-import UIKit
+import Foundation
 
 class GameVM {
     

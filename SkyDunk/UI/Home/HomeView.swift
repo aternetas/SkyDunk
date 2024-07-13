@@ -26,16 +26,16 @@ class HomeView: UIView {
     
     lazy var activeBetsLabel = {
         let label = UILabel(text: "АКТИВНЫЕ СТАВКИ",
-                            font: UIFont(type: .light, size: 18),
-                            textColor: .textDark)
+                            font: .light18,
+                            textColor: .textBlack)
         label.isHidden = true
         return label
     }()
     
     private lazy var nextGameLabel = {
         let label = UILabel(text: "БЛИЖАЙШИЕ ИГРЫ",
-                            font: UIFont(type: .light, size: 18),
-                            textColor: .textDark)
+                            font: .light18,
+                            textColor: .textBlack)
         return label
     }()
     

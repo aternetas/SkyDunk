@@ -19,11 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabbar = UITabBarController()
                 
         let homeVC = HomeController()
-        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
-        let lastGamesVC = LastGamesController()
-        lastGamesVC.tabBarItem = UITabBarItem(title: "Last Games", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
+        homeVC.tabBarItem = UITabBarItem(title: "Домашняя", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        let pastGamesVC = PastGamesController()
+        pastGamesVC.tabBarItem = UITabBarItem(title: "Прошедшие игры", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
         
-        tabbar.viewControllers = [homeVC, lastGamesVC]
+        tabbar.viewControllers = [homeVC, pastGamesVC]
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)

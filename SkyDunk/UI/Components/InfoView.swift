@@ -11,8 +11,8 @@ class InfoView: UIView {
     
     private lazy var infoLab: UILabel = {
         let label = UILabel()
-        label.font = UIFont(type: .light, size: 14)
-        label.textColor = .textDark
+        label.font = .light14
+        label.textColor = .textBlack
         label.numberOfLines = 0
         label.textAlignment = .center
         return label

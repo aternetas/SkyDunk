@@ -9,7 +9,7 @@ import UIKit
 
 class GameController: BaseController<GameViewModel> {
     
-    let rootView = GameView()
+    private let rootView = GameView()
     
     override init() {
         super.init()

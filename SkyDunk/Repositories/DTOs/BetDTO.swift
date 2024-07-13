@@ -17,4 +17,15 @@ struct BetDTO {
     let coefficient: Double
     let betOn: [String]
     let isSuccess: Bool?
+    
+    func copy(isSuccess: Bool) -> BetDTO {
+        BetDTO(id: id,
+               gameId: gameId,
+               description: description,
+               created: created,
+               amount: amount,
+               coefficient: coefficient,
+               betOn: betOn,
+               isSuccess: isSuccess)
+    }
 }

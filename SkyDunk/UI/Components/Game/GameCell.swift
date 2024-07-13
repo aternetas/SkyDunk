@@ -11,8 +11,9 @@ class GameCell: UICollectionViewCell {
     
     static let identifier = "GameCell"
     static let HEIGHT: CGFloat = 172
+    static let WIDTH: CGFloat = 140
     
-    lazy private var containerView = {
+    lazy private var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(resource: .backgroundGray)
         view.layer.cornerRadius = 10
@@ -33,12 +34,12 @@ class GameCell: UICollectionViewCell {
     }()
     
     lazy private var gameDateLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .extraLight, size: 14), textColor: .textDark)
+        let label = UILabel(font: UIFont(type: .extraLight, size: 14))
         return label
     }()
     
     lazy private var gameStartTimeLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .extraLight, size: 12), textColor: .textDark)
+        let label = UILabel(font: .extraLight12)
         return label
     }()
     

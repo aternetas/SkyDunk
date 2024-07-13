@@ -8,7 +8,7 @@
 import Foundation
 
 enum ScreenType {
-    case lastGames
+    case pastGames
     case game(gameId: String)
     case newBet(gameId: String)
 }
