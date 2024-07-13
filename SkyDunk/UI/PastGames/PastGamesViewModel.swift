@@ -17,7 +17,7 @@ class PastGamesViewModel: BaseViewModel {
     var delegate: PastGamesModelDelegate?
     
     var pastGamesVM: [PastGameVM] = []
-    var gamesWithActiveBets: [GameVM] = []
+    var gamesWithActiveBetsVM: [GameVM] = []
     
     private let betService = ServiceFactory.shared.betService
     private let gameService = ServiceFactory.shared.gameService
@@ -28,8 +28,7 @@ class PastGamesViewModel: BaseViewModel {
             if games.count == 0 {
                 self.delegate?.showEmptyState(isShow: true)
             } else {
-                self.pastGamesVM = self.getPastGames()
-                self.gamesWithActiveBets = self.getGamesWithActiveBets()
+                getPastGames()
                 updatePastGames()
             }
         }
@@ -39,12 +38,10 @@ class PastGamesViewModel: BaseViewModel {
         delegate?.updatePastGames()
     }
     
-    private func getPastGames() -> [PastGameVM] {
-        gameService.getPastGames().map { PastGameVM(game: $0, delegate: self) }
-    }
-    
-    private func getGamesWithActiveBets() -> [GameVM] {
-        gameService.getPastGamesWithActiveBets().map { GameVM(game: $0) }
+    private func getPastGames() {
+        let pastGames = gameService.getPastGames()
+        pastGamesVM = pastGames.filter { $0.activeBetsAmount == 0 }.map { PastGameVM(game: $0, delegate: self) }
+        gamesWithActiveBetsVM = pastGames.filter { $0.activeBetsAmount != 0 }.map { GameVM(game: $0) }
     }
 }
 

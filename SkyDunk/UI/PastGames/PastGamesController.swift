@@ -48,7 +48,7 @@ extension PastGamesController: PastGamesModelDelegate {
     
     func updatePastGames() {
         DispatchQueue.main.async { [weak self] in
-            if self?.viewModel.gamesWithActiveBets.count == 0 {
+            if self?.viewModel.gamesWithActiveBetsVM.count == 0 {
                 self?.rootView.activeBetsContainerViewHeight.constant = 0
             }
             
@@ -68,12 +68,12 @@ extension PastGamesController: PastGamesModelDelegate {
 extension PastGamesController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.gamesWithActiveBets.count
+        viewModel.gamesWithActiveBetsVM.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCell.identifier, for: indexPath) as! GameCell
-        cell.bind(vm: viewModel.gamesWithActiveBets[indexPath.item])
+        cell.bind(vm: viewModel.gamesWithActiveBetsVM[indexPath.item])
         return cell
     }
     
@@ -82,7 +82,7 @@ extension PastGamesController: UICollectionViewDelegateFlowLayout, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.selectGame(gameId: viewModel.gamesWithActiveBets[indexPath.item].id)
+        viewModel.selectGame(gameId: viewModel.gamesWithActiveBetsVM[indexPath.item].id)
     }
 }
 
