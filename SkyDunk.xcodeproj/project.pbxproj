@@ -49,6 +49,7 @@
 		A538E3C72BF50F8F00485EF3 /* BetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538E3C62BF50F8F00485EF3 /* BetCell.swift */; };
 		A55723A72C42E86E0051D0D9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A55723A62C42E86E0051D0D9 /* RealmSwift */; };
 		A55723A82C42E86E0051D0D9 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A55723A62C42E86E0051D0D9 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A55723AD2C42ED230051D0D9 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723AC2C42ED230051D0D9 /* RealmManager.swift */; };
 		A5E40C312BF8DC850056AC63 /* ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C302BF8DC850056AC63 /* ScreenType.swift */; };
 		A5E40C342BF9FCA40056AC63 /* NewBetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C332BF9FCA40056AC63 /* NewBetController.swift */; };
 		A5E40C362BF9FCBE0056AC63 /* NewBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C352BF9FCBE0056AC63 /* NewBetView.swift */; };
@@ -124,6 +125,7 @@
 		A538E3C12BF50C1400485EF3 /* Bet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bet.swift; sourceTree = "<group>"; };
 		A538E3C42BF50F7900485EF3 /* BetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetVM.swift; sourceTree = "<group>"; };
 		A538E3C62BF50F8F00485EF3 /* BetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetCell.swift; sourceTree = "<group>"; };
+		A55723AC2C42ED230051D0D9 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		A5E40C302BF8DC850056AC63 /* ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenType.swift; sourceTree = "<group>"; };
 		A5E40C332BF9FCA40056AC63 /* NewBetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBetController.swift; sourceTree = "<group>"; };
 		A5E40C352BF9FCBE0056AC63 /* NewBetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBetView.swift; sourceTree = "<group>"; };
@@ -360,6 +362,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A55723AA2C42ED070051D0D9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A55723AB2C42ED100051D0D9 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				A55723AC2C42ED230051D0D9 /* RealmManager.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		A5E40C322BF9FC970056AC63 /* NewBet */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +402,8 @@
 		FAE48A7B2C1789E40046F6A0 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				A55723AB2C42ED100051D0D9 /* Realm */,
+				A55723AA2C42ED070051D0D9 /* Protocols */,
 				FAE48A7E2C178AAC0046F6A0 /* DTOs */,
 				FAE48A7C2C178A0C0046F6A0 /* GameRepository.swift */,
 				FAE48A812C1793260046F6A0 /* TMP.swift */,
@@ -497,6 +516,7 @@
 				A514A3282C0E06B50014BBD4 /* CustomTextField+ext.swift in Sources */,
 				A52C53FD2BF10ED400699D2E /* GameViewModel.swift in Sources */,
 				A52C54032BF1101000699D2E /* Game.swift in Sources */,
+				A55723AD2C42ED230051D0D9 /* RealmManager.swift in Sources */,
 				A52C53EF2BEFF7E000699D2E /* TeamType.swift in Sources */,
 				A52C53E62BEFC38F00699D2E /* GradientView.swift in Sources */,
 				A52C53CE2BEE92CE00699D2E /* PastGamesController.swift in Sources */,
