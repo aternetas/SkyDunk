@@ -47,6 +47,8 @@
 		A538E3C22BF50C1400485EF3 /* Bet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538E3C12BF50C1400485EF3 /* Bet.swift */; };
 		A538E3C52BF50F7900485EF3 /* BetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538E3C42BF50F7900485EF3 /* BetVM.swift */; };
 		A538E3C72BF50F8F00485EF3 /* BetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538E3C62BF50F8F00485EF3 /* BetCell.swift */; };
+		A55723A72C42E86E0051D0D9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A55723A62C42E86E0051D0D9 /* RealmSwift */; };
+		A55723A82C42E86E0051D0D9 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A55723A62C42E86E0051D0D9 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A5E40C312BF8DC850056AC63 /* ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C302BF8DC850056AC63 /* ScreenType.swift */; };
 		A5E40C342BF9FCA40056AC63 /* NewBetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C332BF9FCA40056AC63 /* NewBetController.swift */; };
 		A5E40C362BF9FCBE0056AC63 /* NewBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C352BF9FCBE0056AC63 /* NewBetView.swift */; };
@@ -64,6 +66,20 @@
 		FAE48A822C1793260046F6A0 /* TMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE48A812C1793260046F6A0 /* TMP.swift */; };
 		FAF8171E2BF8D582003BBBD3 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8171D2BF8D582003BBBD3 /* InfoView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A55723A92C42E86E0051D0D9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A55723A82C42E86E0051D0D9 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A50864A22C235D2B004F0F11 /* BetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetDTO.swift; sourceTree = "<group>"; };
@@ -131,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A55723A72C42E86E0051D0D9 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +186,7 @@
 			children = (
 				A52C53B22BEE8B8300699D2E /* SkyDunk */,
 				A52C53B12BEE8B8300699D2E /* Products */,
+				A55723A52C42E86E0051D0D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -335,6 +353,13 @@
 			path = GameHeader;
 			sourceTree = "<group>";
 		};
+		A55723A52C42E86E0051D0D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A5E40C322BF9FC970056AC63 /* NewBet */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,12 +412,16 @@
 				A52C53AC2BEE8B8300699D2E /* Sources */,
 				A52C53AD2BEE8B8300699D2E /* Frameworks */,
 				A52C53AE2BEE8B8300699D2E /* Resources */,
+				A55723A92C42E86E0051D0D9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SkyDunk;
+			packageProductDependencies = (
+				A55723A62C42E86E0051D0D9 /* RealmSwift */,
+			);
 			productName = SkyDunk;
 			productReference = A52C53B02BEE8B8300699D2E /* SkyDunk.app */;
 			productType = "com.apple.product-type.application";
@@ -727,6 +756,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A55723A62C42E86E0051D0D9 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A55723A02C42E28D0051D0D9 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A52C53A82BEE8B8300699D2E /* Project object */;
 }
