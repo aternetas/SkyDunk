@@ -30,17 +30,16 @@ class BetRepository {
     func editBet(id: String, isSuccess: Bool, completion: @escaping () -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.4) { [weak self] in
             guard let self = self else { return }
-            let dto = tmpBets.first { $0.id == id }
-            let index = tmpBets.firstIndex { $0.id == id }
-            guard let dto = dto, let index = index else { return }
-            
-            tmpBets[index] = dto.copy(isSuccess: isSuccess)
-            
-            let betResult = self.calcBetResult(amount: dto.amount, coefficient: dto.coefficient)
-            self.gameRepository.editGame(gameId: dto.gameId, betResult: betResult, isSuccess: isSuccess) {
+            for i in 0..<tmpBets.count where tmpBets[i].id == id {
+                let dto = tmpBets[i]
+                tmpBets[i] = dto.copy(isSuccess: isSuccess)
+                
+                let betResult = calcBetResult(amount: dto.amount, coefficient: dto.coefficient)
+                gameRepository.editGame(gameId: dto.gameId, betResult: betResult, isSuccess: isSuccess) {
+                    completion()
+                }
                 completion()
             }
-            completion()
         }
     }
     
