@@ -48,10 +48,13 @@ extension PastGamesController: PastGamesModelDelegate {
     
     func updatePastGames() {
         DispatchQueue.main.async { [weak self] in
-            if self?.viewModel.gamesWithActiveBetsVM.count == 0 {
+            if self?.viewModel.gamesWithActiveBetsVM.count != 0 {
+                self?.rootView.activeBetsContainerViewHeight.constant = 230
+            } else {
                 self?.rootView.activeBetsContainerViewHeight.constant = 0
             }
             
+            self?.rootView.setupView()
             self?.rootView.gamesWithActiveBetsCollectionView.reloadData()
             self?.rootView.pastGamesTableView.reloadData()
         }
@@ -59,7 +62,7 @@ extension PastGamesController: PastGamesModelDelegate {
     
     func showEmptyState(isShow: Bool) {
         DispatchQueue.main.async { [weak self] in
-            self?.rootView.activeBetsContainerViewHeight.constant = 0
+//            self?.rootView.activeBetsContainerViewHeight.constant = 0
             self?.rootView.emptyStateView.isHidden = !isShow
         }
     }

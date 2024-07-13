@@ -15,7 +15,7 @@ class PastGamesView: UIView {
         return view
     }()
     
-    lazy var activeBetsContainerViewHeight = activeBetsContainerView.heightAnchor.constraint(equalToConstant: 220)
+    lazy var activeBetsContainerViewHeight = activeBetsContainerView.heightAnchor.constraint(equalToConstant: 0)
     
     lazy var gamesWithActiveBetsCollectionView: UICollectionView = {
         let cvFlowLayout = UICollectionViewFlowLayout()
@@ -35,12 +35,14 @@ class PastGamesView: UIView {
     
     private lazy var specifyBetsResultLabel: UILabel = {
         let label = UILabel(text: "Необходимо указать результаты игры", font: .extraLight15)
+        label.isHidden = true
         return label
     }()
     
     private lazy var separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = .backgroundGray3
+        view.isHidden = true
         return view
     }()
     
@@ -59,6 +61,13 @@ class PastGamesView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupView() {
+        if activeBetsContainerViewHeight.constant != 0 {
+            specifyBetsResultLabel.isHidden = false
+            separatorView.isHidden = false
+        }
     }
     
     public func initConstraints() {
