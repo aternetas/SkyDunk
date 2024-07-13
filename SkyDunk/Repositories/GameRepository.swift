@@ -17,24 +17,23 @@ class GameRepository {
     
     func editGame(gameId: String, completion: @escaping () -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
-            for i in 0..<tmpGames.count {
-                if tmpGames[i].id == gameId {
-                    tmpGames[i] = tmpGames[i].copy()
-                    completion()
-                    break
-                }
+            for i in 0..<tmpGames.count where tmpGames[i].id == gameId {
+                let game = tmpGames[i]
+                tmpGames[i] = game.copy(activeBetsAmount: game.activeBetsAmount + 1)
+                completion()
+                break
             }
         }
     }
     
     func editGame(gameId: String, betResult: Double, isSuccess: Bool, completion: @escaping () -> ()) {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
-            for i in 0..<tmpGames.count {
-                if tmpGames[i].id == gameId {
-                    tmpGames[i] = tmpGames[i].copy(betResult: betResult, isSuccess: isSuccess)
-                    completion()
-                    break
-                }
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) { [weak self] in
+            for i in 0..<tmpGames.count where tmpGames[i].id == gameId {
+                let game = tmpGames[i]
+                let betsResult = self?.calcCommonBetsResult(actualBetsResult: game.betsResult, newBetResult: betResult, isNewBetSuccess: isSuccess)
+                tmpGames[i] = game.copy(activeBetsAmount: game.activeBetsAmount - 1, betsResult: betsResult)
+                completion()
+                break
             }
         }
     }
@@ -43,5 +42,9 @@ class GameRepository {
         let startCount = tmpGames.count
         tmpGames.removeAll(where: { $0.id == id })
         return startCount != tmpGames.count
+    }
+    
+    private func calcCommonBetsResult(actualBetsResult: Double?, newBetResult: Double, isNewBetSuccess: Bool) -> Double {
+        isNewBetSuccess ? (actualBetsResult ?? 0.0) + newBetResult : (actualBetsResult ?? 0.0) - newBetResult
     }
 }
