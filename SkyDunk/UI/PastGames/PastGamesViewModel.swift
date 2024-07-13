@@ -21,16 +21,7 @@ class PastGamesViewModel: BaseViewModel {
     
     private let betService = ServiceFactory.shared.betService
     private let gameService = ServiceFactory.shared.gameService
-    
-//    func getGames(completion: @escaping () -> ()) {
-//        gameService.getGames { [weak self] _ in
-//            guard let self = self else { return }
-//            self.pastGamesVM = self.getPastGames()
-//            self.gamesWithActiveBets = getGamesWithActiveBets()
-//            completion()
-//        }
-//    }
-    
+
     func getGames() {
         gameService.getGames { [weak self] games in
             guard let self = self else { return }

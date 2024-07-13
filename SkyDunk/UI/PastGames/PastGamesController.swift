@@ -102,10 +102,3 @@ extension PastGamesController: UITableViewDelegate, UITableViewDataSource {
         (tableView.cellForRow(at: indexPath) as? PastGameCell)?.onClick()
     }
 }
-
-extension PastGamesController: PastGameCellListenerProtocol {
-    
-    func selectGame(gameId: String) {
-        viewModel.selectGame(gameId: gameId)
-    }
-}
