@@ -41,6 +41,5 @@ class GameService {
     func getPastGames() -> [Game] {
         games.filter { Date.now > $0.date }
             .sorted { $0.date > $1.date }
-            .filter { $0.homeScore != 0 || $0.guestScore != 0 }
     }
 }

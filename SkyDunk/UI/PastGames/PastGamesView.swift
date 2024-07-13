@@ -70,7 +70,7 @@ class PastGamesView: UIView {
         }
     }
     
-    public func initConstraints() {
+    private func initConstraints() {
         addSubviewsAndAutolayout([activeBetsContainerView,
                                   pastGamesTableView,
                                   emptyStateView])

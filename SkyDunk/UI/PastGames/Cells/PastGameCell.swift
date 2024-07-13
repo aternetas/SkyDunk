@@ -78,19 +78,17 @@ class PastGameCell: UITableViewCell {
     
     func bind(vm: PastGameVM) {
         self.vm = vm
-        DispatchQueue.main.async { [weak self] in
-            self?.gradientView.setColors(colors: [vm.homeTeam.color.withAlphaComponent(0.5), vm.guestTeam.color.withAlphaComponent(0.5)])
-            self?.homeTeamImageView.image = vm.homeTeam.logo
-            self?.scoreLabel.text = vm.score
-            self?.guestTeamImageView.image = vm.guestTeam.logo
-            self?.dateLabel.text = vm.date
-            
-            if let betsResult = vm.betsResult {
-                self?.betResultLabel.text = betsResult >= 0 ? "+\(betsResult)" : String(betsResult)
-                self?.betResultLabel.textColor = betsResult >= 0 ? .textGreen : .textRed
-            } else {
-                self?.betResultLabel.text = "Ставок нет"
-            }
+        gradientView.setColors(colors: [vm.homeTeam.color.withAlphaComponent(0.5), vm.guestTeam.color.withAlphaComponent(0.5)])
+        homeTeamImageView.image = vm.homeTeam.logo
+        scoreLabel.text = vm.score
+        guestTeamImageView.image = vm.guestTeam.logo
+        dateLabel.text = vm.date
+        
+        if let betsResult = vm.betsResult {
+            betResultLabel.text = betsResult >= 0 ? "+\(betsResult)" : String(betsResult)
+            betResultLabel.textColor = betsResult >= 0 ? .textGreen : .textRed
+        } else {
+            betResultLabel.text = "Ставок нет"
         }
     }
     
