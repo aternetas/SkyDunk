@@ -15,7 +15,7 @@ class GameRepository {
         }
     }
     
-    func editGame(gameId: String, completion: @escaping () -> ()) {
+    func addNewBetToGame(gameId: String, completion: @escaping () -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
             for i in 0..<tmpGames.count where tmpGames[i].id == gameId {
                 let game = tmpGames[i]
@@ -26,7 +26,7 @@ class GameRepository {
         }
     }
     
-    func editGame(gameId: String, betResult: Double, isSuccess: Bool, completion: @escaping () -> ()) {
+    func changeGameBetsResult(gameId: String, betResult: Double, isSuccess: Bool, completion: @escaping () -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) { [weak self] in
             for i in 0..<tmpGames.count where tmpGames[i].id == gameId {
                 let game = tmpGames[i]
