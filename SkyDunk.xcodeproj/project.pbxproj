@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8EA4AE9D2C43FB050083536F /* GameRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA4AE9C2C43FB050083536F /* GameRepositoryProtocol.swift */; };
+		8EA4AE9F2C43FB860083536F /* GameRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA4AE9E2C43FB860083536F /* GameRealmRepository.swift */; };
+		8EA4AEA22C4401FF0083536F /* GameDTORealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA4AEA12C4401FF0083536F /* GameDTORealm.swift */; };
 		A50864A32C235D2B004F0F11 /* BetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864A22C235D2B004F0F11 /* BetDTO.swift */; };
 		A50864A52C235DDD004F0F11 /* BetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864A42C235DDD004F0F11 /* BetRepository.swift */; };
 		A50864A72C235DF9004F0F11 /* BetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50864A62C235DF9004F0F11 /* BetService.swift */; };
@@ -83,6 +86,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8EA4AE9C2C43FB050083536F /* GameRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRepositoryProtocol.swift; sourceTree = "<group>"; };
+		8EA4AE9E2C43FB860083536F /* GameRealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRealmRepository.swift; sourceTree = "<group>"; };
+		8EA4AEA12C4401FF0083536F /* GameDTORealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDTORealm.swift; sourceTree = "<group>"; };
 		A50864A22C235D2B004F0F11 /* BetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetDTO.swift; sourceTree = "<group>"; };
 		A50864A42C235DDD004F0F11 /* BetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetRepository.swift; sourceTree = "<group>"; };
 		A50864A62C235DF9004F0F11 /* BetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetService.swift; sourceTree = "<group>"; };
@@ -156,6 +162,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8EA4AEA02C4401C30083536F /* DTOsRealm */ = {
+			isa = PBXGroup;
+			children = (
+				8EA4AEA12C4401FF0083536F /* GameDTORealm.swift */,
+			);
+			path = DTOsRealm;
+			sourceTree = "<group>";
+		};
 		A50864AE2C39C3F9004F0F11 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +379,7 @@
 		A55723AA2C42ED070051D0D9 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				8EA4AE9C2C43FB050083536F /* GameRepositoryProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -372,7 +387,9 @@
 		A55723AB2C42ED100051D0D9 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				8EA4AEA02C4401C30083536F /* DTOsRealm */,
 				A55723AC2C42ED230051D0D9 /* RealmManager.swift */,
+				8EA4AE9E2C43FB860083536F /* GameRealmRepository.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -507,6 +524,7 @@
 				A52C53FA2BF001C300699D2E /* PastGamesViewModel.swift in Sources */,
 				A52C53DA2BEEB2D700699D2E /* UIView+ext.swift in Sources */,
 				A52C53B42BEE8B8300699D2E /* AppDelegate.swift in Sources */,
+				8EA4AE9D2C43FB050083536F /* GameRepositoryProtocol.swift in Sources */,
 				A50864B02C39C407004F0F11 /* PastGameCell.swift in Sources */,
 				A5E40C382BF9FCD70056AC63 /* NewBetViewModel.swift in Sources */,
 				A52C53ED2BEFC6B500699D2E /* TeamType+ext.swift in Sources */,
@@ -547,12 +565,14 @@
 				A50864A52C235DDD004F0F11 /* BetRepository.swift in Sources */,
 				FAE48A7D2C178A0C0046F6A0 /* GameRepository.swift in Sources */,
 				A5E40C312BF8DC850056AC63 /* ScreenType.swift in Sources */,
+				8EA4AE9F2C43FB860083536F /* GameRealmRepository.swift in Sources */,
 				A50864A32C235D2B004F0F11 /* BetDTO.swift in Sources */,
 				FAF8171E2BF8D582003BBBD3 /* InfoView.swift in Sources */,
 				A514A3242C01F49A0014BBD4 /* CustomTextField.swift in Sources */,
 				FAE48A7A2C17881E0046F6A0 /* GameService.swift in Sources */,
 				A52C53DF2BEF93C200699D2E /* Date+ext.swift in Sources */,
 				A50864A72C235DF9004F0F11 /* BetService.swift in Sources */,
+				8EA4AEA22C4401FF0083536F /* GameDTORealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

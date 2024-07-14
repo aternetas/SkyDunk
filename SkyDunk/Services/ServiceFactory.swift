@@ -14,9 +14,12 @@ class ServiceFactory {
     let gameService: GameService
     let betService: BetService
     
-    private let gameRepo = GameRepository()
+    private let gameRepo: GameRepositoryProtocol
     
     private init() {
+        let realmManager = RealmManager()
+        gameRepo = GameRealmRepository(manager: realmManager)
+        
         let betRepo = BetRepository(gameRepository: gameRepo)
         
         gameService = GameService(repository: gameRepo)

@@ -9,9 +9,9 @@ import Foundation
 
 class BetRepository {
     
-    private var gameRepository: GameRepository
+    private var gameRepository: GameRepositoryProtocol
     
-    init(gameRepository: GameRepository) {
+    init(gameRepository: GameRepositoryProtocol) {
         self.gameRepository = gameRepository
     }
     
@@ -35,7 +35,7 @@ class BetRepository {
                 tmpBets[i] = dto.copy(isSuccess: isSuccess)
                 
                 let betResult = calcBetResult(amount: dto.amount, coefficient: dto.coefficient)
-                gameRepository.changeGameBetsResult(gameId: dto.gameId, betResult: betResult, isSuccess: isSuccess) {
+                gameRepository.changeGameBetsResult(gameId: dto.gameId, betResult: betResult, isSuccess: isSuccess) { _ in
                     completion()
                 }
                 completion()
@@ -52,7 +52,7 @@ class BetRepository {
                               coefficient: coefficient,
                               betOn: betOn,
                               isSuccess: nil))
-        gameRepository.addNewBetToGame(gameId: gameId) {
+        gameRepository.addNewBetToGame(gameId: gameId) { _ in
             completion()
         }
     }

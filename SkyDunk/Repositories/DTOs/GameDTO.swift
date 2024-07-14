@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GameDTO {
+struct GameDTO: GameProtocol {
     
     let id: String
     let homeTeam: String
@@ -28,4 +28,16 @@ struct GameDTO {
                 activeBetsAmount: activeBetsAmount ?? self.activeBetsAmount,
                 betsResult: betsResult ?? self.betsResult)
     }
+}
+
+protocol GameProtocol {
+    
+    var id: String { get }
+    var homeTeam: String { get }
+    var guestTeam: String { get }
+    var date: Date { get }
+    var homeScore: Int { get }
+    var guestScore: Int { get }
+    var activeBetsAmount: Int { get }
+    var betsResult: Double? { get }
 }

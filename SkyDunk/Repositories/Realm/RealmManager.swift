@@ -8,34 +8,6 @@
 import Foundation
 import RealmSwift
 
-class GameDTO2: Object {
-    
-    @Persisted var id: ObjectId
-    @Persisted var homeTeam: String
-    @Persisted var guestTeam: String
-    @Persisted var date: Date
-    @Persisted var homeScore: Int
-    @Persisted var guestScore: Int
-    @Persisted var activeBetsAmount: Int
-    @Persisted var betsResult: Double?
-    
-    override class func primaryKey() -> String? {
-        "id"
-    }
-    
-    convenience init(id: ObjectId, homeTeam: String, guestTeam: String, date: Date, homeScore: Int, guestScore: Int, activeBetsAmount: Int, betsResult: Double? = nil) {
-        self.init()
-        self.id = id
-        self.homeTeam = homeTeam
-        self.guestTeam = guestTeam
-        self.date = date
-        self.homeScore = homeScore
-        self.guestScore = guestScore
-        self.activeBetsAmount = activeBetsAmount
-        self.betsResult = betsResult
-    }
-}
-
 class BetDTO1: Object {
     
     @Persisted var id: String
@@ -78,7 +50,7 @@ class RealmManager {
         Array(realm.objects(T.self))
     }
     
-    func getById<T>(id: ObjectId, type: T.Type) -> T? where T: Object {
+    func getById<T>(id: String, type: T.Type) -> T? where T: Object {
         realm.object(ofType: type, forPrimaryKey: id)
     }
     
@@ -90,7 +62,7 @@ class RealmManager {
         realm.delete(obj)
     }
     
-    func delete<T>(id: ObjectId, type: T.Type) -> Bool where T: Object {
+    func delete<T>(id: String, type: T.Type) -> Bool where T: Object {
         let obj = realm.object(ofType: type, forPrimaryKey: id)
         if let obj = obj {
             realm.delete(obj)
