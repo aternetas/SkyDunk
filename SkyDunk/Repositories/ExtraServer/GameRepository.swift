@@ -11,15 +11,15 @@ class GameRepository: GameRepositoryProtocol {
     
     func getGames(completion: @escaping ([GameProtocol]) -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) {
-            completion(tmpGames)
+            completion(games)
         }
     }
     
     func addNewBetToGame(gameId: String, completion: @escaping (Bool) -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
-            for i in 0..<tmpGames.count where tmpGames[i].id == gameId {
-                let game = tmpGames[i]
-                tmpGames[i] = game.copy(activeBetsAmount: game.activeBetsAmount + 1)
+            for i in 0..<games.count where games[i].id == gameId {
+                let game = games[i]
+                games[i] = game.copy(activeBetsAmount: game.activeBetsAmount + 1)
                 completion(true)
                 return
             }
@@ -29,9 +29,9 @@ class GameRepository: GameRepositoryProtocol {
     
     func changeGameBetsResult(gameId: String, betResult: Double, completion: @escaping (Bool) -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
-            for i in 0..<tmpGames.count where tmpGames[i].id == gameId {
-                let game = tmpGames[i]
-                tmpGames[i] = game.copy(activeBetsAmount: game.activeBetsAmount - 1, betsResult: game.betsResult ?? 0.0 + betResult)
+            for i in 0..<games.count where games[i].id == gameId {
+                let game = games[i]
+                games[i] = game.copy(activeBetsAmount: game.activeBetsAmount - 1, betsResult: game.betsResult ?? 0.0 + betResult)
                 completion(true)
                 return
             }

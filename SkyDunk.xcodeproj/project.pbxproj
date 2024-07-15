@@ -67,7 +67,7 @@
 		FAE48A7A2C17881E0046F6A0 /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE48A792C17881E0046F6A0 /* GameService.swift */; };
 		FAE48A7D2C178A0C0046F6A0 /* GameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE48A7C2C178A0C0046F6A0 /* GameRepository.swift */; };
 		FAE48A802C178AC40046F6A0 /* GameDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE48A7F2C178AC40046F6A0 /* GameDTO.swift */; };
-		FAE48A822C1793260046F6A0 /* TMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE48A812C1793260046F6A0 /* TMP.swift */; };
+		FAE48A822C1793260046F6A0 /* ExtraServerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE48A812C1793260046F6A0 /* ExtraServerData.swift */; };
 		FAF8171E2BF8D582003BBBD3 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8171D2BF8D582003BBBD3 /* InfoView.swift */; };
 /* End PBXBuildFile section */
 
@@ -146,7 +146,7 @@
 		FAE48A792C17881E0046F6A0 /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
 		FAE48A7C2C178A0C0046F6A0 /* GameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRepository.swift; sourceTree = "<group>"; };
 		FAE48A7F2C178AC40046F6A0 /* GameDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDTO.swift; sourceTree = "<group>"; };
-		FAE48A812C1793260046F6A0 /* TMP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMP.swift; sourceTree = "<group>"; };
+		FAE48A812C1793260046F6A0 /* ExtraServerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraServerData.swift; sourceTree = "<group>"; };
 		FAF8171D2BF8D582003BBBD3 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -394,6 +394,16 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
+		A55723AE2C4560D90051D0D9 /* ExtraServer */ = {
+			isa = PBXGroup;
+			children = (
+				FAE48A7C2C178A0C0046F6A0 /* GameRepository.swift */,
+				A50864A42C235DDD004F0F11 /* BetRepository.swift */,
+				FAE48A812C1793260046F6A0 /* ExtraServerData.swift */,
+			);
+			path = ExtraServer;
+			sourceTree = "<group>";
+		};
 		A5E40C322BF9FC970056AC63 /* NewBet */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,12 +429,10 @@
 		FAE48A7B2C1789E40046F6A0 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				A55723AE2C4560D90051D0D9 /* ExtraServer */,
 				A55723AB2C42ED100051D0D9 /* Realm */,
 				A55723AA2C42ED070051D0D9 /* Protocols */,
 				FAE48A7E2C178AAC0046F6A0 /* DTOs */,
-				FAE48A7C2C178A0C0046F6A0 /* GameRepository.swift */,
-				FAE48A812C1793260046F6A0 /* TMP.swift */,
-				A50864A42C235DDD004F0F11 /* BetRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -529,7 +537,7 @@
 				A5E40C382BF9FCD70056AC63 /* NewBetViewModel.swift in Sources */,
 				A52C53ED2BEFC6B500699D2E /* TeamType+ext.swift in Sources */,
 				A52C53E42BEFA3AA00699D2E /* GameCell.swift in Sources */,
-				FAE48A822C1793260046F6A0 /* TMP.swift in Sources */,
+				FAE48A822C1793260046F6A0 /* ExtraServerData.swift in Sources */,
 				A52C53D72BEE9B3C00699D2E /* LastGameView.swift in Sources */,
 				A514A3282C0E06B50014BBD4 /* CustomTextField+ext.swift in Sources */,
 				A52C53FD2BF10ED400699D2E /* GameViewModel.swift in Sources */,

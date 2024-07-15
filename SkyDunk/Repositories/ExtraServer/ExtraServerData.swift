@@ -1,5 +1,5 @@
 //
-//  TMP.swift
+//  ExtraServerData.swift
 //  SkyDunk
 //
 //  Created by Nebo on 10.06.2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-var tmpGames = [
+var games = [
     GameDTO(id: "NTKU-AKXI-3KIA", homeTeam: "DEN", guestTeam: "LAL", date: .now - 800, homeScore: 98, guestScore: 102, activeBetsAmount: 0, betsResult: nil),
     GameDTO(id: "NTAI-2KTA-RAKR", homeTeam: "ATL", guestTeam: "BOS", date: .now - 1000, homeScore: 99, guestScore: 87, activeBetsAmount: 0, betsResult: 90),
     GameDTO(id: "TNOA-AKCC-CAOY", homeTeam: "DEN", guestTeam: "MIN", date: .now - 29800, homeScore: 102, guestScore: 121, activeBetsAmount: 0, betsResult: -24),
@@ -20,7 +20,7 @@ var tmpGames = [
     GameDTO(id: "IGKI-NI,Z-AIEU", homeTeam: "BOS", guestTeam: "OKC", date: .now + 2, homeScore: 0, guestScore: 0, activeBetsAmount: 0, betsResult: nil)
 ]
 
-var tmpBets = [
+var bets = [
     BetDTO(id: "02NTO-RKIX9", gameId: "NTAI-2KTA-RAKR", description: "Boston will win", created: .now - 2340, amount: 30, coefficient: 3.0, betOn: ["ATL", "BOS"], isSuccess: true),
     
     BetDTO(id: "OXYMR-RI90X", gameId: "TNOA-AKCC-CAOY", description: "Edwards > 20 points", created: .now - 35000, amount: 10, coefficient: 2.2, betOn: ["DEN", "MIN"], isSuccess: true),
