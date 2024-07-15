@@ -11,5 +11,5 @@ protocol GameRepositoryProtocol {
     
     func getGames(completion: @escaping ([GameProtocol]) -> ())
     func addNewBetToGame(gameId: String, completion: @escaping (Bool) -> ())
-    func changeGameBetsResult(gameId: String, betResult: Double, isSuccess: Bool, completion: @escaping (Bool) -> ())
+    func changeGameBetsResult(gameId: String, betResult: Double, completion: @escaping (Bool) -> ())
 }

@@ -34,8 +34,8 @@ class BetRepository {
                 let dto = tmpBets[i]
                 tmpBets[i] = dto.copy(isSuccess: isSuccess)
                 
-                let betResult = calcBetResult(amount: dto.amount, coefficient: dto.coefficient)
-                gameRepository.changeGameBetsResult(gameId: dto.gameId, betResult: betResult, isSuccess: isSuccess) { _ in
+                let betResult = dto.amount * dto.coefficient
+                gameRepository.changeGameBetsResult(gameId: dto.gameId, betResult: isSuccess ? betResult : -(betResult)) { _ in
                     completion()
                 }
                 completion()
@@ -55,9 +55,5 @@ class BetRepository {
         gameRepository.addNewBetToGame(gameId: gameId) { _ in
             completion()
         }
-    }
-    
-    private func calcBetResult(amount: Double, coefficient: Double) -> Double {
-        amount * coefficient
     }
 }

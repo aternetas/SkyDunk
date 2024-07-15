@@ -30,11 +30,11 @@ class GameRealmRepository: GameRepositoryProtocol {
         }
     }
     
-    func changeGameBetsResult(gameId: String, betResult: Double, isSuccess: Bool, completion: @escaping (Bool) -> ()) {
+    func changeGameBetsResult(gameId: String, betResult: Double, completion: @escaping (Bool) -> ()) {
         let game = manager.getById(id: gameId, type: GameDTORealm.self)
         if let game = game {
             game.activeBetsAmount = game.activeBetsAmount - 1
-            game.betsResult = (game.betsResult ?? 0) + (isSuccess ? betResult : -(betResult))
+            game.betsResult = (game.betsResult ?? 0.0) + betResult
             completion(true)
         } else {
             completion(false)

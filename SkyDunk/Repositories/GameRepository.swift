@@ -27,20 +27,15 @@ class GameRepository: GameRepositoryProtocol {
         }
     }
     
-    func changeGameBetsResult(gameId: String, betResult: Double, isSuccess: Bool, completion: @escaping (Bool) -> ()) {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) { [weak self] in
+    func changeGameBetsResult(gameId: String, betResult: Double, completion: @escaping (Bool) -> ()) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
             for i in 0..<tmpGames.count where tmpGames[i].id == gameId {
                 let game = tmpGames[i]
-                let betsResult = self?.calcCommonBetsResult(actualBetsResult: game.betsResult, newBetResult: betResult, isNewBetSuccess: isSuccess)
-                tmpGames[i] = game.copy(activeBetsAmount: game.activeBetsAmount - 1, betsResult: betsResult)
+                tmpGames[i] = game.copy(activeBetsAmount: game.activeBetsAmount - 1, betsResult: game.betsResult ?? 0.0 + betResult)
                 completion(true)
                 return
             }
             completion(false)
         }
-    }
-    
-    private func calcCommonBetsResult(actualBetsResult: Double?, newBetResult: Double, isNewBetSuccess: Bool) -> Double {
-        isNewBetSuccess ? (actualBetsResult ?? 0.0) + newBetResult : (actualBetsResult ?? 0.0) - newBetResult
     }
 }
