@@ -29,7 +29,7 @@ struct Bet {
         self.isSuccess = isSuccess
     }
     
-    init(dto: BetDTO) {
+    init(dto: BetProtocol) {
         self.init(id: dto.id,
                   gameId: dto.gameId,
                   description: dto.description,

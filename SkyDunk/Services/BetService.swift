@@ -9,9 +9,9 @@ import Foundation
 
 class BetService {
     
-    private let repository: BetRepository
+    private let repository: BetRepositoryProtocol
     
-    init(repository: BetRepository) {
+    init(repository: BetRepositoryProtocol) {
         self.repository = repository
     }
     
@@ -34,7 +34,7 @@ class BetService {
     }
     
     func editBet(id: String, isSuccess: Bool, completion: @escaping () -> ()) {
-        repository.editBet(id: id, isSuccess: isSuccess) {
+        repository.editBet(id: id, isSuccess: isSuccess) { _ in 
             completion()
         }
     }
