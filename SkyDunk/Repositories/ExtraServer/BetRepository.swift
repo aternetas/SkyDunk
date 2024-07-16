@@ -55,7 +55,7 @@ class BetRepository: BetRepositoryProtocol {
                               betOn: betOn,
                               isSuccess: nil))
         gameRepository.addNewBetToGame(gameId: gameId) { _ in
-            completion(true)
+            completion()
         }
     }
 }

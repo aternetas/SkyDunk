@@ -21,7 +21,7 @@ class BetRealmRepository: BetRepositoryProtocol {
     
     func getBetsByGameId(_ gameId: String, completion: @escaping ([BetProtocol]) -> ()) {
         getBets { bets in
-            completion(bets.filter { $0.id == gameId })
+            completion(bets.filter { $0.gameId == gameId })
         }
     }
     
@@ -43,5 +43,6 @@ class BetRealmRepository: BetRepositoryProtocol {
                                      amount: amount,
                                      coefficient: coefficient,
                                      betOn: betOn))
+        completion()
     }
 }
