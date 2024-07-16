@@ -29,15 +29,3 @@ struct GameDTO: GameProtocol {
                 betsResult: betsResult ?? self.betsResult)
     }
 }
-
-protocol GameProtocol {
-    
-    var id: String { get }
-    var homeTeam: String { get }
-    var guestTeam: String { get }
-    var date: Date { get }
-    var homeScore: Int { get }
-    var guestScore: Int { get }
-    var activeBetsAmount: Int { get }
-    var betsResult: Double? { get }
-}
