@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BetRepository {
+class BetRepository: BetRepositoryProtocol {
     
     private var gameRepository: GameRepositoryProtocol
     
@@ -15,19 +15,19 @@ class BetRepository {
         self.gameRepository = gameRepository
     }
     
-    func getBets(completion: @escaping([BetDTO]) -> ()) {
+    func getBets(completion: @escaping([BetProtocol]) -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.1, execute: {
             completion(bets)
         })
     }
     
-    func getBetsByGameId(_ gameId: String, completion: @escaping([BetDTO]) -> ()) {
+    func getBetsByGameId(_ gameId: String, completion: @escaping([BetProtocol]) -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.5, execute: {
             completion(bets.filter { $0.gameId == gameId })
         })
     }
     
-    func editBet(id: String, isSuccess: Bool, completion: @escaping () -> ()) {
+    func editBet(id: String, isSuccess: Bool, completion: @escaping (Bool) -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.4) { [weak self] in
             guard let self = self else { return }
             for i in 0..<bets.count where bets[i].id == id {
@@ -36,10 +36,12 @@ class BetRepository {
                 
                 let betResult = dto.amount * dto.coefficient
                 gameRepository.changeGameBetsResult(gameId: dto.gameId, betResult: isSuccess ? betResult : -(betResult)) { _ in
-                    completion()
+                    completion(true)
                 }
-                completion()
+                completion(true)
+                return
             }
+            completion(false)
         }
     }
     
@@ -53,7 +55,7 @@ class BetRepository {
                               betOn: betOn,
                               isSuccess: nil))
         gameRepository.addNewBetToGame(gameId: gameId) { _ in
-            completion()
+            completion(true)
         }
     }
 }

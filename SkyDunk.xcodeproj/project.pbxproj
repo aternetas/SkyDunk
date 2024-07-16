@@ -55,6 +55,9 @@
 		A55723AD2C42ED230051D0D9 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723AC2C42ED230051D0D9 /* RealmManager.swift */; };
 		A55723B02C4562B60051D0D9 /* GameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723AF2C4562B60051D0D9 /* GameProtocol.swift */; };
 		A55723B22C45631F0051D0D9 /* BetDTORealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723B12C45631F0051D0D9 /* BetDTORealm.swift */; };
+		A55723B42C46F7E00051D0D9 /* BetRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723B32C46F7E00051D0D9 /* BetRealmRepository.swift */; };
+		A55723B62C46F80C0051D0D9 /* BetRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723B52C46F80C0051D0D9 /* BetRepositoryProtocol.swift */; };
+		A55723B82C46FCDE0051D0D9 /* BetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723B72C46FCDE0051D0D9 /* BetProtocol.swift */; };
 		A5E40C312BF8DC850056AC63 /* ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C302BF8DC850056AC63 /* ScreenType.swift */; };
 		A5E40C342BF9FCA40056AC63 /* NewBetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C332BF9FCA40056AC63 /* NewBetController.swift */; };
 		A5E40C362BF9FCBE0056AC63 /* NewBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C352BF9FCBE0056AC63 /* NewBetView.swift */; };
@@ -136,6 +139,9 @@
 		A55723AC2C42ED230051D0D9 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		A55723AF2C4562B60051D0D9 /* GameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProtocol.swift; sourceTree = "<group>"; };
 		A55723B12C45631F0051D0D9 /* BetDTORealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetDTORealm.swift; sourceTree = "<group>"; };
+		A55723B32C46F7E00051D0D9 /* BetRealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetRealmRepository.swift; sourceTree = "<group>"; };
+		A55723B52C46F80C0051D0D9 /* BetRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetRepositoryProtocol.swift; sourceTree = "<group>"; };
+		A55723B72C46FCDE0051D0D9 /* BetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetProtocol.swift; sourceTree = "<group>"; };
 		A5E40C302BF8DC850056AC63 /* ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenType.swift; sourceTree = "<group>"; };
 		A5E40C332BF9FCA40056AC63 /* NewBetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBetController.swift; sourceTree = "<group>"; };
 		A5E40C352BF9FCBE0056AC63 /* NewBetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBetView.swift; sourceTree = "<group>"; };
@@ -386,6 +392,8 @@
 			children = (
 				8EA4AE9C2C43FB050083536F /* GameRepositoryProtocol.swift */,
 				A55723AF2C4562B60051D0D9 /* GameProtocol.swift */,
+				A55723B52C46F80C0051D0D9 /* BetRepositoryProtocol.swift */,
+				A55723B72C46FCDE0051D0D9 /* BetProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -396,6 +404,7 @@
 				8EA4AEA02C4401C30083536F /* DTOsRealm */,
 				A55723AC2C42ED230051D0D9 /* RealmManager.swift */,
 				8EA4AE9E2C43FB860083536F /* GameRealmRepository.swift */,
+				A55723B32C46F7E00051D0D9 /* BetRealmRepository.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -570,6 +579,8 @@
 				A52C53E12BEF9D6300699D2E /* UILabel+ext.swift in Sources */,
 				A52C54082BF1200300699D2E /* GameHeaderVM.swift in Sources */,
 				A5E40C362BF9FCBE0056AC63 /* NewBetView.swift in Sources */,
+				A55723B62C46F80C0051D0D9 /* BetRepositoryProtocol.swift in Sources */,
+				A55723B82C46FCDE0051D0D9 /* BetProtocol.swift in Sources */,
 				A52C53FF2BF10EF900699D2E /* GameController.swift in Sources */,
 				A52C53E82BEFC5BF00699D2E /* GameVM.swift in Sources */,
 				A5E40C342BF9FCA40056AC63 /* NewBetController.swift in Sources */,
@@ -582,6 +593,7 @@
 				A5E40C312BF8DC850056AC63 /* ScreenType.swift in Sources */,
 				8EA4AE9F2C43FB860083536F /* GameRealmRepository.swift in Sources */,
 				A50864A32C235D2B004F0F11 /* BetDTO.swift in Sources */,
+				A55723B42C46F7E00051D0D9 /* BetRealmRepository.swift in Sources */,
 				FAF8171E2BF8D582003BBBD3 /* InfoView.swift in Sources */,
 				A514A3242C01F49A0014BBD4 /* CustomTextField.swift in Sources */,
 				FAE48A7A2C17881E0046F6A0 /* GameService.swift in Sources */,

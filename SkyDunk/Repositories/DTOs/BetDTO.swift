@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BetDTO {
+struct BetDTO: BetProtocol {
     
     let id: String
     let gameId: String
