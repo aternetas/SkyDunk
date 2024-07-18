@@ -7,18 +7,18 @@
 
 import Foundation
 
-protocol NavigationManagerProtocol {
+protocol NavigationManagerProtocol: AnyObject {
     func openScreen(screen: ScreenType)
 }
 
-protocol AlertManagerProtocol {
+protocol AlertManagerProtocol: AnyObject {
     func showAlert(model: AlertModel)
 }
 
 class BaseViewModel {
     
-    var navigationManager: NavigationManagerProtocol?
-    var alertManager: AlertManagerProtocol?
+    weak var navigationManager: NavigationManagerProtocol?
+    weak var alertManager: AlertManagerProtocol?
     
     func showAlert(model: AlertModel) {
         alertManager?.showAlert(model: model)
