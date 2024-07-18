@@ -21,17 +21,17 @@ var games = [
 ]
 
 var bets = [
-    BetDTO(id: "02NTO-RKIX9", gameId: "NTAI-2KTA-RAKR", description: "Boston will win", created: .now - 2340, amount: 30, coefficient: 3.0, betOn: ["ATL", "BOS"], isSuccess: true),
+    BetDTO(id: "02NTO-RKIX9", gameId: "NTAI-2KTA-RAKR", betDescription: "Boston will win", created: .now - 2340, amount: 30, coefficient: 3.0, betOn: ["ATL", "BOS"], isSuccess: true),
     
-    BetDTO(id: "OXYMR-RI90X", gameId: "TNOA-AKCC-CAOY", description: "Edwards > 20 points", created: .now - 35000, amount: 10, coefficient: 2.2, betOn: ["DEN", "MIN"], isSuccess: true),
-    BetDTO(id: "AT0AK-ANOXY", gameId: "TNOA-AKCC-CAOY", description: "Aaron Gordon is MVP of the game", created: .now - 33204, amount: 20, coefficient: 2.3, betOn: ["DEN", "MIN"], isSuccess: false),
+    BetDTO(id: "OXYMR-RI90X", gameId: "TNOA-AKCC-CAOY", betDescription: "Edwards > 20 points", created: .now - 35000, amount: 10, coefficient: 2.2, betOn: ["DEN", "MIN"], isSuccess: true),
+    BetDTO(id: "AT0AK-ANOXY", gameId: "TNOA-AKCC-CAOY", betDescription: "Aaron Gordon is MVP of the game", created: .now - 33204, amount: 20, coefficient: 2.3, betOn: ["DEN", "MIN"], isSuccess: false),
     
-    BetDTO(id: "NIKRX-RIKCIR", gameId: "KT0C-CNIR-RIUX", description: "Lebron punched his son", created: .now - 26000, amount: 24.2, coefficient: 2.6, betOn: ["MIA", "LAL"], isSuccess: true),
-    BetDTO(id: "AOXER-X[2KTR", gameId: "KT0C-CNIR-RIUX", description: "Bald Jimmy", created: .now - 26500, amount: 21, coefficient: 1.9, betOn: ["MIA", "LAL"], isSuccess: nil),
-    BetDTO(id: "NAZOY-QB9ZA", gameId: "KT0C-CNIR-RIUX", description: "Kevin Love made 3 more 3-pts", created: .now - 27109, amount: 30, coefficient: 2.4, betOn: ["MIA", "LAL"], isSuccess: false),
+    BetDTO(id: "NIKRX-RIKCIR", gameId: "KT0C-CNIR-RIUX", betDescription: "Lebron punched his son", created: .now - 26000, amount: 24.2, coefficient: 2.6, betOn: ["MIA", "LAL"], isSuccess: true),
+    BetDTO(id: "AOXER-X[2KTR", gameId: "KT0C-CNIR-RIUX", betDescription: "Bald Jimmy", created: .now - 26500, amount: 21, coefficient: 1.9, betOn: ["MIA", "LAL"], isSuccess: nil),
+    BetDTO(id: "NAZOY-QB9ZA", gameId: "KT0C-CNIR-RIUX", betDescription: "Kevin Love made 3 more 3-pts", created: .now - 27109, amount: 30, coefficient: 2.4, betOn: ["MIA", "LAL"], isSuccess: false),
     
-    BetDTO(id: "TOAYK-ABXOY", gameId: "20!I-AKZO-R;AK", description: "Sacramento will win", created: .now - 10, amount: 10, coefficient: 1.4, betOn: ["LAL", "SAC"], isSuccess: nil),
+    BetDTO(id: "TOAYK-ABXOY", gameId: "20!I-AKZO-R;AK", betDescription: "Sacramento will win", created: .now - 10, amount: 10, coefficient: 1.4, betOn: ["LAL", "SAC"], isSuccess: nil),
     
-    BetDTO(id: "KAOYK-WIKXO", gameId: "29ZK-RKXY-IR..", description: "Tyrese > 20 but < 30 point", created: .now - 1250, amount: 20, coefficient: 1.76, betOn: ["LAC", "IND"], isSuccess: nil),
-    BetDTO(id: "OA0XK-ATRKB", gameId: "29ZK-RKXY-IR..", description: "Beared man will cut his beard", created: .now - 2305, amount: 40, coefficient: 1.8, betOn: ["LAC", "IND"], isSuccess: nil)
+    BetDTO(id: "KAOYK-WIKXO", gameId: "29ZK-RKXY-IR..", betDescription: "Tyrese > 20 but < 30 point", created: .now - 1250, amount: 20, coefficient: 1.76, betOn: ["LAC", "IND"], isSuccess: nil),
+    BetDTO(id: "OA0XK-ATRKB", gameId: "29ZK-RKXY-IR..", betDescription: "Beared man will cut his beard", created: .now - 2305, amount: 40, coefficient: 1.8, betOn: ["LAC", "IND"], isSuccess: nil)
 ]

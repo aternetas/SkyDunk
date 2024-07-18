@@ -48,7 +48,7 @@ class BetRepository: BetRepositoryProtocol {
     func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String, completion: @escaping () -> ()) {
         bets.append(BetDTO(id: UUID().uuidString,
                               gameId: gameId,
-                              description: description,
+                              betDescription: description,
                               created: .now,
                               amount: amount,
                               coefficient: coefficient,

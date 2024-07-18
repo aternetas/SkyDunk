@@ -11,7 +11,7 @@ protocol BetProtocol {
     
     var id: String { get }
     var gameId: String { get }
-    var description: String { get }
+    var betDescription: String { get }
     var created: Date { get }
     var amount: Double { get }
     var coefficient: Double { get }

@@ -11,7 +11,7 @@ struct Bet {
     
     let id: String
     let gameId: String
-    let description: String
+    let betDescription: String
     let сreated: Date
     let amount: Double
     let coefficient: Double
@@ -21,7 +21,7 @@ struct Bet {
     init(id: String = UUID().uuidString, gameId: String, description: String, created: Date, amount: Double, coefficient: Double, betOn: [TeamType], isSuccess: Bool?) {
         self.id = id
         self.gameId = gameId
-        self.description = description
+        self.betDescription = description
         self.сreated = created
         self.amount = amount
         self.coefficient = coefficient
@@ -32,7 +32,7 @@ struct Bet {
     init(dto: BetProtocol) {
         self.init(id: dto.id,
                   gameId: dto.gameId,
-                  description: dto.description,
+                  description: dto.betDescription,
                   created: dto.created,
                   amount: dto.amount,
                   coefficient: dto.coefficient,
