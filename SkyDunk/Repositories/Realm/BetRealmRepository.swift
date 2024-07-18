@@ -26,9 +26,7 @@ class BetRealmRepository: BetRepositoryProtocol {
     }
     
     func editBet(id: String, isSuccess: Bool, completion: @escaping (Bool) -> ()) {
-        if let bet = manager.getById(id: id, type: BetDTORealm.self) {
-            bet.isSuccess = isSuccess
-            manager.update(obj: bet)
+        if manager.updateBet(id: id, isSuccess: isSuccess) {
             completion(true)
         } else {
             completion(false)
