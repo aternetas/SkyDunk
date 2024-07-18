@@ -20,7 +20,7 @@ class ServiceFactory {
     private init() {
         let realmManager = RealmManager()
         gameRepo = GameRealmRepository(manager: realmManager)
-        betRepo = BetRealmRepository(manager: realmManager)
+        betRepo = BetRealmRepository(manager: realmManager, gameRepository: gameRepo)
         
 //        gameRepo = GameRepository()
 //        let betRepo = BetRepository(gameRepository: gameRepo)

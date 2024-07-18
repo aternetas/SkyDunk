@@ -9,10 +9,12 @@ import Foundation
 
 class BetRealmRepository: BetRepositoryProtocol {
     
-    var manager: RealmManager
+    private var manager: RealmManager
+    private var gameRepository: GameRepositoryProtocol
     
-    init(manager: RealmManager) {
+    init(manager: RealmManager, gameRepository: GameRepositoryProtocol) {
         self.manager = manager
+        self.gameRepository = gameRepository
     }
     
     func getBets(completion: @escaping ([BetProtocol]) -> ()) {
@@ -26,11 +28,12 @@ class BetRealmRepository: BetRepositoryProtocol {
     }
     
     func editBet(id: String, isSuccess: Bool, completion: @escaping (Bool) -> ()) {
-        if manager.updateBet(id: id, isSuccess: isSuccess) {
-            completion(true)
-        } else {
-            completion(false)
-        }
+        let res = manager.updateBet(id: id, isSuccess: isSuccess)
+        if res.0 != nil && res.1 != nil {
+            if manager.updateGame(id: res.1!, betResult: res.0!) {
+                completion(true)
+            } else { completion(false) }
+        } else { completion (false) }
     }
     
     func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String, completion: @escaping () -> ()) {
@@ -41,6 +44,8 @@ class BetRealmRepository: BetRepositoryProtocol {
                                      amount: amount,
                                      coefficient: coefficient,
                                      betOn: betOn))
-        completion()
+        gameRepository.addNewBetToGame(gameId: gameId) { _ in 
+            completion()
+        }
     }
 }

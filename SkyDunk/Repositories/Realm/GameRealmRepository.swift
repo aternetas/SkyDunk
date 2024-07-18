@@ -20,10 +20,7 @@ class GameRealmRepository: GameRepositoryProtocol {
     }
     
     func addNewBetToGame(gameId: String, completion: @escaping (Bool) -> ()) {
-        let game = manager.getById(id: gameId, type: GameDTORealm.self)
-        if let game = game {
-            game.activeBetsAmount = game.activeBetsAmount + 1
-            manager.update(obj: game)
+        if manager.updateGame(id: gameId) {
             completion(true)
         } else {
             completion(false)
@@ -31,10 +28,7 @@ class GameRealmRepository: GameRepositoryProtocol {
     }
     
     func changeGameBetsResult(gameId: String, betResult: Double, completion: @escaping (Bool) -> ()) {
-        let game = manager.getById(id: gameId, type: GameDTORealm.self)
-        if let game = game {
-            game.activeBetsAmount = game.activeBetsAmount - 1
-            game.betsResult = (game.betsResult ?? 0.0) + betResult
+        if manager.updateGame(id: gameId, betResult: betResult) {
             completion(true)
         } else {
             completion(false)
