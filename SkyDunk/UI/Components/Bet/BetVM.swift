@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol BetCellListenerProtocol {
+protocol BetCellListenerProtocol: AnyObject {
     func selectSuccessPrediction(id: String)
     func selectFailurePrediction(id: String)
     func selectBet(id: String)
@@ -23,7 +23,7 @@ class BetVM {
     let isActive: Bool
     let isSuccess: Bool?
     let betOn: [TeamType]
-    let delegate: BetCellListenerProtocol?
+    weak var delegate: BetCellListenerProtocol?
     
     init(id: String, description: String, date: String, amount: String, coefficient: String, isActive: Bool, isSuccess: Bool?, betOn: [TeamType], delegate: BetCellListenerProtocol?) {
         self.id = id
