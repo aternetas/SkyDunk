@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NewBetViewModelDelegat {
+protocol NewBetViewModelDelegat: AnyObject {
     func setGameHeader(game: GameHeaderVM)
     func dismiss()
 }
@@ -17,7 +17,7 @@ class NewBetViewModel: BaseViewModel {
     private let gameService = ServiceFactory.shared.gameService
     private let betService = ServiceFactory.shared.betService
     
-    var delegate: NewBetViewModelDelegat!
+    weak var delegate: NewBetViewModelDelegat?
     
     private var game: Game?
     private var gameId: String = ""

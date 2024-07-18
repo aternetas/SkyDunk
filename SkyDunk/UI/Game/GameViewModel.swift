@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol GameViewModelDelegat {
+protocol GameViewModelDelegat: AnyObject {
     func showGame(game: GameHeaderVM)
     func showBets()
     func updateBet(index: Int)
@@ -20,7 +20,7 @@ class GameViewModel: BaseViewModel {
     private let betService = ServiceFactory.shared.betService
     private let gameService = ServiceFactory.shared.gameService
     
-    var delegate: GameViewModelDelegat?
+    weak var delegate: GameViewModelDelegat?
     var betsVM: [BetVM] = []
    
     private var gameId: String = ""
