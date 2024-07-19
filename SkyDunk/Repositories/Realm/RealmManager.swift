@@ -26,14 +26,10 @@ class RealmManager {
         realm.object(ofType: type, forPrimaryKey: id)
     }
     
-    func updateGame(id: String) -> Bool {
-        if let game = getById(id: id, type: GameDTORealm.self) {
-            try! realm.write {
-                game.activeBetsAmount += 1
-                return true
-            }
+    func update(obj: Object) {
+        try! realm.write {
+            realm.add(obj, update: .modified)
         }
-        return false
     }
     
     func updateGame(id: String, betResult: Double) -> Bool {

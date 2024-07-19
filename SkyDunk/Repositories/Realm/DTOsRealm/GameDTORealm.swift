@@ -34,4 +34,14 @@ class GameDTORealm: Object, GameProtocol {
         self.activeBetsAmount = activeBetsAmount
         self.betsResult = betsResult
     }
+    
+    func modify(activeBetsAmount: Int) -> GameDTORealm {
+        GameDTORealm(id: id,
+                     homeTeam: homeTeam,
+                     guestTeam: guestTeam,
+                     date: date,
+                     homeScore: homeScore,
+                     guestScore: guestScore,
+                     activeBetsAmount: activeBetsAmount)
+    }
 }
