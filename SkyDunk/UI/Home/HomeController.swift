@@ -31,8 +31,6 @@ class HomeController: BaseController<HomeViewModel> {
         rootView.betsTableView.delegate = self
         rootView.betsTableView.dataSource = self
         
-        viewModel.viewDidLoad()
-        
         let lastGameViewTap = UITapGestureRecognizer(target: self, action: #selector(tapOnLastGameView))
         rootView.lastGameView.addGestureRecognizer(lastGameViewTap)
     }
@@ -51,11 +49,14 @@ class HomeController: BaseController<HomeViewModel> {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        viewModel.viewDidLoad()
         rootView.betsTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         rootView.betsTableView.removeObserver(self, forKeyPath: "contentSize")
     }
     

@@ -30,6 +30,11 @@ class PastGamesController: BaseController<PastGamesViewModel> {
         super.viewDidLoad()
         
         viewModel.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         viewModel.viewDidLoad()
     }
     
