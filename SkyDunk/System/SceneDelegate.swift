@@ -30,7 +30,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = tabbar
         self.window = window
         window.makeKeyAndVisible()
-
+        
+        print("BD---\(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path)")
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

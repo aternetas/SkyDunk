@@ -29,7 +29,7 @@ struct Game {
         self.betsResult = betsResult
     }
     
-    init(dto: GameDTO) {
+    init(dto: GameProtocol) {
         self.init(id: dto.id,
                   homeTeam: TeamType(rawValue: dto.homeTeam) ?? .other,
                   guestTeam: TeamType(rawValue: dto.guestTeam) ?? .other,

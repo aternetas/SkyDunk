@@ -8,10 +8,11 @@
 import Foundation
 
 class GameService {
-    private let repository: GameRepository
+    
+    private let repository: GameRepositoryProtocol
     private var games: [Game] = []
     
-    init(repository: GameRepository) {
+    init(repository: GameRepositoryProtocol) {
         self.repository = repository
     }
     

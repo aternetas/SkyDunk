@@ -16,7 +16,7 @@ protocol BetCellListenerProtocol: AnyObject {
 class BetVM {
     
     let id: String
-    let description: String
+    let betDescription: String
     let date: String
     let amount: String
     let coefficient: String
@@ -27,7 +27,7 @@ class BetVM {
     
     init(id: String, description: String, date: String, amount: String, coefficient: String, isActive: Bool, isSuccess: Bool?, betOn: [TeamType], delegate: BetCellListenerProtocol?) {
         self.id = id
-        self.description = description
+        self.betDescription = description
         self.date = date
         self.amount = amount
         self.coefficient = coefficient
@@ -39,7 +39,7 @@ class BetVM {
     
     convenience init(bet: Bet, delegate: BetCellListenerProtocol?) {
         self.init(id: bet.id,
-                  description: bet.description,
+                  description: bet.betDescription,
                   date: bet.сreated.toHourMinuteDayMonthYear(),
                   amount: String(bet.amount),
                   coefficient: String(bet.coefficient),
@@ -51,7 +51,7 @@ class BetVM {
     
     func copy(description: String? = nil, isActive: Bool? = nil, isSuccess: Bool? = nil) -> BetVM {
         BetVM(id: id, 
-              description: description ?? self.description,
+              description: description ?? self.betDescription,
               date: date,
               amount: amount,
               coefficient: coefficient,

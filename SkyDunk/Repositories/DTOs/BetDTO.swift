@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct BetDTO {
+struct BetDTO: BetProtocol {
     
     let id: String
     let gameId: String
-    let description: String
+    let betDescription: String
     let created: Date
     let amount: Double
     let coefficient: Double
@@ -21,7 +21,7 @@ struct BetDTO {
     func copy(isSuccess: Bool) -> BetDTO {
         BetDTO(id: id,
                gameId: gameId,
-               description: description,
+               betDescription: betDescription,
                created: created,
                amount: amount,
                coefficient: coefficient,

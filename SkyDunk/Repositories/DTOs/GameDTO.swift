@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GameDTO {
+struct GameDTO: GameProtocol {
     
     let id: String
     let homeTeam: String

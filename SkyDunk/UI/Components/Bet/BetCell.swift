@@ -102,7 +102,7 @@ class BetCell: UITableViewCell {
         self.vm = vm
         containerView.setColors(colors: vm.betOn.map { $0.color.withAlphaComponent(0.5) })
         
-        descriptionLab.text = vm.description
+        descriptionLab.text = vm.betDescription
         amountLab.text = vm.amount
         dateLab.text = vm.date
         coefficientLab.text = vm.coefficient
