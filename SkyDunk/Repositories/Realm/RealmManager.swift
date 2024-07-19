@@ -31,19 +31,8 @@ class RealmManager {
             realm.add(obj, update: .modified)
         }
     }
-    
-    func updateGame(id: String, betResult: Double) -> Bool {
-        if let game = getById(id: id, type: GameDTORealm.self) {
-            try! realm.write {
-                game.activeBetsAmount -= 1
-                game.betsResult = (game.betsResult ?? 0.0) + betResult
-                return true
-            }
-        }
-        return false
-    }
-    
-    func delete<T>(obj: Object, type: T.Type) where T: Object {
+
+    func delete(obj: Object) {
         realm.delete(obj)
     }
     
