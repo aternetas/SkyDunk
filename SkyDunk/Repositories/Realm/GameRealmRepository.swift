@@ -24,16 +24,15 @@ class GameRealmRepository: GameRepositoryProtocol {
             let modifiedGame = game.modify(activeBetsAmount: game.activeBetsAmount + 1)
             manager.update(obj: modifiedGame)
             completion(true)
-        } else {
-            completion(false)
-        }
+        } else { completion(false) }
     }
     
     func changeGameBetsResult(gameId: String, betResult: Double, completion: @escaping (Bool) -> ()) {
-        if manager.updateGame(id: gameId, betResult: betResult) {
+        if let game = manager.getById(id: gameId, type: GameDTORealm.self) {
+            let modifiedGame = game.modify(activeBetsAmount: game.activeBetsAmount - 1,
+                                           betsResult: (game.betsResult ?? 0.0) + betResult)
+            manager.update(obj: modifiedGame)
             completion(true)
-        } else {
-            completion(false)
-        }
+        } else { completion(false) }
     }
 }

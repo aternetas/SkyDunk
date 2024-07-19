@@ -35,13 +35,14 @@ class GameDTORealm: Object, GameProtocol {
         self.betsResult = betsResult
     }
     
-    func modify(activeBetsAmount: Int) -> GameDTORealm {
+    func modify(activeBetsAmount: Int, betsResult: Double? = nil) -> GameDTORealm {
         GameDTORealm(id: id,
                      homeTeam: homeTeam,
                      guestTeam: guestTeam,
                      date: date,
                      homeScore: homeScore,
                      guestScore: guestScore,
-                     activeBetsAmount: activeBetsAmount)
+                     activeBetsAmount: activeBetsAmount,
+                     betsResult: betsResult ?? self.betsResult)
     }
 }

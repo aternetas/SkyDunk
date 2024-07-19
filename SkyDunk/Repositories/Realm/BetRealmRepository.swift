@@ -28,12 +28,18 @@ class BetRealmRepository: BetRepositoryProtocol {
     }
     
     func editBet(id: String, isSuccess: Bool, completion: @escaping (Bool) -> ()) {
-        let res = manager.updateBet(id: id, isSuccess: isSuccess)
-        if res.0 != nil && res.1 != nil {
-            if manager.updateGame(id: res.1!, betResult: res.0!) {
+        if let bet = manager.getById(id: id, type: BetDTORealm.self) {
+            let modifiedBet = bet.modify(isSuccess: isSuccess)
+            manager.update(obj: modifiedBet)
+            
+            if let game = manager.getById(id: bet.gameId, type: GameDTORealm.self) {
+                let betResult = bet.amount * bet.coefficient
+                let modifiedGame = game.modify(activeBetsAmount: game.activeBetsAmount - 1,
+                                               betsResult: (game.betsResult ?? 0.0) + betResult)
+                manager.update(obj: modifiedGame)
                 completion(true)
             } else { completion(false) }
-        } else { completion (false) }
+        } else { completion(false) }
     }
     
     func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String, completion: @escaping () -> ()) {

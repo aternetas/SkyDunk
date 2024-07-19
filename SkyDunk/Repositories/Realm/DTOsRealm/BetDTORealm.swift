@@ -35,4 +35,15 @@ class BetDTORealm: Object, BetProtocol {
         _betOn.append(objectsIn: betOn)
         self.isSuccess = isSuccess
     }
+    
+    func modify(isSuccess: Bool) -> BetDTORealm {
+        BetDTORealm(id: id,
+                    gameId: gameId,
+                    betDescription: betDescription,
+                    created: created,
+                    amount: amount,
+                    coefficient: coefficient,
+                    betOn: betOn,
+                    isSuccess: isSuccess)
+    }
 }
