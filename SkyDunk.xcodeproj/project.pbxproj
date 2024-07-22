@@ -54,8 +54,8 @@
 		A541A20D2C4EA9270075BEFC /* RemoteServerGameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A20C2C4EA9270075BEFC /* RemoteServerGameRepository.swift */; };
 		A541A20F2C4EA93E0075BEFC /* RemoteServerBetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A20E2C4EA93E0075BEFC /* RemoteServerBetRepository.swift */; };
 		A541A2112C4EAA210075BEFC /* RemoteGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A2102C4EAA210075BEFC /* RemoteGameModel.swift */; };
-		A541A2132C4EAB720075BEFC /* HomeTeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A2122C4EAB720075BEFC /* HomeTeamModel.swift */; };
-		A541A2152C4EAB8A0075BEFC /* GuestTeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A2142C4EAB8A0075BEFC /* GuestTeamModel.swift */; };
+		A541A2132C4EAB720075BEFC /* TeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A2122C4EAB720075BEFC /* TeamModel.swift */; };
+		A541A2172C4EBCE70075BEFC /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A2162C4EBCE70075BEFC /* Data.swift */; };
 		A55723A72C42E86E0051D0D9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A55723A62C42E86E0051D0D9 /* RealmSwift */; };
 		A55723A82C42E86E0051D0D9 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A55723A62C42E86E0051D0D9 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A55723AD2C42ED230051D0D9 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723AC2C42ED230051D0D9 /* RealmManager.swift */; };
@@ -146,8 +146,8 @@
 		A541A20C2C4EA9270075BEFC /* RemoteServerGameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServerGameRepository.swift; sourceTree = "<group>"; };
 		A541A20E2C4EA93E0075BEFC /* RemoteServerBetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServerBetRepository.swift; sourceTree = "<group>"; };
 		A541A2102C4EAA210075BEFC /* RemoteGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGameModel.swift; sourceTree = "<group>"; };
-		A541A2122C4EAB720075BEFC /* HomeTeamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTeamModel.swift; sourceTree = "<group>"; };
-		A541A2142C4EAB8A0075BEFC /* GuestTeamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestTeamModel.swift; sourceTree = "<group>"; };
+		A541A2122C4EAB720075BEFC /* TeamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamModel.swift; sourceTree = "<group>"; };
+		A541A2162C4EBCE70075BEFC /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		A55723AC2C42ED230051D0D9 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		A55723AF2C4562B60051D0D9 /* GameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProtocol.swift; sourceTree = "<group>"; };
 		A55723B12C45631F0051D0D9 /* BetDTORealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetDTORealm.swift; sourceTree = "<group>"; };
@@ -407,8 +407,8 @@
 			isa = PBXGroup;
 			children = (
 				A541A2102C4EAA210075BEFC /* RemoteGameModel.swift */,
-				A541A2122C4EAB720075BEFC /* HomeTeamModel.swift */,
-				A541A2142C4EAB8A0075BEFC /* GuestTeamModel.swift */,
+				A541A2122C4EAB720075BEFC /* TeamModel.swift */,
+				A541A2162C4EBCE70075BEFC /* Data.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -609,6 +609,7 @@
 				A52C53F62BEFFB8C00699D2E /* BaseController.swift in Sources */,
 				FABB83992BEF94A80092F21B /* Fonts.swift in Sources */,
 				A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */,
+				A541A2172C4EBCE70075BEFC /* Data.swift in Sources */,
 				A52C53D22BEE95FA00699D2E /* HomeViewModel.swift in Sources */,
 				A52C53F82BF0003A00699D2E /* BaseViewModel.swift in Sources */,
 				A52C53CC2BEE916300699D2E /* HomeController.swift in Sources */,
@@ -631,8 +632,7 @@
 				A50864A32C235D2B004F0F11 /* BetDTO.swift in Sources */,
 				A55723B42C46F7E00051D0D9 /* BetRealmRepository.swift in Sources */,
 				A541A20B2C4EA90A0075BEFC /* RemoteServerManager.swift in Sources */,
-				A541A2132C4EAB720075BEFC /* HomeTeamModel.swift in Sources */,
-				A541A2152C4EAB8A0075BEFC /* GuestTeamModel.swift in Sources */,
+				A541A2132C4EAB720075BEFC /* TeamModel.swift in Sources */,
 				A541A20F2C4EA93E0075BEFC /* RemoteServerBetRepository.swift in Sources */,
 				FAF8171E2BF8D582003BBBD3 /* InfoView.swift in Sources */,
 				A514A3242C01F49A0014BBD4 /* CustomTextField.swift in Sources */,

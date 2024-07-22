@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HomeTeamModel: Codable {
+struct TeamModel: Codable {
     
     //currently in use
     let id: Int
@@ -19,4 +19,15 @@ struct HomeTeamModel: Codable {
     let division: String
     let city: String
     let name: String
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case id
+        case fullName = "full_name"
+        case abbreviation
+        case conference
+        case division
+        case city
+        case name
+    }
 }

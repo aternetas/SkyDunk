@@ -11,9 +11,9 @@ struct RemoteGameModel: Codable {
     
     //currently in use
     let id: Int
-    let homeTeam: HomeTeamModel
-    let guestTeam: GuestTeamModel
     let date: String
+    let homeTeam: TeamModel
+    let guestTeam: TeamModel
     let homeScore: Int
     let guestScore: Int
     
@@ -25,6 +25,7 @@ struct RemoteGameModel: Codable {
     let postseason: Bool
     
     enum CodingKeys: String, CodingKey {
+        
         case id
         case homeTeam = "home_team"
         case guestTeam = "visitor_team"

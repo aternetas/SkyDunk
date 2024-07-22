@@ -9,4 +9,9 @@ import Foundation
 
 class RemoteServerGameRepository {
     
+    let manager: RemoteServerManager
+    
+    init(manager: RemoteServerManager) {
+        self.manager = manager
+    }
 }
