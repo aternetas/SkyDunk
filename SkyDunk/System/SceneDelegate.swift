@@ -17,10 +17,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         let tabbar = UITabBarController()
-        
-        RemoteServerManager().getGames { model in
-            print(model)
-        }
                 
         let homeVC = HomeController()
         homeVC.tabBarItem = UITabBarItem(title: "Домашняя", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
