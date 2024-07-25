@@ -33,7 +33,7 @@ class GameService {
     }
     
     func getGameByGameId(_ gameId: String, completion: @escaping (Game?) -> ()) {
-        remoteRepository.getGames { dtos in
+        localRepository.getGames { dtos in
             completion(dtos.first(where: { $0.id == gameId }).map { Game(dto: $0) })
         }
     }
