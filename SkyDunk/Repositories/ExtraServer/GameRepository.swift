@@ -7,8 +7,8 @@
 
 import Foundation
 
-class GameRepository: GameRepositoryProtocol {
-    
+class GameRepository: LocalGameRepositoryProtocol {
+
     func getGames(completion: @escaping ([GameProtocol]) -> ()) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) {
             completion(games)
@@ -38,4 +38,6 @@ class GameRepository: GameRepositoryProtocol {
             completion(false)
         }
     }
+    
+    func updateGames(games: [GameProtocol], completion: @escaping () -> ()) {}
 }

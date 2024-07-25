@@ -9,19 +9,26 @@ import Foundation
 
 class GameService {
     
-    private let remoteRepository: GameRepositoryProtocol
-    private let localRepository: GameRepositoryProtocol
+    private let remoteRepository: RemoteGameRepositoryProtocol
+    private let localRepository: LocalGameRepositoryProtocol
     private var games: [Game] = []
     
-    init(remoteRepository: GameRepositoryProtocol, localRepository: GameRepositoryProtocol) {
+    init(remoteRepository: RemoteGameRepositoryProtocol, localRepository: LocalGameRepositoryProtocol) {
         self.remoteRepository = remoteRepository
         self.localRepository = localRepository
     }
     
     func getGames(completion: @escaping ([Game]) -> ()) {
-        remoteRepository.getGames { [weak self] dtos in
-            self?.games = dtos.map { Game(dto: $0) }
-            completion(self?.games ?? [])
+        weak var _self = self
+        remoteRepository.getGames { dtos in
+            _self?.updateGames(games: dtos) { res in
+                if res == true {
+                    _self?.localRepository.getGames { games in
+                        _self?.games = games.map { Game(dto: $0) }
+                        completion(_self?.games ?? [])
+                    }
+                }
+            }
         }
     }
     
@@ -44,5 +51,9 @@ class GameService {
     func getPastGames() -> [Game] {
         games.filter { Date.now > $0.date }
             .sorted { $0.date > $1.date }
+    }
+    
+    private func updateGames(games: [GameProtocol], completion: @escaping (Bool) -> ()) {
+        localRepository.updateGames(games: games) { completion(true) }
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RemoteGameRepository: GameRepositoryProtocol {
+class RemoteGameRepository: RemoteGameRepositoryProtocol {
     
     let manager: RemoteManager
     
@@ -20,8 +20,4 @@ class RemoteGameRepository: GameRepositoryProtocol {
             completion(data.games.map { GameModel(model: $0.self) })
         }
     }
-    
-    func addNewBetToGame(gameId: String, completion: @escaping (Bool) -> ()) {}
-    
-    func changeGameBetsResult(gameId: String, betResult: Double, completion: @escaping (Bool) -> ()) {}
 }

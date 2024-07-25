@@ -31,6 +31,14 @@ class RealmManager {
             realm.add(obj, update: .modified)
         }
     }
+    
+    func update<T>(type: T.Type, values: Any) where T: Object {
+        try! realm.write {
+            realm.create(T.self,
+                         value: values,
+                         update: .modified)
+        }
+    }
 
     func delete(obj: Object) {
         realm.delete(obj)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GameRealmRepository: GameRepositoryProtocol {
+class GameRealmRepository: LocalGameRepositoryProtocol {
     
     private let manager: RealmManager
     
@@ -34,5 +34,16 @@ class GameRealmRepository: GameRepositoryProtocol {
             manager.update(obj: modifiedGame)
             completion(true)
         } else { completion(false) }
+    }
+    
+    func updateGames(games: [GameProtocol], completion: @escaping () -> ()) {
+        games.forEach { game in
+            manager.update(type: GameDTORealm.self, values: [
+                "id":game.id,
+                "homeScore":game.homeScore,
+                "guestScore":game.guestScore
+            ])
+        }
+        completion()
     }
 }
