@@ -1,5 +1,5 @@
 //
-//  RemoteServerGameRepository.swift
+//  RemoteGameRepository.swift
 //  SkyDunk
 //
 //  Created by aternetas on 22.07.2024.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-class RemoteServerGameRepository: GameRepositoryProtocol {
+class RemoteGameRepository: GameRepositoryProtocol {
     
-    let manager: RemoteServerManager
+    let manager: RemoteManager
     
-    init(manager: RemoteServerManager) {
+    init(manager: RemoteManager) {
         self.manager = manager
     }
     

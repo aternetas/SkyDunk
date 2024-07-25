@@ -50,11 +50,11 @@
 		A538E3C22BF50C1400485EF3 /* Bet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538E3C12BF50C1400485EF3 /* Bet.swift */; };
 		A538E3C52BF50F7900485EF3 /* BetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538E3C42BF50F7900485EF3 /* BetVM.swift */; };
 		A538E3C72BF50F8F00485EF3 /* BetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538E3C62BF50F8F00485EF3 /* BetCell.swift */; };
-		A541A20B2C4EA90A0075BEFC /* RemoteServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A20A2C4EA9090075BEFC /* RemoteServerManager.swift */; };
-		A541A20D2C4EA9270075BEFC /* RemoteServerGameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A20C2C4EA9270075BEFC /* RemoteServerGameRepository.swift */; };
+		A541A20B2C4EA90A0075BEFC /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A20A2C4EA9090075BEFC /* RemoteManager.swift */; };
+		A541A20D2C4EA9270075BEFC /* RemoteGameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A20C2C4EA9270075BEFC /* RemoteGameRepository.swift */; };
 		A541A2112C4EAA210075BEFC /* RemoteGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A2102C4EAA210075BEFC /* RemoteGameModel.swift */; };
 		A541A2132C4EAB720075BEFC /* TeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A2122C4EAB720075BEFC /* TeamModel.swift */; };
-		A541A2172C4EBCE70075BEFC /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A2162C4EBCE70075BEFC /* Data.swift */; };
+		A541A2172C4EBCE70075BEFC /* GamePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A2162C4EBCE70075BEFC /* GamePayload.swift */; };
 		A541A21B2C4FF3460075BEFC /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A21A2C4FF3460075BEFC /* GameModel.swift */; };
 		A541A21D2C4FF8800075BEFC /* String+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A21C2C4FF8800075BEFC /* String+ext.swift */; };
 		A541A2202C4FFB730075BEFC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A541A21F2C4FFB730075BEFC /* Alamofire */; };
@@ -145,11 +145,11 @@
 		A538E3C12BF50C1400485EF3 /* Bet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bet.swift; sourceTree = "<group>"; };
 		A538E3C42BF50F7900485EF3 /* BetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetVM.swift; sourceTree = "<group>"; };
 		A538E3C62BF50F8F00485EF3 /* BetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetCell.swift; sourceTree = "<group>"; };
-		A541A20A2C4EA9090075BEFC /* RemoteServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServerManager.swift; sourceTree = "<group>"; };
-		A541A20C2C4EA9270075BEFC /* RemoteServerGameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServerGameRepository.swift; sourceTree = "<group>"; };
+		A541A20A2C4EA9090075BEFC /* RemoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
+		A541A20C2C4EA9270075BEFC /* RemoteGameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGameRepository.swift; sourceTree = "<group>"; };
 		A541A2102C4EAA210075BEFC /* RemoteGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGameModel.swift; sourceTree = "<group>"; };
 		A541A2122C4EAB720075BEFC /* TeamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamModel.swift; sourceTree = "<group>"; };
-		A541A2162C4EBCE70075BEFC /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		A541A2162C4EBCE70075BEFC /* GamePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePayload.swift; sourceTree = "<group>"; };
 		A541A21A2C4FF3460075BEFC /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		A541A21C2C4FF8800075BEFC /* String+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ext.swift"; sourceTree = "<group>"; };
 		A55723AC2C42ED230051D0D9 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -399,14 +399,14 @@
 			path = GameHeader;
 			sourceTree = "<group>";
 		};
-		A541A2082C4EA8D10075BEFC /* RemoteServer */ = {
+		A541A2082C4EA8D10075BEFC /* Remote */ = {
 			isa = PBXGroup;
 			children = (
 				A541A2092C4EA8EB0075BEFC /* Models */,
-				A541A20A2C4EA9090075BEFC /* RemoteServerManager.swift */,
-				A541A20C2C4EA9270075BEFC /* RemoteServerGameRepository.swift */,
+				A541A20A2C4EA9090075BEFC /* RemoteManager.swift */,
+				A541A20C2C4EA9270075BEFC /* RemoteGameRepository.swift */,
 			);
-			path = RemoteServer;
+			path = Remote;
 			sourceTree = "<group>";
 		};
 		A541A2092C4EA8EB0075BEFC /* Models */ = {
@@ -414,7 +414,7 @@
 			children = (
 				A541A2102C4EAA210075BEFC /* RemoteGameModel.swift */,
 				A541A2122C4EAB720075BEFC /* TeamModel.swift */,
-				A541A2162C4EBCE70075BEFC /* Data.swift */,
+				A541A2162C4EBCE70075BEFC /* GamePayload.swift */,
 				A541A21A2C4FF3460075BEFC /* GameModel.swift */,
 			);
 			path = Models;
@@ -485,7 +485,7 @@
 		FAE48A7B2C1789E40046F6A0 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				A541A2082C4EA8D10075BEFC /* RemoteServer */,
+				A541A2082C4EA8D10075BEFC /* Remote */,
 				A55723AE2C4560D90051D0D9 /* ExtraServer */,
 				A55723AB2C42ED100051D0D9 /* Realm */,
 				A55723AA2C42ED070051D0D9 /* Protocols */,
@@ -596,7 +596,7 @@
 				A5E40C382BF9FCD70056AC63 /* NewBetViewModel.swift in Sources */,
 				A52C53ED2BEFC6B500699D2E /* TeamType+ext.swift in Sources */,
 				A52C53E42BEFA3AA00699D2E /* GameCell.swift in Sources */,
-				A541A20D2C4EA9270075BEFC /* RemoteServerGameRepository.swift in Sources */,
+				A541A20D2C4EA9270075BEFC /* RemoteGameRepository.swift in Sources */,
 				A541A2112C4EAA210075BEFC /* RemoteGameModel.swift in Sources */,
 				FAE48A822C1793260046F6A0 /* ExtraServerData.swift in Sources */,
 				A52C53D72BEE9B3C00699D2E /* LastGameView.swift in Sources */,
@@ -621,7 +621,7 @@
 				A541A21D2C4FF8800075BEFC /* String+ext.swift in Sources */,
 				FABB83992BEF94A80092F21B /* Fonts.swift in Sources */,
 				A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */,
-				A541A2172C4EBCE70075BEFC /* Data.swift in Sources */,
+				A541A2172C4EBCE70075BEFC /* GamePayload.swift in Sources */,
 				A52C53D22BEE95FA00699D2E /* HomeViewModel.swift in Sources */,
 				A52C53F82BF0003A00699D2E /* BaseViewModel.swift in Sources */,
 				A52C53CC2BEE916300699D2E /* HomeController.swift in Sources */,
@@ -643,7 +643,7 @@
 				8EA4AE9F2C43FB860083536F /* GameRealmRepository.swift in Sources */,
 				A50864A32C235D2B004F0F11 /* BetDTO.swift in Sources */,
 				A55723B42C46F7E00051D0D9 /* BetRealmRepository.swift in Sources */,
-				A541A20B2C4EA90A0075BEFC /* RemoteServerManager.swift in Sources */,
+				A541A20B2C4EA90A0075BEFC /* RemoteManager.swift in Sources */,
 				A541A2132C4EAB720075BEFC /* TeamModel.swift in Sources */,
 				FAF8171E2BF8D582003BBBD3 /* InfoView.swift in Sources */,
 				A514A3242C01F49A0014BBD4 /* CustomTextField.swift in Sources */,

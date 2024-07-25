@@ -9,22 +9,24 @@ import Foundation
 
 class GameService {
     
-    private let repository: GameRepositoryProtocol
+    private let remoteRepository: GameRepositoryProtocol
+    private let localRepository: GameRepositoryProtocol
     private var games: [Game] = []
     
-    init(repository: GameRepositoryProtocol) {
-        self.repository = repository
+    init(remoteRepository: GameRepositoryProtocol, localRepository: GameRepositoryProtocol) {
+        self.remoteRepository = remoteRepository
+        self.localRepository = localRepository
     }
     
     func getGames(completion: @escaping ([Game]) -> ()) {
-        repository.getGames { [weak self] dtos in
+        remoteRepository.getGames { [weak self] dtos in
             self?.games = dtos.map { Game(dto: $0) }
             completion(self?.games ?? [])
         }
     }
     
     func getGameByGameId(_ gameId: String, completion: @escaping (Game?) -> ()) {
-        repository.getGames { dtos in
+        remoteRepository.getGames { dtos in
             completion(dtos.first(where: { $0.id == gameId }).map { Game(dto: $0) })
         }
     }

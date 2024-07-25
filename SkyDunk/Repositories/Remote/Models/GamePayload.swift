@@ -1,5 +1,5 @@
 //
-//  Data.swift
+//  GamePayload.swift
 //  SkyDunk
 //
 //  Created by aternetas on 22.07.2024.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Data: Codable {
+struct GamePayload: Codable {
     
     let games: [RemoteGameModel]
-    let meta: Meta
+    let meta: gameMetaData
 
     enum CodingKeys: String, CodingKey {
         case games = "data"
@@ -19,7 +19,7 @@ struct Data: Codable {
 }
 
 //curently unused
-struct Meta: Codable {
+struct gameMetaData: Codable {
     
     let perPage: Int
     let nextCursor: Int?

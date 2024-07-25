@@ -14,21 +14,20 @@ class ServiceFactory {
     let gameService: GameService
     let betService: BetService
     
-    private let gameRepo: GameRepositoryProtocol
-    private let betRepo: BetRepositoryProtocol
-    
     private init() {
-//        let realmManager = RealmManager()
+        let realmManager = RealmManager()
+        let remoteManager = RemoteManager()
 //        gameRepo = GameRealmRepository(manager: realmManager)
 //        betRepo = BetRealmRepository(manager: realmManager, gameRepository: gameRepo)
         
 //        gameRepo = GameRepository()
 //        let betRepo = BetRepository(gameRepository: gameRepo)
         
-        gameRepo = RemoteServerGameRepository(manager: RemoteServerManager())
-        betRepo = BetRealmRepository(manager: RealmManager(), gameRepository: GameRepository())
+        let remoteGameRepo = RemoteGameRepository(manager: remoteManager)
+        let localGameRepo = GameRealmRepository(manager: realmManager)
+        let localBetRepo = BetRealmRepository(manager: realmManager, gameRepository: localGameRepo)
         
-        gameService = GameService(repository: gameRepo)
-        betService = BetService(repository: betRepo)
+        gameService = GameService(remoteRepository: remoteGameRepo, localRepository: localGameRepo)
+        betService = BetService(repository: localBetRepo)
     }
 }

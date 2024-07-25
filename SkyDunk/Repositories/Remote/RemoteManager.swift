@@ -1,5 +1,5 @@
 //
-//  RemoteServerManager.swift
+//  RemoteManager.swift
 //  SkyDunk
 //
 //  Created by aternetas on 22.07.2024.
@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class RemoteServerManager {
+class RemoteManager {
     
     private let KEY: String
     init() {
@@ -17,7 +17,7 @@ class RemoteServerManager {
 
     private let forSeasons = "seasons[]=2023&seasons[]=2024"
     
-    func getGamesByURLSession(completion: @escaping (Data) -> ()) {
+    func getGamesByURLSession(completion: @escaping (GamePayload) -> ()) {
         let request = NSMutableURLRequest(url: NSURL(string: "https://api.balldontlie.io/v1/games?\(forSeasons)")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
@@ -37,7 +37,7 @@ class RemoteServerManager {
         task.resume()
     }
     
-    func getGamesByAF(completion: @escaping (Data) -> ()) {
+    func getGamesByAF(completion: @escaping (GamePayload) -> ()) {
         AF.request("https://api.balldontlie.io/v1/games?\(forSeasons)&postseason=true", headers: HTTPHeaders(getHeaders())).response { [self] response in
             guard let data = response.data else {
                 print("unknown data")
@@ -57,9 +57,9 @@ class RemoteServerManager {
         return ["Authorization": "\(KEY)"]
     }
     
-    private func decodeResponse(_ data: Foundation.Data, completion: @escaping (Data) -> ()) {
+    private func decodeResponse(_ data: Foundation.Data, completion: @escaping (GamePayload) -> ()) {
         do {
-            completion(try JSONDecoder().decode(Data.self, from: data))
+            completion(try JSONDecoder().decode(GamePayload.self, from: data))
         }
         catch {
             print("failed to convert json, error: \(error.localizedDescription)")
