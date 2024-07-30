@@ -39,9 +39,9 @@ class GameRealmRepository: LocalGameRepositoryProtocol {
     func updateGames(games: [GameProtocol], completion: @escaping () -> ()) {
         games.forEach { game in
             manager.update(type: GameDTORealm.self, values: [
-                "id":game.id,
-                "homeScore":game.homeScore,
-                "guestScore":game.guestScore
+                "id": game.id,
+                "homeScore": game.homeScore,
+                "guestScore": game.guestScore
             ])
         }
         completion()

@@ -34,9 +34,7 @@ class RealmManager {
     
     func update<T>(type: T.Type, values: Any) where T: Object {
         try! realm.write {
-            realm.create(T.self,
-                         value: values,
-                         update: .modified)
+            realm.create(T.self, value: values, update: .modified)
         }
     }
 
