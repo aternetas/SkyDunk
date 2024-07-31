@@ -10,9 +10,9 @@ import Foundation
 class BetRealmRepository: BetRepositoryProtocol {
     
     private var manager: RealmManager
-    private var gameRepository: GameRepositoryProtocol
+    private var gameRepository: LocalGameRepositoryProtocol
     
-    init(manager: RealmManager, gameRepository: GameRepositoryProtocol) {
+    init(manager: RealmManager, gameRepository: LocalGameRepositoryProtocol) {
         self.manager = manager
         self.gameRepository = gameRepository
     }

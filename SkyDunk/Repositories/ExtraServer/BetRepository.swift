@@ -9,9 +9,9 @@ import Foundation
 
 class BetRepository: BetRepositoryProtocol {
     
-    private var gameRepository: GameRepositoryProtocol
+    private var gameRepository: LocalGameRepositoryProtocol
     
-    init(gameRepository: GameRepositoryProtocol) {
+    init(gameRepository: LocalGameRepositoryProtocol) {
         self.gameRepository = gameRepository
     }
     
