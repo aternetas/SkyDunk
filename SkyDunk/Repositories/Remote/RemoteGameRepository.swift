@@ -16,7 +16,7 @@ class RemoteGameRepository: RemoteGameRepositoryProtocol {
     }
     
     func getGames(completion: @escaping ([GameProtocol]) -> ()) {
-        manager.getByAF(type: GamePayload.self) { data in
+        manager.fetch(type: GamePayload.self, path: "v1/games", params: ["seasons[]": 2023, "postseason": true]) { data in
             completion(data.games.map { GameModel(model: $0.self) })
         }
     }

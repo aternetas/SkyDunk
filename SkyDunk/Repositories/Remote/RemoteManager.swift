@@ -14,11 +14,11 @@ class RemoteManager {
     init() {
         KEY = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as! String
     }
-
-    private let forSeasons = "seasons[]=2023&seasons[]=2024"
     
-    func getByAF<T>(type: T.Type, completion: @escaping (T) -> ()) where T: Codable {
-        AF.request("https://api.balldontlie.io/v1/games?\(forSeasons)&postseason=true", headers: HTTPHeaders(getHeaders())).response { [self] response in
+    private let URL: String = Bundle.main.object(forInfoDictionaryKey: "URL") as! String
+    
+    func fetch<T>(type: T.Type, path: String, params: [String: Any], completion: @escaping (T) -> ()) where T: Codable {
+        AF.request("\(URL)/\(path)", parameters: params, headers: getHeaders()).response { [self] response in
             guard let data = response.data else {
                 print("unknown data")
                 return
@@ -30,7 +30,7 @@ class RemoteManager {
         }
     }
 
-    private func getHeaders() -> [String: String] {
+    private func getHeaders() -> HTTPHeaders {
         if KEY.isEmpty {
             fatalError("api-key is missing")
         }
