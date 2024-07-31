@@ -16,7 +16,7 @@ class RemoteGameRepository: RemoteGameRepositoryProtocol {
     }
     
     func getGames(completion: @escaping ([GameProtocol]) -> ()) {
-        manager.getGamesByAF { data in
+        manager.getByAF(type: GamePayload.self) { data in
             completion(data.games.map { GameModel(model: $0.self) })
         }
     }
