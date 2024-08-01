@@ -23,19 +23,16 @@ class GameService {
         remoteRepository.getGames { dtos in
             _self?.updateGames(games: dtos) { res in
                 if res == true {
-                    _self?.localRepository.getGames { games in
-                        _self?.games = games.map { Game(dto: $0) }
-                        completion(_self?.games ?? [])
-                    }
+                    guard let games = _self?.localRepository.getGames() else { return }
+                    _self?.games = games.map { Game(dto: $0) }
+                    completion(_self?.games ?? [])
                 }
             }
         }
     }
     
     func getGameByGameId(_ gameId: String, completion: @escaping (Game?) -> ()) {
-        localRepository.getGames { dtos in
-            completion(dtos.first(where: { $0.id == gameId }).map { Game(dto: $0) })
-        }
+        completion(localRepository.getGames().first(where: { $0.id == gameId }).map { Game(dto: $0) })
     }
     
     func getLastGame() -> Game? {

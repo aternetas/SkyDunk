@@ -15,8 +15,8 @@ class GameRealmRepository: LocalGameRepositoryProtocol {
         self.manager = manager
     }
     
-    func getGames(completion: @escaping ([GameProtocol]) -> ()) {
-        completion(manager.getAll(type: GameDTORealm.self))
+    func getGames() -> [GameProtocol] {
+        manager.getAll(type: GameDTORealm.self)
     }
     
     func addNewBetToGame(gameId: String, completion: @escaping (Bool) -> ()) {
