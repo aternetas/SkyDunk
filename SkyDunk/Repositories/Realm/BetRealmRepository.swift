@@ -17,12 +17,12 @@ class BetRealmRepository: LocalBetRepositoryProtocol {
         self.gameRepository = gameRepository
     }
     
-    func getBets() -> [BetProtocol] {
-        manager.getAll(type: BetDTORealm.self)
+    func getBets() throws -> [BetProtocol] {
+        try manager.getAll(type: BetDTORealm.self)
     }
     
-    func getBetsByGameId(_ gameId: String) -> [BetProtocol] {
-        getBets().filter { $0.gameId == gameId }
+    func getBetsByGameId(_ gameId: String) throws -> [BetProtocol] {
+        try getBets().filter { $0.gameId == gameId }
     }
     
     func editBet(id: String, isSuccess: Bool) -> Bool {

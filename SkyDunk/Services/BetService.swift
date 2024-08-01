@@ -15,16 +15,16 @@ class BetService {
         self.repository = repository
     }
     
-    func getBets(completion: @escaping([Bet]) -> ()) {
-        completion(repository.getBets().map { Bet(dto: $0) })
+    func getBets(completion: @escaping([Bet]) -> ()) throws {
+        completion(try repository.getBets().map { Bet(dto: $0) })
     }
     
-    func getActiveBets(completion: @escaping([Bet]) -> ()) {
-        completion(repository.getBets().filter { $0.isSuccess == nil }.map { Bet(dto: $0) })
+    func getActiveBets(completion: @escaping([Bet]) -> ()) throws {
+        completion(try repository.getBets().filter { $0.isSuccess == nil }.map { Bet(dto: $0) })
     }
     
-    func getBetsByGameId(_ gameId: String, completion: @escaping([Bet]) -> ()) {
-        completion(repository.getBetsByGameId(gameId).map { Bet(dto: $0) })
+    func getBetsByGameId(_ gameId: String, completion: @escaping([Bet]) -> ()) throws {
+        completion(try repository.getBetsByGameId(gameId).map { Bet(dto: $0) })
     }
     
     func editBet(id: String, isSuccess: Bool, completion: @escaping () -> ()) {

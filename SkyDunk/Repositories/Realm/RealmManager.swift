@@ -18,8 +18,12 @@ class RealmManager {
         }
     }
     
-    func getAll<T>(type: T.Type) -> [T] where T: Object {
-        Array(realm.objects(T.self))
+    func getAll<T>(type: T.Type) throws -> [T] where T: Object {
+        let items = Array(realm.objects(T.self))
+        if items.isEmpty {
+            throw Errors.RealmError.cantGetObjs
+        }
+        return items
     }
     
     func getById<T>(id: String, type: T.Type) -> T? where T: Object {

@@ -51,13 +51,13 @@ class GameViewModel: BaseViewModel {
     }
     
     private func setBets() {
-        betService.getBetsByGameId(gameId) { [weak self] bets in
-            guard let self = self else { return }
-            betsVM = bets.map { BetVM(bet: $0, delegate: self) }
-            
-            delegate?.showEmptyState(isShow: betsVM.isEmpty)
-            delegate?.showBets()
-        }
+//        betService.getBetsByGameId(gameId) { [weak self] bets in
+//            guard let self = self else { return }
+//            betsVM = bets.map { BetVM(bet: $0, delegate: self) }
+//            
+//            delegate?.showEmptyState(isShow: betsVM.isEmpty)
+//            delegate?.showBets()
+//        }
     }
 }
 

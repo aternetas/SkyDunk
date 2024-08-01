@@ -18,21 +18,28 @@ class GameService {
         self.localRepository = localRepository
     }
     
-    func getGames(completion: @escaping ([Game]) -> ()) {
-        weak var _self = self
-        remoteRepository.getGames { dtos in
-            _self?.updateGames(games: dtos) { res in
-                if res == true {
-                    guard let games = _self?.localRepository.getGames() else { return }
-                    _self?.games = games.map { Game(dto: $0) }
-                    completion(_self?.games ?? [])
+    func getGames(completion: @escaping (Result<[Game], Error>) -> ()) {
+        remoteRepository.getGames { [weak self] res in
+            switch res {
+                
+            case .success(let dtos):
+                self?.localRepository.updateGames(games: dtos)
+                do {
+                    if let games = try self?.localRepository.getGames() {
+                        completion(.success(games.map { Game(dto: $0) }))
+                    }
+                } catch {
+                    completion(.failure(Errors.RealmError.cantGetObjs))
                 }
+                
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }
     
     func getGameByGameId(_ gameId: String, completion: @escaping (Game?) -> ()) {
-        completion(localRepository.getGames().first(where: { $0.id == gameId }).map { Game(dto: $0) })
+//        completion(try localRepository.getGames().first(where: { $0.id == gameId }).map { Game(dto: $0) })
     }
     
     func getLastGame() -> Game? {
@@ -50,8 +57,7 @@ class GameService {
             .sorted { $0.date > $1.date }
     }
     
-    private func updateGames(games: [GameProtocol], completion: @escaping (Bool) -> ()) {
+    private func updateGames(games: [GameProtocol]) {
         localRepository.updateGames(games: games)
-        completion(true)
     }
 }
