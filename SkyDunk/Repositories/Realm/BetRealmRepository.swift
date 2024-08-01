@@ -52,7 +52,7 @@ class BetRealmRepository: BetRepositoryProtocol {
                                      amount: amount,
                                      coefficient: coefficient,
                                      betOn: betOn))
-        gameRepository.addNewBetToGame(gameId: gameId) { _ in 
+        if gameRepository.addNewBetToGame(gameId: gameId) {
             completion()
         }
     }

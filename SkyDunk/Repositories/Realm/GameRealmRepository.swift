@@ -19,12 +19,12 @@ class GameRealmRepository: LocalGameRepositoryProtocol {
         manager.getAll(type: GameDTORealm.self)
     }
     
-    func addNewBetToGame(gameId: String, completion: @escaping (Bool) -> ()) {
+    func addNewBetToGame(gameId: String) -> Bool {
         if let game = manager.getById(id: gameId, type: GameDTORealm.self) {
             let modifiedGame = game.modify(activeBetsAmount: game.activeBetsAmount + 1)
             manager.update(obj: modifiedGame)
-            completion(true)
-        } else { completion(false) }
+            return true
+        } else { return false }
     }
     
     func changeGameBetsResult(gameId: String, betResult: Double, completion: @escaping (Bool) -> ()) {
