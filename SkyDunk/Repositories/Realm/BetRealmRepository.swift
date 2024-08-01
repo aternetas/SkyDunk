@@ -25,19 +25,19 @@ class BetRealmRepository: LocalBetRepositoryProtocol {
         getBets().filter { $0.gameId == gameId }
     }
     
-    func editBet(id: String, isSuccess: Bool, completion: @escaping (Bool) -> ()) {
+    func editBet(id: String, isSuccess: Bool) -> Bool {
         if let bet = manager.getById(id: id, type: BetDTORealm.self) {
             let modifiedBet = bet.modify(isSuccess: isSuccess)
             manager.update(obj: modifiedBet)
             
             let betResult = bet.amount * bet.coefficient
             if gameRepository.changeGameBetsResult(gameId: bet.gameId, betResult: isSuccess ? betResult : -betResult) {
-                    completion(true)
+                    return true
                 } else {
                     manager.update(obj: bet)
-                    completion(false)
+                    return false
                 }
-        } else { completion(false) }
+        } else { return false }
     }
     
     func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String, completion: @escaping () -> ()) {

@@ -28,7 +28,7 @@ class BetService {
     }
     
     func editBet(id: String, isSuccess: Bool, completion: @escaping () -> ()) {
-        repository.editBet(id: id, isSuccess: isSuccess) { _ in 
+        if repository.editBet(id: id, isSuccess: isSuccess) {
             completion()
         }
     }
