@@ -9,8 +9,8 @@ import Foundation
 
 protocol LocalGameRepositoryProtocol {
     
-    func getGames(completion: @escaping ([GameProtocol]) -> ())
-    func addNewBetToGame(gameId: String, completion: @escaping (Bool) -> ())
-    func changeGameBetsResult(gameId: String, betResult: Double, completion: @escaping (Bool) -> ())
-    func updateGames(games: [GameProtocol], completion: @escaping () -> ())
+    func getGames() -> [GameProtocol]
+    func addNewBetToGame(gameId: String) -> Bool
+    func changeGameBetsResult(gameId: String, betResult: Double) -> Bool
+    func updateGames(games: [GameProtocol])
 }

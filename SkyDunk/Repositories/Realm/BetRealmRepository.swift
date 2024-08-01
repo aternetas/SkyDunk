@@ -1,5 +1,5 @@
 //
-//  BetRealmRepository.swift
+//  LocalBetRepositoryProtocol.swift
 //  SkyDunk
 //
 //  Created by aternetas on 16.07.2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BetRealmRepository: BetRepositoryProtocol {
+class BetRealmRepository: LocalBetRepositoryProtocol {
     
     private var manager: RealmManager
     private var gameRepository: LocalGameRepositoryProtocol
@@ -17,34 +17,30 @@ class BetRealmRepository: BetRepositoryProtocol {
         self.gameRepository = gameRepository
     }
     
-    func getBets(completion: @escaping ([BetProtocol]) -> ()) {
-        completion(manager.getAll(type: BetDTORealm.self))
+    func getBets() -> [BetProtocol] {
+        manager.getAll(type: BetDTORealm.self)
     }
     
-    func getBetsByGameId(_ gameId: String, completion: @escaping ([BetProtocol]) -> ()) {
-        getBets { bets in
-            completion(bets.filter { $0.gameId == gameId })
-        }
+    func getBetsByGameId(_ gameId: String) -> [BetProtocol] {
+        getBets().filter { $0.gameId == gameId }
     }
     
-    func editBet(id: String, isSuccess: Bool, completion: @escaping (Bool) -> ()) {
+    func editBet(id: String, isSuccess: Bool) -> Bool {
         if let bet = manager.getById(id: id, type: BetDTORealm.self) {
             let modifiedBet = bet.modify(isSuccess: isSuccess)
             manager.update(obj: modifiedBet)
             
             let betResult = bet.amount * bet.coefficient
-            gameRepository.changeGameBetsResult(gameId: bet.gameId, betResult: isSuccess ? betResult : -betResult) { [weak self] in
-                if $0 {
-                    completion(true)
+            if gameRepository.changeGameBetsResult(gameId: bet.gameId, betResult: isSuccess ? betResult : -betResult) {
+                    return true
                 } else {
-                    self?.manager.update(obj: bet)
-                    completion(false)
+                    manager.update(obj: bet)
+                    return false
                 }
-            }
-        } else { completion(false) }
+        } else { return false }
     }
     
-    func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String, completion: @escaping () -> ()) {
+    func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String) {
         manager.add(obj: BetDTORealm(id: UUID().uuidString,
                                      gameId: gameId,
                                      betDescription: description,
@@ -52,8 +48,6 @@ class BetRealmRepository: BetRepositoryProtocol {
                                      amount: amount,
                                      coefficient: coefficient,
                                      betOn: betOn))
-        gameRepository.addNewBetToGame(gameId: gameId) { _ in 
-            completion()
-        }
+        gameRepository.addNewBetToGame(gameId: gameId)
     }
 }
