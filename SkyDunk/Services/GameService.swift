@@ -51,6 +51,7 @@ class GameService {
     }
     
     private func updateGames(games: [GameProtocol], completion: @escaping (Bool) -> ()) {
-        localRepository.updateGames(games: games) { completion(true) }
+        localRepository.updateGames(games: games)
+        completion(true)
     }
 }
