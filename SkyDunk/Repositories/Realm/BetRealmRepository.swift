@@ -40,7 +40,7 @@ class BetRealmRepository: LocalBetRepositoryProtocol {
         } else { return false }
     }
     
-    func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String, completion: @escaping () -> ()) {
+    func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String) {
         manager.add(obj: BetDTORealm(id: UUID().uuidString,
                                      gameId: gameId,
                                      betDescription: description,
@@ -48,8 +48,6 @@ class BetRealmRepository: LocalBetRepositoryProtocol {
                                      amount: amount,
                                      coefficient: coefficient,
                                      betOn: betOn))
-        if gameRepository.addNewBetToGame(gameId: gameId) {
-            completion()
-        }
+        gameRepository.addNewBetToGame(gameId: gameId)
     }
 }

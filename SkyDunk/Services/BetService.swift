@@ -34,8 +34,7 @@ class BetService {
     }
     
     func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String, completion: @escaping () -> ()) {
-        repository.addBet(description: description, amount: amount, coefficient: coefficient, betOn: betOn, gameId: gameId) {
-            completion()
-        }
+        repository.addBet(description: description, amount: amount, coefficient: coefficient, betOn: betOn, gameId: gameId)
+        completion()
     }
 }

@@ -12,5 +12,5 @@ protocol LocalBetRepositoryProtocol {
     func getBets() -> [BetProtocol]
     func getBetsByGameId(_ gameId: String) -> [BetProtocol]
     func editBet(id: String, isSuccess: Bool) -> Bool
-    func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String, completion: @escaping () -> ())
+    func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String) 
 }
