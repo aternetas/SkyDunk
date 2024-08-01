@@ -33,14 +33,12 @@ class BetRealmRepository: BetRepositoryProtocol {
             manager.update(obj: modifiedBet)
             
             let betResult = bet.amount * bet.coefficient
-            gameRepository.changeGameBetsResult(gameId: bet.gameId, betResult: isSuccess ? betResult : -betResult) { [weak self] in
-                if $0 {
+            if gameRepository.changeGameBetsResult(gameId: bet.gameId, betResult: isSuccess ? betResult : -betResult) {
                     completion(true)
                 } else {
-                    self?.manager.update(obj: bet)
+                    manager.update(obj: bet)
                     completion(false)
                 }
-            }
         } else { completion(false) }
     }
     

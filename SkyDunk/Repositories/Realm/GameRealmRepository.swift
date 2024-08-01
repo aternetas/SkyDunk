@@ -27,13 +27,13 @@ class GameRealmRepository: LocalGameRepositoryProtocol {
         } else { return false }
     }
     
-    func changeGameBetsResult(gameId: String, betResult: Double, completion: @escaping (Bool) -> ()) {
+    func changeGameBetsResult(gameId: String, betResult: Double) -> Bool {
         if let game = manager.getById(id: gameId, type: GameDTORealm.self) {
             let modifiedGame = game.modify(activeBetsAmount: game.activeBetsAmount - 1,
                                            betsResult: (game.betsResult ?? 0.0) + betResult)
             manager.update(obj: modifiedGame)
-            completion(true)
-        } else { completion(false) }
+            return true
+        } else { return false }
     }
     
     func updateGames(games: [GameProtocol], completion: @escaping () -> ()) {
