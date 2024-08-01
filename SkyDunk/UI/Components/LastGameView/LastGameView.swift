@@ -9,7 +9,7 @@ import UIKit
 
 class LastGameView: UIView {
     
-    lazy private var titleLab = UILabel(text: "КРАЙНЯЯ ИГРА", font: .light18)
+    lazy private var titleLab = UILabel(text: "ПОСЛЕДНЯЯ ИГРА", font: .light18)
     
     lazy private var gameScoreLab: UILabel = {
         let label = UILabel(font: .medium20)

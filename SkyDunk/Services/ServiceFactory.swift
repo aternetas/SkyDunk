@@ -20,9 +20,6 @@ class ServiceFactory {
 //        gameRepo = GameRealmRepository(manager: realmManager)
 //        betRepo = BetRealmRepository(manager: realmManager, gameRepository: gameRepo)
         
-//        gameRepo = GameRepository()
-//        let betRepo = BetRepository(gameRepository: gameRepo)
-        
         let remoteGameRepo = RemoteGameRepository(manager: remoteManager)
         let localGameRepo = GameRealmRepository(manager: realmManager)
         let localBetRepo = BetRealmRepository(manager: realmManager, gameRepository: localGameRepo)
