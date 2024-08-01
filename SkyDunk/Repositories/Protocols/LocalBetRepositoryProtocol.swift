@@ -10,7 +10,7 @@ import Foundation
 protocol LocalBetRepositoryProtocol {
     
     func getBets() -> [BetProtocol]
-    func getBetsByGameId(_ gameId: String, completion: @escaping([BetProtocol]) -> ())
+    func getBetsByGameId(_ gameId: String) -> [BetProtocol]
     func editBet(id: String, isSuccess: Bool, completion: @escaping (Bool) -> ())
     func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String, completion: @escaping () -> ())
 }

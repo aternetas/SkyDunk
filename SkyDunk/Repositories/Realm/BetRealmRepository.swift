@@ -21,8 +21,8 @@ class BetRealmRepository: LocalBetRepositoryProtocol {
         manager.getAll(type: BetDTORealm.self)
     }
     
-    func getBetsByGameId(_ gameId: String, completion: @escaping ([BetProtocol]) -> ()) {
-        completion(getBets().filter { $0.gameId == gameId })
+    func getBetsByGameId(_ gameId: String) -> [BetProtocol] {
+        getBets().filter { $0.gameId == gameId }
     }
     
     func editBet(id: String, isSuccess: Bool, completion: @escaping (Bool) -> ()) {
