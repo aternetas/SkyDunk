@@ -1,5 +1,5 @@
 //
-//  BetRealmRepository.swift
+//  LocalBetRepositoryProtocol.swift
 //  SkyDunk
 //
 //  Created by aternetas on 16.07.2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BetRealmRepository: BetRepositoryProtocol {
+class BetRealmRepository: LocalBetRepositoryProtocol {
     
     private var manager: RealmManager
     private var gameRepository: LocalGameRepositoryProtocol
@@ -17,14 +17,12 @@ class BetRealmRepository: BetRepositoryProtocol {
         self.gameRepository = gameRepository
     }
     
-    func getBets(completion: @escaping ([BetProtocol]) -> ()) {
-        completion(manager.getAll(type: BetDTORealm.self))
+    func getBets() -> [BetProtocol] {
+        manager.getAll(type: BetDTORealm.self)
     }
     
     func getBetsByGameId(_ gameId: String, completion: @escaping ([BetProtocol]) -> ()) {
-        getBets { bets in
-            completion(bets.filter { $0.gameId == gameId })
-        }
+        completion(getBets().filter { $0.gameId == gameId })
     }
     
     func editBet(id: String, isSuccess: Bool, completion: @escaping (Bool) -> ()) {

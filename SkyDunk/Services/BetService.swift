@@ -9,22 +9,18 @@ import Foundation
 
 class BetService {
     
-    private let repository: BetRepositoryProtocol
+    private let repository: LocalBetRepositoryProtocol
     
-    init(repository: BetRepositoryProtocol) {
+    init(repository: LocalBetRepositoryProtocol) {
         self.repository = repository
     }
     
     func getBets(completion: @escaping([Bet]) -> ()) {
-        repository.getBets { dtos in
-            completion(dtos.map { Bet(dto: $0) })
-        }
+        completion(repository.getBets().map { Bet(dto: $0) })
     }
     
     func getActiveBets(completion: @escaping([Bet]) -> ()) {
-        repository.getBets { dtos in
-            completion(dtos.filter { $0.isSuccess == nil }.map { Bet(dto: $0) })
-        }
+        completion(repository.getBets().filter { $0.isSuccess == nil }.map { Bet(dto: $0) })
     }
     
     func getBetsByGameId(_ gameId: String, completion: @escaping([Bet]) -> ()) {
