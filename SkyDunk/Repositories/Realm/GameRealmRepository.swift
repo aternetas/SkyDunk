@@ -39,7 +39,10 @@ class GameRealmRepository: LocalGameRepositoryProtocol {
         games.forEach { game in
             manager.update(type: GameDTORealm.self, values: [
                 "id": game.id,
+                "homeTeam": game.homeTeam,
+                "guestTeam": game.guestTeam,
                 "homeScore": game.homeScore,
+                "date": game.date,
                 "guestScore": game.guestScore
             ])
         }
