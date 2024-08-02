@@ -19,19 +19,18 @@ class GameRealmRepository: LocalGameRepositoryProtocol {
         try manager.getAll(type: GameDTORealm.self)
     }
     
-    func addNewBetToGame(gameId: String) -> Bool {
+    func addNewBetToGame(gameId: String) throws {
         if let game = manager.getById(id: gameId, type: GameDTORealm.self) {
             let modifiedGame = game.modify(activeBetsAmount: game.activeBetsAmount + 1)
-            manager.update(obj: modifiedGame)
-            return true
-        } else { return false }
+            try manager.update(obj: modifiedGame)
+        } else { throw Errors.RealmError.cantGetNewBetToGame }
     }
     
-    func changeGameBetsResult(gameId: String, betResult: Double) -> Bool {
+    func changeGameBetsResult(gameId: String, betResult: Double) throws -> Bool {
         if let game = manager.getById(id: gameId, type: GameDTORealm.self) {
             let modifiedGame = game.modify(activeBetsAmount: game.activeBetsAmount - 1,
                                            betsResult: (game.betsResult ?? 0.0) + betResult)
-            manager.update(obj: modifiedGame)
+            try manager.update(obj: modifiedGame)
             return true
         } else { return false }
     }

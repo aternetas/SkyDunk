@@ -12,8 +12,8 @@ class RealmManager {
     
     let realm = try! Realm()
     
-    func add<T>(obj: T) where T: Object {
-        try! realm.write {
+    func add<T>(obj: T) throws where T: Object {
+        try realm.write {
             realm.add(obj)
         }
     }
@@ -21,7 +21,7 @@ class RealmManager {
     func getAll<T>(type: T.Type) throws -> [T] where T: Object {
         let items = Array(realm.objects(T.self))
         if items.isEmpty {
-            throw Errors.RealmError.cantGetObjs
+            throw Errors.RealmError.cantGetObjs(type)
         }
         return items
     }
@@ -30,9 +30,14 @@ class RealmManager {
         realm.object(ofType: type, forPrimaryKey: id)
     }
     
-    func update(obj: Object) {
-        try! realm.write {
+    func update(obj: Object) throws {
+        var item: Any? = nil
+        try realm.write {
             realm.add(obj, update: .modified)
+            item = obj
+        }
+        if item == nil {
+            throw Errors.RealmError.cantUpdateObject
         }
     }
     

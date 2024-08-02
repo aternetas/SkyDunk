@@ -26,20 +26,28 @@ class GameService {
                 self?.localRepository.updateGames(games: dtos)
                 do {
                     if let games = try self?.localRepository.getGames() {
-                        completion(.success(games.map { Game(dto: $0) }))
+                        self?.games = games.map { Game(dto: $0) }
+                        completion(.success(self?.games ?? []))
                     }
                 } catch {
-                    completion(.failure(Errors.RealmError.cantGetObjs))
+                    completion(.failure(Errors.RealmError.cantGetObjs(Game.self)))
                 }
                 
-            case .failure(let error):
-                completion(.failure(error))
+            case .failure(_):
+                completion(.failure(Errors.RealmError.cantGetObjs(Game.self)))
             }
         }
     }
     
-    func getGameByGameId(_ gameId: String, completion: @escaping (Game?) -> ()) {
-//        completion(try localRepository.getGames().first(where: { $0.id == gameId }).map { Game(dto: $0) })
+    func getGameByGameId(_ gameId: String, completion: @escaping (Result<Game, Error>) -> ()) {
+        do {
+            guard let dto = try localRepository.getGames().first(where: { $0.id == gameId }) else { completion(.failure(Errors.RealmError.cantGetObjs(GameProtocol.self)))
+                return
+            }
+            completion(.success(Game(dto: dto)))
+        } catch {
+            completion(.failure(error))
+        }
     }
     
     func getLastGame() -> Game? {
