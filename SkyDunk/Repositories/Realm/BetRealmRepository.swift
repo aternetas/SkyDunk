@@ -26,7 +26,7 @@ class BetRealmRepository: LocalBetRepositoryProtocol {
     }
     
     func editBet(id: String, isSuccess: Bool) throws {
-        if let bet = manager.getById(id: id, type: BetDTORealm.self) {
+        if let bet = try manager.getById(id: id, type: BetDTORealm.self) {
             let modifiedBet = bet.modify(isSuccess: isSuccess)
             try manager.update(obj: modifiedBet)
             
@@ -35,7 +35,7 @@ class BetRealmRepository: LocalBetRepositoryProtocol {
         }}
     
     func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String) throws {
-        manager.add(obj: BetDTORealm(id: UUID().uuidString,
+        try manager.add(obj: BetDTORealm(id: UUID().uuidString,
                                      gameId: gameId,
                                      betDescription: description,
                                      created: .now,

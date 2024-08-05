@@ -20,14 +20,14 @@ class GameRealmRepository: LocalGameRepositoryProtocol {
     }
     
     func addNewBetToGame(gameId: String) throws {
-        if let game = manager.getById(id: gameId, type: GameDTORealm.self) {
+        if let game = try manager.getById(id: gameId, type: GameDTORealm.self) {
             let modifiedGame = game.modify(activeBetsAmount: game.activeBetsAmount + 1)
             try manager.update(obj: modifiedGame)
         }
     }
     
     func changeGameBetsResult(gameId: String, betResult: Double) throws {
-        if let game = manager.getById(id: gameId, type: GameDTORealm.self) {
+        if let game = try manager.getById(id: gameId, type: GameDTORealm.self) {
             let modifiedGame = game.modify(activeBetsAmount: game.activeBetsAmount - 1,
                                            betsResult: (game.betsResult ?? 0.0) + betResult)
             do {
