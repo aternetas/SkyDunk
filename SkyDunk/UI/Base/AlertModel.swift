@@ -7,6 +7,19 @@
 
 import Foundation
 
+enum ObjectType: String {
+    case game = "игра", bet = "ставка"
+    
+    static func getDeclensionForm(type: ObjectType) -> String {
+        switch type {
+        case .game:
+            "игру"
+        case .bet:
+            "ставку"
+        }
+    }
+}
+
 struct AlertModel {
     let title: String
     let message: String
@@ -21,6 +34,12 @@ struct AlertModel {
     static func getUserInputFailedValidationError(text: String) -> AlertModel {
         AlertModel(title: "Ошибка ввода",
                    message: text,
+                   actions: [AlertActionModel(title: "Ладно", action: { })])
+    }
+    
+    static func getObjectNotExistError(type: ObjectType) -> AlertModel {
+        AlertModel(title: "Ошибка",
+                   message: "Не удаётся найти \(ObjectType.getDeclensionForm(type: type))", 
                    actions: [AlertActionModel(title: "Ладно", action: { })])
     }
 }

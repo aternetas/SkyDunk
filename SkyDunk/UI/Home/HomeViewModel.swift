@@ -43,10 +43,16 @@ class HomeViewModel: BaseViewModel {
     }
     
     private func getGames() {
-        gameService.getGames { [weak self] games in
-            self?.games = games
-            self?.setLastGame()
-            self?.setNextGames()
+        gameService.getGames { [weak self] result in
+            switch result {
+            case .success(let games):
+                self?.games = games
+                self?.setLastGame()
+                self?.setNextGames()
+            case .failure(let failure):
+                //infoview
+                return
+            }
         }
     }
     

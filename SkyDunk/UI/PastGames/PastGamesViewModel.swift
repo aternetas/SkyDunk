@@ -25,12 +25,12 @@ class PastGamesViewModel: BaseViewModel {
     func viewDidLoad() {
         gameService.getGames { [weak self] games in
             guard let self = self else { return }
-            if games.count == 0 {
-                self.delegate?.showEmptyState(isShow: true)
-            } else {
-                getPastGames()
-                updatePastGames()
-            }
+//            if games.count == 0 {
+//                self.delegate?.showEmptyState(isShow: true)
+//            } else {
+//                getPastGames()
+//                updatePastGames()
+//            }
         }
     }
     

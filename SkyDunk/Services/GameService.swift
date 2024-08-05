@@ -18,21 +18,28 @@ class GameService {
         self.localRepository = localRepository
     }
     
-    func getGames(completion: @escaping ([Game]) -> ()) {
-        weak var _self = self
-        remoteRepository.getGames { dtos in
-            _self?.updateGames(games: dtos) { res in
-                if res == true {
-                    guard let games = _self?.localRepository.getGames() else { return }
-                    _self?.games = games.map { Game(dto: $0) }
-                    completion(_self?.games ?? [])
+    func getGames(completion: @escaping (Result<[Game], Error>) -> ()) {
+        remoteRepository.getGames { [weak self] res in
+            switch res {
+                
+            case .success(let dtos):
+                do {
+                    try self?.localRepository.updateGames(games: dtos)
+                    if let games = try self?.localRepository.getGames() {
+                        self?.games = games.map { Game(dto: $0) }
+                        completion(.success(self?.games ?? []))
+                    }
+                } catch {
+                    completion(.failure(Errors.RealmError.cantUpdateObject))
                 }
+                
+            case .failure(_): completion(.failure(Errors.RealmError.cantGetObjs(Game.self)))
             }
         }
     }
     
-    func getGameByGameId(_ gameId: String, completion: @escaping (Game?) -> ()) {
-        completion(localRepository.getGames().first(where: { $0.id == gameId }).map { Game(dto: $0) })
+    func getGameByGameId(_ gameId: String) -> Game? {
+        games.first(where: { $0.id == gameId })
     }
     
     func getLastGame() -> Game? {
@@ -48,10 +55,5 @@ class GameService {
     func getPastGames() -> [Game] {
         games.filter { Date.now > $0.date }
             .sorted { $0.date > $1.date }
-    }
-    
-    private func updateGames(games: [GameProtocol], completion: @escaping (Bool) -> ()) {
-        localRepository.updateGames(games: games)
-        completion(true)
     }
 }

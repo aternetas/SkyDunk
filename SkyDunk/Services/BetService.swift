@@ -28,13 +28,13 @@ class BetService {
     }
     
     func editBet(id: String, isSuccess: Bool, completion: @escaping () -> ()) {
-        if repository.editBet(id: id, isSuccess: isSuccess) {
-            completion()
-        }
+//        if repository.editBet(id: id, isSuccess: isSuccess) {
+//            completion()
+//        }
     }
     
     func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String, completion: @escaping () -> ()) {
-        repository.addBet(description: description, amount: amount, coefficient: coefficient, betOn: betOn, gameId: gameId)
-        completion()
+//        repository.addBet(description: description, amount: amount, coefficient: coefficient, betOn: betOn, gameId: gameId)
+//        completion()
     }
 }

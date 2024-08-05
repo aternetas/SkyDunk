@@ -26,14 +26,14 @@ class RealmManager {
         realm.object(ofType: type, forPrimaryKey: id)
     }
     
-    func update(obj: Object) {
-        try! realm.write {
+    func update(obj: Object) throws {
+        try realm.write {
             realm.add(obj, update: .modified)
         }
     }
     
-    func update<T>(type: T.Type, values: Any) where T: Object {
-        try! realm.write {
+    func update<T>(type: T.Type, values: Any) throws where T: Object {
+        try realm.write {
             realm.create(T.self, value: values, update: .modified)
         }
     }

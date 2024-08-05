@@ -46,11 +46,7 @@ class PastGamesView: UIView {
         return view
     }()
     
-    lazy var emptyStateView: InfoView = {
-        let infoView = InfoView(text: "Не удалось получить информацию по прошедшим играм")
-        infoView.isHidden = true
-        return infoView
-    }()
+    lazy var emptyStateView: InfoView = .noLastGamesDataInfoView
     
     override init(frame: CGRect) {
         super.init(frame: frame)
