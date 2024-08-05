@@ -15,26 +15,30 @@ class BetService {
         self.repository = repository
     }
     
-    func getBets(completion: @escaping([Bet]) -> ()) {
-        completion(repository.getBets().map { Bet(dto: $0) })
+    func getBets(completion: @escaping([Bet]) -> ()) throws {
+        completion(try repository.getBets().map { Bet(dto: $0) })
     }
     
-    func getActiveBets(completion: @escaping([Bet]) -> ()) {
-        completion(repository.getBets().filter { $0.isSuccess == nil }.map { Bet(dto: $0) })
+    func getActiveBets(completion: @escaping([Bet]) -> ()) throws {
+        completion(try repository.getBets().filter { $0.isSuccess == nil }.map { Bet(dto: $0) })
     }
     
-    func getBetsByGameId(_ gameId: String, completion: @escaping([Bet]) -> ()) {
-        completion(repository.getBetsByGameId(gameId).map { Bet(dto: $0) })
+    func getBetsByGameId(_ gameId: String, completion: @escaping([Bet]) -> ()) throws {
+        completion(try repository.getBetsByGameId(gameId).map { Bet(dto: $0) })
     }
     
     func editBet(id: String, isSuccess: Bool, completion: @escaping () -> ()) {
-        if repository.editBet(id: id, isSuccess: isSuccess) {
-            completion()
-        }
+//        if try repository.editBet(id: id, isSuccess: isSuccess) {
+//            completion()
+//        }
     }
     
-    func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String, completion: @escaping () -> ()) {
-        repository.addBet(description: description, amount: amount, coefficient: coefficient, betOn: betOn, gameId: gameId)
-        completion()
+    func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String, completion: @escaping (Result<Bool, Error>) -> ()) {
+        do {
+            try repository.addBet(description: description, amount: amount, coefficient: coefficient, betOn: betOn, gameId: gameId)
+            completion(.success(true))
+        } catch {
+            completion(.failure(error))
+        }
     }
 }

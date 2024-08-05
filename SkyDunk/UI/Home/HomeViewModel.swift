@@ -36,15 +36,20 @@ class HomeViewModel: BaseViewModel {
     }
     
     func getActiveBets() {
-        betService.getActiveBets { [weak self] bets in
-            self?.activeBets = bets
-            self?.setActiveBets()
-        }
+//        betService.getActiveBets { [weak self] bets in
+//            self?.activeBets = bets
+//            self?.setActiveBets()
+//        }
     }
     
     private func getGames() {
-        gameService.getGames { [weak self] games in
-            self?.games = games
+        gameService.getGames { [weak self] res in
+            switch res {
+            case .success(let data):
+                print("\(data)")
+            case .failure(let error):
+                print("\(error)")
+            }
             self?.setLastGame()
             self?.setNextGames()
         }
@@ -81,7 +86,7 @@ extension HomeViewModel: BetCellListenerProtocol {
     
     private func changeBetStatus(id: String, isSuccess: Bool) {
         betService.editBet(id: id, isSuccess: isSuccess) { [weak self] in
-            self?.getActiveBets()
+//            self?.getActiveBets()
         }
     }
 }
