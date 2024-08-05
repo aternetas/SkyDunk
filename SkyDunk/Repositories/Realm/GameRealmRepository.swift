@@ -15,22 +15,23 @@ class GameRealmRepository: LocalGameRepositoryProtocol {
         self.manager = manager
     }
     
-    func getGames() throws -> [GameProtocol] {
-        try manager.getAll(type: GameDTORealm.self)
+    func getGames() -> [GameProtocol] {
+        manager.getAll(type: GameDTORealm.self)
     }
     
-    func addNewBetToGame(gameId: String) throws {
+    func addNewBetToGame(gameId: String) -> Bool {
         if let game = manager.getById(id: gameId, type: GameDTORealm.self) {
             let modifiedGame = game.modify(activeBetsAmount: game.activeBetsAmount + 1)
-            try manager.update(obj: modifiedGame)
-        } else { throw Errors.RealmError.cantGetNewBetToGame }
+            manager.update(obj: modifiedGame)
+            return true
+        } else { return false }
     }
     
-    func changeGameBetsResult(gameId: String, betResult: Double) throws -> Bool {
+    func changeGameBetsResult(gameId: String, betResult: Double) -> Bool {
         if let game = manager.getById(id: gameId, type: GameDTORealm.self) {
             let modifiedGame = game.modify(activeBetsAmount: game.activeBetsAmount - 1,
                                            betsResult: (game.betsResult ?? 0.0) + betResult)
-            try manager.update(obj: modifiedGame)
+            manager.update(obj: modifiedGame)
             return true
         } else { return false }
     }

@@ -59,7 +59,6 @@
 		A541A2202C4FFB730075BEFC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A541A21F2C4FFB730075BEFC /* Alamofire */; };
 		A541A2222C4FFB730075BEFC /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A541A2212C4FFB730075BEFC /* AlamofireDynamic */; };
 		A541A2242C52EAC60075BEFC /* RemoteGameRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A2232C52EAC60075BEFC /* RemoteGameRepositoryProtocol.swift */; };
-		A54D975B2C5C36AA00C4B477 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54D975A2C5C36AA00C4B477 /* Errors.swift */; };
 		A55723A72C42E86E0051D0D9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A55723A62C42E86E0051D0D9 /* RealmSwift */; };
 		A55723A82C42E86E0051D0D9 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A55723A62C42E86E0051D0D9 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A55723AD2C42ED230051D0D9 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723AC2C42ED230051D0D9 /* RealmManager.swift */; };
@@ -151,7 +150,6 @@
 		A541A21A2C4FF3460075BEFC /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		A541A21C2C4FF8800075BEFC /* String+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ext.swift"; sourceTree = "<group>"; };
 		A541A2232C52EAC60075BEFC /* RemoteGameRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGameRepositoryProtocol.swift; sourceTree = "<group>"; };
-		A54D975A2C5C36AA00C4B477 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		A55723AC2C42ED230051D0D9 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		A55723AF2C4562B60051D0D9 /* GameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProtocol.swift; sourceTree = "<group>"; };
 		A55723B12C45631F0051D0D9 /* BetDTORealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetDTORealm.swift; sourceTree = "<group>"; };
@@ -374,7 +372,6 @@
 				A52C53F72BF0003A00699D2E /* BaseViewModel.swift */,
 				A5E40C302BF8DC850056AC63 /* ScreenType.swift */,
 				A514A3252C0A17480014BBD4 /* AlertModel.swift */,
-				A54D975A2C5C36AA00C4B477 /* Errors.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -613,7 +610,6 @@
 				A541A2172C4EBCE70075BEFC /* GamePayload.swift in Sources */,
 				A52C53D22BEE95FA00699D2E /* HomeViewModel.swift in Sources */,
 				A52C53F82BF0003A00699D2E /* BaseViewModel.swift in Sources */,
-				A54D975B2C5C36AA00C4B477 /* Errors.swift in Sources */,
 				A52C53CC2BEE916300699D2E /* HomeController.swift in Sources */,
 				A52C53E12BEF9D6300699D2E /* UILabel+ext.swift in Sources */,
 				A52C54082BF1200300699D2E /* GameHeaderVM.swift in Sources */,

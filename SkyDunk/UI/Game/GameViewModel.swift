@@ -27,17 +27,18 @@ class GameViewModel: BaseViewModel {
     
     func setGame(gameId: String) {
         self.gameId = gameId
-        gameService.getGameByGameId(gameId) { [weak self] res in
-            switch res {
-            case .success(let game):
-                if game.date > Date.now {
-                    self?.delegate?.showNewBetButton()
-                }
-                self?.delegate?.showGame(game: GameHeaderVM(game: game))
-                self?.setBets()
-            case .failure(_):
-                self?.showAlert(model: AlertModel.objDoesNotExist(type: .game))
+        gameService.getGameByGameId(gameId) { [weak self] game in
+            guard let game = game else {
+                print("Error, empty game")
+                return
             }
+            
+            if game.date > Date.now {
+                self?.delegate?.showNewBetButton()
+            }
+            
+            self?.delegate?.showGame(game: GameHeaderVM(game: game))
+            self?.setBets()
         }
     }
     
@@ -50,13 +51,13 @@ class GameViewModel: BaseViewModel {
     }
     
     private func setBets() {
-//        betService.getBetsByGameId(gameId) { [weak self] bets in
-//            guard let self = self else { return }
-//            betsVM = bets.map { BetVM(bet: $0, delegate: self) }
-//            
-//            delegate?.showEmptyState(isShow: betsVM.isEmpty)
-//            delegate?.showBets()
-//        }
+        betService.getBetsByGameId(gameId) { [weak self] bets in
+            guard let self = self else { return }
+            betsVM = bets.map { BetVM(bet: $0, delegate: self) }
+            
+            delegate?.showEmptyState(isShow: betsVM.isEmpty)
+            delegate?.showBets()
+        }
     }
 }
 
