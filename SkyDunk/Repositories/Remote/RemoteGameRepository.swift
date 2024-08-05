@@ -15,12 +15,9 @@ class RemoteGameRepository: RemoteGameRepositoryProtocol {
         self.manager = manager
     }
     
-    func getGames(completion: @escaping (Result<[GameProtocol], Error>) -> ()) {
+    func getGames(completion: @escaping ([GameProtocol]) -> ()) {
         manager.fetch(type: GamePayload.self, path: "v1/games", params: ["seasons[]": 2023, "postseason": true]) { data in
-            switch data {
-            case .success(let data): completion(.success(data.games.map { GameModel(model: $0.self) }))
-            case .failure(let error): completion(.failure(error))
-            }
+            completion(data.games.map { GameModel(model: $0.self) })
         }
     }
 }

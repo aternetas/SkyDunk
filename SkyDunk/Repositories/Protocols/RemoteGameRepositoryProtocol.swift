@@ -9,5 +9,5 @@ import Foundation
 
 protocol RemoteGameRepositoryProtocol {
     
-    func getGames(completion: @escaping (Result<[GameProtocol], Error>) -> ())
+    func getGames(completion: @escaping ([GameProtocol]) -> ())
 }

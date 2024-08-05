@@ -17,22 +17,19 @@ class RemoteManager {
     
     private let URL: String = Bundle.main.object(forInfoDictionaryKey: "URL") as! String
     
-    func fetch<T>(type: T.Type, path: String, params: [String: Any], completion: @escaping (Result<T, Error>) -> ()) where T: Codable {
-        AF.request("\(URL)/\(path)", parameters: params, headers: getHeaders()).response { [weak self] response in
-            switch response.result {
-            case .success(let data):
-                do {
-                    try self?.decodeResponse(type, from: data ?? Data()) { data in
-                        completion(.success(data))
-                    }
-                } catch {
-                    completion(.failure(Errors.DecodeError.failedToConvertJSON(error.localizedDescription)))               }
-            case .failure(let error):
-                completion(.failure(Errors.AlamofireError.cantGetData(error.localizedDescription)))
+    func fetch<T>(type: T.Type, path: String, params: [String: Any], completion: @escaping (T) -> ()) where T: Codable {
+        AF.request("\(URL)/\(path)", parameters: params, headers: getHeaders()).response { [self] response in
+            guard let data = response.data else {
+                print("unknown data")
+                return
+            }
+            
+            decodeResponse(type, from: data) { data in
+                completion(data)
             }
         }
     }
-    
+
     private func getHeaders() -> HTTPHeaders {
         if KEY.isEmpty {
             fatalError("api-key is missing")
@@ -40,7 +37,12 @@ class RemoteManager {
         return ["Authorization": "\(KEY)"]
     }
     
-    private func decodeResponse<T>(_ type: T.Type, from data: Foundation.Data, completion: @escaping (T) -> ()) throws where T: Codable {
-        completion(try JSONDecoder().decode(type, from: data))
+    private func decodeResponse<T>(_ type: T.Type, from data: Foundation.Data, completion: @escaping (T) -> ()) where T: Codable {
+        do {
+            completion(try JSONDecoder().decode(type, from: data))
+        }
+        catch {
+            print("failed to convert json, error: \(error.localizedDescription)")
+        }
     }
 }
