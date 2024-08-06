@@ -15,16 +15,28 @@ class BetService {
         self.repository = repository
     }
     
-    func getBets(completion: @escaping([Bet]) -> ()) {
-        completion(repository.getBets().map { Bet(dto: $0) })
+    func getBets(completion: @escaping(Result<[Bet], Error>) -> ()) {
+        do {
+            completion(.success(try repository.getBets().map { Bet(dto: $0) }))
+        } catch {
+            completion(.failure(Errors.RealmError.cantGetObjs))
+        }
     }
     
-    func getActiveBets(completion: @escaping([Bet]) -> ()) {
-        completion(repository.getBets().filter { $0.isSuccess == nil }.map { Bet(dto: $0) })
+    func getActiveBets(completion: @escaping(Result<[Bet], Error>) -> ()) {
+        do {
+            completion(.success(try repository.getBets().filter { $0.isSuccess == nil }.map { Bet(dto: $0) }))
+        } catch {
+            completion(.failure(Errors.RealmError.cantGetObjs))
+        }
     }
     
-    func getBetsByGameId(_ gameId: String, completion: @escaping([Bet]) -> ()) {
-        completion(repository.getBetsByGameId(gameId).map { Bet(dto: $0) })
+    func getBetsByGameId(_ gameId: String, completion: @escaping(Result<[Bet], Error>) -> ()) {
+        do {
+            completion(.success(try repository.getBetsByGameId(gameId).map { Bet(dto: $0) }))
+        } catch {
+            completion(.failure(Errors.RealmError.cantGetObjs))
+        }
     }
     
     func editBet(id: String, isSuccess: Bool, completion: @escaping () -> ()) {

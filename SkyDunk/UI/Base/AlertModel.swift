@@ -8,14 +8,13 @@
 import Foundation
 
 enum ObjectType: String {
-    case game = "игра", bet = "ставка"
+    case game = "игра", bet = "ставка", bets = "ставки"
     
     static func getDeclensionForm(type: ObjectType) -> String {
         switch type {
-        case .game:
-            "игру"
-        case .bet:
-            "ставку"
+        case .game: "игру"
+        case .bet: "ставку"
+        case .bets: "ставки"
         }
     }
 }

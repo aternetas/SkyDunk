@@ -16,7 +16,7 @@ enum Errors: Error {
     }
     
     enum RealmError: Error {
-        case cantGetObjs(_ type: Any)
+        case cantGetObjs
         case cantGetNewBetToGame
         case cantUpdateObject
     }

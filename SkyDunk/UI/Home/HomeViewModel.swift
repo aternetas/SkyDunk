@@ -36,9 +36,14 @@ class HomeViewModel: BaseViewModel {
     }
     
     func getActiveBets() {
-        betService.getActiveBets { [weak self] bets in
-            self?.activeBets = bets
-            self?.setActiveBets()
+        betService.getActiveBets { [weak self] res in
+            switch res {
+            case .success(let bets):
+                self?.activeBets = bets
+                self?.setActiveBets()
+            case .failure(_):
+                self?.showAlert(model: .getObjectNotExistError(type: .bets))
+            }
         }
     }
     
@@ -49,7 +54,7 @@ class HomeViewModel: BaseViewModel {
                 self?.games = games
                 self?.setLastGame()
                 self?.setNextGames()
-            case .failure(let failure):
+            case .failure(_):
                 //infoview
                 return
             }

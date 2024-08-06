@@ -33,7 +33,7 @@ class GameService {
                     completion(.failure(Errors.RealmError.cantUpdateObject))
                 }
                 
-            case .failure(_): completion(.failure(Errors.RealmError.cantGetObjs(Game.self)))
+            case .failure(_): completion(.failure(Errors.RealmError.cantGetObjs))
             }
         }
     }

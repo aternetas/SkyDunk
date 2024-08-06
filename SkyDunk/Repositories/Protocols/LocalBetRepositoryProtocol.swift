@@ -9,8 +9,8 @@ import Foundation
 
 protocol LocalBetRepositoryProtocol {
     
-    func getBets() -> [BetProtocol]
-    func getBetsByGameId(_ gameId: String) -> [BetProtocol]
+    func getBets() throws -> [BetProtocol]
+    func getBetsByGameId(_ gameId: String) throws -> [BetProtocol]
     func editBet(id: String, isSuccess: Bool) throws
     func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String) throws
 }

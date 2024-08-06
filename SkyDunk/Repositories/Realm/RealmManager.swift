@@ -25,7 +25,7 @@ class RealmManager {
         }
     }
     
-    func getAll<T>(type: T.Type) -> [T] where T: Object {
+    func getAll<T>(type: T.Type) throws -> [T] where T: Object {
         Array(realm.objects(T.self))
     }
 
