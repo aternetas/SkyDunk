@@ -39,14 +39,19 @@ class BetService {
         }
     }
     
-    func editBet(id: String, isSuccess: Bool, completion: @escaping () -> ()) {
-//        if repository.editBet(id: id, isSuccess: isSuccess) {
-//            completion()
-//        }
+    func editBet(id: String, isSuccess: Bool, completion: @escaping (Result<Void, Error>) -> ()) {
+        do {
+            completion(.success(try repository.editBet(id: id, isSuccess: isSuccess)))
+        } catch {
+            completion(.failure(Errors.RealmError.cantUpdateObject))
+        }
     }
     
-    func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String, completion: @escaping () -> ()) {
-//        repository.addBet(description: description, amount: amount, coefficient: coefficient, betOn: betOn, gameId: gameId)
-//        completion()
+    func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String, completion: @escaping (Result<Void, Error>) -> ()) {
+        do {
+            try completion(.success(repository.addBet(description: description, amount: amount, coefficient: coefficient, betOn: betOn, gameId: gameId)))
+        } catch {
+            completion(.failure(Errors.RealmError.cantAddObject))
+        }
     }
 }

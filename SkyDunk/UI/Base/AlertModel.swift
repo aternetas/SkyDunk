@@ -41,6 +41,12 @@ struct AlertModel {
                    message: "Не удаётся найти \(ObjectType.getDeclensionForm(type: type))", 
                    actions: [AlertActionModel(title: "Ладно", action: { })])
     }
+    
+    static func getCantUpdateObject(type: ObjectType) -> AlertModel {
+        AlertModel(title: "Ошибка",
+                   message: "Не удаётся обновить \(ObjectType.getDeclensionForm(type: type))",
+                   actions: [AlertActionModel(title: "Ладно", action: { })])
+    }
 }
 
 struct AlertActionModel {

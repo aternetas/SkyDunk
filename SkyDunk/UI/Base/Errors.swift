@@ -19,6 +19,7 @@ enum Errors: Error {
         case cantGetObjs
         case cantGetNewBetToGame
         case cantUpdateObject
+        case cantAddObject
     }
     
     enum DecodeError: Error {

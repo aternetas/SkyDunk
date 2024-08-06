@@ -91,8 +91,13 @@ extension HomeViewModel: BetCellListenerProtocol {
     func selectBet(id: String) {}
     
     private func changeBetStatus(id: String, isSuccess: Bool) {
-        betService.editBet(id: id, isSuccess: isSuccess) { [weak self] in
-            self?.getActiveBets()
+        betService.editBet(id: id, isSuccess: isSuccess) { [weak self] res in
+            switch res {
+            case .success(_):
+                self?.getActiveBets()
+            case .failure(_):
+                self?.showAlert(model: .getCantUpdateObject(type: .bet))
+            }
         }
     }
 }
