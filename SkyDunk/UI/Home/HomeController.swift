@@ -98,6 +98,13 @@ extension HomeController: HomeViewModelDelegat {
             self?.rootView.betsTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
         }
     }
+    
+    func showEmptyState(isShow: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            self?.rootView.lastGameView.contentViewHC.constant = 0
+            self?.rootView.lastGameView.setVisibleComponents()
+        }
+    }
 }
 
 extension HomeController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {

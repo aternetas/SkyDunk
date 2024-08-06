@@ -34,8 +34,7 @@ class PastGamesViewModel: BaseViewModel {
                     updatePastGames()
                 }
             case .failure(_):
-                //
-                print(InfoView.noLastGamesDataInfoView)
+                self.delegate?.showEmptyState(isShow: true)
             }
         }
     }

@@ -19,9 +19,13 @@ class RemoteGameRepository: RemoteGameRepositoryProtocol {
         manager.fetch(type: GamePayload.self, path: "v1/games", params: ["seasons[]": 2023, "postseason": true]) { result in
             switch result {
             case .success(let data):
-                completion(.success(data.games.map { GameModel(model: $0) }))
-            case .failure(let error):
-                completion(.failure(error))
+                if data.games.isEmpty {
+                    completion(.failure(Errors.AlamofireError.cantGetData("")))
+                } else {
+                    completion(.success(data.games.map { GameModel(model: $0) }))
+                }
+            case .failure(_):
+                completion(.failure(Errors.AlamofireError.cantGetData("")))
             }
         }
     }

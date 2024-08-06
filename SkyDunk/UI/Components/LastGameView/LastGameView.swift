@@ -9,6 +9,13 @@ import UIKit
 
 class LastGameView: UIView {
     
+    lazy var contentView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    lazy var contentViewHC = contentView.heightAnchor.constraint(equalToConstant: 137)
+    
     lazy private var titleLab = UILabel(text: "ПОСЛЕДНЯЯ ИГРА", font: .light18)
     
     lazy private var gameScoreLab: UILabel = {
@@ -31,6 +38,8 @@ class LastGameView: UIView {
         return imageView
     }()
     
+    lazy var emptyStateView: InfoView = .noLastGamesDataInfoView
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -51,6 +60,10 @@ class LastGameView: UIView {
         }
     }
     
+    func setVisibleComponents() {
+        contentView.isHidden = contentViewHC.constant == 0 ? true : false
+    }
+    
     private func setupView() {
         backgroundColor = .backgroundGray
         layer.cornerRadius = 10
@@ -59,31 +72,43 @@ class LastGameView: UIView {
     }
     
     private func setupConstraints() {
-        addSubviewsAndAutolayout([titleLab,
+        addSubviewsAndAutolayout([contentView,
+                                  emptyStateView])
+        contentView.addSubviewsAndAutolayout([titleLab,
                                   gameScoreLab,
                                   gameDateLab,
                                   homeTeamImageView,
                                   guestTeamImageView])
         
         NSLayoutConstraint.activate([
-            titleLab.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            titleLab.centerXAnchor.constraint(equalTo: centerXAnchor),
+            emptyStateView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+            emptyStateView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            emptyStateView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            emptyStateView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
             
-            gameScoreLab.centerXAnchor.constraint(equalTo: centerXAnchor),
-            gameScoreLab.centerYAnchor.constraint(equalTo: centerYAnchor),
+            contentView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            contentViewHC,
+            
+            titleLab.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            titleLab.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            
+            gameScoreLab.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            gameScoreLab.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             gameScoreLab.widthAnchor.constraint(equalToConstant: 100),
             
-            gameDateLab.centerXAnchor.constraint(equalTo: centerXAnchor),
-            gameDateLab.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+            gameDateLab.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            gameDateLab.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
             
-            homeTeamImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            homeTeamImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             homeTeamImageView.trailingAnchor.constraint(equalTo: gameScoreLab.leadingAnchor, constant: -10),
-            homeTeamImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            homeTeamImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             homeTeamImageView.heightAnchor.constraint(equalToConstant: 50),
             
             guestTeamImageView.leadingAnchor.constraint(equalTo: gameScoreLab.trailingAnchor, constant: 10),
-            guestTeamImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            guestTeamImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            guestTeamImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            guestTeamImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             guestTeamImageView.heightAnchor.constraint(equalToConstant: 50)
         ])
     }

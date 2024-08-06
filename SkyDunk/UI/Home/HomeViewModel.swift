@@ -12,6 +12,7 @@ protocol HomeViewModelDelegat {
     func updateNextGames()
     func updateActiveBets()
     func updateActiveBet(index: Int)
+    func showEmptyState(isShow: Bool)
 }
 
 class HomeViewModel: BaseViewModel {
@@ -55,8 +56,7 @@ class HomeViewModel: BaseViewModel {
                 self?.setLastGame()
                 self?.setNextGames()
             case .failure(_):
-                //infoview
-                return
+                self?.delegate?.showEmptyState(isShow: true)
             }
         }
     }

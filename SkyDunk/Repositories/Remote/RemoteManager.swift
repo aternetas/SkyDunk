@@ -17,12 +17,11 @@ class RemoteManager {
     
     private let URL: String = Bundle.main.object(forInfoDictionaryKey: "URL") as! String
     
-    func fetch<T>(type: T.Type, path: String, params: [String: Any], completion: @escaping (Result<T, Error>) -> ()) where T: Codable {
+    func fetch<T>(type: T.Type, path: String, params: [String: Any]? = nil, completion: @escaping (Result<T, Error>) -> ()) where T: Codable {
         AF.request("\(URL)/\(path)", parameters: params, headers: getHeaders()).response { [weak self] response in
             if let error = response.error {
                 completion(.failure(Errors.AlamofireError.cantGetData(error.localizedDescription)))
             }
-            
             guard let data = response.data else {
                 completion(.failure(Errors.AlamofireError.unknownData))
                 return
