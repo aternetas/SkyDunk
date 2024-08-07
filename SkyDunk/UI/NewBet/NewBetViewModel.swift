@@ -24,32 +24,31 @@ class NewBetViewModel: BaseViewModel {
     
     func setGame(gameId: String) {
         self.gameId = gameId
-//        gameService.getGameByGameId(gameId) { [weak self] game in
-//            guard let game = game else {
-//                print("Error, empty game")
-//                return
-//            }
-//            self?.game = game
-//            self?.delegate?.setGameHeader(game: GameHeaderVM(game: game))
-//        }
+
+        if let game = gameService.getGameByGameId(gameId) {
+            self.game = game
+            delegate?.setGameHeader(game: GameHeaderVM(game: game))
+        } else {
+            showAlert(model: .getObjectNotExistError(type: .game))
+        }
     }
     
     func saveNewBet(description: String, amount: String, coefficient: String) {
-//        if checkUserInput(description: description, amount: amount, coefficient: coefficient) {
-//            guard let game = game else { return }
-//            betService.addBet(description: description,
-//                              amount: Double(amount)!,
-//                              coefficient: Double(coefficient)!,
-//                              betOn: [game.homeTeam.rawValue, game.guestTeam.rawValue],
-//                              gameId: gameId) { [weak self] res in
-//                switch res {
-//                case .success(_):
-//                    self?.delegate?.dismiss()
-//                case .failure(_):
-//                    self?.showAlert(model: AlertModel.cantAddNewObjInDB(type: .bet))
-//                }
-//            }
-//        }
+        if checkUserInput(description: description, amount: amount, coefficient: coefficient) {
+            guard let game = game else { return }
+            betService.addBet(description: description,
+                              amount: Double(amount)!,
+                              coefficient: Double(coefficient)!,
+                              betOn: [game.homeTeam.rawValue, game.guestTeam.rawValue],
+                              gameId: gameId) { [weak self] res in
+                switch res {
+                case .success(_):
+                    self?.delegate?.dismiss()
+                case .failure(_):
+                    self?.showAlert(model: .getCantAddNewObjIn(type: .bet))
+                }
+            }
+        }
     }
     
     private func checkUserInput(description: String, amount: String, coefficient: String) -> Bool {

@@ -42,6 +42,12 @@ struct AlertModel {
                    actions: [AlertActionModel(title: "Ладно", action: { })])
     }
     
+    static func getCantAddNewObjIn(type: ObjectType) -> AlertModel {
+        AlertModel(title: "Ошибка",
+                   message: "Не удаётся добавить новую \(type.declensionForm)",
+                   actions: [AlertActionModel(title: "Ладно", action: { })])
+    }
+    
     static func getCantUpdateObject(type: ObjectType) -> AlertModel {
         AlertModel(title: "Ошибка",
                    message: "Не удаётся обновить \(type.declensionForm)",
