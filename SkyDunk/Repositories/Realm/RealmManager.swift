@@ -10,45 +10,51 @@ import RealmSwift
 
 class RealmManager {
     
-    let realm = try! Realm()
+    lazy var realm: Realm = {
+        do {
+            let realm = try Realm()
+            return realm
+        } catch {
+            fatalError("Realm Instance Is Missing")
+        }
+    }()
     
-    func add<T>(obj: T) where T: Object {
-        try! realm.write {
+    func add<T>(obj: T) throws where T: Object {
+        try realm.write {
             realm.add(obj)
         }
     }
     
-    func getAll<T>(type: T.Type) -> [T] where T: Object {
+    func getAll<T>(type: T.Type) throws -> [T] where T: Object {
         Array(realm.objects(T.self))
     }
-    
-    func getById<T>(id: String, type: T.Type) -> T? where T: Object {
+
+    func getById<T>(id: String, type: T.Type) throws -> T? where T: Object {
         realm.object(ofType: type, forPrimaryKey: id)
     }
     
-    func update(obj: Object) {
-        try! realm.write {
+    func update(obj: Object) throws {
+        try realm.write {
             realm.add(obj, update: .modified)
         }
     }
     
-    func update<T>(type: T.Type, values: Any) where T: Object {
-        try! realm.write {
+    func update<T>(type: T.Type, values: Any) throws where T: Object {
+        try realm.write {
             realm.create(T.self, value: values, update: .modified)
         }
     }
 
-    func delete(obj: Object) {
-        realm.delete(obj)
+    func delete(obj: Object) throws {
+        try realm.write {
+            realm.delete(obj)
+        }
     }
     
-    func delete<T>(id: String, type: T.Type) -> Bool where T: Object {
-        let obj = realm.object(ofType: type, forPrimaryKey: id)
-        if let obj = obj {
+    func delete<T>(id: String, type: T.Type) throws where T: Object {
+        guard let obj = realm.object(ofType: type, forPrimaryKey: id) else { return }
+        try realm.write {
             realm.delete(obj)
-            return true
-        } else {
-            return false
         }
     }
 }

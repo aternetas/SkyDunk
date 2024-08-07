@@ -17,37 +17,31 @@ class BetRealmRepository: LocalBetRepositoryProtocol {
         self.gameRepository = gameRepository
     }
     
-    func getBets() -> [BetProtocol] {
-        manager.getAll(type: BetDTORealm.self)
+    func getBets() throws -> [BetProtocol] {
+        try manager.getAll(type: BetDTORealm.self)
     }
     
-    func getBetsByGameId(_ gameId: String) -> [BetProtocol] {
-        getBets().filter { $0.gameId == gameId }
+    func getBetsByGameId(_ gameId: String) throws -> [BetProtocol] {
+        try getBets().filter { $0.gameId == gameId }
     }
     
-    func editBet(id: String, isSuccess: Bool) -> Bool {
-        if let bet = manager.getById(id: id, type: BetDTORealm.self) {
+    func editBet(id: String, isSuccess: Bool) throws {
+        if let bet = try manager.getById(id: id, type: BetDTORealm.self) {
             let modifiedBet = bet.modify(isSuccess: isSuccess)
-            manager.update(obj: modifiedBet)
+            try manager.update(obj: modifiedBet)
             
             let betResult = bet.amount * bet.coefficient
-            if gameRepository.changeGameBetsResult(gameId: bet.gameId, betResult: isSuccess ? betResult : -betResult) {
-                    return true
-                } else {
-                    manager.update(obj: bet)
-                    return false
-                }
-        } else { return false }
-    }
+            try gameRepository.changeGameBetsResult(gameId: bet.gameId, betResult: isSuccess ? betResult : -betResult)
+        }}
     
-    func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String) {
-        manager.add(obj: BetDTORealm(id: UUID().uuidString,
+    func addBet(description: String, amount: Double, coefficient: Double, betOn: [String], gameId: String) throws {
+        try manager.add(obj: BetDTORealm(id: UUID().uuidString,
                                      gameId: gameId,
                                      betDescription: description,
                                      created: .now,
                                      amount: amount,
                                      coefficient: coefficient,
                                      betOn: betOn))
-        gameRepository.addNewBetToGame(gameId: gameId)
+        try gameRepository.addNewBetToGame(gameId: gameId)
     }
 }

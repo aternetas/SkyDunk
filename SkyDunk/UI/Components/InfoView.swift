@@ -9,6 +9,13 @@ import UIKit
 
 class InfoView: UIView {
     
+    static let noLastGamesDataInfoView: InfoView = {
+        let view = InfoView(text: "Не удалось получить информацию по прошедшим играм")
+        view.isHidden = true
+        view.clipsToBounds = false
+        return view
+    }()
+    
     private lazy var infoLab: UILabel = {
         let label = UILabel()
         label.font = .light14

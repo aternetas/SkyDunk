@@ -15,30 +15,32 @@ class GameRealmRepository: LocalGameRepositoryProtocol {
         self.manager = manager
     }
     
-    func getGames() -> [GameProtocol] {
-        manager.getAll(type: GameDTORealm.self)
+    func getGames() throws -> [GameProtocol] {
+        try manager.getAll(type: GameDTORealm.self)
     }
     
-    func addNewBetToGame(gameId: String) -> Bool {
-        if let game = manager.getById(id: gameId, type: GameDTORealm.self) {
+    func addNewBetToGame(gameId: String) throws {
+        if let game = try manager.getById(id: gameId, type: GameDTORealm.self) {
             let modifiedGame = game.modify(activeBetsAmount: game.activeBetsAmount + 1)
-            manager.update(obj: modifiedGame)
-            return true
-        } else { return false }
+            try manager.update(obj: modifiedGame)
+        }
     }
     
-    func changeGameBetsResult(gameId: String, betResult: Double) -> Bool {
-        if let game = manager.getById(id: gameId, type: GameDTORealm.self) {
+    func changeGameBetsResult(gameId: String, betResult: Double) throws {
+        if let game = try manager.getById(id: gameId, type: GameDTORealm.self) {
             let modifiedGame = game.modify(activeBetsAmount: game.activeBetsAmount - 1,
                                            betsResult: (game.betsResult ?? 0.0) + betResult)
-            manager.update(obj: modifiedGame)
-            return true
-        } else { return false }
+            do {
+                try manager.update(obj: modifiedGame)
+            } catch {
+                throw Errors.RealmError.cantUpdateObject
+            }
+        }
     }
     
-    func updateGames(games: [GameProtocol]) {
-        games.forEach { game in
-            manager.update(type: GameDTORealm.self, values: [
+    func updateGames(games: [GameProtocol]) throws {
+        try games.forEach { game in
+            try manager.update(type: GameDTORealm.self, values: [
                 "id": game.id,
                 "homeTeam": game.homeTeam,
                 "guestTeam": game.guestTeam,

@@ -24,13 +24,12 @@ class NewBetViewModel: BaseViewModel {
     
     func setGame(gameId: String) {
         self.gameId = gameId
-        gameService.getGameByGameId(gameId) { [weak self] game in
-            guard let game = game else {
-                print("Error, empty game")
-                return
-            }
-            self?.game = game
-            self?.delegate?.setGameHeader(game: GameHeaderVM(game: game))
+
+        if let game = gameService.getGameByGameId(gameId) {
+            self.game = game
+            delegate?.setGameHeader(game: GameHeaderVM(game: game))
+        } else {
+            showAlert(model: .getObjectNotExistError(type: .game))
         }
     }
     
@@ -41,8 +40,13 @@ class NewBetViewModel: BaseViewModel {
                               amount: Double(amount)!,
                               coefficient: Double(coefficient)!,
                               betOn: [game.homeTeam.rawValue, game.guestTeam.rawValue],
-                              gameId: gameId) { [weak self] in
-                self?.delegate?.dismiss()
+                              gameId: gameId) { [weak self] res in
+                switch res {
+                case .success(_):
+                    self?.delegate?.dismiss()
+                case .failure(_):
+                    self?.showAlert(model: .getCantAddNewObjIn(type: .bet))
+                }
             }
         }
     }

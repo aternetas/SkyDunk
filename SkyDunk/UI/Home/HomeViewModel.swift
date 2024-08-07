@@ -12,6 +12,7 @@ protocol HomeViewModelDelegat {
     func updateNextGames()
     func updateActiveBets()
     func updateActiveBet(index: Int)
+    func showEmptyState(isShow: Bool)
 }
 
 class HomeViewModel: BaseViewModel {
@@ -36,17 +37,27 @@ class HomeViewModel: BaseViewModel {
     }
     
     func getActiveBets() {
-        betService.getActiveBets { [weak self] bets in
-            self?.activeBets = bets
-            self?.setActiveBets()
+        betService.getActiveBets { [weak self] res in
+            switch res {
+            case .success(let bets):
+                self?.activeBets = bets
+                self?.setActiveBets()
+            case .failure(_):
+                self?.showAlert(model: .getObjectNotExistError(type: .bets))
+            }
         }
     }
     
     private func getGames() {
-        gameService.getGames { [weak self] games in
-            self?.games = games
-            self?.setLastGame()
-            self?.setNextGames()
+        gameService.getGames { [weak self] result in
+            switch result {
+            case .success(let games):
+                self?.games = games
+                self?.setLastGame()
+                self?.setNextGames()
+            case .failure(_):
+                self?.delegate?.showEmptyState(isShow: true)
+            }
         }
     }
     
@@ -80,8 +91,13 @@ extension HomeViewModel: BetCellListenerProtocol {
     func selectBet(id: String) {}
     
     private func changeBetStatus(id: String, isSuccess: Bool) {
-        betService.editBet(id: id, isSuccess: isSuccess) { [weak self] in
-            self?.getActiveBets()
+        betService.editBet(id: id, isSuccess: isSuccess) { [weak self] res in
+            switch res {
+            case .success(_):
+                self?.getActiveBets()
+            case .failure(_):
+                self?.showAlert(model: .getCantUpdateObject(type: .bet))
+            }
         }
     }
 }

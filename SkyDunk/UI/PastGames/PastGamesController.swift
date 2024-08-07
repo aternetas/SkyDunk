@@ -67,7 +67,7 @@ extension PastGamesController: PastGamesModelDelegate {
     
     func showEmptyState(isShow: Bool) {
         DispatchQueue.main.async { [weak self] in
-//            self?.rootView.activeBetsContainerViewHeight.constant = 0
+            self?.rootView.activeBetsContainerHC.constant = 0
             self?.rootView.emptyStateView.isHidden = !isShow
         }
     }

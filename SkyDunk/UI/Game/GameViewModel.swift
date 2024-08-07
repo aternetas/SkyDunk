@@ -27,18 +27,16 @@ class GameViewModel: BaseViewModel {
     
     func setGame(gameId: String) {
         self.gameId = gameId
-        gameService.getGameByGameId(gameId) { [weak self] game in
-            guard let game = game else {
-                print("Error, empty game")
-                return
-            }
-            
+
+        if let game = gameService.getGameByGameId(gameId) {
             if game.date > Date.now {
-                self?.delegate?.showNewBetButton()
+                delegate?.showNewBetButton()
             }
             
-            self?.delegate?.showGame(game: GameHeaderVM(game: game))
-            self?.setBets()
+            delegate?.showGame(game: GameHeaderVM(game: game))
+            setBets()
+        } else {
+            showAlert(model: .getObjectNotExistError(type: .game))
         }
     }
     
@@ -51,12 +49,16 @@ class GameViewModel: BaseViewModel {
     }
     
     private func setBets() {
-        betService.getBetsByGameId(gameId) { [weak self] bets in
+        betService.getBetsByGameId(gameId) { [weak self] res in
             guard let self = self else { return }
-            betsVM = bets.map { BetVM(bet: $0, delegate: self) }
-            
-            delegate?.showEmptyState(isShow: betsVM.isEmpty)
-            delegate?.showBets()
+            switch res {
+            case .success(let bets):
+                betsVM = bets.map { BetVM(bet: $0, delegate: self) }
+                delegate?.showEmptyState(isShow: betsVM.isEmpty)
+                delegate?.showBets()
+            case .failure(_):
+                showAlert(model: .getObjectNotExistError(type: .bets))
+            }
         }
     }
 }
@@ -74,8 +76,13 @@ extension GameViewModel: BetCellListenerProtocol {
     func selectBet(id: String) {}
     
     private func changeBetStatus(id: String, isSuccess: Bool) {
-        betService.editBet(id: id, isSuccess: isSuccess) { [weak self] in
-            self?.setBets()
+        betService.editBet(id: id, isSuccess: isSuccess) { [weak self] res in
+            switch res {
+            case .success(_):
+                self?.setBets()
+            case .failure(_):
+                self?.showAlert(model: .getCantUpdateObject(type: .bet))
+            }
         }
     }
 }

@@ -23,13 +23,18 @@ class PastGamesViewModel: BaseViewModel {
     private let gameService = ServiceFactory.shared.gameService
 
     func viewDidLoad() {
-        gameService.getGames { [weak self] games in
+        gameService.getGames { [weak self] res in
             guard let self = self else { return }
-            if games.count == 0 {
+            switch res {
+            case .success(let games):
+                if games.count == 0 {
+                    self.delegate?.showEmptyState(isShow: true)
+                } else {
+                    getPastGames()
+                    updatePastGames()
+                }
+            case .failure(_):
                 self.delegate?.showEmptyState(isShow: true)
-            } else {
-                getPastGames()
-                updatePastGames()
             }
         }
     }
