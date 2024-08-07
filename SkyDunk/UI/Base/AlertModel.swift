@@ -10,8 +10,8 @@ import Foundation
 enum ObjectType: String {
     case game = "игра", bet = "ставка", bets = "ставки"
     
-    static func getDeclensionForm(type: ObjectType) -> String {
-        switch type {
+    var declensionForm: String {
+        switch self {
         case .game: "игру"
         case .bet: "ставку"
         case .bets: "ставки"
@@ -38,13 +38,13 @@ struct AlertModel {
     
     static func getObjectNotExistError(type: ObjectType) -> AlertModel {
         AlertModel(title: "Ошибка",
-                   message: "Не удаётся найти \(ObjectType.getDeclensionForm(type: type))", 
+                   message: "Не удаётся найти \(type.declensionForm)",
                    actions: [AlertActionModel(title: "Ладно", action: { })])
     }
     
     static func getCantUpdateObject(type: ObjectType) -> AlertModel {
         AlertModel(title: "Ошибка",
-                   message: "Не удаётся обновить \(ObjectType.getDeclensionForm(type: type))",
+                   message: "Не удаётся обновить \(type.declensionForm)",
                    actions: [AlertActionModel(title: "Ладно", action: { })])
     }
 }

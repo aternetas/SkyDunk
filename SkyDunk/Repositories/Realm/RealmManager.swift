@@ -10,14 +10,14 @@ import RealmSwift
 
 class RealmManager {
     
-    var realm: Realm {
+    lazy var realm: Realm = {
         do {
             let realm = try Realm()
             return realm
         } catch {
             fatalError("Realm Instance Is Missing")
         }
-    }
+    }()
     
     func add<T>(obj: T) throws where T: Object {
         try realm.write {
