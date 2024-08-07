@@ -27,17 +27,17 @@ class GameViewModel: BaseViewModel {
     
     func setGame(gameId: String) {
         self.gameId = gameId
-        guard let game = gameService.getGameByGameId(gameId) else {
+
+        if let game = gameService.getGameByGameId(gameId) {
+            if game.date > Date.now {
+                delegate?.showNewBetButton()
+            }
+            
+            delegate?.showGame(game: GameHeaderVM(game: game))
+            setBets()
+        } else {
             showAlert(model: .getObjectNotExistError(type: .game))
-            return
         }
-        
-        if game.date > Date.now {
-            delegate?.showNewBetButton()
-        }
-        
-        delegate?.showGame(game: GameHeaderVM(game: game))
-        setBets()
     }
     
     func addNewBet() {

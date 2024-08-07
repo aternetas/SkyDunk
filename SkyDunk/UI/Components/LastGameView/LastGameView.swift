@@ -60,10 +60,6 @@ class LastGameView: UIView {
         }
     }
     
-    func setVisibleComponents() {
-        contentView.isHidden = contentViewHC.constant == 0 ? true : false
-    }
-    
     private func setupView() {
         backgroundColor = .backgroundGray
         layer.cornerRadius = 10

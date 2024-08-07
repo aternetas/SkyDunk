@@ -102,7 +102,7 @@ extension HomeController: HomeViewModelDelegat {
     func showEmptyState(isShow: Bool) {
         DispatchQueue.main.async { [weak self] in
             self?.rootView.lastGameView.contentViewHC.constant = 0
-            self?.rootView.lastGameView.setVisibleComponents()
+            self?.rootView.lastGameView.contentView.isHidden = self?.rootView.lastGameView.contentViewHC.constant == 0
         }
     }
 }
