@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import OSLog
 
 class BetService {
+    
+    private static var fileName = #file.split(separator: "/").last as Any
     
     private let repository: LocalBetRepositoryProtocol
     
@@ -19,6 +22,7 @@ class BetService {
         do {
             completion(.success(try repository.getBets().map { Bet(dto: $0) }))
         } catch {
+            Logger.createLog(error.localizedDescription, .error, fileName: "\(BetService.fileName)", funcName: #function)
             completion(.failure(Errors.RealmError.cantGetObjs))
         }
     }

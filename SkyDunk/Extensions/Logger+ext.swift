@@ -9,8 +9,6 @@ import OSLog
 
 extension Logger {
     
-    static let subsystem = "com.skydunk"
-    
     private static let logger = Logger()
     
     static func createLog(_ message: String, _ logType: OSLogType, fileName: String, funcName: String) {
