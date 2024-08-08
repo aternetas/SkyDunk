@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 
 protocol NewBetViewModelDelegat: AnyObject {
     func setGameHeader(game: GameHeaderVM)
@@ -13,6 +14,8 @@ protocol NewBetViewModelDelegat: AnyObject {
 }
 
 class NewBetViewModel: BaseViewModel {
+    
+    private static var fileName = #file.split(separator: "/").last as Any
     
     private let gameService = ServiceFactory.shared.gameService
     private let betService = ServiceFactory.shared.betService
@@ -29,6 +32,7 @@ class NewBetViewModel: BaseViewModel {
             self.game = game
             delegate?.setGameHeader(game: GameHeaderVM(game: game))
         } else {
+            log("Game with id: \(gameId) is missing", funcName: #function)
             showAlert(model: .getObjectNotExistError(type: .game))
         }
     }
@@ -44,7 +48,8 @@ class NewBetViewModel: BaseViewModel {
                 switch res {
                 case .success(_):
                     self?.delegate?.dismiss()
-                case .failure(_):
+                case .failure(let error):
+                    self?.log(error.localizedDescription, funcName: #function)
                     self?.showAlert(model: .getCantAddNewObjIn(type: .bet))
                 }
             }
@@ -73,5 +78,12 @@ class NewBetViewModel: BaseViewModel {
         }
         
         return message.isEmpty
+    }
+}
+
+extension NewBetViewModel: MyLogger {
+    
+    func log(_ message: String, _ logType: OSLogType = .error, funcName: String) {
+        Logger.createLog(message, logType, fileName: "\(NewBetViewModel.fileName)", funcName: funcName)
     }
 }
