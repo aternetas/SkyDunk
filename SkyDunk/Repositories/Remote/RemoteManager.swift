@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import OSLog
 
 class RemoteManager {
     
@@ -39,7 +40,8 @@ class RemoteManager {
 
     private func getHeaders() -> HTTPHeaders {
         if KEY.isEmpty {
-            fatalError("api-key is missing")
+            Logger.createLog("api-key is missing", .fault, fileName: "RemoteManager", funcName: "getHeaders")
+            fatalError()
         }
         return ["Authorization": "\(KEY)"]
     }
