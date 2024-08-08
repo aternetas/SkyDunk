@@ -7,6 +7,11 @@
 
 import OSLog
 
+protocol MyLogger {
+    
+    func log(_ message: String, _ logType: OSLogType, funcName: String)
+}
+
 extension Logger {
     
     private static let logger = Logger()

@@ -33,12 +33,12 @@ class GameService {
                         completion(.success(self?.games ?? []))
                     }
                 } catch {
-                    Logger.createLog(error.localizedDescription, .error, fileName: "\(GameService.fileName)", funcName: #function)
+                    self?.log(error.localizedDescription, funcName: #function)
                     completion(.failure(Errors.RealmError.cantUpdateObject))
                 }
                 
             case .failure(let error):
-                Logger.createLog(error.localizedDescription, .error, fileName: "\(GameService.fileName)", funcName: #function)
+                self?.log(error.localizedDescription, funcName: #function)
                 completion(.failure(Errors.RealmError.cantGetObjs))
             }
         }
@@ -61,5 +61,12 @@ class GameService {
     func getPastGames() -> [Game] {
         games.filter { Date.now > $0.date }
             .sorted { $0.date > $1.date }
+    }
+}
+
+extension GameService: MyLogger {
+    
+    func log(_ message: String, _ logType: OSLogType = .error, funcName: String) {
+        Logger.createLog(message, logType, fileName: "\(GameService.fileName)", funcName: funcName)
     }
 }
