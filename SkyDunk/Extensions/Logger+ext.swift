@@ -14,7 +14,7 @@ protocol MyLogger {
 
 extension Logger {
     
-    private static let logger = Logger()
+    private static let logger = Logger(subsystem: "skydunk", category: "my logs")
     
     static func createLog(_ message: String, _ logType: OSLogType, fileName: String, funcName: String) {
     #if DEBUG

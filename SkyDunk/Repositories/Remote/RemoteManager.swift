@@ -34,6 +34,7 @@ class RemoteManager {
             
             do {
                 try self?.decodeResponse(type, from: data) { data in
+                    self?.log("Got data \(data) from server", .info, funcName: #function)
                     completion(.success(data))
                 }
             } catch {
@@ -59,6 +60,6 @@ class RemoteManager {
 extension RemoteManager: MyLogger {
     
     func log(_ message: String, _ logType: OSLogType = .error, funcName: String) {
-        Logger.createLog(message, logType, fileName: "\(RemoteManager.fileName)", funcName: funcName)
+        Logger.createLog("📥 \(message)", logType, fileName: "\(RemoteManager.fileName)", funcName: funcName)
     }
 }
