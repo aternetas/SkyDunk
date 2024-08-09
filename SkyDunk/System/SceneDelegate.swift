@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -31,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
         
-        print("BD---\(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path)")
+        Logger.createLog("BD: \(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path)", .info, fileName: "SceneDelegate", funcName: "scene")
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
