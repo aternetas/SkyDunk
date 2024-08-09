@@ -14,7 +14,7 @@ class LastGameView: UIView {
         return view
     }()
     
-    lazy var contentViewHC = contentView.heightAnchor.constraint(equalToConstant: 137)
+    lazy var contentViewHC = contentView.heightAnchor.constraint(equalToConstant: 157)
     
     lazy private var titleLab = UILabel(text: "ПОСЛЕДНЯЯ ИГРА", font: .light18)
     
