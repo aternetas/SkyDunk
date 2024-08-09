@@ -7,13 +7,13 @@
 
 import Foundation
 
-fileprivate var dayMonthYearFormatter: DateFormatter = {
+fileprivate let dayMonthYearFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "d.MM.Y"
     return formatter
 }()
 
-fileprivate var hourMinuteFormatter: DateFormatter = {
+fileprivate let hourMinuteFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "k:mm"
     return formatter
@@ -22,6 +22,12 @@ fileprivate var hourMinuteFormatter: DateFormatter = {
 fileprivate var hourMinuteDayMonthYearFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "k:mm d.MM.yy"
+    return formatter
+}()
+
+fileprivate let yearMonthDayFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd"
     return formatter
 }()
 
@@ -37,5 +43,9 @@ extension Date {
     
     func toHourMinuteDayMonthYear() -> String {
         hourMinuteDayMonthYearFormatter.string(from: self)
+    }
+    
+    func toYearMonthDay() -> String {
+        yearMonthDayFormatter.string(from: self)
     }
 }
