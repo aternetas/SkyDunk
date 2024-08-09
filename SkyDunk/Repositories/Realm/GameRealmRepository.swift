@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import OSLog
 
 class GameRealmRepository: LocalGameRepositoryProtocol {
+    
+    private static var fileName = #file.split(separator: "/").last as Any
     
     private let manager: RealmManager
     
@@ -33,6 +36,7 @@ class GameRealmRepository: LocalGameRepositoryProtocol {
             do {
                 try manager.update(obj: modifiedGame)
             } catch {
+                log(error.localizedDescription, funcName: #function)
                 throw Errors.RealmError.cantUpdateObject
             }
         }
@@ -49,5 +53,12 @@ class GameRealmRepository: LocalGameRepositoryProtocol {
                 "guestScore": game.guestScore
             ])
         }
+    }
+}
+
+extension GameRealmRepository: MyLogger {
+    
+    func log(_ message: String, _ logType: OSLogType = .error, funcName: String) {
+        Logger.createLog(message, logType, fileName: "\(GameRealmRepository.fileName)", funcName: funcName)
     }
 }

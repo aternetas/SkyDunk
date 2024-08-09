@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 protocol GameViewModelDelegat: AnyObject {
     func showGame(game: GameHeaderVM)
@@ -16,6 +17,8 @@ protocol GameViewModelDelegat: AnyObject {
 }
 
 class GameViewModel: BaseViewModel {
+    
+    private static var fileName = #file.split(separator: "/").last as Any
     
     private let betService = ServiceFactory.shared.betService
     private let gameService = ServiceFactory.shared.gameService
@@ -36,6 +39,7 @@ class GameViewModel: BaseViewModel {
             delegate?.showGame(game: GameHeaderVM(game: game))
             setBets()
         } else {
+            log("Game with gameId: \(gameId) is missing", funcName: #function)
             showAlert(model: .getObjectNotExistError(type: .game))
         }
     }
@@ -56,7 +60,8 @@ class GameViewModel: BaseViewModel {
                 betsVM = bets.map { BetVM(bet: $0, delegate: self) }
                 delegate?.showEmptyState(isShow: betsVM.isEmpty)
                 delegate?.showBets()
-            case .failure(_):
+            case .failure(let error):
+                log(error.localizedDescription, funcName: #function)
                 showAlert(model: .getObjectNotExistError(type: .bets))
             }
         }
@@ -80,9 +85,17 @@ extension GameViewModel: BetCellListenerProtocol {
             switch res {
             case .success(_):
                 self?.setBets()
-            case .failure(_):
+            case .failure(let error):
+                self?.log(error.localizedDescription, funcName: #function)
                 self?.showAlert(model: .getCantUpdateObject(type: .bet))
             }
         }
+    }
+}
+
+extension GameViewModel: MyLogger {
+    
+    func log(_ message: String, _ logType: OSLogType = .error, funcName: String) {
+        Logger.createLog(message, logType, fileName: "\(GameViewModel.fileName)", funcName: funcName)
     }
 }

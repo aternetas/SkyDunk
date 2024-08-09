@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import OSLog
 
 class BetService {
+    
+    private static var fileName = #file.split(separator: "/").last as Any
     
     private let repository: LocalBetRepositoryProtocol
     
@@ -19,6 +22,7 @@ class BetService {
         do {
             completion(.success(try repository.getBets().map { Bet(dto: $0) }))
         } catch {
+            log(error.localizedDescription, funcName: #function)
             completion(.failure(Errors.RealmError.cantGetObjs))
         }
     }
@@ -27,6 +31,7 @@ class BetService {
         do {
             completion(.success(try repository.getBets().filter { $0.isSuccess == nil }.map { Bet(dto: $0) }))
         } catch {
+            log(error.localizedDescription, funcName: #function)
             completion(.failure(Errors.RealmError.cantGetObjs))
         }
     }
@@ -35,6 +40,7 @@ class BetService {
         do {
             completion(.success(try repository.getBetsByGameId(gameId).map { Bet(dto: $0) }))
         } catch {
+            log(error.localizedDescription, funcName: #function)
             completion(.failure(Errors.RealmError.cantGetObjs))
         }
     }
@@ -43,6 +49,7 @@ class BetService {
         do {
             completion(.success(try repository.editBet(id: id, isSuccess: isSuccess)))
         } catch {
+            log(error.localizedDescription, funcName: #function)
             completion(.failure(Errors.RealmError.cantUpdateObject))
         }
     }
@@ -51,7 +58,15 @@ class BetService {
         do {
             try completion(.success(repository.addBet(description: description, amount: amount, coefficient: coefficient, betOn: betOn, gameId: gameId)))
         } catch {
+            log(error.localizedDescription, funcName: #function)
             completion(.failure(Errors.RealmError.cantAddObject))
         }
+    }
+}
+
+extension BetService: MyLogger {
+    
+    func log(_ message: String, _ logType: OSLogType = .error, funcName: String) {
+        Logger.createLog(message, logType, fileName: "\(BetService.fileName)", funcName: funcName)
     }
 }

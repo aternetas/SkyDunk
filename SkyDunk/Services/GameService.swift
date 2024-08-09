@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import OSLog
 
 class GameService {
+    
+    private static var fileName = #file.split(separator: "/").last as Any
     
     private let remoteRepository: RemoteGameRepositoryProtocol
     private let localRepository: LocalGameRepositoryProtocol
@@ -30,10 +33,13 @@ class GameService {
                         completion(.success(self?.games ?? []))
                     }
                 } catch {
+                    self?.log(error.localizedDescription, funcName: #function)
                     completion(.failure(Errors.RealmError.cantUpdateObject))
                 }
                 
-            case .failure(_): completion(.failure(Errors.RealmError.cantGetObjs))
+            case .failure(let error):
+                self?.log(error.localizedDescription, funcName: #function)
+                completion(.failure(Errors.RealmError.cantGetObjs))
             }
         }
     }
@@ -55,5 +61,12 @@ class GameService {
     func getPastGames() -> [Game] {
         games.filter { Date.now > $0.date }
             .sorted { $0.date > $1.date }
+    }
+}
+
+extension GameService: MyLogger {
+    
+    func log(_ message: String, _ logType: OSLogType = .error, funcName: String) {
+        Logger.createLog(message, logType, fileName: "\(GameService.fileName)", funcName: funcName)
     }
 }
