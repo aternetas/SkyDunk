@@ -26,7 +26,7 @@ class RemoteManager {
                 completion(.failure(Errors.AlamofireError.unknownData))
                 return
             }
-            
+
             do {
                 try self?.decodeResponse(type, from: data) { data in
                     completion(.success(data))
@@ -36,15 +36,15 @@ class RemoteManager {
             }
         }
     }
+    
+    private func decodeResponse<T>(_ type: T.Type, from data: Data, completion: @escaping (T) -> ()) throws where T: Codable {
+        completion(try JSONDecoder().decode(type, from: data))
+    }
 
     private func getHeaders() -> HTTPHeaders {
         if KEY.isEmpty {
             fatalError("api-key is missing")
         }
         return ["Authorization": "\(KEY)"]
-    }
-    
-    private func decodeResponse<T>(_ type: T.Type, from data: Foundation.Data, completion: @escaping (T) -> ()) throws where T: Codable {
-        completion(try JSONDecoder().decode(type, from: data))
     }
 }

@@ -21,12 +21,15 @@ class PastGamesViewModel: BaseViewModel {
     
     private let betService = ServiceFactory.shared.betService
     private let gameService = ServiceFactory.shared.gameService
-
+    
+    private lazy var lastUpdationDate: Date = .now
+    
     func viewDidLoad() {
-        gameService.getGames { [weak self] res in
+        gameService.getGames(lastUpdation: lastUpdationDate.toYearMonthDay()) { [weak self] res in
             guard let self = self else { return }
             switch res {
             case .success(let games):
+                lastUpdationDate = .now
                 if games.count == 0 {
                     self.delegate?.showEmptyState(isShow: true)
                 } else {
