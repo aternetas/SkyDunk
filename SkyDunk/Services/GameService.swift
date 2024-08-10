@@ -18,26 +18,6 @@ class GameService {
         self.localRepository = localRepository
     }
     
-    func getGames(completion: @escaping (Result<[Game], Error>) -> ()) {
-        remoteRepository.getGames { [weak self] res in
-            switch res {
-                
-            case .success(let dtos):
-                do {
-                    try self?.localRepository.updateGames(games: dtos)
-                    if let games = try self?.localRepository.getGames() {
-                        self?.games = games.map { Game(dto: $0) }
-                        completion(.success(self?.games ?? []))
-                    }
-                } catch {
-                    completion(.failure(Errors.RealmError.cantUpdateObject))
-                }
-                
-            case .failure(_): completion(.failure(Errors.RealmError.cantGetObjs))
-            }
-        }
-    }
-    
     func getGames(lastUpdation: String, completion: @escaping (Result<[Game], Error>) -> ()) {
         remoteRepository.getGames(lastUpdation: lastUpdation) { [weak self] res in
             switch res {

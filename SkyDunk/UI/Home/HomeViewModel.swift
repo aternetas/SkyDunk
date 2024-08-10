@@ -27,6 +27,8 @@ class HomeViewModel: BaseViewModel {
     private var games: [Game] = []
     private var activeBets: [Bet] = []
     
+    private lazy var lastUpdationDate: Date = .now
+    
     func viewDidLoad() {
         getGames()
         getActiveBets()
@@ -49,9 +51,10 @@ class HomeViewModel: BaseViewModel {
     }
     
     private func getGames() {
-        gameService.getGames { [weak self] result in
+        gameService.getGames(lastUpdation: lastUpdationDate.toYearMonthDay()) { [weak self] result in
             switch result {
             case .success(let games):
+                self?.lastUpdationDate = .now
                 self?.games = games
                 self?.setLastGame()
                 self?.setNextGames()
