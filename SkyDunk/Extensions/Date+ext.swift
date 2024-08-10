@@ -8,31 +8,19 @@
 import Foundation
 
 fileprivate let dayMonthYearFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.timeZone = .gmt
-    formatter.dateFormat = "d.MM.Y"
-    return formatter
+    DateFormatter(dateFormat: "d.MM.Y")
 }()
 
 fileprivate let hourMinuteFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.timeZone = .gmt
-    formatter.dateFormat = "k:mm"
-    return formatter
+    DateFormatter(dateFormat: "k:mm")
 }()
 
 fileprivate var hourMinuteDayMonthYearFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.timeZone = .gmt
-    formatter.dateFormat = "k:mm d.MM.yy"
-    return formatter
+    DateFormatter(dateFormat: "k:mm d.MM.yy")
 }()
 
 fileprivate let yearMonthDayFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.timeZone = .gmt
-    formatter.dateFormat = "yyyy-MM-dd"
-    return formatter
+    DateFormatter(dateFormat: "yyyy-MM-dd")
 }()
 
 extension Date {
