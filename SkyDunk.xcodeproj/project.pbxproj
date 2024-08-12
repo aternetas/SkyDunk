@@ -67,6 +67,8 @@
 		A55723B42C46F7E00051D0D9 /* BetRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723B32C46F7E00051D0D9 /* BetRealmRepository.swift */; };
 		A55723B62C46F80C0051D0D9 /* LocalBetRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723B52C46F80C0051D0D9 /* LocalBetRepositoryProtocol.swift */; };
 		A55723B82C46FCDE0051D0D9 /* BetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723B72C46FCDE0051D0D9 /* BetProtocol.swift */; };
+		A5992D662C6A5C6C002CC1D1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A5992D652C6A5C6C002CC1D1 /* SnapKit */; };
+		A5992D682C6A5C6C002CC1D1 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A5992D672C6A5C6C002CC1D1 /* SnapKit-Dynamic */; };
 		A5AF23092C610DB000238660 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AF23082C610DB000238660 /* Errors.swift */; };
 		A5E40C312BF8DC850056AC63 /* ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C302BF8DC850056AC63 /* ScreenType.swift */; };
 		A5E40C342BF9FCA40056AC63 /* NewBetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C332BF9FCA40056AC63 /* NewBetController.swift */; };
@@ -179,7 +181,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5992D682C6A5C6C002CC1D1 /* SnapKit-Dynamic in Frameworks */,
 				A55723A72C42E86E0051D0D9 /* RealmSwift in Frameworks */,
+				A5992D662C6A5C6C002CC1D1 /* SnapKit in Frameworks */,
 				A541A2222C4FFB730075BEFC /* AlamofireDynamic in Frameworks */,
 				A541A2202C4FFB730075BEFC /* Alamofire in Frameworks */,
 			);
@@ -512,6 +516,8 @@
 				A55723A62C42E86E0051D0D9 /* RealmSwift */,
 				A541A21F2C4FFB730075BEFC /* Alamofire */,
 				A541A2212C4FFB730075BEFC /* AlamofireDynamic */,
+				A5992D652C6A5C6C002CC1D1 /* SnapKit */,
+				A5992D672C6A5C6C002CC1D1 /* SnapKit-Dynamic */,
 			);
 			productName = SkyDunk;
 			productReference = A52C53B02BEE8B8300699D2E /* SkyDunk.app */;
@@ -544,6 +550,7 @@
 			packageReferences = (
 				A55723A02C42E28D0051D0D9 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				A541A21E2C4FFB730075BEFC /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A5992D642C6A5C6C002CC1D1 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = A52C53B12BEE8B8300699D2E /* Products */;
 			projectDirPath = "";
@@ -870,6 +877,14 @@
 				kind = branch;
 			};
 		};
+		A5992D642C6A5C6C002CC1D1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -887,6 +902,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A55723A02C42E28D0051D0D9 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		A5992D652C6A5C6C002CC1D1 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5992D642C6A5C6C002CC1D1 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		A5992D672C6A5C6C002CC1D1 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5992D642C6A5C6C002CC1D1 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
