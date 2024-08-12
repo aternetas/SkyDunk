@@ -6,11 +6,8 @@
 //
 
 import Foundation
-import OSLog
 
 class GameService {
-    
-    private static var fileName = #file.split(separator: "/").last as Any
     
     private let remoteRepository: RemoteGameRepositoryProtocol
     private let localRepository: LocalGameRepositoryProtocol
@@ -33,12 +30,12 @@ class GameService {
                         completion(.success(self?.games ?? []))
                     }
                 } catch {
-                    self?.log(error.localizedDescription, funcName: #function)
+                    self?.logError(error.localizedDescription, funcName: #function)
                     completion(.failure(Errors.RealmError.cantUpdateObject))
                 }
                 
             case .failure(let error):
-                self?.log(error.localizedDescription, funcName: #function)
+                self?.logError(error.localizedDescription, funcName: #function)
                 completion(.failure(Errors.RealmError.cantGetObjs))
             }
         }
@@ -64,9 +61,4 @@ class GameService {
     }
 }
 
-extension GameService: MyLogger {
-    
-    func log(_ message: String, _ logType: OSLogType = .error, funcName: String) {
-        Logger.createLog(message, logType, fileName: "\(GameService.fileName)", funcName: funcName)
-    }
-}
+extension GameService: MyLogger {}

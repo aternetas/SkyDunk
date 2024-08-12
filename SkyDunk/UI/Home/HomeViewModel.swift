@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import OSLog
 
 protocol HomeViewModelDelegat {
     func updateLastGame(vm: LastGameVM)
@@ -17,8 +16,6 @@ protocol HomeViewModelDelegat {
 }
 
 class HomeViewModel: BaseViewModel {
-    
-    private static var fileName = #file.split(separator: "/").last as Any
     
     private let betService = ServiceFactory.shared.betService
     private let gameService = ServiceFactory.shared.gameService
@@ -46,7 +43,7 @@ class HomeViewModel: BaseViewModel {
                 self?.activeBets = bets
                 self?.setActiveBets()
             case .failure(let error):
-                self?.log(error.localizedDescription, funcName: #function)
+                self?.logError(error.localizedDescription, funcName: #function)
                 self?.showAlert(model: .getObjectNotExistError(type: .bets))
             }
         }
@@ -60,7 +57,7 @@ class HomeViewModel: BaseViewModel {
                 self?.setLastGame()
                 self?.setNextGames()
             case .failure(let error):
-                self?.log(error.localizedDescription, funcName: #function)
+                self?.logError(error.localizedDescription, funcName: #function)
                 self?.delegate?.showEmptyState(isShow: true)
             }
         }
@@ -101,16 +98,11 @@ extension HomeViewModel: BetCellListenerProtocol {
             case .success(_):
                 self?.getActiveBets()
             case .failure(let error):
-                self?.log(error.localizedDescription, funcName: #function)
+                self?.logError(error.localizedDescription, funcName: #function)
                 self?.showAlert(model: .getCantUpdateObject(type: .bet))
             }
         }
     }
 }
 
-extension HomeViewModel: MyLogger {
-    
-    func log(_ message: String, _ logType: OSLogType = .error, funcName: String) {
-        Logger.createLog(message, logType, fileName: "\(HomeViewModel.fileName)", funcName: funcName)
-    }
-}
+extension HomeViewModel: MyLogger {}

@@ -6,11 +6,8 @@
 //
 
 import Foundation
-import OSLog
 
 class RemoteGameRepository: RemoteGameRepositoryProtocol {
-    
-    private static var fileName = #file.split(separator: "/").last as Any
     
     let manager: RemoteManager
     
@@ -23,22 +20,17 @@ class RemoteGameRepository: RemoteGameRepositoryProtocol {
             switch result {
             case .success(let data):
                 if data.games.isEmpty {
-                    self?.log("Games are empty", funcName: #function)
-                    completion(.failure(Errors.AlamofireError.cantGetData("")))
+                    self?.logInfo("Games are empty", funcName: #function)
+                    completion(.failure(Errors.AlamofireError.cantGetData))
                 } else {
                     completion(.success(data.games.map { GameModel(model: $0) }))
                 }
             case .failure(let error):
-                self?.log(error.localizedDescription, funcName: #function)
-                completion(.failure(Errors.AlamofireError.cantGetData("")))
+                self?.logError(error.localizedDescription, funcName: #function)
+                completion(.failure(Errors.AlamofireError.cantGetData))
             }
         }
     }
 }
 
-extension RemoteGameRepository: MyLogger {
-    
-    func log(_ message: String, _ logType: OSLogType = .error, funcName: String) {
-        Logger.createLog(message, logType, fileName: "\(RemoteGameRepository.fileName)", funcName: funcName)
-    }
-}
+extension RemoteGameRepository: MyLogger {}

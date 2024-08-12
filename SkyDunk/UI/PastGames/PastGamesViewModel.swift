@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import OSLog
 
 protocol PastGamesModelDelegate {
     func updatePastGames()
@@ -14,8 +13,6 @@ protocol PastGamesModelDelegate {
 }
 
 class PastGamesViewModel: BaseViewModel {
-    
-    private static var fileName = #file.split(separator: "/").last as Any
     
     var delegate: PastGamesModelDelegate?
     
@@ -31,14 +28,14 @@ class PastGamesViewModel: BaseViewModel {
             switch res {
             case .success(let games):
                 if games.count == 0 {
-                    log("Games count is 0", funcName: #function)
+                    logInfo("Games count is 0", funcName: #function)
                     self.delegate?.showEmptyState(isShow: true)
                 } else {
                     getPastGames()
                     updatePastGames()
                 }
             case .failure(let error):
-                log(error.localizedDescription, funcName: #function)
+                logError(error.localizedDescription, funcName: #function)
                 self.delegate?.showEmptyState(isShow: true)
             }
         }
@@ -64,9 +61,4 @@ extension PastGamesViewModel: PastGameCellListenerProtocol {
     }
 }
 
-extension PastGamesViewModel: MyLogger {
-    
-    func log(_ message: String, _ logType: OSLogType = .error, funcName: String) {
-        Logger.createLog(message, logType, fileName: "\(PastGamesViewModel.fileName)", funcName: funcName)
-    }
-}
+extension PastGamesViewModel: MyLogger {}
