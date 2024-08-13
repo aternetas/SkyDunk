@@ -11,6 +11,8 @@ import SnapKit
 
 class BalanceView: UIView {
     
+    var amount: Double = 50
+    
     private lazy var contentView: UIView = UIView()
     
     private lazy var title: UILabel = {
@@ -22,7 +24,7 @@ class BalanceView: UIView {
     private lazy var balanceConteinerView: UIView = UIView()
     
     private lazy var balanceLabel: UILabel = {
-        let view = UILabel(text: "67", font: UIFont.light18)
+        let view = UILabel(text: "\(Int(amount))", font: UIFont.light18)
         view.textAlignment = .center
         return view
     }()
@@ -34,7 +36,6 @@ class BalanceView: UIView {
         
         setupView()
         initConstraints()
-        tmp()
     }
     
     required init?(coder: NSCoder) {
@@ -45,12 +46,7 @@ class BalanceView: UIView {
         addShadows()
         layer.cornerRadius = 10
     }
-    
-    private func tmp() {
-        contentView.backgroundColor = .green.withAlphaComponent(0.3)
-        balanceConteinerView.backgroundColor = .purple.withAlphaComponent(0.45)
-    }
-    
+
     private func initConstraints() {
         addSubview(contentView)
         contentView.addSubview(title)
@@ -59,30 +55,26 @@ class BalanceView: UIView {
         balanceConteinerView.addSubview(coinImageView)
         
         contentView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
+            make.centerX.centerY.equalToSuperview()
         }
         
         title.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(contentView)
-            make.top.equalTo(contentView.snp.top)
+            make.top.leading.trailing.equalToSuperview()
         }
         
         balanceConteinerView.snp.makeConstraints { make in
             make.top.equalTo(title.snp.bottom).offset(4)
-            make.centerX.equalTo(contentView.snp.centerX)
-            make.bottom.equalTo(contentView.snp.bottom)
+            make.centerX.bottom.equalToSuperview()
         }
         
         balanceLabel.snp.makeConstraints { make in
-            make.top.bottom.equalTo(balanceConteinerView)
-            make.leading.equalTo(balanceConteinerView.snp.leading)
+            make.top.leading.bottom.equalToSuperview()
         }
         
         coinImageView.snp.makeConstraints { make in
             make.leading.equalTo(balanceLabel.snp.trailing).offset(3)
-            make.trailing.equalTo(balanceConteinerView.snp.trailing)
-            make.centerY.equalTo(balanceLabel.snp.centerY)
+            make.trailing.equalTo(balanceConteinerView)
+            make.centerY.equalTo(balanceLabel)
         }
     }
 }
