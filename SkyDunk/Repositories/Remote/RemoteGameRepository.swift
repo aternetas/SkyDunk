@@ -15,16 +15,16 @@ class RemoteGameRepository: RemoteGameRepositoryProtocol, MyLogger {
         self.manager = manager
     }
     
-    func getGames(completion: @escaping (Result<[GameProtocol], Error>) -> ()) {
-        manager.fetch(type: GamePayload.self, path: "v1/games", params: ["seasons[]": 2023, "postseason": true]) { [weak self] result in
+    func getGames(lastUpdation: String, completion: @escaping (Result<[GameProtocol], Error>) -> ()) {
+        manager.fetch(type: GamePayload.self, path: "v1/games", params: ["start_date": lastUpdation, "per_page": 100]) { [weak self] result in
             switch result {
             case .success(let data):
                 if data.games.isEmpty {
                     self?.logInfo("Games are empty", funcName: #function)
-                    completion(.failure(Errors.AlamofireError.cantGetData))
-                } else {
-                    completion(.success(data.games.map { GameModel(model: $0) }))
                 }
+                self?.logInfo("Got data from server", funcName: #function)
+                completion(.success(data.games.map { GameModel(model: $0) }))
+                
             case .failure(let error):
                 self?.logError(error.localizedDescription, funcName: #function)
                 completion(.failure(Errors.AlamofireError.cantGetData))
