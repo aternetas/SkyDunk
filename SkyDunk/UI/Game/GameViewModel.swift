@@ -15,7 +15,7 @@ protocol GameViewModelDelegat: AnyObject {
     func showNewBetButton()
 }
 
-class GameViewModel: BaseViewModel {
+class GameViewModel: BaseViewModel, MyLogger {
     
     private let betService = ServiceFactory.shared.betService
     private let gameService = ServiceFactory.shared.gameService
@@ -36,6 +36,7 @@ class GameViewModel: BaseViewModel {
             delegate?.showGame(game: GameHeaderVM(game: game))
             setBets()
         } else {
+            logError("Game with gameId: \(gameId) is missing", funcName: #function)
             showAlert(model: .getObjectNotExistError(type: .game))
         }
     }
@@ -56,7 +57,8 @@ class GameViewModel: BaseViewModel {
                 betsVM = bets.map { BetVM(bet: $0, delegate: self) }
                 delegate?.showEmptyState(isShow: betsVM.isEmpty)
                 delegate?.showBets()
-            case .failure(_):
+            case .failure(let error):
+                logError(error.localizedDescription, funcName: #function)
                 showAlert(model: .getObjectNotExistError(type: .bets))
             }
         }
@@ -80,7 +82,8 @@ extension GameViewModel: BetCellListenerProtocol {
             switch res {
             case .success(_):
                 self?.setBets()
-            case .failure(_):
+            case .failure(let error):
+                self?.logError(error.localizedDescription, funcName: #function)
                 self?.showAlert(model: .getCantUpdateObject(type: .bet))
             }
         }

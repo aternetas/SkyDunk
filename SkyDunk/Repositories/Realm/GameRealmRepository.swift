@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GameRealmRepository: LocalGameRepositoryProtocol {
+class GameRealmRepository: LocalGameRepositoryProtocol, MyLogger {
     
     private let manager: RealmManager
     
@@ -33,6 +33,7 @@ class GameRealmRepository: LocalGameRepositoryProtocol {
             do {
                 try manager.update(obj: modifiedGame)
             } catch {
+                logError(error.localizedDescription, funcName: #function)
                 throw Errors.RealmError.cantUpdateObject
             }
         }
