@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GameRealmRepository: LocalGameRepositoryProtocol {
+class GameRealmRepository: LocalGameRepositoryProtocol, MyLogger {
     
     private let manager: RealmManager
     
@@ -52,5 +52,3 @@ class GameRealmRepository: LocalGameRepositoryProtocol {
         }
     }
 }
-
-extension GameRealmRepository: MyLogger {}

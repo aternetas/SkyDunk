@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BetService {
+class BetService: MyLogger {
     
     private let repository: LocalBetRepositoryProtocol
     
@@ -60,5 +60,3 @@ class BetService {
         }
     }
 }
-
-extension BetService: MyLogger {}

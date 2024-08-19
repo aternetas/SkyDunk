@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RemoteGameRepository: RemoteGameRepositoryProtocol {
+class RemoteGameRepository: RemoteGameRepositoryProtocol, MyLogger {
     
     let manager: RemoteManager
     
@@ -32,5 +32,3 @@ class RemoteGameRepository: RemoteGameRepositoryProtocol {
         }
     }
 }
-
-extension RemoteGameRepository: MyLogger {}

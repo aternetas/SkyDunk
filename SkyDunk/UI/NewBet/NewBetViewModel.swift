@@ -12,7 +12,7 @@ protocol NewBetViewModelDelegat: AnyObject {
     func dismiss()
 }
 
-class NewBetViewModel: BaseViewModel {
+class NewBetViewModel: BaseViewModel, MyLogger {
     
     private let gameService = ServiceFactory.shared.gameService
     private let betService = ServiceFactory.shared.betService
@@ -77,5 +77,3 @@ class NewBetViewModel: BaseViewModel {
         return message.isEmpty
     }
 }
-
-extension NewBetViewModel: MyLogger {}

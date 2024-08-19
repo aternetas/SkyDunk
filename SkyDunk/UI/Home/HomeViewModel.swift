@@ -15,7 +15,7 @@ protocol HomeViewModelDelegat {
     func showEmptyState(isShow: Bool)
 }
 
-class HomeViewModel: BaseViewModel {
+class HomeViewModel: BaseViewModel, MyLogger {
     
     private let betService = ServiceFactory.shared.betService
     private let gameService = ServiceFactory.shared.gameService
@@ -104,5 +104,3 @@ extension HomeViewModel: BetCellListenerProtocol {
         }
     }
 }
-
-extension HomeViewModel: MyLogger {}

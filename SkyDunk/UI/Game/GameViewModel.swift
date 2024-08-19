@@ -15,7 +15,7 @@ protocol GameViewModelDelegat: AnyObject {
     func showNewBetButton()
 }
 
-class GameViewModel: BaseViewModel {
+class GameViewModel: BaseViewModel, MyLogger {
     
     private let betService = ServiceFactory.shared.betService
     private let gameService = ServiceFactory.shared.gameService
@@ -89,5 +89,3 @@ extension GameViewModel: BetCellListenerProtocol {
         }
     }
 }
-
-extension GameViewModel: MyLogger {}

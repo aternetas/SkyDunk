@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class RemoteManager {
+class RemoteManager: MyLogger {
     
     private let KEY: String
     init() {
@@ -53,5 +53,3 @@ class RemoteManager {
         completion(try JSONDecoder().decode(type, from: data))
     }
 }
-
-extension RemoteManager: MyLogger {}

@@ -12,7 +12,7 @@ protocol PastGamesModelDelegate {
     func showEmptyState(isShow: Bool)
 }
 
-class PastGamesViewModel: BaseViewModel {
+class PastGamesViewModel: BaseViewModel, MyLogger {
     
     var delegate: PastGamesModelDelegate?
     
@@ -60,5 +60,3 @@ extension PastGamesViewModel: PastGameCellListenerProtocol {
         navigationManager?.openScreen(screen: .game(gameId: gameId))
     }
 }
-
-extension PastGamesViewModel: MyLogger {}

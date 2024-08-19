@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GameService {
+class GameService: MyLogger {
     
     private let remoteRepository: RemoteGameRepositoryProtocol
     private let localRepository: LocalGameRepositoryProtocol
@@ -60,5 +60,3 @@ class GameService {
             .sorted { $0.date > $1.date }
     }
 }
-
-extension GameService: MyLogger {}

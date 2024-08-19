@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 import OSLog
 
-class RealmManager {
+class RealmManager: MyLogger {
     
     private static var fileName = #file.split(separator: "/").last as Any
     
@@ -71,5 +71,3 @@ class RealmManager {
         }
     }
 }
-
-extension RealmManager: MyLogger {}
