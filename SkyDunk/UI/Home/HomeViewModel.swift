@@ -54,7 +54,7 @@ class HomeViewModel: BaseViewModel, MyLogger {
         gameService.getGames(lastUpdation: userDefaultsService.lastUpdationDate.toYearMonthDay()) { [weak self] result in
             switch result {
             case .success(let games):
-                self?.userDefaultsService.setNewValue(value: Date.now, key: .updation)
+                self?.userDefaultsService.setNewValue(value: Date.now, key: .LAST_UPDATION_DATE)
                 self?.games = games
                 self?.setLastGame()
                 self?.setNextGames()

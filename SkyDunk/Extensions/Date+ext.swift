@@ -40,4 +40,8 @@ extension Date {
     func toYearMonthDay() -> String {
         yearMonthDayFormatter.string(from: self)
     }
+    
+    func toOneWeekAgo() -> Date {
+        Date(timeInterval: -605000, since: self)
+    }
 }

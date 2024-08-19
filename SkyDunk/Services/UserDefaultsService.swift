@@ -8,13 +8,13 @@
 import Foundation
 
 enum Key: String {
-    case updation = "lastUpd"
+    case LAST_UPDATION_DATE = "lastUpd"
 }
 
 class UserDefaultsService {
     
     var lastUpdationDate: Date {
-        getValue(type: Date.self, key: .updation) ?? .now
+        getValue(type: Date.self, key: .LAST_UPDATION_DATE) ?? .now.toOneWeekAgo()
     }
     
     private let defaults = UserDefaults.standard

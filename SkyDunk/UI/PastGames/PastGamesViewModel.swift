@@ -28,7 +28,7 @@ class PastGamesViewModel: BaseViewModel, MyLogger {
             guard let self = self else { return }
             switch res {
             case .success(let games):
-                userDefaultsService.setNewValue(value: Date.now, key: .updation)
+                userDefaultsService.setNewValue(value: Date.now, key: .LAST_UPDATION_DATE)
                 if games.count == 0 {
                     logInfo("Games count is 0", funcName: #function)
                     self.delegate?.showEmptyState(isShow: true)
