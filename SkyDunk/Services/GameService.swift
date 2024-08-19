@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GameService {
+class GameService: MyLogger {
     
     private let remoteRepository: RemoteGameRepositoryProtocol
     private let localRepository: LocalGameRepositoryProtocol
@@ -30,10 +30,13 @@ class GameService {
                         completion(.success(self?.games ?? []))
                     }
                 } catch {
+                    self?.logError(error.localizedDescription, funcName: #function)
                     completion(.failure(Errors.RealmError.cantUpdateObject))
                 }
                 
-            case .failure(_): completion(.failure(Errors.RealmError.cantGetObjs))
+            case .failure(let error):
+                self?.logError(error.localizedDescription, funcName: #function)
+                completion(.failure(Errors.RealmError.cantGetObjs))
             }
         }
     }

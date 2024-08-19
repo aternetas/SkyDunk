@@ -10,7 +10,7 @@ import Foundation
 enum Errors: Error {
     
     enum AlamofireError: Error {
-        case cantGetData(_ description: String)
+        case cantGetData
         case unknownData
         case nonConvertableData
     }

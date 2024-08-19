@@ -46,6 +46,7 @@
 		A52C54032BF1101000699D2E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C54022BF1101000699D2E /* Game.swift */; };
 		A52C54062BF11FF800699D2E /* GameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C54052BF11FF800699D2E /* GameHeaderView.swift */; };
 		A52C54082BF1200300699D2E /* GameHeaderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C54072BF1200300699D2E /* GameHeaderVM.swift */; };
+		A53035882C64DD440045EDC0 /* Logger+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53035872C64DD440045EDC0 /* Logger+ext.swift */; };
 		A538E3C22BF50C1400485EF3 /* Bet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538E3C12BF50C1400485EF3 /* Bet.swift */; };
 		A538E3C52BF50F7900485EF3 /* BetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538E3C42BF50F7900485EF3 /* BetVM.swift */; };
 		A538E3C72BF50F8F00485EF3 /* BetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538E3C62BF50F8F00485EF3 /* BetCell.swift */; };
@@ -142,6 +143,7 @@
 		A52C54022BF1101000699D2E /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		A52C54052BF11FF800699D2E /* GameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHeaderView.swift; sourceTree = "<group>"; };
 		A52C54072BF1200300699D2E /* GameHeaderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHeaderVM.swift; sourceTree = "<group>"; };
+		A53035872C64DD440045EDC0 /* Logger+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+ext.swift"; sourceTree = "<group>"; };
 		A538E3C12BF50C1400485EF3 /* Bet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bet.swift; sourceTree = "<group>"; };
 		A538E3C42BF50F7900485EF3 /* BetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetVM.swift; sourceTree = "<group>"; };
 		A538E3C62BF50F8F00485EF3 /* BetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetCell.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				A514A3272C0E06B50014BBD4 /* CustomTextField+ext.swift */,
 				A541A21C2C4FF8800075BEFC /* String+ext.swift */,
 				A5C5308D2C67C4E7005C760D /* DateFormatter+ext.swift */,
+				A53035872C64DD440045EDC0 /* Logger+ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				A50864B02C39C407004F0F11 /* PastGameCell.swift in Sources */,
 				A5E40C382BF9FCD70056AC63 /* NewBetViewModel.swift in Sources */,
 				A52C53ED2BEFC6B500699D2E /* TeamType+ext.swift in Sources */,
+				A53035882C64DD440045EDC0 /* Logger+ext.swift in Sources */,
 				A52C53E42BEFA3AA00699D2E /* GameCell.swift in Sources */,
 				A541A20D2C4EA9270075BEFC /* RemoteGameRepository.swift in Sources */,
 				A541A2112C4EAA210075BEFC /* RemoteGameModel.swift in Sources */,
@@ -723,7 +727,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -778,7 +782,9 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};

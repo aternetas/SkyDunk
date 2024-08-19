@@ -12,7 +12,7 @@ protocol PastGamesModelDelegate {
     func showEmptyState(isShow: Bool)
 }
 
-class PastGamesViewModel: BaseViewModel {
+class PastGamesViewModel: BaseViewModel, MyLogger {
     
     var delegate: PastGamesModelDelegate?
     
@@ -30,12 +30,14 @@ class PastGamesViewModel: BaseViewModel {
             case .success(let games):
                 userDefaultsService.setNewValue(value: Date.now, key: .updation)
                 if games.count == 0 {
+                    logInfo("Games count is 0", funcName: #function)
                     self.delegate?.showEmptyState(isShow: true)
                 } else {
                     getPastGames()
                     updatePastGames()
                 }
-            case .failure(_):
+            case .failure(let error):
+                logError(error.localizedDescription, funcName: #function)
                 self.delegate?.showEmptyState(isShow: true)
             }
         }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RemoteGameRepository: RemoteGameRepositoryProtocol {
+class RemoteGameRepository: RemoteGameRepositoryProtocol, MyLogger {
     
     let manager: RemoteManager
     
@@ -15,13 +15,19 @@ class RemoteGameRepository: RemoteGameRepositoryProtocol {
         self.manager = manager
     }
     
-    func getGames(lastUpdation: String, completion: @escaping (Result<[GameProtocol], Error>) -> ()) {
-        manager.fetch(type: GamePayload.self, path: "v1/games", params: ["start_date": lastUpdation, "per_page": 100]) { result in
+    func getGames(completion: @escaping (Result<[GameProtocol], Error>) -> ()) {
+        manager.fetch(type: GamePayload.self, path: "v1/games", params: ["seasons[]": 2023, "postseason": true]) { [weak self] result in
             switch result {
             case .success(let data):
-                completion(.success(data.games.map { GameModel(model: $0) }))
-            case .failure(_):
-                completion(.failure(Errors.AlamofireError.cantGetData("")))
+                if data.games.isEmpty {
+                    self?.logInfo("Games are empty", funcName: #function)
+                    completion(.failure(Errors.AlamofireError.cantGetData))
+                } else {
+                    completion(.success(data.games.map { GameModel(model: $0) }))
+                }
+            case .failure(let error):
+                self?.logError(error.localizedDescription, funcName: #function)
+                completion(.failure(Errors.AlamofireError.cantGetData))
             }
         }
     }
