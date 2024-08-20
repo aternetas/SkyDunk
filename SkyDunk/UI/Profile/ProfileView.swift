@@ -12,13 +12,13 @@ import SnapKit
 class ProfileView: UIView {
     
     private lazy var scrollView: UIScrollView = UIScrollView()
-
+    
     private lazy var stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
         view.spacing = 20.0
         view.distribution = .fillEqually
-        [balanceView, InfoView(text: "Мои ставки"), InfoView(text: "Что-то ещё")].forEach { view.addArrangedSubview($0) }
+        [balanceView, myBetsView, InfoView(text: "Что-то ещё")].forEach { view.addArrangedSubview($0) }
         return view
     }()
     
@@ -28,6 +28,10 @@ class ProfileView: UIView {
         return view
     }()
     
+    lazy var myBetsView: InfoView = InfoView(text: "Moи ставки")
+    
+    private lazy var statisticsView: StatisticsView = StatisticsView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -35,29 +39,40 @@ class ProfileView: UIView {
         initConstraints()
         tmp()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     private func tmp() {
 //        scrollView.backgroundColor = .gray.withAlphaComponent(0.15)
-        stackView.backgroundColor = .yellow.withAlphaComponent(0.1)
+//        statisticsView.backgroundColor = .systemYellow.withAlphaComponent(0.12)
+//        stackView.backgroundColor = .green.withAlphaComponent(0.15)
     }
     
     private func initConstraints() {
         addSubview(scrollView)
-        addSubview(stackView)
+        scrollView.addSubview(stackView)
+        scrollView.addSubview(statisticsView)
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(82)
+            make.top.equalTo(scrollView).offset(87)
             make.height.equalTo(100)
             make.leading.equalTo(scrollView).offset(20)
             make.trailing.equalTo(scrollView).offset(-20)
+            make.width.equalTo(scrollView).offset(-40)
+        }
+        
+        statisticsView.snp.makeConstraints { make in
+            make.top.equalTo(stackView.snp.bottom).offset(31)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(169)
+            make.bottom.equalToSuperview()
         }
     }
 }

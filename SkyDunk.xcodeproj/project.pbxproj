@@ -68,12 +68,15 @@
 		A55723B42C46F7E00051D0D9 /* BetRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723B32C46F7E00051D0D9 /* BetRealmRepository.swift */; };
 		A55723B62C46F80C0051D0D9 /* LocalBetRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723B52C46F80C0051D0D9 /* LocalBetRepositoryProtocol.swift */; };
 		A55723B82C46FCDE0051D0D9 /* BetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723B72C46FCDE0051D0D9 /* BetProtocol.swift */; };
+		A558F4182C74D32D000F7491 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A558F4172C74D32D000F7491 /* SeparatorView.swift */; };
+		A558F41A2C74D721000F7491 /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A558F4192C74D721000F7491 /* TitleValueView.swift */; };
 		A5992D662C6A5C6C002CC1D1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A5992D652C6A5C6C002CC1D1 /* SnapKit */; };
 		A5992D682C6A5C6C002CC1D1 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A5992D672C6A5C6C002CC1D1 /* SnapKit-Dynamic */; };
 		A5992D6B2C6A5EB0002CC1D1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D6A2C6A5EB0002CC1D1 /* ProfileView.swift */; };
 		A5992D6D2C6A5ED4002CC1D1 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D6C2C6A5ED4002CC1D1 /* ProfileViewModel.swift */; };
 		A5992D6F2C6A5EFD002CC1D1 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D6E2C6A5EFD002CC1D1 /* ProfileController.swift */; };
 		A5992D712C6A7258002CC1D1 /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D702C6A7258002CC1D1 /* BalanceView.swift */; };
+		A5992D732C6BA615002CC1D1 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D722C6BA615002CC1D1 /* StatisticsView.swift */; };
 		A5AF23092C610DB000238660 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AF23082C610DB000238660 /* Errors.swift */; };
 		A5E40C312BF8DC850056AC63 /* ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C302BF8DC850056AC63 /* ScreenType.swift */; };
 		A5E40C342BF9FCA40056AC63 /* NewBetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C332BF9FCA40056AC63 /* NewBetController.swift */; };
@@ -165,10 +168,13 @@
 		A55723B32C46F7E00051D0D9 /* BetRealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetRealmRepository.swift; sourceTree = "<group>"; };
 		A55723B52C46F80C0051D0D9 /* LocalBetRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBetRepositoryProtocol.swift; sourceTree = "<group>"; };
 		A55723B72C46FCDE0051D0D9 /* BetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetProtocol.swift; sourceTree = "<group>"; };
+		A558F4172C74D32D000F7491 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		A558F4192C74D721000F7491 /* TitleValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueView.swift; sourceTree = "<group>"; };
 		A5992D6A2C6A5EB0002CC1D1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A5992D6C2C6A5ED4002CC1D1 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		A5992D6E2C6A5EFD002CC1D1 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		A5992D702C6A7258002CC1D1 /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
+		A5992D722C6BA615002CC1D1 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		A5AF23082C610DB000238660 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		A5E40C302BF8DC850056AC63 /* ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenType.swift; sourceTree = "<group>"; };
 		A5E40C332BF9FCA40056AC63 /* NewBetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBetController.swift; sourceTree = "<group>"; };
@@ -347,6 +353,9 @@
 				FAF8171D2BF8D582003BBBD3 /* InfoView.swift */,
 				A514A3232C01F49A0014BBD4 /* CustomTextField.swift */,
 				A5992D702C6A7258002CC1D1 /* BalanceView.swift */,
+				A5992D722C6BA615002CC1D1 /* StatisticsView.swift */,
+				A558F4172C74D32D000F7491 /* SeparatorView.swift */,
+				A558F4192C74D721000F7491 /* TitleValueView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -611,6 +620,7 @@
 				A52C53DA2BEEB2D700699D2E /* UIView+ext.swift in Sources */,
 				A52C53B42BEE8B8300699D2E /* AppDelegate.swift in Sources */,
 				8EA4AE9D2C43FB050083536F /* LocalGameRepositoryProtocol.swift in Sources */,
+				A558F41A2C74D721000F7491 /* TitleValueView.swift in Sources */,
 				A50864B02C39C407004F0F11 /* PastGameCell.swift in Sources */,
 				A5E40C382BF9FCD70056AC63 /* NewBetViewModel.swift in Sources */,
 				A5992D712C6A7258002CC1D1 /* BalanceView.swift in Sources */,
@@ -621,6 +631,7 @@
 				A541A2112C4EAA210075BEFC /* RemoteGameModel.swift in Sources */,
 				A52C53D72BEE9B3C00699D2E /* LastGameView.swift in Sources */,
 				A514A3282C0E06B50014BBD4 /* CustomTextField+ext.swift in Sources */,
+				A5992D732C6BA615002CC1D1 /* StatisticsView.swift in Sources */,
 				A52C53FD2BF10ED400699D2E /* GameViewModel.swift in Sources */,
 				A52C54032BF1101000699D2E /* Game.swift in Sources */,
 				A55723AD2C42ED230051D0D9 /* RealmManager.swift in Sources */,
@@ -658,6 +669,7 @@
 				A52C53E82BEFC5BF00699D2E /* GameVM.swift in Sources */,
 				A5E40C342BF9FCA40056AC63 /* NewBetController.swift in Sources */,
 				A52C54062BF11FF800699D2E /* GameHeaderView.swift in Sources */,
+				A558F4182C74D32D000F7491 /* SeparatorView.swift in Sources */,
 				A538E3C22BF50C1400485EF3 /* Bet.swift in Sources */,
 				A5992D6D2C6A5ED4002CC1D1 /* ProfileViewModel.swift in Sources */,
 				A50864AB2C2CAD7E004F0F11 /* ServiceFactory.swift in Sources */,

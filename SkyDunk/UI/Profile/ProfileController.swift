@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ProfileController: BaseController<ProfileViewModel> {
     
@@ -20,5 +21,15 @@ class ProfileController: BaseController<ProfileViewModel> {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        rootView.myBetsView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tabOnMyBetsView)))
+    }
+    
+    @objc func tabOnMyBetsView() {
+        print("t")
     }
 }

@@ -39,12 +39,7 @@ class PastGamesView: UIView {
         return label
     }()
     
-    private lazy var separatorView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .backgroundGray3
-        view.isHidden = true
-        return view
-    }()
+    private lazy var separatorView: SeparatorView = SeparatorView()
     
     lazy var emptyStateView: InfoView = .noLastGamesDataInfoView
     
@@ -63,6 +58,8 @@ class PastGamesView: UIView {
         if activeBetsContainerHC.constant != 0 {
             specifyBetsResultLabel.isHidden = false
             separatorView.isHidden = false
+        } else {
+            separatorView.isHidden = true
         }
     }
     
