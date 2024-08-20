@@ -24,7 +24,8 @@ class PastGamesViewModel: BaseViewModel, MyLogger {
     private let userDefaultsService = ServiceFactory.shared.userDefaultsService
     
     func viewDidLoad() {
-        refreshPastGames()
+        getPastGames()
+        delegate?.updatePastGames()
     }
     
     func refreshPastGames() {
