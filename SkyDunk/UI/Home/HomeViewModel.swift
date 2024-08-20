@@ -15,7 +15,7 @@ protocol HomeViewModelDelegat {
     func showEmptyState(isShow: Bool)
 }
 
-class HomeViewModel: BaseViewModel {
+class HomeViewModel: BaseViewModel, MyLogger {
     
     private let betService = ServiceFactory.shared.betService
     private let gameService = ServiceFactory.shared.gameService
@@ -42,7 +42,8 @@ class HomeViewModel: BaseViewModel {
             case .success(let bets):
                 self?.activeBets = bets
                 self?.setActiveBets()
-            case .failure(_):
+            case .failure(let error):
+                self?.logError(error.localizedDescription, funcName: #function)
                 self?.showAlert(model: .getObjectNotExistError(type: .bets))
             }
         }
@@ -55,7 +56,8 @@ class HomeViewModel: BaseViewModel {
                 self?.games = games
                 self?.setLastGame()
                 self?.setNextGames()
-            case .failure(_):
+            case .failure(let error):
+                self?.logError(error.localizedDescription, funcName: #function)
                 self?.delegate?.showEmptyState(isShow: true)
             }
         }
@@ -95,7 +97,8 @@ extension HomeViewModel: BetCellListenerProtocol {
             switch res {
             case .success(_):
                 self?.getActiveBets()
-            case .failure(_):
+            case .failure(let error):
+                self?.logError(error.localizedDescription, funcName: #function)
                 self?.showAlert(model: .getCantUpdateObject(type: .bet))
             }
         }

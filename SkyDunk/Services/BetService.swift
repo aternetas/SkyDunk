@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BetService {
+class BetService: MyLogger {
     
     private let repository: LocalBetRepositoryProtocol
     
@@ -19,6 +19,7 @@ class BetService {
         do {
             completion(.success(try repository.getBets().map { Bet(dto: $0) }))
         } catch {
+            logError(error.localizedDescription, funcName: #function)
             completion(.failure(Errors.RealmError.cantGetObjs))
         }
     }
@@ -27,6 +28,7 @@ class BetService {
         do {
             completion(.success(try repository.getBets().filter { $0.isSuccess == nil }.map { Bet(dto: $0) }))
         } catch {
+            logError(error.localizedDescription, funcName: #function)
             completion(.failure(Errors.RealmError.cantGetObjs))
         }
     }
@@ -35,6 +37,7 @@ class BetService {
         do {
             completion(.success(try repository.getBetsByGameId(gameId).map { Bet(dto: $0) }))
         } catch {
+            logError(error.localizedDescription, funcName: #function)
             completion(.failure(Errors.RealmError.cantGetObjs))
         }
     }
@@ -43,6 +46,7 @@ class BetService {
         do {
             completion(.success(try repository.editBet(id: id, isSuccess: isSuccess)))
         } catch {
+            logError(error.localizedDescription, funcName: #function)
             completion(.failure(Errors.RealmError.cantUpdateObject))
         }
     }
@@ -51,6 +55,7 @@ class BetService {
         do {
             try completion(.success(repository.addBet(description: description, amount: amount, coefficient: coefficient, betOn: betOn, gameId: gameId)))
         } catch {
+            logError(error.localizedDescription, funcName: #function)
             completion(.failure(Errors.RealmError.cantAddObject))
         }
     }

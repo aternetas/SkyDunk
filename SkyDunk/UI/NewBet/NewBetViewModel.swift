@@ -12,7 +12,7 @@ protocol NewBetViewModelDelegat: AnyObject {
     func dismiss()
 }
 
-class NewBetViewModel: BaseViewModel {
+class NewBetViewModel: BaseViewModel, MyLogger {
     
     private let gameService = ServiceFactory.shared.gameService
     private let betService = ServiceFactory.shared.betService
@@ -29,6 +29,7 @@ class NewBetViewModel: BaseViewModel {
             self.game = game
             delegate?.setGameHeader(game: GameHeaderVM(game: game))
         } else {
+            logError("Game with id: \(gameId) is missing", funcName: #function)
             showAlert(model: .getObjectNotExistError(type: .game))
         }
     }
@@ -44,7 +45,8 @@ class NewBetViewModel: BaseViewModel {
                 switch res {
                 case .success(_):
                     self?.delegate?.dismiss()
-                case .failure(_):
+                case .failure(let error):
+                    self?.logError(error.localizedDescription, funcName: #function)
                     self?.showAlert(model: .getCantAddNewObjIn(type: .bet))
                 }
             }

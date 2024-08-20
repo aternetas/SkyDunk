@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, MyLogger {
 
     var window: UIWindow?
 
@@ -32,8 +32,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = tabbar
         self.window = window
         window.makeKeyAndVisible()
+
+        logInfo("BD: \(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path)", funcName: #function)
         
-        print("BD---\(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path)")
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

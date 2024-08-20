@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class RemoteManager {
+class RemoteManager: MyLogger {
     
     private let KEY: String
     init() {
@@ -20,18 +20,22 @@ class RemoteManager {
     func fetch<T>(type: T.Type, path: String, params: [String: Any]? = nil, completion: @escaping (Result<T, Error>) -> ()) where T: Codable {
         AF.request("\(URL)/\(path)", parameters: params, headers: getHeaders()).response { [weak self] response in
             if let error = response.error {
-                completion(.failure(Errors.AlamofireError.cantGetData(error.localizedDescription)))
+                self?.logError("📥 \(error.localizedDescription)", funcName: #function)
+                completion(.failure(Errors.AlamofireError.cantGetData))
             }
             guard let data = response.data else {
+                self?.logError("📥 Empty data", funcName: #function)
                 completion(.failure(Errors.AlamofireError.unknownData))
                 return
             }
             
             do {
                 try self?.decodeResponse(type, from: data) { data in
+                    self?.logInfo("📥 Got data \(data) from server", funcName: #function)
                     completion(.success(data))
                 }
             } catch {
+                self?.logError("📥 \(error.localizedDescription)", funcName: #function)
                 completion(.failure(Errors.AlamofireError.nonConvertableData))
             }
         }
@@ -39,7 +43,8 @@ class RemoteManager {
 
     private func getHeaders() -> HTTPHeaders {
         if KEY.isEmpty {
-            fatalError("api-key is missing")
+            logFault("api-key is missing", funcName: #function)
+            fatalError()
         }
         return ["Authorization": "\(KEY)"]
     }
