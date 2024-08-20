@@ -20,6 +20,10 @@ class PastGamesController: BaseController<PastGamesViewModel> {
         
         rootView.gamesWithActiveBetsCollectionView.delegate = self
         rootView.gamesWithActiveBetsCollectionView.dataSource = self
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshPastGames), for: .valueChanged)
+        rootView.pastGamesTableView.refreshControl = refreshControl
     }
     
     required init?(coder: NSCoder) {
@@ -47,6 +51,10 @@ class PastGamesController: BaseController<PastGamesViewModel> {
     override func dismissModal() {
         viewModel.viewDidLoad()
     }
+    
+    @objc func refreshPastGames() {
+        viewModel.refreshPastGames()
+    }
 }
 
 extension PastGamesController: PastGamesModelDelegate {
@@ -62,6 +70,7 @@ extension PastGamesController: PastGamesModelDelegate {
             self?.rootView.setupView()
             self?.rootView.gamesWithActiveBetsCollectionView.reloadData()
             self?.rootView.pastGamesTableView.reloadData()
+            self?.rootView.pastGamesTableView.refreshControl?.endRefreshing()
         }
     }
     

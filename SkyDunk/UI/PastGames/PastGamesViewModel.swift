@@ -24,6 +24,10 @@ class PastGamesViewModel: BaseViewModel, MyLogger {
     private let userDefaultsService = ServiceFactory.shared.userDefaultsService
     
     func viewDidLoad() {
+        refreshPastGames()
+    }
+    
+    func refreshPastGames() {
         gameService.getGames(lastUpdation: userDefaultsService.lastUpdationDate.toYearMonthDay()) { [weak self] res in
             guard let self = self else { return }
             switch res {
