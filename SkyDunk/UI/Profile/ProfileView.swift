@@ -35,12 +35,16 @@ class ProfileView: UIView {
     private lazy var bestTeamStatsView: TeamStatsView = {
         let view = TeamStatsView()
         view.title.text = "НАИБОЛЬШИЙ ДОХОД"
+        view.teamLabel.text = "Chicago Bulls"
+        view.gradientView.setColors(colors: [.chicagoBulls])
         return view
     }()
     
     private lazy var worstTeamStatsView: TeamStatsView = {
         let view = TeamStatsView()
         view.title.text = "НАИБОЛЬШИЙ ПРОИГРЫШ"
+        view.teamLabel.text = "Orlando Magic"
+        view.gradientView.setColors(colors: [.orlandoMagic])
         return view
     }()
     
@@ -64,10 +68,12 @@ class ProfileView: UIView {
     
     private func initConstraints() {
         addSubview(scrollView)
-        scrollView.addSubview(stackView)
-        scrollView.addSubview(statisticsView)
-        scrollView.addSubview(bestTeamStatsView)
-        scrollView.addSubview(worstTeamStatsView)
+        scrollView.addSubviews([
+            stackView,
+            statisticsView,
+            bestTeamStatsView,
+            worstTeamStatsView
+        ])
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

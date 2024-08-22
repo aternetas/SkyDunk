@@ -18,6 +18,7 @@ extension UIFont {
     
     static var regular14 = UIFont(type: .regular, size: 14)
     
+    static var medium16 = UIFont(type: .medium, size: 16)
     static var medium20 = UIFont(type: .medium, size: 20)
 
     enum MyFont {

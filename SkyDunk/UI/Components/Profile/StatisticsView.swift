@@ -52,9 +52,11 @@ class StatisticsView: UIView {
     }
     
     private func initConstraints() {
-        addSubview(titleView)
-        addSubview(separatorView)
-        addSubview(valuesContainer)
+        addSubviews([
+            titleView,
+            separatorView,
+            valuesContainer
+        ])
         
         titleView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(9)
