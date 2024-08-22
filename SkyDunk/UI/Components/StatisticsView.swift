@@ -20,7 +20,6 @@ class StatisticsView: UIView {
         view.axis = .vertical
         view.spacing = 2.0
         view.distribution = .equalSpacing
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -28,8 +27,8 @@ class StatisticsView: UIView {
         super.init(frame: frame)
         
         setupView()
-        bindStatisticsView()
         initConstraints()
+        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -42,10 +41,13 @@ class StatisticsView: UIView {
         layer.cornerRadius = 10
     }
     
-    private func bindStatisticsView() {
-        [TitleValueView(title: "Успешных ставок", value: "15"),
-         TitleValueView(title: "Всего прогнозов", value: "10"),
-         TitleValueView(title: "Процент побед", value: "74%")
+    private func bind() {
+        [TitleValueView(title: TitleType.sucessBetsAmount.rawValue, value: "15"),
+         TitleValueView(title: TitleType.allBets.rawValue, value: "10"),
+         TitleValueView(title: TitleType.winningProcent.rawValue, value: "74%"),
+         TitleValueView(title: TitleType.commonEarnings.rawValue, value: "+1582"),
+         TitleValueView(title: TitleType.bestBet.rawValue, value: "+107"),
+         TitleValueView(title: TitleType.worstBet.rawValue, value: "-67")
         ].forEach { valuesContainer.addArrangedSubview($0) }
     }
     
