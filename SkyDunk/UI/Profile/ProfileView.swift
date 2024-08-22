@@ -80,11 +80,13 @@ class ProfileView: UIView {
         ])
         
         scrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(0)
+            make.trailing.leading.equalToSuperview()
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(0)
         }
         
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(scrollView).offset(87)
+            make.top.equalToSuperview()
             make.height.equalTo(100)
             make.leading.trailing.equalTo(scrollView).inset(20)
             make.width.equalTo(scrollView).offset(-40)
@@ -103,7 +105,7 @@ class ProfileView: UIView {
         worstTeamStatsView.snp.makeConstraints { make in
             make.top.equalTo(bestTeamStatsView.snp.bottom).offset(14)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.bottom.equalTo(safeAreaInsets.bottom).offset(-6)
+            make.bottom.equalToSuperview().offset(-6)
         }
     }
 }
