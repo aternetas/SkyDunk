@@ -70,7 +70,7 @@ class StatisticsView: UIView {
         
         valuesContainer.snp.makeConstraints { make in
             make.top.equalTo(separatorView.snp.bottom).offset(14)
-            make.leading.trailing.equalToSuperview().inset(16)
+            make.leading.trailing.bottom.equalToSuperview().inset(16)
         }
     }
 }

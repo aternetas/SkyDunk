@@ -93,20 +93,17 @@ class ProfileView: UIView {
         statisticsView.snp.makeConstraints { make in
             make.top.equalTo(stackView.snp.bottom).offset(31)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(169)
         }
         
         bestTeamStatsView.snp.makeConstraints { make in
             make.top.equalTo(statisticsView.snp.bottom).offset(14)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(147)
         }
         
         worstTeamStatsView.snp.makeConstraints { make in
             make.top.equalTo(bestTeamStatsView.snp.bottom).offset(14)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(147)
-            make.bottom.equalToSuperview().offset(-10)
+            make.bottom.equalTo(safeAreaInsets.bottom).offset(-6)
         }
     }
 }
