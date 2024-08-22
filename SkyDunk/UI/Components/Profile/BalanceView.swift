@@ -5,7 +5,6 @@
 //  Created by aternetas on 12.08.2024.
 //
 
-import Foundation
 import UIKit
 import SnapKit
 
@@ -49,10 +48,8 @@ class BalanceView: UIView {
 
     private func initConstraints() {
         addSubview(contentView)
-        contentView.addSubview(title)
-        contentView.addSubview(balanceConteinerView)
-        balanceConteinerView.addSubview(balanceLabel)
-        balanceConteinerView.addSubview(coinImageView)
+        contentView.addSubviews([title, balanceConteinerView])
+        balanceConteinerView.addSubviews([balanceLabel, coinImageView])
         
         contentView.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()

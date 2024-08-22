@@ -5,7 +5,6 @@
 //  Created by aternetas on 22.08.2024.
 //
 
-import Foundation
 import UIKit
 import SnapKit
 
@@ -24,6 +23,16 @@ class TeamStatsView: UIView {
     
     lazy var teamLabel: UILabel = UILabel(font: .medium16)
     
+    lazy var teamIcon: UIImageView = UIImageView()
+    
+    lazy var valuesContainer: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.spacing = 2.0
+        view.distribution = .equalSpacing
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -39,6 +48,7 @@ class TeamStatsView: UIView {
         backgroundColor = .backgroundGray
         layer.cornerRadius = 10
         addShadows()
+        teamIcon.contentMode = .scaleAspectFit
     }
     
     private func initConstraints() {
@@ -46,7 +56,9 @@ class TeamStatsView: UIView {
         containerView.addSubviews([
             gradientView,
             title,
-            teamLabel
+            teamLabel,
+            teamIcon,
+            valuesContainer
         ])
         
         containerView.snp.makeConstraints { make in
@@ -60,12 +72,25 @@ class TeamStatsView: UIView {
         
         title.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
-            make.leading.equalToSuperview().offset(29)
+            make.leading.equalTo(gradientView.snp.trailing).offset(16)
         }
         
         teamLabel.snp.makeConstraints { make in
             make.top.equalTo(title.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(29)
+            make.leading.equalTo(gradientView.snp.trailing).offset(16)
+        }
+        
+        teamIcon.snp.makeConstraints { make in
+            make.top.equalTo(title)
+            make.trailing.equalToSuperview().offset(-12)
+            make.height.width.equalTo(55)
+        }
+        
+        valuesContainer.snp.makeConstraints { make in
+            make.top.equalTo(teamLabel.snp.bottom).offset(9)
+            make.leading.equalTo(gradientView.snp.trailing).offset(16)
+            make.trailing.equalToSuperview().offset(-12)
+            make.bottom.equalToSuperview().offset(-16)
         }
     }
 }

@@ -5,7 +5,6 @@
 //  Created by aternetas on 13.08.2024.
 //
 
-import Foundation
 import UIKit
 import SnapKit
 
@@ -71,8 +70,7 @@ class StatisticsView: UIView {
         
         valuesContainer.snp.makeConstraints { make in
             make.top.equalTo(separatorView.snp.bottom).offset(14)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.bottom.equalToSuperview().offset(-16)
+            make.leading.trailing.equalToSuperview().inset(16)
         }
     }
 }
