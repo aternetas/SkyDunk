@@ -32,6 +32,18 @@ class ProfileView: UIView {
     
     private lazy var statisticsView: StatisticsView = StatisticsView()
     
+    private lazy var bestTeamStatsView: TeamStatsView = {
+        let view = TeamStatsView()
+        view.title.text = "НАИБОЛЬШИЙ ДОХОД"
+        return view
+    }()
+    
+    private lazy var worstTeamStatsView: TeamStatsView = {
+        let view = TeamStatsView()
+        view.title.text = "НАИБОЛЬШИЙ ПРОИГРЫШ"
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -54,6 +66,8 @@ class ProfileView: UIView {
         addSubview(scrollView)
         scrollView.addSubview(stackView)
         scrollView.addSubview(statisticsView)
+        scrollView.addSubview(bestTeamStatsView)
+        scrollView.addSubview(worstTeamStatsView)
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -72,6 +86,20 @@ class ProfileView: UIView {
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(169)
+        }
+        
+        bestTeamStatsView.snp.makeConstraints { make in
+            make.top.equalTo(statisticsView.snp.bottom).offset(14)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(147)
+        }
+        
+        worstTeamStatsView.snp.makeConstraints { make in
+            make.top.equalTo(bestTeamStatsView.snp.bottom).offset(14)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(147)
             make.bottom.equalToSuperview()
         }
     }
