@@ -57,11 +57,7 @@
 		A541A2172C4EBCE70075BEFC /* GamePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A2162C4EBCE70075BEFC /* GamePayload.swift */; };
 		A541A21B2C4FF3460075BEFC /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A21A2C4FF3460075BEFC /* GameModel.swift */; };
 		A541A21D2C4FF8800075BEFC /* String+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A21C2C4FF8800075BEFC /* String+ext.swift */; };
-		A541A2202C4FFB730075BEFC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A541A21F2C4FFB730075BEFC /* Alamofire */; };
-		A541A2222C4FFB730075BEFC /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A541A2212C4FFB730075BEFC /* AlamofireDynamic */; };
 		A541A2242C52EAC60075BEFC /* RemoteGameRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A2232C52EAC60075BEFC /* RemoteGameRepositoryProtocol.swift */; };
-		A55723A72C42E86E0051D0D9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A55723A62C42E86E0051D0D9 /* RealmSwift */; };
-		A55723A82C42E86E0051D0D9 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A55723A62C42E86E0051D0D9 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A55723AD2C42ED230051D0D9 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723AC2C42ED230051D0D9 /* RealmManager.swift */; };
 		A55723B02C4562B60051D0D9 /* GameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723AF2C4562B60051D0D9 /* GameProtocol.swift */; };
 		A55723B22C45631F0051D0D9 /* BetDTORealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723B12C45631F0051D0D9 /* BetDTORealm.swift */; };
@@ -71,14 +67,19 @@
 		A558F4182C74D32D000F7491 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A558F4172C74D32D000F7491 /* SeparatorView.swift */; };
 		A558F41A2C74D721000F7491 /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A558F4192C74D721000F7491 /* TitleValueView.swift */; };
 		A558F41D2C775B44000F7491 /* TeamStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A558F41C2C775B44000F7491 /* TeamStatsView.swift */; };
-		A5992D662C6A5C6C002CC1D1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A5992D652C6A5C6C002CC1D1 /* SnapKit */; };
-		A5992D682C6A5C6C002CC1D1 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A5992D672C6A5C6C002CC1D1 /* SnapKit-Dynamic */; };
 		A5992D6B2C6A5EB0002CC1D1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D6A2C6A5EB0002CC1D1 /* ProfileView.swift */; };
 		A5992D6D2C6A5ED4002CC1D1 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D6C2C6A5ED4002CC1D1 /* ProfileViewModel.swift */; };
 		A5992D6F2C6A5EFD002CC1D1 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D6E2C6A5EFD002CC1D1 /* ProfileController.swift */; };
 		A5992D712C6A7258002CC1D1 /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D702C6A7258002CC1D1 /* BalanceView.swift */; };
 		A5992D732C6BA615002CC1D1 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D722C6BA615002CC1D1 /* StatisticsView.swift */; };
 		A5AF23092C610DB000238660 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AF23082C610DB000238660 /* Errors.swift */; };
+		A5B4CF7D2C7B3F9F00DD157F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A5B4CF7C2C7B3F9F00DD157F /* Alamofire */; };
+		A5B4CF7F2C7B3FA200DD157F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A5B4CF7E2C7B3FA200DD157F /* SnapKit */; };
+		A5B4CF812C7B3FAC00DD157F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A5B4CF802C7B3FAC00DD157F /* RxCocoa */; };
+		A5B4CF832C7B3FB100DD157F /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A5B4CF822C7B3FB100DD157F /* RxRelay */; };
+		A5B4CF852C7B3FB700DD157F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A5B4CF842C7B3FB700DD157F /* RxSwift */; };
+		A5B4CF872C7B3FDA00DD157F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A5B4CF862C7B3FDA00DD157F /* RealmSwift */; };
+		A5B4CF882C7B3FDA00DD157F /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A5B4CF862C7B3FDA00DD157F /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A5E40C312BF8DC850056AC63 /* ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C302BF8DC850056AC63 /* ScreenType.swift */; };
 		A5E40C342BF9FCA40056AC63 /* NewBetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C332BF9FCA40056AC63 /* NewBetController.swift */; };
 		A5E40C362BF9FCBE0056AC63 /* NewBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40C352BF9FCBE0056AC63 /* NewBetView.swift */; };
@@ -102,7 +103,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A55723A82C42E86E0051D0D9 /* RealmSwift in Embed Frameworks */,
+				A5B4CF882C7B3FDA00DD157F /* RealmSwift in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,11 +200,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5992D682C6A5C6C002CC1D1 /* SnapKit-Dynamic in Frameworks */,
-				A55723A72C42E86E0051D0D9 /* RealmSwift in Frameworks */,
-				A5992D662C6A5C6C002CC1D1 /* SnapKit in Frameworks */,
-				A541A2222C4FFB730075BEFC /* AlamofireDynamic in Frameworks */,
-				A541A2202C4FFB730075BEFC /* Alamofire in Frameworks */,
+				A5B4CF852C7B3FB700DD157F /* RxSwift in Frameworks */,
+				A5B4CF832C7B3FB100DD157F /* RxRelay in Frameworks */,
+				A5B4CF872C7B3FDA00DD157F /* RealmSwift in Frameworks */,
+				A5B4CF7F2C7B3FA200DD157F /* SnapKit in Frameworks */,
+				A5B4CF812C7B3FAC00DD157F /* RxCocoa in Frameworks */,
+				A5B4CF7D2C7B3F9F00DD157F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,11 +558,12 @@
 			);
 			name = SkyDunk;
 			packageProductDependencies = (
-				A55723A62C42E86E0051D0D9 /* RealmSwift */,
-				A541A21F2C4FFB730075BEFC /* Alamofire */,
-				A541A2212C4FFB730075BEFC /* AlamofireDynamic */,
-				A5992D652C6A5C6C002CC1D1 /* SnapKit */,
-				A5992D672C6A5C6C002CC1D1 /* SnapKit-Dynamic */,
+				A5B4CF7C2C7B3F9F00DD157F /* Alamofire */,
+				A5B4CF7E2C7B3FA200DD157F /* SnapKit */,
+				A5B4CF802C7B3FAC00DD157F /* RxCocoa */,
+				A5B4CF822C7B3FB100DD157F /* RxRelay */,
+				A5B4CF842C7B3FB700DD157F /* RxSwift */,
+				A5B4CF862C7B3FDA00DD157F /* RealmSwift */,
 			);
 			productName = SkyDunk;
 			productReference = A52C53B02BEE8B8300699D2E /* SkyDunk.app */;
@@ -594,6 +597,7 @@
 				A55723A02C42E28D0051D0D9 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				A541A21E2C4FFB730075BEFC /* XCRemoteSwiftPackageReference "Alamofire" */,
 				A5992D642C6A5C6C002CC1D1 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				A558F41F2C7B30AC000F7491 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = A52C53B12BEE8B8300699D2E /* Products */;
 			projectDirPath = "";
@@ -931,6 +935,14 @@
 				kind = branch;
 			};
 		};
+		A558F41F2C7B30AC000F7491 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.1;
+			};
+		};
 		A5992D642C6A5C6C002CC1D1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -942,30 +954,35 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A541A21F2C4FFB730075BEFC /* Alamofire */ = {
+		A5B4CF7C2C7B3F9F00DD157F /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A541A21E2C4FFB730075BEFC /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		A541A2212C4FFB730075BEFC /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A541A21E2C4FFB730075BEFC /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
-		};
-		A55723A62C42E86E0051D0D9 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A55723A02C42E28D0051D0D9 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
-		};
-		A5992D652C6A5C6C002CC1D1 /* SnapKit */ = {
+		A5B4CF7E2C7B3FA200DD157F /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A5992D642C6A5C6C002CC1D1 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		A5992D672C6A5C6C002CC1D1 /* SnapKit-Dynamic */ = {
+		A5B4CF802C7B3FAC00DD157F /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A5992D642C6A5C6C002CC1D1 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
+			package = A558F41F2C7B30AC000F7491 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		A5B4CF822C7B3FB100DD157F /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A558F41F2C7B30AC000F7491 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		A5B4CF842C7B3FB700DD157F /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A558F41F2C7B30AC000F7491 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		A5B4CF862C7B3FDA00DD157F /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A55723A02C42E28D0051D0D9 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
