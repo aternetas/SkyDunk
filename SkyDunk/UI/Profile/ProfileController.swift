@@ -5,7 +5,6 @@
 //  Created by aternetas on 12.08.2024.
 //
 
-import Foundation
 import UIKit
 
 class ProfileController: BaseController<ProfileViewModel> {

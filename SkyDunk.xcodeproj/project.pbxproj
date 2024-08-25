@@ -347,7 +347,6 @@
 		A52C53D52BEE9B2400699D2E /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A558F41B2C775B20000F7491 /* Profile */,
 				A50864B32C4015BB004F0F11 /* Game */,
 				A514A3292C0F64420014BBD4 /* Bet */,
 				A52C54042BF11F7800699D2E /* GameHeader */,
@@ -475,7 +474,7 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
-		A558F41B2C775B20000F7491 /* Profile */ = {
+		A558F41E2C7B2C90000F7491 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				A5992D722C6BA615002CC1D1 /* StatisticsView.swift */,
@@ -483,12 +482,13 @@
 				A5992D702C6A7258002CC1D1 /* BalanceView.swift */,
 				A558F41C2C775B44000F7491 /* TeamStatsView.swift */,
 			);
-			path = Profile;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		A5992D692C6A5EA4002CC1D1 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				A558F41E2C7B2C90000F7491 /* Components */,
 				A5992D6A2C6A5EB0002CC1D1 /* ProfileView.swift */,
 				A5992D6C2C6A5ED4002CC1D1 /* ProfileViewModel.swift */,
 				A5992D6E2C6A5EFD002CC1D1 /* ProfileController.swift */,

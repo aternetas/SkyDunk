@@ -17,9 +17,7 @@ class InfoView: UIView {
     }()
     
     private lazy var infoLab: UILabel = {
-        let label = UILabel()
-        label.font = .light14
-        label.textColor = .textBlack
+        let label = UILabel(font: .light14)
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -27,6 +25,7 @@ class InfoView: UIView {
     
     init(text: String) {
         super.init(frame: .zero)
+        
         infoLab.text = text
         setupView()
         initConstraints()

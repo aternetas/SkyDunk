@@ -33,20 +33,11 @@ class GameCell: UICollectionViewCell {
         return imageView
     }()
     
-    lazy private var gameDateLab: UILabel = {
-        let label = UILabel(font: UIFont(type: .extraLight, size: 14))
-        return label
-    }()
+    lazy private var gameDateLab: UILabel = UILabel(font: UIFont(type: .extraLight, size: 14))
     
-    lazy private var gameStartTimeLab: UILabel = {
-        let label = UILabel(font: .extraLight12)
-        return label
-    }()
+    lazy private var gameStartTimeLab: UILabel = UILabel(font: .extraLight12)
     
-    lazy private var gradientView: GradientView = {
-        let view = GradientView()
-        return view
-    }()
+    lazy private var gradientView: GradientView = GradientView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -22,9 +22,7 @@ class CustomTextField: UIView {
     }
     
     private lazy var titleLab: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(type: .regular, size: 12)
-        label.textColor = .textGray
+        let label = UILabel(font: .regular12, textColor: .textGray)
         label.numberOfLines = 1
         label.textAlignment = .left
         return label

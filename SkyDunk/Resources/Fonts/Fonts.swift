@@ -16,6 +16,7 @@ extension UIFont {
     static var light14 = UIFont(type: .light, size: 14)
     static var light18 = UIFont(type: .light, size: 18)
     
+    static var regular12 = UIFont(type: .regular, size: 12)
     static var regular14 = UIFont(type: .regular, size: 14)
     
     static var medium16 = UIFont(type: .medium, size: 16)

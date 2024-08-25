@@ -27,10 +27,7 @@ class PastGameCell: UITableViewCell {
         return view
     }()
     
-    lazy private var gradientView: GradientView = {
-        let view = GradientView()
-        return view
-    }()
+    lazy private var gradientView: GradientView = GradientView()
     
     lazy private var homeTeamImageView: UIImageView = {
         let imageView = UIImageView()

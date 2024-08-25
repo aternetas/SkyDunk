@@ -5,7 +5,6 @@
 //  Created by aternetas on 20.08.2024.
 //
 
-import Foundation
 import UIKit
 
 class SeparatorView: UIView {

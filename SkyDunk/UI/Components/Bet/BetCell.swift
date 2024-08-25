@@ -41,10 +41,7 @@ class BetCell: UITableViewCell {
         return label
     }()
     
-    lazy private var dateLab: UILabel = {
-        let label = UILabel(font: .extraLight12)
-        return label
-    }()
+    lazy private var dateLab: UILabel = UILabel(font: .extraLight12)
     
     lazy private var coefficientLab: UILabel = {
         let label = UILabel(font: .extraLight12)
@@ -52,10 +49,7 @@ class BetCell: UITableViewCell {
         return label
     }()
     
-    lazy private var sideView: UIView = {
-        let view = UIView()
-        return view
-    }()
+    lazy private var sideView: UIView = UIView()
     
     lazy private var betSwithView: UIStackView = {
         let sv = UIStackView()

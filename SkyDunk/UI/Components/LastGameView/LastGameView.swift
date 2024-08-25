@@ -9,10 +9,7 @@ import UIKit
 
 class LastGameView: UIView {
     
-    lazy var contentView: UIView = {
-        let view = UIView()
-        return view
-    }()
+    lazy var contentView: UIView = UIView()
     
     lazy var contentViewHC = contentView.heightAnchor.constraint(equalToConstant: 157)
     
