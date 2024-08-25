@@ -8,6 +8,16 @@
 import UIKit
 import SnapKit
 
+enum StatisticsTitle: String {
+    
+    case sucessBetsAmount = "Успешных ставок"
+    case allBets = "Всего прогнозов"
+    case winningProcent = "Процент побед"
+    case commonEarnings = "Общий доход"
+    case bestBet = "Лучшая ставка"
+    case worstBet = "Худшая ставка"
+}
+
 class StatisticsView: UIView {
     
     private lazy var titleView: UILabel = UILabel(text: "СТАТИСТИКА", font: .light14)
@@ -27,7 +37,6 @@ class StatisticsView: UIView {
         
         setupView()
         initConstraints()
-        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -40,22 +49,18 @@ class StatisticsView: UIView {
         layer.cornerRadius = 10
     }
     
-    private func bind() {
-        [TitleValueView(title: TitleType.sucessBetsAmount.rawValue, value: "15"),
-         TitleValueView(title: TitleType.allBets.rawValue, value: "10"),
-         TitleValueView(title: TitleType.winningProcent.rawValue, value: "74%"),
-         TitleValueView(title: TitleType.commonEarnings.rawValue, value: "+1582"),
-         TitleValueView(title: TitleType.bestBet.rawValue, value: "+107"),
-         TitleValueView(title: TitleType.worstBet.rawValue, value: "-67")
+    func bind(vm: StatisticsVM) {
+        [TitleValueView(title: StatisticsTitle.sucessBetsAmount.rawValue, value: vm.successBetsCount),
+         TitleValueView(title: StatisticsTitle.allBets.rawValue, value: vm.allBetsCount),
+         TitleValueView(title: StatisticsTitle.winningProcent.rawValue, value: vm.winningProcent),
+         TitleValueView(title: StatisticsTitle.commonEarnings.rawValue, value: vm.commonEarnings),
+         TitleValueView(title: StatisticsTitle.bestBet.rawValue, value: vm.bestBet),
+         TitleValueView(title: StatisticsTitle.worstBet.rawValue, value: vm.worstBet)
         ].forEach { valuesContainer.addArrangedSubview($0) }
     }
     
     private func initConstraints() {
-        addSubviews([
-            titleView,
-            separatorView,
-            valuesContainer
-        ])
+        addSubviews([titleView, separatorView, valuesContainer])
         
         titleView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(9)

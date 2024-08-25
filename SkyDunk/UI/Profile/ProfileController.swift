@@ -15,6 +15,11 @@ class ProfileController: BaseController<ProfileViewModel> {
         super.init()
         
         viewModel = ProfileViewModel()
+    }
+    
+    override func loadView() {
+        super.loadView()
+        
         view = rootView
     }
     
@@ -25,10 +30,21 @@ class ProfileController: BaseController<ProfileViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.delegate = self
         rootView.myBetsView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tabOnMyBetsView)))
+        viewModel.getCases()
     }
     
     @objc func tabOnMyBetsView() {
         print("t")
+    }
+}
+
+extension ProfileController: ProfileViewModelDelegate {
+    
+    func updateCases(cases: StatisticsVM) {
+        DispatchQueue.main.async { [weak self] in
+            self?.rootView.statisticsView.bind(vm: cases)
+        }
     }
 }
