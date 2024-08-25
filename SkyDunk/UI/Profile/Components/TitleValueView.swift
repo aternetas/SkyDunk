@@ -14,11 +14,17 @@ class TitleValueView: UIView {
     
     private lazy var valueLabel: UILabel = UILabel(font: .light12)
     
-    convenience init(title: String, value: String = "") {
+    convenience init(title: String, value: String, marker: Marker = .basic) {
         self.init(frame: .zero)
         
         titleLabel.text = title
+        
         valueLabel.text = value
+        valueLabel.textColor = switch marker {
+        case .basic: .textBlack
+        case .win: .textGreen
+        case .defeat: .textRed
+        }
         initConstraints()
     }
     

@@ -11,7 +11,7 @@ struct Statistics {
     
     let successBetsCount: Int
     let allBetsCount: Int
-    let winningProcent: Double
+    let winRatio: Double
     let commonEarnings: Double
     let bestBet: Double
     let worstBet: Double

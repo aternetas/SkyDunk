@@ -67,6 +67,9 @@
 		A558F4182C74D32D000F7491 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A558F4172C74D32D000F7491 /* SeparatorView.swift */; };
 		A558F41A2C74D721000F7491 /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A558F4192C74D721000F7491 /* TitleValueView.swift */; };
 		A558F41D2C775B44000F7491 /* TeamStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A558F41C2C775B44000F7491 /* TeamStatsView.swift */; };
+		A56722672C7BA5C200985A2E /* KeyValueMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56722662C7BA5C200985A2E /* KeyValueMarker.swift */; };
+		A56722692C7BA5F000985A2E /* StatisticsTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56722682C7BA5F000985A2E /* StatisticsTitle.swift */; };
+		A57453512C7B90D400DAAC66 /* Double+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57453502C7B90D400DAAC66 /* Double+ext.swift */; };
 		A5992D6B2C6A5EB0002CC1D1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D6A2C6A5EB0002CC1D1 /* ProfileView.swift */; };
 		A5992D6D2C6A5ED4002CC1D1 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D6C2C6A5ED4002CC1D1 /* ProfileViewModel.swift */; };
 		A5992D6F2C6A5EFD002CC1D1 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D6E2C6A5EFD002CC1D1 /* ProfileController.swift */; };
@@ -176,6 +179,9 @@
 		A558F4172C74D32D000F7491 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		A558F4192C74D721000F7491 /* TitleValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueView.swift; sourceTree = "<group>"; };
 		A558F41C2C775B44000F7491 /* TeamStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStatsView.swift; sourceTree = "<group>"; };
+		A56722662C7BA5C200985A2E /* KeyValueMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueMarker.swift; sourceTree = "<group>"; };
+		A56722682C7BA5F000985A2E /* StatisticsTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTitle.swift; sourceTree = "<group>"; };
+		A57453502C7B90D400DAAC66 /* Double+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+ext.swift"; sourceTree = "<group>"; };
 		A5992D6A2C6A5EB0002CC1D1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A5992D6C2C6A5ED4002CC1D1 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		A5992D6E2C6A5EFD002CC1D1 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -378,6 +384,7 @@
 				A514A3272C0E06B50014BBD4 /* CustomTextField+ext.swift */,
 				A541A21C2C4FF8800075BEFC /* String+ext.swift */,
 				A53035872C64DD440045EDC0 /* Logger+ext.swift */,
+				A57453502C7B90D400DAAC66 /* Double+ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -511,6 +518,8 @@
 			isa = PBXGroup;
 			children = (
 				A5B4CF8C2C7B505D00DD157F /* StatisticsVM.swift */,
+				A56722662C7BA5C200985A2E /* KeyValueMarker.swift */,
+				A56722682C7BA5F000985A2E /* StatisticsTitle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -650,8 +659,10 @@
 			files = (
 				A52C53FA2BF001C300699D2E /* PastGamesViewModel.swift in Sources */,
 				A5B4CF8D2C7B505D00DD157F /* StatisticsVM.swift in Sources */,
+				A56722672C7BA5C200985A2E /* KeyValueMarker.swift in Sources */,
 				A52C53DA2BEEB2D700699D2E /* UIView+ext.swift in Sources */,
 				A52C53B42BEE8B8300699D2E /* AppDelegate.swift in Sources */,
+				A56722692C7BA5F000985A2E /* StatisticsTitle.swift in Sources */,
 				8EA4AE9D2C43FB050083536F /* LocalGameRepositoryProtocol.swift in Sources */,
 				A558F41A2C74D721000F7491 /* TitleValueView.swift in Sources */,
 				A50864B02C39C407004F0F11 /* PastGameCell.swift in Sources */,
@@ -662,6 +673,7 @@
 				A52C53E42BEFA3AA00699D2E /* GameCell.swift in Sources */,
 				A541A20D2C4EA9270075BEFC /* RemoteGameRepository.swift in Sources */,
 				A541A2112C4EAA210075BEFC /* RemoteGameModel.swift in Sources */,
+				A57453512C7B90D400DAAC66 /* Double+ext.swift in Sources */,
 				A52C53D72BEE9B3C00699D2E /* LastGameView.swift in Sources */,
 				A514A3282C0E06B50014BBD4 /* CustomTextField+ext.swift in Sources */,
 				A5992D732C6BA615002CC1D1 /* StatisticsView.swift in Sources */,

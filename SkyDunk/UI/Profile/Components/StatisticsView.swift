@@ -8,16 +8,6 @@
 import UIKit
 import SnapKit
 
-enum StatisticsTitle: String {
-    
-    case sucessBetsAmount = "Успешных ставок"
-    case allBets = "Всего прогнозов"
-    case winningProcent = "Процент побед"
-    case commonEarnings = "Общий доход"
-    case bestBet = "Лучшая ставка"
-    case worstBet = "Худшая ставка"
-}
-
 class StatisticsView: UIView {
     
     private lazy var titleView: UILabel = UILabel(text: "СТАТИСТИКА", font: .light14)
@@ -50,13 +40,15 @@ class StatisticsView: UIView {
     }
     
     func bind(vm: StatisticsVM) {
-        [TitleValueView(title: StatisticsTitle.sucessBetsAmount.rawValue, value: vm.successBetsCount),
-         TitleValueView(title: StatisticsTitle.allBets.rawValue, value: vm.allBetsCount),
-         TitleValueView(title: StatisticsTitle.winningProcent.rawValue, value: vm.winningProcent),
-         TitleValueView(title: StatisticsTitle.commonEarnings.rawValue, value: vm.commonEarnings),
-         TitleValueView(title: StatisticsTitle.bestBet.rawValue, value: vm.bestBet),
-         TitleValueView(title: StatisticsTitle.worstBet.rawValue, value: vm.worstBet)
-        ].forEach { valuesContainer.addArrangedSubview($0) }
+        createArrangedSubviews(vm: vm).forEach{ valuesContainer.addArrangedSubview($0) }
+    }
+    
+    private func createArrangedSubviews(vm: StatisticsVM) -> [TitleValueView] {
+        var elements: [TitleValueView] = []
+        vm.allCases.forEach {
+            elements.append(TitleValueView(title: $0.key.rawValue, value: $0.value, marker: $0.marker))
+        }
+        return elements
     }
     
     private func initConstraints() {

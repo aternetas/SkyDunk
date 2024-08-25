@@ -9,28 +9,23 @@ import Foundation
 
 class StatisticsVM {
     
-    let successBetsCount: String
-    let allBetsCount: String
-    let winningProcent: String
-    let commonEarnings: String
-    let bestBet: String
-    let worstBet: String
-    
-    init(successBetsCount: String, allBetsCount: String, winningProcent: String, commonEarnings: String, bestBet: String, worstBet: String) {
-        self.successBetsCount = successBetsCount
-        self.allBetsCount = allBetsCount
-        self.winningProcent = winningProcent
-        self.commonEarnings = commonEarnings
-        self.bestBet = bestBet
-        self.worstBet = worstBet
-    }
-    
-    convenience init(model: Statistics) {
-        self.init(successBetsCount: "\(model.successBetsCount)",
-                  allBetsCount: "\(model.allBetsCount)",
-                  winningProcent: "\(model.winningProcent)%",
-                  commonEarnings: (model.commonEarnings > 0 ? "+" : "") + "\(model.commonEarnings)",
-                  bestBet: "+\(model.bestBet.rounded(.towardZero))",
-                  worstBet: "\(model.worstBet)")
+    let allCases: [KeyValueMarker]
+
+    private let successBetsAmount: KeyValueMarker
+    private let allBetsCount: KeyValueMarker
+    private let winningPercent: KeyValueMarker
+    private let commonEarnings: KeyValueMarker
+    private let bestBet: KeyValueMarker
+    private let worstBet: KeyValueMarker
+
+    init(model: Statistics) {
+        successBetsAmount = .init(key: .sucessBetsAmount, value: "\(model.successBetsCount)", marker: .basic)
+        allBetsCount = .init(key: .allBets, value: "\(model.allBetsCount)", marker: .basic)
+        winningPercent = .init(key: .winningPercent, value: model.winRatio.toPercent(), marker: model.winRatio.toPercentMarker())
+        commonEarnings = .init(key: .commonEarnings, value: model.commonEarnings.toString(), marker: model.commonEarnings.toMarker())
+        bestBet = .init(key: .bestBet, value: model.bestBet.toString(), marker: model.bestBet.toMarker())
+        worstBet = .init(key: .worstBet, value: model.worstBet.toString(), marker: model.worstBet.toMarker())
+        
+        allCases = [successBetsAmount, allBetsCount, winningPercent, commonEarnings, bestBet, worstBet]
     }
 }

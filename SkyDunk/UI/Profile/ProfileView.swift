@@ -39,7 +39,7 @@ class ProfileView: UIView {
         view.teamIcon.image = .CHI
         [TitleValueView(title: StatisticsTitle.sucessBetsAmount.rawValue, value: "15"),
          TitleValueView(title: StatisticsTitle.allBets.rawValue, value: "10"),
-         TitleValueView(title: StatisticsTitle.winningProcent.rawValue, value: "74%"),
+         TitleValueView(title: StatisticsTitle.winningPercent.rawValue, value: "74%"),
          TitleValueView(title: StatisticsTitle.commonEarnings.rawValue, value: "+1582")
         ].forEach { view.valuesContainer.addArrangedSubview($0) }
         return view
@@ -53,7 +53,7 @@ class ProfileView: UIView {
         view.teamIcon.image = .ORL
         [TitleValueView(title: StatisticsTitle.sucessBetsAmount.rawValue, value: "15"),
          TitleValueView(title: StatisticsTitle.allBets.rawValue, value: "10"),
-         TitleValueView(title: StatisticsTitle.winningProcent.rawValue, value: "74%"),
+         TitleValueView(title: StatisticsTitle.winningPercent.rawValue, value: "74%"),
          TitleValueView(title: StatisticsTitle.commonEarnings.rawValue, value: "+1582")
         ].forEach { view.valuesContainer.addArrangedSubview($0) }
         return view
