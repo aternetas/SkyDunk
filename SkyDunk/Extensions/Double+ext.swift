@@ -22,7 +22,7 @@ extension Double {
     }
     
     func toMarker() -> Marker {
-        self > 0 ? .win : .defeat
+        self.isZero ? .basic : (self > 0 ? .win : .defeat)
     }
     
     private func round() -> Int {

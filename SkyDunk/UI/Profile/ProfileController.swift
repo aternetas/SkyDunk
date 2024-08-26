@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import RxSwift
 
 class ProfileController: BaseController<ProfileViewModel> {
     
     private let rootView = ProfileView()
+    private let disposeBag = DisposeBag()
     
     override init() {
         super.init()
@@ -21,6 +23,11 @@ class ProfileController: BaseController<ProfileViewModel> {
         super.loadView()
         
         view = rootView
+        viewModel.subject.subscribe { vm in
+            self.rootView.statisticsView.bind(vm: vm)
+        }.disposed(by: disposeBag)
+        
+        viewModel.getData()
     }
     
     required init?(coder: NSCoder) {
@@ -30,21 +37,10 @@ class ProfileController: BaseController<ProfileViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.delegate = self
         rootView.myBetsView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tabOnMyBetsView)))
-        viewModel.getCases()
     }
     
     @objc func tabOnMyBetsView() {
         print("t")
-    }
-}
-
-extension ProfileController: ProfileViewModelDelegate {
-    
-    func updateCases(cases: StatisticsVM) {
-        DispatchQueue.main.async { [weak self] in
-            self?.rootView.statisticsView.bind(vm: cases)
-        }
     }
 }

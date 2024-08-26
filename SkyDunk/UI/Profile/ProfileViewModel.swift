@@ -5,19 +5,24 @@
 //  Created by aternetas on 12.08.2024.
 //
 
-import Foundation
-
-protocol ProfileViewModelDelegate {
-    func updateCases(cases: StatisticsVM)
-}
+import RxSwift
+import RxRelay
 
 class ProfileViewModel: BaseViewModel {
     
-    var delegate: ProfileViewModelDelegate?
+    let subject = PublishRelay<StatisticsVM>()
+    let disposeBag = DisposeBag()
     
     private lazy var statisticsService = ServiceFactory.shared.statisticsService
+
+    func getData() {
+        getCommonStatistics()
+    }
     
-    func getCases() {
-        delegate?.updateCases(cases: StatisticsVM(model: statisticsService.getStatistics()))
+    private func getCommonStatistics() {
+        statisticsService.getStats()
+            .map { StatisticsVM(model: $0) }
+            .bind(to: subject)
+            .disposed(by: disposeBag)
     }
 }

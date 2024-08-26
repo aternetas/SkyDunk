@@ -40,15 +40,9 @@ class StatisticsView: UIView {
     }
     
     func bind(vm: StatisticsVM) {
-        createArrangedSubviews(vm: vm).forEach{ valuesContainer.addArrangedSubview($0) }
-    }
-    
-    private func createArrangedSubviews(vm: StatisticsVM) -> [TitleValueView] {
-        var elements: [TitleValueView] = []
-        vm.allCases.forEach {
-            elements.append(TitleValueView(title: $0.key.rawValue, value: $0.value, marker: $0.marker))
+        valuesContainer.removeSubviews()
+        valuesContainer.createArrangedSubviews(vm: vm).forEach { valuesContainer.addArrangedSubview($0)
         }
-        return elements
     }
     
     private func initConstraints() {
