@@ -5,13 +5,11 @@
 //  Created by aternetas on 12.08.2024.
 //
 
-import RxSwift
 import RxRelay
 
-class ProfileViewModel: BaseViewModel {
+class ProfileViewModel: RxBaseViewModel {
     
     let subject = PublishRelay<StatisticsVM>()
-    let disposeBag = DisposeBag()
     
     private lazy var statisticsService = ServiceFactory.shared.statisticsService
 

@@ -6,12 +6,10 @@
 //
 
 import UIKit
-import RxSwift
 
-class ProfileController: BaseController<ProfileViewModel> {
+class ProfileController: RxBaseController<ProfileViewModel> {
     
     private let rootView = ProfileView()
-    private let disposeBag = DisposeBag()
     
     override init() {
         super.init()

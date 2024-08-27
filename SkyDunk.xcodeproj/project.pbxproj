@@ -70,6 +70,8 @@
 		A56722672C7BA5C200985A2E /* KeyValueMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56722662C7BA5C200985A2E /* KeyValueMarker.swift */; };
 		A56722692C7BA5F000985A2E /* StatisticsTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56722682C7BA5F000985A2E /* StatisticsTitle.swift */; };
 		A567226B2C7C947200985A2E /* UIStackView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567226A2C7C947200985A2E /* UIStackView+ext.swift */; };
+		A567226D2C7D121B00985A2E /* RxBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567226C2C7D121B00985A2E /* RxBaseController.swift */; };
+		A567226F2C7D31B800985A2E /* RxBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567226E2C7D31B800985A2E /* RxBaseViewModel.swift */; };
 		A57453512C7B90D400DAAC66 /* Double+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57453502C7B90D400DAAC66 /* Double+ext.swift */; };
 		A5992D6B2C6A5EB0002CC1D1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D6A2C6A5EB0002CC1D1 /* ProfileView.swift */; };
 		A5992D6D2C6A5ED4002CC1D1 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D6C2C6A5ED4002CC1D1 /* ProfileViewModel.swift */; };
@@ -183,6 +185,8 @@
 		A56722662C7BA5C200985A2E /* KeyValueMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueMarker.swift; sourceTree = "<group>"; };
 		A56722682C7BA5F000985A2E /* StatisticsTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTitle.swift; sourceTree = "<group>"; };
 		A567226A2C7C947200985A2E /* UIStackView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+ext.swift"; sourceTree = "<group>"; };
+		A567226C2C7D121B00985A2E /* RxBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxBaseController.swift; sourceTree = "<group>"; };
+		A567226E2C7D31B800985A2E /* RxBaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxBaseViewModel.swift; sourceTree = "<group>"; };
 		A57453502C7B90D400DAAC66 /* Double+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+ext.swift"; sourceTree = "<group>"; };
 		A5992D6A2C6A5EB0002CC1D1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A5992D6C2C6A5ED4002CC1D1 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -420,6 +424,8 @@
 				A5E40C302BF8DC850056AC63 /* ScreenType.swift */,
 				A514A3252C0A17480014BBD4 /* AlertModel.swift */,
 				A5AF23082C610DB000238660 /* Errors.swift */,
+				A567226C2C7D121B00985A2E /* RxBaseController.swift */,
+				A567226E2C7D31B800985A2E /* RxBaseViewModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -703,6 +709,7 @@
 				A541A21D2C4FF8800075BEFC /* String+ext.swift in Sources */,
 				FABB83992BEF94A80092F21B /* Fonts.swift in Sources */,
 				A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */,
+				A567226F2C7D31B800985A2E /* RxBaseViewModel.swift in Sources */,
 				A541A2172C4EBCE70075BEFC /* GamePayload.swift in Sources */,
 				A567226B2C7C947200985A2E /* UIStackView+ext.swift in Sources */,
 				A5AF23092C610DB000238660 /* Errors.swift in Sources */,
@@ -734,6 +741,7 @@
 				A514A3242C01F49A0014BBD4 /* CustomTextField.swift in Sources */,
 				FAE48A7A2C17881E0046F6A0 /* GameService.swift in Sources */,
 				A52C53DF2BEF93C200699D2E /* Date+ext.swift in Sources */,
+				A567226D2C7D121B00985A2E /* RxBaseController.swift in Sources */,
 				A5B4CF8A2C7B451200DD157F /* StatisticsService.swift in Sources */,
 				A50864A72C235DF9004F0F11 /* BetService.swift in Sources */,
 				8EA4AEA22C4401FF0083536F /* GameDTORealm.swift in Sources */,
