@@ -5,7 +5,7 @@
 //  Created by aternetas on 12.08.2024.
 //
 
-import RxRelay
+import RxCocoa
 
 class ProfileViewModel: RxBaseViewModel {
     

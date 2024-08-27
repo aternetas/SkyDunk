@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxCocoa
 
 class ProfileController: RxBaseController<ProfileViewModel> {
     
@@ -21,9 +22,12 @@ class ProfileController: RxBaseController<ProfileViewModel> {
         super.loadView()
         
         view = rootView
-        viewModel.subject.subscribe { vm in
-            self.rootView.statisticsView.bind(vm: vm)
-        }.disposed(by: disposeBag)
+        
+        viewModel.subject
+            .asSignal()
+            .emit { [weak self] vm in
+                self?.rootView.statisticsView.bind(vm: vm)
+            }.disposed(by: disposeBag)
         
         viewModel.getData()
     }
