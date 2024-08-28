@@ -31,31 +31,19 @@ class ProfileView: UIView {
     
     lazy var statisticsView: StatisticsView = StatisticsView()
     
-    lazy var bestTeamStatsView: TeamStatsView = {
-        let view = TeamStatsView()
-        view.title.text = "НАИБОЛЬШИЙ ДОХОД"
-        view.teamLabel.text = "Chicago Bulls"
-        view.gradientView.setColors(colors: [.chicagoBulls])
-        view.teamIcon.image = .CHI
-        [TitleValueView(title: StatisticsTitle.sucessBetsAmount.rawValue, value: "15"),
-         TitleValueView(title: StatisticsTitle.allBets.rawValue, value: "10"),
-         TitleValueView(title: StatisticsTitle.winningPercent.rawValue, value: "74%"),
-         TitleValueView(title: StatisticsTitle.commonEarnings.rawValue, value: "+1582")
-        ].forEach { view.valuesContainer.addArrangedSubview($0) }
-        return view
-    }()
+    lazy var bestTeamStatsView: TeamStatsView = TeamStatsView()
     
     private lazy var worstTeamStatsView: TeamStatsView = {
         let view = TeamStatsView()
-        view.title.text = "НАИБОЛЬШИЙ ПРОИГРЫШ"
-        view.teamLabel.text = "Orlando Magic"
-        view.gradientView.setColors(colors: [.orlandoMagic])
-        view.teamIcon.image = .ORL
-        [TitleValueView(title: StatisticsTitle.sucessBetsAmount.rawValue, value: "15"),
-         TitleValueView(title: StatisticsTitle.allBets.rawValue, value: "10"),
-         TitleValueView(title: StatisticsTitle.winningPercent.rawValue, value: "74%"),
-         TitleValueView(title: StatisticsTitle.commonEarnings.rawValue, value: "+1582")
-        ].forEach { view.valuesContainer.addArrangedSubview($0) }
+//        view.title.text = "НАИБОЛЬШИЙ ПРОИГРЫШ"
+//        view.teamLabel.text = "Orlando Magic"
+//        view.gradientView.setColors(colors: [.orlandoMagic])
+//        view.teamIcon.image = .ORL
+//        [TitleValueView(title: StatisticsTitle.sucessBetsAmount.rawValue, value: "15"),
+//         TitleValueView(title: StatisticsTitle.allBets.rawValue, value: "10"),
+//         TitleValueView(title: StatisticsTitle.winningPercent.rawValue, value: "74%"),
+//         TitleValueView(title: StatisticsTitle.commonEarnings.rawValue, value: "+1582")
+//        ].forEach { view.valuesContainer.addArrangedSubview($0) }
         return view
     }()
     

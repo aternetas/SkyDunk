@@ -142,4 +142,71 @@ extension TeamType {
             UIImage(resource: .plusIcon)//TODO: добавить иконку
         }
     }
+    
+    var fullName: String {
+        switch self {
+        case .atlantaHawks:
+            "Atlanta Hawks"
+        case .bostonCeltics:
+            "Boston Celtics"
+        case .brooklynNets:
+            "Brooklyn Nets"
+        case .charlotteHornets:
+            "Charlotte Hornets"
+        case .chicagoBulls:
+            "Chicago Bulls"
+        case .clevelandCavaliers:
+            "Cleveland Cavaliers"
+        case .dallasMavericks:
+            "Dallas Mavericks"
+        case .denverNuggets:
+            "Denver Nuggets"
+        case .detroitPistons:
+            "Detroit Pistons"
+        case .goldenStateWarriors:
+            "Golden State Warriors"
+        case .houstonRockets:
+            "Houston Rockets"
+        case .indianaPacers:
+            "Indiana Pacers"
+        case .losAngelesLaker:
+            "Los Angeles Laker"
+        case .losAngelesClippers:
+            "Los Angeles Clippers"
+        case .memphisGrizzles:
+            "Memphis Grizzles"
+        case .miamiHeats:
+            "Miami Heats"
+        case .milwaukeeBucks:
+            "Milwaukee Bucks"
+        case .minnesotaTimberwolves:
+            "Minnesota Timberwolves"
+        case .newOrleansPelicans:
+            "New Orleans Pelicans"
+        case .newYorkKnicks:
+            "New York Knicks"
+        case .oklachomaCityThunder:
+            "Oklachoma City Thunder"
+        case .orlandoMagic:
+            "Orlando Magic"
+        case .philadelphia76ers:
+            "Philadelphia 76ers"
+        case .phoenixSuns:
+            "Phoenix Suns"
+        case .portlandTrailBlazers:
+            "Portland Trail Blazers"
+        case .sacramentoKings:
+            "Sacramento Kings"
+        case .sanAntonioSpurs:
+            "San Antonio Spurs"
+        case .torontoRaptors:
+            "Toronto Raptors"
+        case .utahJazz:
+            "Utah Jazz"
+        case .washingtonWizards:
+            "Washington Wizards"
+        case .other:
+            ""
+        }
+    }
 }

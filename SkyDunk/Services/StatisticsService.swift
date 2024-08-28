@@ -9,7 +9,12 @@ import RxSwift
 
 class StatisticsService {
     
-    func getStats() -> Observable<Statistics> {
-        Observable<Statistics>.just(Statistics(successBetsCount: 110, allBetsCount: 165, winRatio: 59, commonEarnings: 1043, bestBet: 102.3, worstBet: -86))
+    func getGeneralStats() -> Observable<GeneralStatistics> {
+        Observable<GeneralStatistics>.just(GeneralStatistics(successBetsCount: 110, allBetsCount: 165, winRatio: 59, commonEarnings: 1043, bestBet: 102.3, worstBet: -86))
+    }
+    
+    func getBestTeamStats() -> Observable<TeamStatistics>{
+        Observable<TeamStatistics>
+            .just(TeamStatistics(team: .bostonCeltics, type: .best, successBetsCount: 10, allBetsCount: 12, winRatio: 83, commonEarnings: 120))
     }
 }

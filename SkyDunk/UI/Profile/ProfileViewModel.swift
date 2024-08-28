@@ -9,18 +9,27 @@ import RxCocoa
 
 class ProfileViewModel: RxBaseViewModel {
     
-    let subject = PublishRelay<StatisticsVM>()
-    
     private lazy var statisticsService = ServiceFactory.shared.statisticsService
+    
+    let generalStatisticsRelay = PublishRelay<GeneralStatisticsVM>()
+    let bestTeamStatisticsRelay = PublishRelay<TeamStatisticsVM>()
 
     func getData() {
-        getCommonStatistics()
+        getGeneralStatistics()
+        getBestTeamStatistics()
     }
     
-    private func getCommonStatistics() {
-        statisticsService.getStats()
-            .map { StatisticsVM(model: $0) }
-            .bind(to: subject)
+    private func getGeneralStatistics() {
+        statisticsService.getGeneralStats()
+            .map { GeneralStatisticsVM(model: $0) }
+            .bind(to: generalStatisticsRelay)
+            .disposed(by: disposeBag)
+    }
+    
+    private func getBestTeamStatistics() {
+        statisticsService.getBestTeamStats()
+            .map { TeamStatisticsVM(model: $0) }
+            .bind(to: bestTeamStatisticsRelay)
             .disposed(by: disposeBag)
     }
 }

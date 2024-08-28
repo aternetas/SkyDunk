@@ -1,24 +1,25 @@
 //
-//  StatisticsVM.swift
+//  GeneralStatisticsVM.swift
 //  SkyDunk
 //
 //  Created by aternetas on 25.08.2024.
 //
 
-import Foundation
+import UIKit
 
-class StatisticsVM {
+struct GeneralStatisticsVM: GeneralStatisticsVMProtocol {
     
     let allCases: [KeyValueMarker]
 
-    private let successBetsAmount: KeyValueMarker
-    private let allBetsCount: KeyValueMarker
-    private let winningPercent: KeyValueMarker
-    private let commonEarnings: KeyValueMarker
+    internal let successBetsAmount: KeyValueMarker
+    internal let allBetsCount: KeyValueMarker
+    internal let winningPercent: KeyValueMarker
+    internal let commonEarnings: KeyValueMarker
+    
     private let bestBet: KeyValueMarker
     private let worstBet: KeyValueMarker
-
-    init(model: Statistics) {
+    
+    init(model: GeneralStatistics) {
         successBetsAmount = .init(key: .sucessBetsAmount, value: "\(model.successBetsCount)", marker: .basic)
         allBetsCount = .init(key: .allBets, value: "\(model.allBetsCount)", marker: .basic)
         winningPercent = .init(key: .winningPercent, value: model.winRatio.toPercent(), marker: model.winRatio.toPercentMarker())

@@ -9,12 +9,9 @@ import UIKit
 
 extension UIStackView {
     
-    func createArrangedSubviews(vm: StatisticsVM) -> [TitleValueView] {
-        var elements: [TitleValueView] = []
-        vm.allCases.forEach {
-            elements.append(TitleValueView(title: $0.key.rawValue, value: $0.value, marker: $0.marker))
-        }
-        return elements
+    func createArrangedSubviews(_ cases: [KeyValueMarker]) {
+        cases.map { TitleValueView(title: $0.key.rawValue, value: $0.value, marker: $0.marker) }
+            .forEach { addArrangedSubview($0) }
     }
     
     func removeSubviews() {

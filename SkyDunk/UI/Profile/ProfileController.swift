@@ -23,12 +23,7 @@ class ProfileController: RxBaseController<ProfileViewModel> {
         
         view = rootView
         
-        viewModel.subject
-            .asSignal()
-            .emit { [weak self] vm in
-                self?.rootView.statisticsView.bind(vm: vm)
-            }.disposed(by: disposeBag)
-        
+        bindRx()
         viewModel.getData()
     }
     
@@ -40,6 +35,20 @@ class ProfileController: RxBaseController<ProfileViewModel> {
         super.viewDidLoad()
         
         rootView.myBetsView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tabOnMyBetsView)))
+    }
+    
+    private func bindRx() {
+        viewModel.generalStatisticsRelay
+            .asSignal()
+            .emit { [weak self] vm in
+                self?.rootView.statisticsView.bind(vm: vm)
+            }.disposed(by: disposeBag)
+        
+        viewModel.bestTeamStatisticsRelay
+            .asSignal()
+            .emit { [weak self] vm in
+                self?.rootView.bestTeamStatsView.bind(vm: vm)
+            }.disposed(by: disposeBag)
     }
     
     @objc func tabOnMyBetsView() {

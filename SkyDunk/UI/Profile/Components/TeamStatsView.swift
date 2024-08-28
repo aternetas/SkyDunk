@@ -17,15 +17,12 @@ class TeamStatsView: UIView {
         return view
     }()
     
-    lazy var gradientView: GradientView = GradientView()
+    private lazy var gradientView: GradientView = GradientView()
+    private lazy var title: UILabel = UILabel(font: .light12)
+    private lazy var teamLabel: UILabel = UILabel(font: .medium16)
+    private lazy var teamIcon: UIImageView = UIImageView()
     
-    lazy var title: UILabel = UILabel(font: .light12)
-    
-    lazy var teamLabel: UILabel = UILabel(font: .medium16)
-    
-    lazy var teamIcon: UIImageView = UIImageView()
-    
-    lazy var valuesContainer: UIStackView = {
+    private lazy var valuesContainer: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
         view.spacing = 2.0
@@ -42,6 +39,22 @@ class TeamStatsView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func bind(vm: TeamStatisticsVM) {
+        title.text = switch vm.type {
+        case .best:
+            "НАИБОЛЬШИЙ ДОХОД"
+        case .worst:
+            "НАИБОЛЬШИЙ ПРОИГРЫШ"
+        }
+        
+        gradientView.setColors(colors: [vm.team.color])
+        teamLabel.text = vm.team.fullName
+        teamIcon.image = vm.team.logo
+        
+        valuesContainer.removeSubviews()
+        valuesContainer.createArrangedSubviews(vm.allCases)
     }
     
     private func setupView() {

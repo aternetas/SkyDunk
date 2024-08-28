@@ -39,10 +39,9 @@ class StatisticsView: UIView {
         layer.cornerRadius = 10
     }
     
-    func bind(vm: StatisticsVM) {
+    func bind(vm: GeneralStatisticsVM) {
         valuesContainer.removeSubviews()
-        valuesContainer.createArrangedSubviews(vm: vm).forEach { valuesContainer.addArrangedSubview($0)
-        }
+        valuesContainer.createArrangedSubviews(vm.allCases)
     }
     
     private func initConstraints() {
