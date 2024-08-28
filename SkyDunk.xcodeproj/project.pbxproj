@@ -77,6 +77,7 @@
 		A56722762C7F87A300985A2E /* TeamStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56722752C7F87A300985A2E /* TeamStatistics.swift */; };
 		A56722782C7F888200985A2E /* GeneralStatisticsVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56722772C7F888200985A2E /* GeneralStatisticsVMProtocol.swift */; };
 		A567227A2C7F88AE00985A2E /* TeamStatisticsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56722792C7F88AE00985A2E /* TeamStatisticsVM.swift */; };
+		A567227C2C7F8EE600985A2E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567227B2C7F8EE600985A2E /* UserService.swift */; };
 		A57453512C7B90D400DAAC66 /* Double+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57453502C7B90D400DAAC66 /* Double+ext.swift */; };
 		A5992D6B2C6A5EB0002CC1D1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D6A2C6A5EB0002CC1D1 /* ProfileView.swift */; };
 		A5992D6D2C6A5ED4002CC1D1 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D6C2C6A5ED4002CC1D1 /* ProfileViewModel.swift */; };
@@ -197,6 +198,7 @@
 		A56722752C7F87A300985A2E /* TeamStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStatistics.swift; sourceTree = "<group>"; };
 		A56722772C7F888200985A2E /* GeneralStatisticsVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStatisticsVMProtocol.swift; sourceTree = "<group>"; };
 		A56722792C7F88AE00985A2E /* TeamStatisticsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStatisticsVM.swift; sourceTree = "<group>"; };
+		A567227B2C7F8EE600985A2E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		A57453502C7B90D400DAAC66 /* Double+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+ext.swift"; sourceTree = "<group>"; };
 		A5992D6A2C6A5EB0002CC1D1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A5992D6C2C6A5ED4002CC1D1 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				A50864A62C235DF9004F0F11 /* BetService.swift */,
 				A50864AA2C2CAD7E004F0F11 /* ServiceFactory.swift */,
 				A5B4CF892C7B451200DD157F /* StatisticsService.swift */,
+				A567227B2C7F8EE600985A2E /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 				A50864A32C235D2B004F0F11 /* BetDTO.swift in Sources */,
 				A55723B42C46F7E00051D0D9 /* BetRealmRepository.swift in Sources */,
 				A541A20B2C4EA90A0075BEFC /* RemoteManager.swift in Sources */,
+				A567227C2C7F8EE600985A2E /* UserService.swift in Sources */,
 				A558F41D2C775B44000F7491 /* TeamStatsView.swift in Sources */,
 				A541A2132C4EAB720075BEFC /* TeamModel.swift in Sources */,
 				FAF8171E2BF8D582003BBBD3 /* InfoView.swift in Sources */,

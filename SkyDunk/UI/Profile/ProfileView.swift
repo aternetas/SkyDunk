@@ -11,18 +11,18 @@ import SnapKit
 class ProfileView: UIView {
     
     private lazy var scrollView: UIScrollView = UIScrollView()
-    private lazy var balanceView: BalanceView = BalanceView()
     
     private lazy var stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
         view.spacing = 20.0
         view.distribution = .fillEqually
-        [balanceView, myBetsView, InfoView(text: "Что-то ещё")].forEach { view.addArrangedSubview($0) }
+        [balanceView, myBetsView, InfoView(text: "ЕЩË ЧТО-ТО")].forEach { view.addArrangedSubview($0) }
         return view
     }()
     
-    lazy var myBetsView: InfoView = InfoView(text: "Moи ставки")
+    lazy var balanceView: BalanceView = BalanceView()
+    lazy var myBetsView: InfoView = InfoView(text: "МОИ СТАВКИ")
     lazy var statisticsView: StatisticsView = StatisticsView()
     lazy var bestTeamStatsView: TeamStatsView = TeamStatsView()
     lazy var worstTeamStatsView: TeamStatsView = TeamStatsView()

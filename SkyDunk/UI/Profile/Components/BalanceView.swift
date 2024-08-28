@@ -10,8 +10,6 @@ import SnapKit
 
 class BalanceView: UIView {
     
-    var amount: Double = 50
-    
     private lazy var contentView: UIView = UIView()
     
     private lazy var title: UILabel = {
@@ -23,7 +21,7 @@ class BalanceView: UIView {
     private lazy var balanceConteinerView: UIView = UIView()
     
     private lazy var balanceLabel: UILabel = {
-        let view = UILabel(text: "\(Int(amount))", font: UIFont.light18)
+        let view = UILabel(font: UIFont.light18)
         view.textAlignment = .center
         return view
     }()
@@ -39,6 +37,10 @@ class BalanceView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func bind(balance: Double) {
+        balanceLabel.text = String(Int(balance))
     }
     
     private func setupView() {

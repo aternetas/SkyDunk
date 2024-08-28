@@ -38,6 +38,12 @@ class ProfileController: RxBaseController<ProfileViewModel> {
     }
     
     private func bindRx() {
+        viewModel.currentBalanceRelay
+            .asSignal()
+            .emit { [weak self] balance in
+                self?.rootView.balanceView.bind(balance: balance)
+            }.disposed(by: disposeBag)
+        
         viewModel.generalStatisticsRelay
             .asSignal()
             .emit { [weak self] vm in
