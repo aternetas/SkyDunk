@@ -42,6 +42,7 @@ class BalanceView: UIView {
     }
     
     private func setupView() {
+        backgroundColor = .backgroundGray
         addShadows()
         layer.cornerRadius = 10
     }

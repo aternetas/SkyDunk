@@ -13,10 +13,12 @@ class ProfileViewModel: RxBaseViewModel {
     
     let generalStatisticsRelay = PublishRelay<GeneralStatisticsVM>()
     let bestTeamStatisticsRelay = PublishRelay<TeamStatisticsVM>()
+    let worstTeamStatisticsRelay = PublishRelay<TeamStatisticsVM>()
 
     func getData() {
         getGeneralStatistics()
         getBestTeamStatistics()
+        getWorstTeamStatistics()
     }
     
     private func getGeneralStatistics() {
@@ -30,6 +32,13 @@ class ProfileViewModel: RxBaseViewModel {
         statisticsService.getBestTeamStats()
             .map { TeamStatisticsVM(model: $0) }
             .bind(to: bestTeamStatisticsRelay)
+            .disposed(by: disposeBag)
+    }
+    
+    private func getWorstTeamStatistics() {
+        statisticsService.getWorstTeamStats()
+            .map { TeamStatisticsVM(model: $0) }
+            .bind(to: worstTeamStatisticsRelay)
             .disposed(by: disposeBag)
     }
 }

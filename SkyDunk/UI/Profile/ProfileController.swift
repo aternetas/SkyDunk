@@ -49,6 +49,12 @@ class ProfileController: RxBaseController<ProfileViewModel> {
             .emit { [weak self] vm in
                 self?.rootView.bestTeamStatsView.bind(vm: vm)
             }.disposed(by: disposeBag)
+        
+        viewModel.worstTeamStatisticsRelay
+            .asSignal()
+            .emit { [weak self] vm in
+                self?.rootView.worstTeamStatsView.bind(vm: vm)
+            }.disposed(by: disposeBag)
     }
     
     @objc func tabOnMyBetsView() {
