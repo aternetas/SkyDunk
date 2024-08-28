@@ -9,15 +9,9 @@ import UIKit
 
 class NewBetView: UIView {
     
-    private lazy var newBetLab: UILabel = {
-        let label = UILabel(text: "Новая ставка", font: .medium20)
-        return label
-    }()
+    private lazy var newBetLab: UILabel = UILabel(text: "Новая ставка", font: .medium20)
     
-    lazy var gameHeaderView: GameHeaderView = {
-        let view = GameHeaderView()
-        return view
-    }()
+    lazy var gameHeaderView: GameHeaderView = GameHeaderView()
     
     lazy var betDescriptionTextField: CustomTextField = {
         let textField = CustomTextField(text: "Прогноз")

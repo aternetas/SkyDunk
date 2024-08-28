@@ -22,22 +22,15 @@ class HomeView: UIView {
         return view
     }()
     
-    lazy var lastGameView = LastGameView()
+    lazy var lastGameView: LastGameView = LastGameView()
     
     lazy var activeBetsLabel = {
-        let label = UILabel(text: "АКТИВНЫЕ СТАВКИ",
-                            font: .light18,
-                            textColor: .textBlack)
+        let label = UILabel(text: "АКТИВНЫЕ СТАВКИ", font: .light18, textColor: .textBlack)
         label.isHidden = true
         return label
     }()
     
-    private lazy var nextGameLabel = {
-        let label = UILabel(text: "БЛИЖАЙШИЕ ИГРЫ",
-                            font: .light18,
-                            textColor: .textBlack)
-        return label
-    }()
+    private lazy var nextGameLabel: UILabel = UILabel(text: "БЛИЖАЙШИЕ ИГРЫ", font: .light18, textColor: .textBlack)
     
     lazy var nextGamesCollectionView = {
         let cvFlowLayout = UICollectionViewFlowLayout()

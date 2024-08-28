@@ -20,6 +20,10 @@ extension UIView {
             layer.shadowOffset = offset
         }
     
+    func addSubviews(_ views: [UIView]) {
+        views.forEach { addSubview($0) }
+    }
+    
     func addSubviewsAndAutolayout(_ views: [UIView]) {
         views.forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false

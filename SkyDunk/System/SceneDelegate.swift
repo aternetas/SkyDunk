@@ -22,8 +22,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, MyLogger {
         homeVC.tabBarItem = UITabBarItem(title: "Домашняя", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         let pastGamesVC = PastGamesController()
         pastGamesVC.tabBarItem = UITabBarItem(title: "Прошедшие игры", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
+        let profileVC = ProfileController()
+        profileVC.tabBarItem = UITabBarItem(title: "Мой профиль", image: UIImage(systemName: "figure.child.circle"), selectedImage: UIImage(systemName: "figure.child.circle.fill"))
         
-        tabbar.viewControllers = [homeVC, pastGamesVC]
+        tabbar.viewControllers = [homeVC, pastGamesVC, profileVC]
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
