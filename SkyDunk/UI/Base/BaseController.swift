@@ -64,7 +64,7 @@ extension BaseController: AlertManagerProtocol {
     }
 }
 
-extension UIViewController: UIAdaptivePresentationControllerDelegate {
+extension UIKit.UIViewController: UIKit.UIAdaptivePresentationControllerDelegate {
     
     @objc func dismissModal() {}
     
