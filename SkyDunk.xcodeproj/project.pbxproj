@@ -60,6 +60,10 @@
 		A541A2242C52EAC60075BEFC /* RemoteGameRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A541A2232C52EAC60075BEFC /* RemoteGameRepositoryProtocol.swift */; };
 		A553C2582CAF2FB700CD40DF /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A553C2572CAF2FB700CD40DF /* RealmSwift */; };
 		A553C25B2CAF308F00CD40DF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A553C25A2CAF308F00CD40DF /* Alamofire */; };
+		A553C25F2CAF333500CD40DF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A553C25E2CAF333500CD40DF /* SnapKit */; };
+		A553C2622CAF340C00CD40DF /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A553C2612CAF340C00CD40DF /* RxCocoa */; };
+		A553C2642CAF340C00CD40DF /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A553C2632CAF340C00CD40DF /* RxRelay */; };
+		A553C2662CAF340C00CD40DF /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A553C2652CAF340C00CD40DF /* RxSwift */; };
 		A55723AD2C42ED230051D0D9 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723AC2C42ED230051D0D9 /* RealmManager.swift */; };
 		A55723B02C4562B60051D0D9 /* GameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723AF2C4562B60051D0D9 /* GameProtocol.swift */; };
 		A55723B22C45631F0051D0D9 /* BetDTORealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723B12C45631F0051D0D9 /* BetDTORealm.swift */; };
@@ -178,7 +182,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A553C2662CAF340C00CD40DF /* RxSwift in Frameworks */,
+				A553C2642CAF340C00CD40DF /* RxRelay in Frameworks */,
+				A553C25F2CAF333500CD40DF /* SnapKit in Frameworks */,
 				A553C2582CAF2FB700CD40DF /* RealmSwift in Frameworks */,
+				A553C2622CAF340C00CD40DF /* RxCocoa in Frameworks */,
 				A553C25B2CAF308F00CD40DF /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +518,10 @@
 			packageProductDependencies = (
 				A553C2572CAF2FB700CD40DF /* RealmSwift */,
 				A553C25A2CAF308F00CD40DF /* Alamofire */,
+				A553C25E2CAF333500CD40DF /* SnapKit */,
+				A553C2612CAF340C00CD40DF /* RxCocoa */,
+				A553C2632CAF340C00CD40DF /* RxRelay */,
+				A553C2652CAF340C00CD40DF /* RxSwift */,
 			);
 			productName = SkyDunk;
 			productReference = A52C53B02BEE8B8300699D2E /* SkyDunk.app */;
@@ -542,6 +554,8 @@
 			packageReferences = (
 				A553C2562CAF2FB700CD40DF /* XCRemoteSwiftPackageReference "realm-swift" */,
 				A553C2592CAF308F00CD40DF /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A553C25D2CAF333500CD40DF /* XCRemoteSwiftPackageReference "SnapKit" */,
+				A553C2602CAF340C00CD40DF /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = A52C53B12BEE8B8300699D2E /* Products */;
 			projectDirPath = "";
@@ -871,6 +885,22 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		A553C25D2CAF333500CD40DF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		A553C2602CAF340C00CD40DF /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -883,6 +913,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A553C2592CAF308F00CD40DF /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		A553C25E2CAF333500CD40DF /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A553C25D2CAF333500CD40DF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		A553C2612CAF340C00CD40DF /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A553C2602CAF340C00CD40DF /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		A553C2632CAF340C00CD40DF /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A553C2602CAF340C00CD40DF /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		A553C2652CAF340C00CD40DF /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A553C2602CAF340C00CD40DF /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
