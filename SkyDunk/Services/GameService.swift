@@ -18,8 +18,8 @@ class GameService: MyLogger {
         self.localRepository = localRepository
     }
     
-    func getGames(completion: @escaping (Result<[Game], Error>) -> ()) {
-        remoteRepository.getGames { [weak self] res in
+    func getGames(lastUpdation: String, completion: @escaping (Result<[Game], Error>) -> ()) {
+        remoteRepository.getGames(lastUpdation: lastUpdation) { [weak self] res in
             switch res {
                 
             case .success(let dtos):

@@ -29,7 +29,7 @@ class GameView: UIView {
         return button
     }()
     
-    lazy var emptyStateView: InfoView = InfoView(text: "В этом матче пока ставок")
+    lazy var emptyStateView: InfoView = InfoView(text: "В этом матче нет ставок")
     
     override init(frame: CGRect) {
         super.init(frame: frame)

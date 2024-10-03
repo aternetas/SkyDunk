@@ -19,6 +19,7 @@ class HomeViewModel: BaseViewModel, MyLogger {
     
     private let betService = ServiceFactory.shared.betService
     private let gameService = ServiceFactory.shared.gameService
+    private let userDefaultsService = ServiceFactory.shared.userDefaultsService
     
     var delegate: HomeViewModelDelegat?
     var nextGamesVM: [GameVM] = []
@@ -50,9 +51,10 @@ class HomeViewModel: BaseViewModel, MyLogger {
     }
     
     private func getGames() {
-        gameService.getGames { [weak self] result in
+        gameService.getGames(lastUpdation: userDefaultsService.lastUpdationDate.toYearMonthDay()) { [weak self] result in
             switch result {
             case .success(let games):
+                self?.userDefaultsService.setNewValue(value: Date.now, key: .LAST_UPDATION_DATE)
                 self?.games = games
                 self?.setLastGame()
                 self?.setNextGames()

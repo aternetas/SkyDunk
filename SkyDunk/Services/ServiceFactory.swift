@@ -13,6 +13,7 @@ class ServiceFactory {
     
     let gameService: GameService
     let betService: BetService
+    let userDefaultsService: UserDefaultsService
     
     private init() {
         let realmManager = RealmManager()
@@ -26,5 +27,6 @@ class ServiceFactory {
         
         gameService = GameService(remoteRepository: remoteGameRepo, localRepository: localGameRepo)
         betService = BetService(repository: localBetRepo)
+        userDefaultsService = UserDefaultsService()
     }
 }

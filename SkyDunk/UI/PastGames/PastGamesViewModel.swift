@@ -21,12 +21,19 @@ class PastGamesViewModel: BaseViewModel, MyLogger {
     
     private let betService = ServiceFactory.shared.betService
     private let gameService = ServiceFactory.shared.gameService
-
+    private let userDefaultsService = ServiceFactory.shared.userDefaultsService
+    
     func viewDidLoad() {
-        gameService.getGames { [weak self] res in
+        getPastGames()
+        delegate?.updatePastGames()
+    }
+    
+    func refreshPastGames() {
+        gameService.getGames(lastUpdation: userDefaultsService.lastUpdationDate.toYearMonthDay()) { [weak self] res in
             guard let self = self else { return }
             switch res {
             case .success(let games):
+                userDefaultsService.setNewValue(value: Date.now, key: .LAST_UPDATION_DATE)
                 if games.count == 0 {
                     logInfo("Games count is 0", funcName: #function)
                     self.delegate?.showEmptyState(isShow: true)
