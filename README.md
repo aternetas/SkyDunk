@@ -5,9 +5,8 @@ Status: ready to use and continues to update with new features.
 SkyDunk is my iGambling pet-project that allows users to bet on NBA games. There is virtual currency only, no real money (include digital currency).
 In addition to betting, users can see their betting history and stats, also see previous games score.
 
-https://github.com/user-attachments/assets/7fc37fda-cc2e-4e0d-8d0f-a85028956d64
-
-https://github.com/user-attachments/assets/5b230008-72cc-41d8-882b-5341a0fd3fe6
+![Past Games With Active Bets- Simulator Screen Recording - iPhone 16](https://github.com/user-attachments/assets/47e0fa55-a255-4657-9fe1-ba6800b2f2bc "Past games with active bets")
+![Past Games - Simulator Screen Recording - iPhone 16](https://github.com/user-attachments/assets/781a927c-3a5f-43b3-9338-9fe3aa6746f7 "Past games")
 
 ## Compatibility: 
 ios 16.0+
