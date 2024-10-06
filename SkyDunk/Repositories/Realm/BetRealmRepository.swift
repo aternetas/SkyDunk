@@ -30,7 +30,7 @@ class BetRealmRepository: LocalBetRepositoryProtocol {
             let modifiedBet = bet.modify(isSuccess: isSuccess)
             try manager.update(obj: modifiedBet)
             
-            let betResult = bet.amount * bet.coefficient
+            let betResult = (bet.amount * bet.coefficient).rounded(.toNearestOrAwayFromZero)
             try gameRepository.changeGameBetsResult(gameId: bet.gameId, betResult: isSuccess ? betResult : -betResult)
         }}
     
