@@ -89,6 +89,7 @@ class PastGameCell: UITableViewCell {
             betResultLabel.textColor = betsResult >= 0 ? .textGreen : .textRed
         } else {
             betResultLabel.text = "Ставок нет"
+            betResultLabel.textColor = .textBlack
         }
     }
     
