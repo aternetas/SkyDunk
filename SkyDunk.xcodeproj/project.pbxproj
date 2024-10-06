@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -181,6 +181,10 @@
 		FAF8171D2BF8D582003BBBD3 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A5E437A52CB31CC300A5418B /* Preview */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Preview; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		A52C53AD2BEE8B8300699D2E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -290,6 +294,7 @@
 		A52C53C92BEE8F9600699D2E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A5E437A52CB31CC300A5418B /* Preview */,
 				FABB838F2BEF94010092F21B /* Fonts */,
 				A52C53BC2BEE8B8500699D2E /* Assets.xcassets */,
 				FA7F80BA2BEEADAD00885CEC /* Images.xcassets */,
@@ -519,6 +524,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A5E437A52CB31CC300A5418B /* Preview */,
 			);
 			name = SkyDunk;
 			packageProductDependencies = (
