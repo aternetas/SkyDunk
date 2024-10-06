@@ -21,8 +21,9 @@ class RemoteGameRepository: RemoteGameRepositoryProtocol, MyLogger {
             case .success(let data):
                 if data.games.isEmpty {
                     self?.logInfo("Games are empty", funcName: #function)
+                } else {
+                    self?.logInfo("Got data from server", funcName: #function)
                 }
-                self?.logInfo("Got data from server", funcName: #function)
                 completion(.success(data.games.map { GameModel(model: $0) }))
                 
             case .failure(let error):
