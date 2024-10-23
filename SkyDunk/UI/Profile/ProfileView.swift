@@ -5,8 +5,8 @@
 //  Created by aternetas on 23.10.2024.
 //
 
-import Foundation
+import UIKit
 
-final class ProfileView {
+final class ProfileView: UIView {
     
 }
