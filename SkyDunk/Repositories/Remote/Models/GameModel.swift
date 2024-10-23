@@ -33,7 +33,7 @@ struct GameModel: GameProtocol {
         self.init(id: String(model.id),
                   homeTeam: model.homeTeam.abbreviation,
                   guestTeam: model.guestTeam.abbreviation,
-                  date: model.date.toDate(),
+                  date: model.status.toDate() ?? model.date.toDate() ?? Date(),
                   homeScore: model.homeScore,
                   guestScore: model.guestScore,
                   activeBetsAmount: 0,
