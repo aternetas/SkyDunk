@@ -75,7 +75,7 @@ class HomeController: BaseController<HomeViewModel> {
     }
     
     @objc private func refreshGames() {
-        viewModel.refreshScreen()
+        viewModel.updateData()
     }
 }
 
