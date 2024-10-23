@@ -9,6 +9,7 @@ import Foundation
 
 enum Key: String {
     case LAST_UPDATION_DATE = "lastUpd"
+    case BALANCE = "balance"
 }
 
 class UserDefaultsService {
