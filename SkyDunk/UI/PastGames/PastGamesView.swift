@@ -30,6 +30,7 @@ class PastGamesView: UIView {
         let tableView = UITableView()
         tableView.register(PastGameCell.self, forCellReuseIdentifier: PastGameCell.identifier)
         tableView.separatorStyle = .none
+        tableView.refreshControl = UIRefreshControl()
         return tableView
     }()
     
