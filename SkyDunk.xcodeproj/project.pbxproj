@@ -71,6 +71,11 @@
 		A55723B42C46F7E00051D0D9 /* BetRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723B32C46F7E00051D0D9 /* BetRealmRepository.swift */; };
 		A55723B62C46F80C0051D0D9 /* LocalBetRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723B52C46F80C0051D0D9 /* LocalBetRepositoryProtocol.swift */; };
 		A55723B82C46FCDE0051D0D9 /* BetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55723B72C46FCDE0051D0D9 /* BetProtocol.swift */; };
+		A55CA3502CC999E10026D434 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55CA34F2CC999E10026D434 /* ProfileController.swift */; };
+		A55CA3522CC999E90026D434 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55CA3512CC999E90026D434 /* ProfileViewModel.swift */; };
+		A55CA3542CC999F00026D434 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55CA3532CC999F00026D434 /* ProfileView.swift */; };
+		A55CA3562CC99ACB0026D434 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55CA3552CC99ACB0026D434 /* UserService.swift */; };
+		A55CA3582CC99AE40026D434 /* StatisticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55CA3572CC99AE40026D434 /* StatisticsService.swift */; };
 		A5992D632C6A4B1C002CC1D1 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D622C6A4B1C002CC1D1 /* UserDefaultsService.swift */; };
 		A5AF23092C610DB000238660 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AF23082C610DB000238660 /* Errors.swift */; };
 		A5C5308E2C67C4E7005C760D /* DateFormatter+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5308D2C67C4E7005C760D /* DateFormatter+ext.swift */; };
@@ -163,6 +168,11 @@
 		A55723B32C46F7E00051D0D9 /* BetRealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetRealmRepository.swift; sourceTree = "<group>"; };
 		A55723B52C46F80C0051D0D9 /* LocalBetRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBetRepositoryProtocol.swift; sourceTree = "<group>"; };
 		A55723B72C46FCDE0051D0D9 /* BetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetProtocol.swift; sourceTree = "<group>"; };
+		A55CA34F2CC999E10026D434 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		A55CA3512CC999E90026D434 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		A55CA3532CC999F00026D434 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A55CA3552CC99ACB0026D434 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		A55CA3572CC99AE40026D434 /* StatisticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsService.swift; sourceTree = "<group>"; };
 		A5992D622C6A4B1C002CC1D1 /* UserDefaultsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		A5AF23082C610DB000238660 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		A5C5308D2C67C4E7005C760D /* DateFormatter+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+ext.swift"; sourceTree = "<group>"; };
@@ -285,6 +295,8 @@
 				A50864A62C235DF9004F0F11 /* BetService.swift */,
 				A5992D622C6A4B1C002CC1D1 /* UserDefaultsService.swift */,
 				A50864AA2C2CAD7E004F0F11 /* ServiceFactory.swift */,
+				A55CA3552CC99ACB0026D434 /* UserService.swift */,
+				A55CA3572CC99AE40026D434 /* StatisticsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -303,6 +315,7 @@
 		A52C53CA2BEE90B700699D2E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A55CA34E2CC999420026D434 /* Profile */,
 				A5E40C322BF9FC970056AC63 /* NewBet */,
 				A52C53FB2BF10E7F00699D2E /* Game */,
 				A52C53F42BEFFB6800699D2E /* Base */,
@@ -462,6 +475,16 @@
 				A55723B32C46F7E00051D0D9 /* BetRealmRepository.swift */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		A55CA34E2CC999420026D434 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A55CA34F2CC999E10026D434 /* ProfileController.swift */,
+				A55CA3512CC999E90026D434 /* ProfileViewModel.swift */,
+				A55CA3532CC999F00026D434 /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		A5E40C322BF9FC970056AC63 /* NewBet */ = {
@@ -629,14 +652,17 @@
 				FAE48A802C178AC40046F6A0 /* GameDTO.swift in Sources */,
 				A55723B22C45631F0051D0D9 /* BetDTORealm.swift in Sources */,
 				A514A3262C0A17480014BBD4 /* AlertModel.swift in Sources */,
+				A55CA3522CC999E90026D434 /* ProfileViewModel.swift in Sources */,
 				A52C54012BF10F1D00699D2E /* GameView.swift in Sources */,
 				A52C53F62BEFFB8C00699D2E /* BaseController.swift in Sources */,
+				A55CA3502CC999E10026D434 /* ProfileController.swift in Sources */,
 				A541A21D2C4FF8800075BEFC /* String+ext.swift in Sources */,
 				FABB83992BEF94A80092F21B /* Fonts.swift in Sources */,
 				A5C5308E2C67C4E7005C760D /* DateFormatter+ext.swift in Sources */,
 				A52C53D42BEE963B00699D2E /* HomeView.swift in Sources */,
 				A541A2172C4EBCE70075BEFC /* GamePayload.swift in Sources */,
 				A5AF23092C610DB000238660 /* Errors.swift in Sources */,
+				A55CA3542CC999F00026D434 /* ProfileView.swift in Sources */,
 				A52C53D22BEE95FA00699D2E /* HomeViewModel.swift in Sources */,
 				A52C53F82BF0003A00699D2E /* BaseViewModel.swift in Sources */,
 				A52C53CC2BEE916300699D2E /* HomeController.swift in Sources */,
@@ -652,6 +678,7 @@
 				A538E3C22BF50C1400485EF3 /* Bet.swift in Sources */,
 				A50864AB2C2CAD7E004F0F11 /* ServiceFactory.swift in Sources */,
 				A50864AD2C39B39E004F0F11 /* PastGamesView.swift in Sources */,
+				A55CA3562CC99ACB0026D434 /* UserService.swift in Sources */,
 				A5E40C312BF8DC850056AC63 /* ScreenType.swift in Sources */,
 				8EA4AE9F2C43FB860083536F /* GameRealmRepository.swift in Sources */,
 				A50864A32C235D2B004F0F11 /* BetDTO.swift in Sources */,
@@ -659,6 +686,7 @@
 				A541A20B2C4EA90A0075BEFC /* RemoteManager.swift in Sources */,
 				A541A2132C4EAB720075BEFC /* TeamModel.swift in Sources */,
 				FAF8171E2BF8D582003BBBD3 /* InfoView.swift in Sources */,
+				A55CA3582CC99AE40026D434 /* StatisticsService.swift in Sources */,
 				A514A3242C01F49A0014BBD4 /* CustomTextField.swift in Sources */,
 				FAE48A7A2C17881E0046F6A0 /* GameService.swift in Sources */,
 				A52C53DF2BEF93C200699D2E /* Date+ext.swift in Sources */,
