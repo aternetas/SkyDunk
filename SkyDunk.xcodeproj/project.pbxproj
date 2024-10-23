@@ -76,6 +76,7 @@
 		A55CA3542CC999F00026D434 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55CA3532CC999F00026D434 /* ProfileView.swift */; };
 		A55CA3562CC99ACB0026D434 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55CA3552CC99ACB0026D434 /* UserService.swift */; };
 		A55CA3582CC99AE40026D434 /* StatisticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55CA3572CC99AE40026D434 /* StatisticsService.swift */; };
+		A55CA35B2CC9A08A0026D434 /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55CA35A2CC9A08A0026D434 /* BalanceView.swift */; };
 		A5992D632C6A4B1C002CC1D1 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5992D622C6A4B1C002CC1D1 /* UserDefaultsService.swift */; };
 		A5AF23092C610DB000238660 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AF23082C610DB000238660 /* Errors.swift */; };
 		A5C5308E2C67C4E7005C760D /* DateFormatter+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5308D2C67C4E7005C760D /* DateFormatter+ext.swift */; };
@@ -173,6 +174,7 @@
 		A55CA3532CC999F00026D434 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A55CA3552CC99ACB0026D434 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		A55CA3572CC99AE40026D434 /* StatisticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsService.swift; sourceTree = "<group>"; };
+		A55CA35A2CC9A08A0026D434 /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
 		A5992D622C6A4B1C002CC1D1 /* UserDefaultsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		A5AF23082C610DB000238660 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		A5C5308D2C67C4E7005C760D /* DateFormatter+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+ext.swift"; sourceTree = "<group>"; };
@@ -480,11 +482,20 @@
 		A55CA34E2CC999420026D434 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				A55CA3592CC9A0810026D434 /* Components */,
 				A55CA34F2CC999E10026D434 /* ProfileController.swift */,
 				A55CA3512CC999E90026D434 /* ProfileViewModel.swift */,
 				A55CA3532CC999F00026D434 /* ProfileView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		A55CA3592CC9A0810026D434 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A55CA35A2CC9A08A0026D434 /* BalanceView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		A5E40C322BF9FC970056AC63 /* NewBet */ = {
@@ -691,6 +702,7 @@
 				FAE48A7A2C17881E0046F6A0 /* GameService.swift in Sources */,
 				A52C53DF2BEF93C200699D2E /* Date+ext.swift in Sources */,
 				A50864A72C235DF9004F0F11 /* BetService.swift in Sources */,
+				A55CA35B2CC9A08A0026D434 /* BalanceView.swift in Sources */,
 				8EA4AEA22C4401FF0083536F /* GameDTORealm.swift in Sources */,
 				A55723B02C4562B60051D0D9 /* GameProtocol.swift in Sources */,
 			);
