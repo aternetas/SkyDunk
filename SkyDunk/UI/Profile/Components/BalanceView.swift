@@ -26,7 +26,7 @@ final class BalanceView: UIView {
         return view
     }()
     
-//    private lazy var coinImageView: UIImageView = UIImageView(image: .coinLogo)
+    private lazy var coinImageView: UIImageView = UIImageView(image: .coinLogo)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,8 +52,7 @@ final class BalanceView: UIView {
     private func initConstraints() {
         addSubview(contentView)
         contentView.addSubviews([title, balanceConteinerView])
-//        balanceConteinerView.addSubviews([balanceLabel, coinImageView])
-        balanceConteinerView.addSubviews([balanceLabel])
+        balanceConteinerView.addSubviews([balanceLabel, coinImageView])
         
         contentView.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
@@ -72,10 +71,10 @@ final class BalanceView: UIView {
             make.top.leading.bottom.equalToSuperview()
         }
         
-//        coinImageView.snp.makeConstraints { make in
-//            make.leading.equalTo(balanceLabel.snp.trailing).offset(3)
-//            make.trailing.equalTo(balanceConteinerView)
-//            make.centerY.equalTo(balanceLabel)
-//        }
+        coinImageView.snp.makeConstraints { make in
+            make.leading.equalTo(balanceLabel.snp.trailing).offset(3)
+            make.trailing.equalTo(balanceConteinerView)
+            make.centerY.equalTo(balanceLabel)
+        }
     }
 }
