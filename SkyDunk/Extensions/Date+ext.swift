@@ -45,3 +45,12 @@ extension Date {
         Date(timeInterval: -605000, since: self)
     }
 }
+
+
+extension Date {
+    func localDate() -> Date {
+        let timeZoneOffset = Double(TimeZone.current.secondsFromGMT(for: self))
+        guard let localDate = Calendar.current.date(byAdding: .second, value: Int(timeZoneOffset), to: self) else { return self }
+        return localDate
+    }
+}

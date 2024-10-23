@@ -29,6 +29,10 @@ class HomeViewModel: BaseViewModel, MyLogger {
     private var activeBets: [Bet] = []
     
     func viewDidLoad() {
+        updateData()
+    }
+    
+    func updateData() {
         getGames()
         getActiveBets()
     }

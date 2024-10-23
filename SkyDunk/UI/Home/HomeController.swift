@@ -23,6 +23,7 @@ class HomeController: BaseController<HomeViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.viewDidLoad()
         viewModel.delegate = self
 
         rootView.nextGamesCollectionView.delegate = self
@@ -33,6 +34,7 @@ class HomeController: BaseController<HomeViewModel> {
         
         let lastGameViewTap = UITapGestureRecognizer(target: self, action: #selector(tapOnLastGameView))
         rootView.lastGameView.addGestureRecognizer(lastGameViewTap)
+        rootView.scrollView.refreshControl?.addTarget(self, action: #selector(refreshGames), for: .valueChanged)
     }
 
     @objc private func tapOnLastGameView() {
@@ -50,7 +52,6 @@ class HomeController: BaseController<HomeViewModel> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        viewModel.viewDidLoad()
         rootView.betsTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
     
@@ -72,6 +73,10 @@ class HomeController: BaseController<HomeViewModel> {
     override func dismissModal() {
         viewModel.getActiveBets()
     }
+    
+    @objc private func refreshGames() {
+        viewModel.updateData()
+    }
 }
 
 extension HomeController: HomeViewModelDelegat {
@@ -83,6 +88,7 @@ extension HomeController: HomeViewModelDelegat {
     func updateNextGames() {
         DispatchQueue.main.async { [weak self] in
             self?.rootView.nextGamesCollectionView.reloadData()
+            self?.rootView.scrollView.refreshControl?.endRefreshing()
         }
     }
     

@@ -21,9 +21,7 @@ class PastGamesController: BaseController<PastGamesViewModel> {
         rootView.gamesWithActiveBetsCollectionView.delegate = self
         rootView.gamesWithActiveBetsCollectionView.dataSource = self
         
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshPastGames), for: .valueChanged)
-        rootView.pastGamesTableView.refreshControl = refreshControl
+        rootView.pastGamesTableView.refreshControl?.addTarget(self, action: #selector(refreshPastGames), for: .valueChanged)
     }
     
     required init?(coder: NSCoder) {

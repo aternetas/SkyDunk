@@ -9,10 +9,11 @@ import UIKit
 
 class HomeView: UIView {
     
-    private lazy var scrollView: UIScrollView = {
+    lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.alwaysBounceVertical = true
         scrollView.showsVerticalScrollIndicator = true
+        scrollView.refreshControl = UIRefreshControl()
         return scrollView
     }()
     
