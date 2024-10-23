@@ -13,9 +13,14 @@ fileprivate var yearMonthDayFormatter: DateFormatter {
     return formatter
 }
 
+fileprivate var fullDateFormatter: DateFormatter {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    return formatter
+}
+
 extension String {
-    
-    func toDate() -> Date {
-        yearMonthDayFormatter.date(from: self) ?? Date(timeIntervalSince1970: 0)
+    func toDate() -> Date? {
+        fullDateFormatter.date(from: self)?.localDate()
     }
 }
