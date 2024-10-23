@@ -30,7 +30,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, MyLogger {
         window.rootViewController = tabbar
         self.window = window
         window.makeKeyAndVisible()
-
         logInfo("BD: \(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path)", funcName: #function)
         
         guard let _ = (scene as? UIWindowScene) else { return }
