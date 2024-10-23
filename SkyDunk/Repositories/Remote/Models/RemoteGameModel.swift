@@ -21,7 +21,6 @@ struct RemoteGameModel: Codable {
     let season: Int
     let status: String
     let period: Int
-    let time: String
     let postseason: Bool
     
     enum CodingKeys: String, CodingKey {
@@ -36,7 +35,6 @@ struct RemoteGameModel: Codable {
         case season
         case status
         case period
-        case time
         case postseason
     }
 }

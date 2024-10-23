@@ -13,10 +13,10 @@ enum Key: String {
 
 class UserDefaultsService {
     
-    private lazy var april17year2024 = Date(timeIntervalSince1970: TimeInterval(1713312000))
+    private lazy var startSeasonDate = Date(timeIntervalSince1970: TimeInterval(1729436400))
     
     var lastUpdationDate: Date {
-        getValue(type: Date.self, key: .LAST_UPDATION_DATE) ?? april17year2024
+        getValue(type: Date.self, key: .LAST_UPDATION_DATE) ?? startSeasonDate
     }
     
     private let defaults = UserDefaults.standard
